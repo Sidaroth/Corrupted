@@ -1,5 +1,5 @@
 #include <iostream>
-#include <SDL.h>
+#include "..\SDL-1.2.15\include\SDL.h"   //should be fixed
 #include <cstdio>
 
 using namespace std;
@@ -17,7 +17,7 @@ int main(int argc, char* args[])
 	screen = SDL_SetVideoMode( 320, 240, 32, SDL_SWSURFACE );
 
 	// Load Image
-	hello = SDL_LoadBMP("helloworld.bmp");
+	hello = SDL_LoadBMP("../Resources/helloworld.bmp");
 
 	// Apply image to screen
 	SDL_BlitSurface( hello, NULL, screen, NULL );
