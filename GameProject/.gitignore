@@ -42,6 +42,7 @@ Thumbs.db
 *.opensdf
 *.sdf
 *.suo
+*.sln.docstates.suo
 
 
 # Full folders #
