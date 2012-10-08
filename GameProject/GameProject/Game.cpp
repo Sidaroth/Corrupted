@@ -1,9 +1,5 @@
 #include "Game.h"
-#include <time.h>
-#include <stdlib.h>
 
-
-#include <iostream>
 
 // Lazy initialization
 Game* Game::m_gameInstance = NULL;
@@ -45,35 +41,56 @@ void Game::start()
 
 void Game::run()
 {
-	int frames = 0;
-	double passedTime = 0;			// *VERY* simple FPS counter.
-	time_t previousTime;
-	time_t currentTime;
+	const float FRAMES_PER_SECOND = 60.0f;
+	int frames = 0;							// FPS counter & limiter stuff
+	float unprocessedSeconds = 0;
+	sf::Clock clock;
+	sf::Time previousTime;
+	sf::Time currentTime;
+	sf::Time passedTime;
 
+	
+	char fps[10];
+
+	int tickCount = 0;
+	bool ticked = false;
+	float secondsPerTick = 1 / FRAMES_PER_SECOND;
 	sf::Text text;
 
-	time (&previousTime);
 	
 	while ( m_bRunning )
 	{
-		
-		time (&currentTime);
-		passedTime = difftime( currentTime, previousTime );
+		ticked = false;
+		currentTime = clock.getElapsedTime();
+		passedTime = currentTime - previousTime;
 		previousTime = currentTime;
-		char fps [10];
 
-		if(passedTime)
+		unprocessedSeconds += passedTime.asSeconds();
+
+		while( unprocessedSeconds > secondsPerTick )
 		{
-			itoa(frames, fps, 10);
-			std::cout << "fps: " << frames << std::endl;
-			text.setString(fps);
-			frames = 0;
+			tick();
+			unprocessedSeconds -= secondsPerTick;
+			ticked = true;
+			tickCount++;
+
+			if(tickCount % 60 == 0)
+			{
+				itoa(frames, fps, 10);
+				std::cout << "fps: " << frames << std::endl;
+				text.setString(fps);
+				frames = 0;
+			}
 		}
-
-		processEvents();
-		render(text);
-		frames++;
-
+			
+		
+		if(ticked)
+		{
+			processEvents();
+			//update game state here
+			render(text);
+			frames++;
+		}
 	}
 }
 
@@ -110,6 +127,7 @@ void Game::processEvents()
 		{
 		case sf::Event::Closed:
 			m_Window.close();
+			//m_bRunning = false;
 		}
 	}
 
