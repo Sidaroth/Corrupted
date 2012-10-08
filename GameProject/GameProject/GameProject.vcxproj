@@ -79,7 +79,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Vector2f.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Actor.h" />
@@ -87,9 +89,11 @@
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="EnemyHandler.h" />
     <ClInclude Include="Environment.h" />
+    <ClInclude Include="Game.h" />
     <ClInclude Include="Objects.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="SceneHandler.h" />
+    <ClInclude Include="Vector2f.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram1.cd" />

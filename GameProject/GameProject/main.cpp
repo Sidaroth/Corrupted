@@ -1,25 +1,11 @@
-#include <SFML/Graphics.hpp>
+#include "Game.h"
 
 int main()
 {
-	// Test program
-	sf::RenderWindow window( sf::VideoMode( 400, 400 ), "SFML Window" );
-	sf::CircleShape shape( 200.f );
-	shape.setFillColor( sf::Color::Green );
-
-	while ( window.isOpen() )
-	{
-		sf::Event event;
-		while ( window.pollEvent( event ))
-		{
-			if ( event.type == sf::Event::Closed )
-			{
-				window.close();
-			}
-		}
-
-		window.clear();
-		window.draw( shape );
-		window.display();
-	}
+	// Starts a new game, the game class holds the main game loop etc.
+	Game* game;
+	game = Game::getInstance();
+	game -> start();
+	
+	return EXIT_SUCCESS;
 }
