@@ -127,10 +127,10 @@ void Game::processEvents()
 		{
 		case sf::Event::Closed:
 			m_Window.close();
-			//m_bRunning = false;
+			m_bRunning = false;
+			break;
 		}
 	}
-
 }
 
 void Game::render(sf::Text text)
