@@ -2,7 +2,9 @@
 
 //////////////////////////// CONSTRUCTORS ////////////////////////
 
-Character::Character()
+const short BASE_STAT = 5;
+
+Character::Character() : Actor()
 {
 	m_sDamage = 10;
 	m_sSpeed = BASE_STAT;
@@ -23,46 +25,42 @@ void Character::attack()
 
 short Character::getHealth()
 {
-
+	return m_sHealth;
 }
 
 short Character::getDamage()
 {
-
-
+	return m_sDamage;
 }
 
 short Character::getSpeed()
 {
-
+	return m_sSpeed;
 }
 
 short Character::getToughness()
 {
-
-
+	return m_sToughness;
 }
 
 short Character::getIntelligence()
 {
-
+	return m_sIntelligence;
 }
 
 short Character::getStrength()
 {
-
-
+	return m_sStrength;
 }
 
 short Character::getLevel()
 {
-
-
+	return m_sLevel;
 }
 
 bool* Character::getAbilities()
 {
-
+	return m_bAbilities;
 }
 
 

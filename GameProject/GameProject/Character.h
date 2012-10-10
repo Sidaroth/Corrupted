@@ -5,7 +5,6 @@
 class Character : public Actor
 {
 private: 
-	const short BASE_STAT = 5;
 	enum abilities { FIREBALL, FROSTBOLT, LIGHTNINGBOLT };
 	abilities m_eAbilities;
 	short m_sHealth;
