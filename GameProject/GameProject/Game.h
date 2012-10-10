@@ -1,9 +1,12 @@
+#pragma once
+
 #include <SFML/Graphics.hpp>
 #include <SFML/System/Clock.hpp>
 #include <stdlib.h>
 #include <iostream>
+#include "Player.h"
 
-#pragma once
+
  
 // Making this as a singleton.. Might not be the best approach. (Static class?)
 
@@ -20,6 +23,8 @@ private:
 	int m_iScreenHeight;
 	int m_iScreenBitColor;
 	bool m_bRunning;
+
+	Player* player;
 
 	void stop();
 	void run();

@@ -1,19 +1,21 @@
+#pragma once
+
 #include "Actor.h"
 
-#pragma once
+
 
 class Character : public Actor
 {
 private: 
 	enum abilities { FIREBALL, FROSTBOLT, LIGHTNINGBOLT };
 	abilities m_eAbilities;
-	short m_sHealth;
-	short m_sDamage;
-	short m_sSpeed;
-	short m_sToughness;
-	short m_sIntelligence;
-	short m_sStrength;
-	short m_sLevel;
+	short m_shHealth;
+	short m_shDamage;
+	short m_shSpeed;
+	short m_shToughness;
+	short m_shIntelligence;
+	short m_shStrength;
+	short m_shLevel;
 	bool* m_bAbilities;
 
 protected:
@@ -30,6 +32,9 @@ public:
 	short getStrength();
 	short getLevel();
 	bool* getAbilities();
+	
+	void moveHorizontal(bool horizontalMovement);
+	void moveVertical(bool verticalMovement);
 
 	void showDamage();	// wut wut
 	void showHealth();	
