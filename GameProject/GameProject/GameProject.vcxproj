@@ -79,9 +79,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <ClCompile Include="..\..\..\..\..\Downloads\leethomason-tinyxml2-3cd66ee\leethomason-tinyxml2-3cd66ee\tinyxml2.cpp" />
+=======
+    <ClCompile Include="Actor.cpp" />
+    <ClCompile Include="Character.cpp" />
+>>>>>>> 6cc6105ca4354bafb524a542675abdb887526951
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="Vector2f.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -89,6 +95,7 @@
     <ClInclude Include="Actor.h" />
     <ClInclude Include="Character.h" />
     <ClInclude Include="Enemy.h" />
+    <ClInclude Include="EnemyFactory.h" />
     <ClInclude Include="EnemyHandler.h" />
     <ClInclude Include="Environment.h" />
     <ClInclude Include="Game.h" />

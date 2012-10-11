@@ -24,14 +24,21 @@
     <ClCompile Include="Game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+<<<<<<< HEAD
     <ClCompile Include="..\..\..\..\..\Downloads\leethomason-tinyxml2-3cd66ee\leethomason-tinyxml2-3cd66ee\tinyxml2.cpp">
+=======
+    <ClCompile Include="Character.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Actor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+>>>>>>> 6cc6105ca4354bafb524a542675abdb887526951
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Actor.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Character.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -59,7 +66,14 @@
     <ClInclude Include="Game.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+<<<<<<< HEAD
     <ClInclude Include="..\..\..\..\..\Downloads\leethomason-tinyxml2-3cd66ee\leethomason-tinyxml2-3cd66ee\tinyxml2.h">
+=======
+    <ClInclude Include="Actor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyFactory.h">
+>>>>>>> 6cc6105ca4354bafb524a542675abdb887526951
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
