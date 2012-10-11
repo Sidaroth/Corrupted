@@ -1,0 +1,5 @@
+<map id="Game::run" name="Game::run">
+<area shape="rect" id="node3" href="$class_game.html#adf1634a2d0c22f30f7c57e72fd2831bc" title="Game::tick" alt="" coords="169,5,255,32"/>
+<area shape="rect" id="node5" href="$class_game.html#a79f698dda206dd7a9bed28b3f88bdc38" title="Game::processEvents" alt="" coords="137,56,287,83"/>
+<area shape="rect" id="node7" href="$class_game.html#aa3fec20434abdc6d400a05662a0a5472" title="Game::render" alt="" coords="161,107,263,133"/>
+</map>
