@@ -1,9 +1,8 @@
-#pragma once		// make sure it's only included once. 
-
 #include "Vector2f.h"	
 #include "SFML/Graphics.hpp"
-#include "Game.h"
 
+
+#pragma once		// make sure it's only included once. 
 
 class Actor
 {

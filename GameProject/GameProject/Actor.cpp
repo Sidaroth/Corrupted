@@ -8,6 +8,7 @@ Actor::Actor()
 
 void Actor::draw()
 {
+
 }
 
 void Actor::setPosition(int x, int y)
