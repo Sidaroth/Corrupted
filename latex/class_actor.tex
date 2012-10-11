@@ -1,0 +1,137 @@
+\hypertarget{class_actor}{\section{Actor Class Reference}
+\label{class_actor}\index{Actor@{Actor}}
+}
+
+
+{\ttfamily \#include $<$Actor.\-h$>$}
+
+Inheritance diagram for Actor\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_actor}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{class_actor_a60c7df9b26c488c69cc6c3ade1d5e405}{load\-Content} ()
+\item 
+void \hyperlink{class_actor_ac8bc898122ba0aaa8383187525edeaf6}{draw} ()
+\item 
+\hyperlink{class_actor_a2a0ff4335a1ee9096df90f288c026c8b}{Actor} ()
+\item 
+\hyperlink{class_actor_ab8cede14b717ebbdb29f8164178c876a}{Actor} (int x, int y)
+\item 
+\hyperlink{class_actor_a6be1c55f99c17cd3ed53c98c26222b0e}{Actor} (int x, int y, sf\-::\-Sprite sprite)
+\item 
+\hyperlink{class_actor_a55bb8f581a59fe3d2be4a90c29ce1e7a}{Actor} (sf\-::\-Sprite sprite)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_actor_a04ab5a0b1f9d0528a45696befcb97e1f}{set\-Position} (int x, int y)
+\item 
+\hyperlink{class_vector2f}{Vector2f} $\ast$ \hyperlink{class_actor_a9ec6f26161cadc978f8ba6d2c5ba1377}{get\-Position} ()
+\item 
+void \hyperlink{class_actor_a59bd7eda50ba530619a95c1758b8069b}{set\-Sprite} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+sf\-::\-Texture \hyperlink{class_actor_a6cb7c1cd422797dc023776229b69eb6f}{m\-\_\-\-Texture}
+\item 
+\hyperlink{class_vector2f}{Vector2f} \hyperlink{class_actor_a7c6e321fb5b42e47c98ad548f2ef4122}{m\-\_\-\-Position}
+\item 
+sf\-::\-Sprite \hyperlink{class_actor_a043c786e0933f1cfdaded0d5e1d504e6}{m\-\_\-\-Sprite}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_actor_a2a0ff4335a1ee9096df90f288c026c8b}{\index{Actor@{Actor}!Actor@{Actor}}
+\index{Actor@{Actor}!Actor@{Actor}}
+\subsubsection[{Actor}]{\setlength{\rightskip}{0pt plus 5cm}Actor\-::\-Actor (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_actor_a2a0ff4335a1ee9096df90f288c026c8b}
+\hypertarget{class_actor_ab8cede14b717ebbdb29f8164178c876a}{\index{Actor@{Actor}!Actor@{Actor}}
+\index{Actor@{Actor}!Actor@{Actor}}
+\subsubsection[{Actor}]{\setlength{\rightskip}{0pt plus 5cm}Actor\-::\-Actor (
+\begin{DoxyParamCaption}
+\item[{int}]{x, }
+\item[{int}]{y}
+\end{DoxyParamCaption}
+)}}\label{class_actor_ab8cede14b717ebbdb29f8164178c876a}
+\hypertarget{class_actor_a6be1c55f99c17cd3ed53c98c26222b0e}{\index{Actor@{Actor}!Actor@{Actor}}
+\index{Actor@{Actor}!Actor@{Actor}}
+\subsubsection[{Actor}]{\setlength{\rightskip}{0pt plus 5cm}Actor\-::\-Actor (
+\begin{DoxyParamCaption}
+\item[{int}]{x, }
+\item[{int}]{y, }
+\item[{sf\-::\-Sprite}]{sprite}
+\end{DoxyParamCaption}
+)}}\label{class_actor_a6be1c55f99c17cd3ed53c98c26222b0e}
+\hypertarget{class_actor_a55bb8f581a59fe3d2be4a90c29ce1e7a}{\index{Actor@{Actor}!Actor@{Actor}}
+\index{Actor@{Actor}!Actor@{Actor}}
+\subsubsection[{Actor}]{\setlength{\rightskip}{0pt plus 5cm}Actor\-::\-Actor (
+\begin{DoxyParamCaption}
+\item[{sf\-::\-Sprite}]{sprite}
+\end{DoxyParamCaption}
+)}}\label{class_actor_a55bb8f581a59fe3d2be4a90c29ce1e7a}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_actor_ac8bc898122ba0aaa8383187525edeaf6}{\index{Actor@{Actor}!draw@{draw}}
+\index{draw@{draw}!Actor@{Actor}}
+\subsubsection[{draw}]{\setlength{\rightskip}{0pt plus 5cm}void Actor\-::draw (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_actor_ac8bc898122ba0aaa8383187525edeaf6}
+\hypertarget{class_actor_a9ec6f26161cadc978f8ba6d2c5ba1377}{\index{Actor@{Actor}!get\-Position@{get\-Position}}
+\index{get\-Position@{get\-Position}!Actor@{Actor}}
+\subsubsection[{get\-Position}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vector2f} $\ast$ Actor\-::get\-Position (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_actor_a9ec6f26161cadc978f8ba6d2c5ba1377}
+\hypertarget{class_actor_a60c7df9b26c488c69cc6c3ade1d5e405}{\index{Actor@{Actor}!load\-Content@{load\-Content}}
+\index{load\-Content@{load\-Content}!Actor@{Actor}}
+\subsubsection[{load\-Content}]{\setlength{\rightskip}{0pt plus 5cm}bool Actor\-::load\-Content (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_actor_a60c7df9b26c488c69cc6c3ade1d5e405}
+\hypertarget{class_actor_a04ab5a0b1f9d0528a45696befcb97e1f}{\index{Actor@{Actor}!set\-Position@{set\-Position}}
+\index{set\-Position@{set\-Position}!Actor@{Actor}}
+\subsubsection[{set\-Position}]{\setlength{\rightskip}{0pt plus 5cm}void Actor\-::set\-Position (
+\begin{DoxyParamCaption}
+\item[{int}]{x, }
+\item[{int}]{y}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_actor_a04ab5a0b1f9d0528a45696befcb97e1f}
+\hypertarget{class_actor_a59bd7eda50ba530619a95c1758b8069b}{\index{Actor@{Actor}!set\-Sprite@{set\-Sprite}}
+\index{set\-Sprite@{set\-Sprite}!Actor@{Actor}}
+\subsubsection[{set\-Sprite}]{\setlength{\rightskip}{0pt plus 5cm}void Actor\-::set\-Sprite (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_actor_a59bd7eda50ba530619a95c1758b8069b}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_actor_a7c6e321fb5b42e47c98ad548f2ef4122}{\index{Actor@{Actor}!m\-\_\-\-Position@{m\-\_\-\-Position}}
+\index{m\-\_\-\-Position@{m\-\_\-\-Position}!Actor@{Actor}}
+\subsubsection[{m\-\_\-\-Position}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vector2f} Actor\-::m\-\_\-\-Position\hspace{0.3cm}{\ttfamily [private]}}}\label{class_actor_a7c6e321fb5b42e47c98ad548f2ef4122}
+\hypertarget{class_actor_a043c786e0933f1cfdaded0d5e1d504e6}{\index{Actor@{Actor}!m\-\_\-\-Sprite@{m\-\_\-\-Sprite}}
+\index{m\-\_\-\-Sprite@{m\-\_\-\-Sprite}!Actor@{Actor}}
+\subsubsection[{m\-\_\-\-Sprite}]{\setlength{\rightskip}{0pt plus 5cm}sf\-::\-Sprite Actor\-::m\-\_\-\-Sprite\hspace{0.3cm}{\ttfamily [private]}}}\label{class_actor_a043c786e0933f1cfdaded0d5e1d504e6}
+\hypertarget{class_actor_a6cb7c1cd422797dc023776229b69eb6f}{\index{Actor@{Actor}!m\-\_\-\-Texture@{m\-\_\-\-Texture}}
+\index{m\-\_\-\-Texture@{m\-\_\-\-Texture}!Actor@{Actor}}
+\subsubsection[{m\-\_\-\-Texture}]{\setlength{\rightskip}{0pt plus 5cm}sf\-::\-Texture Actor\-::m\-\_\-\-Texture\hspace{0.3cm}{\ttfamily [private]}}}\label{class_actor_a6cb7c1cd422797dc023776229b69eb6f}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+Game\-Project/\-Game\-Project/\hyperlink{_actor_8h}{Actor.\-h}\item 
+Game\-Project/\-Game\-Project/\hyperlink{_actor_8cpp}{Actor.\-cpp}\end{DoxyCompactItemize}

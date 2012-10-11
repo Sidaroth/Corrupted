@@ -1,0 +1,243 @@
+\hypertarget{class_character}{\section{Character Class Reference}
+\label{class_character}\index{Character@{Character}}
+}
+
+
+{\ttfamily \#include $<$Character.\-h$>$}
+
+Inheritance diagram for Character\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_character}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_character_a891042a5f9ba38a4ab98d79e32a590b9}{attack} ()
+\item 
+short \hyperlink{class_character_a71e26e0edbb4182414827b997bea7be2}{get\-Health} ()
+\item 
+short \hyperlink{class_character_a6f53d06b8eb41bebb45750676a2f2b3d}{get\-Damage} ()
+\item 
+short \hyperlink{class_character_a50c26b239e9687ba5b34665a65a11dbe}{get\-Speed} ()
+\item 
+short \hyperlink{class_character_ad607ba44fdccc8b571f19194cc205dd4}{get\-Toughness} ()
+\item 
+short \hyperlink{class_character_a79a7ef5e8b1bdca05424fe611fe056b9}{get\-Intelligence} ()
+\item 
+short \hyperlink{class_character_a56dc21cdc1c460fac9ab013e09a36dd9}{get\-Strength} ()
+\item 
+short \hyperlink{class_character_a621cb6b6e50c35ce431b914dd300b16b}{get\-Level} ()
+\item 
+bool $\ast$ \hyperlink{class_character_a00d426ba5c22e935add036831a100bc8}{get\-Abilities} ()
+\item 
+void \hyperlink{class_character_ade340e0ec4e25b8f86615323f588eb9c}{move\-Horizontal} (bool horizontal\-Movement)
+\item 
+void \hyperlink{class_character_a9f46f32c23ef47d0454fc6bb00b95294}{move\-Vertical} (bool vertical\-Movement)
+\item 
+void \hyperlink{class_character_ae6b11b3e6a84287216630ecc355ab8e3}{show\-Damage} ()
+\item 
+void \hyperlink{class_character_a84a7de8166aa93320511fc4fc4e77b44}{show\-Health} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_character_adc27bdd255876169bad2ed0bae0cffb5}{Character} ()
+\item 
+\hyperlink{class_character_a08203d27a9066d6e658eb78940b5bb06}{Character} (int variables\-Here)
+\end{DoxyCompactItemize}
+\subsection*{Private Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{class_character_ab6fbd7c75b53c7bcd4701cafb8715ba1}{abilities} \{ \hyperlink{class_character_ab6fbd7c75b53c7bcd4701cafb8715ba1aa244fdde78c2cb6d1db99a93597d2492}{F\-I\-R\-E\-B\-A\-L\-L}, 
+\hyperlink{class_character_ab6fbd7c75b53c7bcd4701cafb8715ba1aa6de6b6a3e7651a31fde58c82b6baaa2}{F\-R\-O\-S\-T\-B\-O\-L\-T}, 
+\hyperlink{class_character_ab6fbd7c75b53c7bcd4701cafb8715ba1a194cb46b225b19308b6859bebb69e265}{L\-I\-G\-H\-T\-N\-I\-N\-G\-B\-O\-L\-T}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_character_ab6fbd7c75b53c7bcd4701cafb8715ba1}{abilities} \hyperlink{class_character_a8ce5038804317cc41b3672b2f77aee77}{m\-\_\-e\-Abilities}
+\item 
+short \hyperlink{class_character_a50138cd901b1f729a01e5e018bf63256}{m\-\_\-sh\-Health}
+\item 
+short \hyperlink{class_character_a504b1237f1321ae15abe0f359295a0d7}{m\-\_\-sh\-Damage}
+\item 
+short \hyperlink{class_character_abb0c7e556292b3d93d52e9c9f9db6258}{m\-\_\-sh\-Speed}
+\item 
+short \hyperlink{class_character_adaaccd5040167071f5aa3281cade4c19}{m\-\_\-sh\-Toughness}
+\item 
+short \hyperlink{class_character_a2319f838d38029537e1e5c6e24c24ebb}{m\-\_\-sh\-Intelligence}
+\item 
+short \hyperlink{class_character_a500cced8623c4cca096e0555795b6025}{m\-\_\-sh\-Strength}
+\item 
+short \hyperlink{class_character_afd011d8f32a2f60e3ef604a191d3ebf4}{m\-\_\-sh\-Level}
+\item 
+bool $\ast$ \hyperlink{class_character_a9251eb7762d3ae204f3034bfb5e83476}{m\-\_\-b\-Abilities}
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Enumeration Documentation}
+\hypertarget{class_character_ab6fbd7c75b53c7bcd4701cafb8715ba1}{\index{Character@{Character}!abilities@{abilities}}
+\index{abilities@{abilities}!Character@{Character}}
+\subsubsection[{abilities}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Character\-::abilities}\hspace{0.3cm}{\ttfamily [private]}}}\label{class_character_ab6fbd7c75b53c7bcd4701cafb8715ba1}
+\begin{Desc}
+\item[Enumerator\-: ]\par
+\begin{description}
+\index{F\-I\-R\-E\-B\-A\-L\-L@{F\-I\-R\-E\-B\-A\-L\-L}!Character@{Character}}\index{Character@{Character}!F\-I\-R\-E\-B\-A\-L\-L@{F\-I\-R\-E\-B\-A\-L\-L}}\item[{\em 
+\hypertarget{class_character_ab6fbd7c75b53c7bcd4701cafb8715ba1aa244fdde78c2cb6d1db99a93597d2492}{F\-I\-R\-E\-B\-A\-L\-L}\label{class_character_ab6fbd7c75b53c7bcd4701cafb8715ba1aa244fdde78c2cb6d1db99a93597d2492}
+}]\index{F\-R\-O\-S\-T\-B\-O\-L\-T@{F\-R\-O\-S\-T\-B\-O\-L\-T}!Character@{Character}}\index{Character@{Character}!F\-R\-O\-S\-T\-B\-O\-L\-T@{F\-R\-O\-S\-T\-B\-O\-L\-T}}\item[{\em 
+\hypertarget{class_character_ab6fbd7c75b53c7bcd4701cafb8715ba1aa6de6b6a3e7651a31fde58c82b6baaa2}{F\-R\-O\-S\-T\-B\-O\-L\-T}\label{class_character_ab6fbd7c75b53c7bcd4701cafb8715ba1aa6de6b6a3e7651a31fde58c82b6baaa2}
+}]\index{L\-I\-G\-H\-T\-N\-I\-N\-G\-B\-O\-L\-T@{L\-I\-G\-H\-T\-N\-I\-N\-G\-B\-O\-L\-T}!Character@{Character}}\index{Character@{Character}!L\-I\-G\-H\-T\-N\-I\-N\-G\-B\-O\-L\-T@{L\-I\-G\-H\-T\-N\-I\-N\-G\-B\-O\-L\-T}}\item[{\em 
+\hypertarget{class_character_ab6fbd7c75b53c7bcd4701cafb8715ba1a194cb46b225b19308b6859bebb69e265}{L\-I\-G\-H\-T\-N\-I\-N\-G\-B\-O\-L\-T}\label{class_character_ab6fbd7c75b53c7bcd4701cafb8715ba1a194cb46b225b19308b6859bebb69e265}
+}]\end{description}
+\end{Desc}
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_character_adc27bdd255876169bad2ed0bae0cffb5}{\index{Character@{Character}!Character@{Character}}
+\index{Character@{Character}!Character@{Character}}
+\subsubsection[{Character}]{\setlength{\rightskip}{0pt plus 5cm}Character\-::\-Character (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_character_adc27bdd255876169bad2ed0bae0cffb5}
+\hypertarget{class_character_a08203d27a9066d6e658eb78940b5bb06}{\index{Character@{Character}!Character@{Character}}
+\index{Character@{Character}!Character@{Character}}
+\subsubsection[{Character}]{\setlength{\rightskip}{0pt plus 5cm}Character\-::\-Character (
+\begin{DoxyParamCaption}
+\item[{int}]{variables\-Here}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_character_a08203d27a9066d6e658eb78940b5bb06}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_character_a891042a5f9ba38a4ab98d79e32a590b9}{\index{Character@{Character}!attack@{attack}}
+\index{attack@{attack}!Character@{Character}}
+\subsubsection[{attack}]{\setlength{\rightskip}{0pt plus 5cm}void Character\-::attack (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_character_a891042a5f9ba38a4ab98d79e32a590b9}
+\hypertarget{class_character_a00d426ba5c22e935add036831a100bc8}{\index{Character@{Character}!get\-Abilities@{get\-Abilities}}
+\index{get\-Abilities@{get\-Abilities}!Character@{Character}}
+\subsubsection[{get\-Abilities}]{\setlength{\rightskip}{0pt plus 5cm}bool $\ast$ Character\-::get\-Abilities (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_character_a00d426ba5c22e935add036831a100bc8}
+\hypertarget{class_character_a6f53d06b8eb41bebb45750676a2f2b3d}{\index{Character@{Character}!get\-Damage@{get\-Damage}}
+\index{get\-Damage@{get\-Damage}!Character@{Character}}
+\subsubsection[{get\-Damage}]{\setlength{\rightskip}{0pt plus 5cm}short Character\-::get\-Damage (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_character_a6f53d06b8eb41bebb45750676a2f2b3d}
+\hypertarget{class_character_a71e26e0edbb4182414827b997bea7be2}{\index{Character@{Character}!get\-Health@{get\-Health}}
+\index{get\-Health@{get\-Health}!Character@{Character}}
+\subsubsection[{get\-Health}]{\setlength{\rightskip}{0pt plus 5cm}short Character\-::get\-Health (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_character_a71e26e0edbb4182414827b997bea7be2}
+\hypertarget{class_character_a79a7ef5e8b1bdca05424fe611fe056b9}{\index{Character@{Character}!get\-Intelligence@{get\-Intelligence}}
+\index{get\-Intelligence@{get\-Intelligence}!Character@{Character}}
+\subsubsection[{get\-Intelligence}]{\setlength{\rightskip}{0pt plus 5cm}short Character\-::get\-Intelligence (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_character_a79a7ef5e8b1bdca05424fe611fe056b9}
+\hypertarget{class_character_a621cb6b6e50c35ce431b914dd300b16b}{\index{Character@{Character}!get\-Level@{get\-Level}}
+\index{get\-Level@{get\-Level}!Character@{Character}}
+\subsubsection[{get\-Level}]{\setlength{\rightskip}{0pt plus 5cm}short Character\-::get\-Level (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_character_a621cb6b6e50c35ce431b914dd300b16b}
+\hypertarget{class_character_a50c26b239e9687ba5b34665a65a11dbe}{\index{Character@{Character}!get\-Speed@{get\-Speed}}
+\index{get\-Speed@{get\-Speed}!Character@{Character}}
+\subsubsection[{get\-Speed}]{\setlength{\rightskip}{0pt plus 5cm}short Character\-::get\-Speed (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_character_a50c26b239e9687ba5b34665a65a11dbe}
+\hypertarget{class_character_a56dc21cdc1c460fac9ab013e09a36dd9}{\index{Character@{Character}!get\-Strength@{get\-Strength}}
+\index{get\-Strength@{get\-Strength}!Character@{Character}}
+\subsubsection[{get\-Strength}]{\setlength{\rightskip}{0pt plus 5cm}short Character\-::get\-Strength (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_character_a56dc21cdc1c460fac9ab013e09a36dd9}
+\hypertarget{class_character_ad607ba44fdccc8b571f19194cc205dd4}{\index{Character@{Character}!get\-Toughness@{get\-Toughness}}
+\index{get\-Toughness@{get\-Toughness}!Character@{Character}}
+\subsubsection[{get\-Toughness}]{\setlength{\rightskip}{0pt plus 5cm}short Character\-::get\-Toughness (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_character_ad607ba44fdccc8b571f19194cc205dd4}
+\hypertarget{class_character_ade340e0ec4e25b8f86615323f588eb9c}{\index{Character@{Character}!move\-Horizontal@{move\-Horizontal}}
+\index{move\-Horizontal@{move\-Horizontal}!Character@{Character}}
+\subsubsection[{move\-Horizontal}]{\setlength{\rightskip}{0pt plus 5cm}void Character\-::move\-Horizontal (
+\begin{DoxyParamCaption}
+\item[{bool}]{horizontal\-Movement}
+\end{DoxyParamCaption}
+)}}\label{class_character_ade340e0ec4e25b8f86615323f588eb9c}
+\hypertarget{class_character_a9f46f32c23ef47d0454fc6bb00b95294}{\index{Character@{Character}!move\-Vertical@{move\-Vertical}}
+\index{move\-Vertical@{move\-Vertical}!Character@{Character}}
+\subsubsection[{move\-Vertical}]{\setlength{\rightskip}{0pt plus 5cm}void Character\-::move\-Vertical (
+\begin{DoxyParamCaption}
+\item[{bool}]{vertical\-Movement}
+\end{DoxyParamCaption}
+)}}\label{class_character_a9f46f32c23ef47d0454fc6bb00b95294}
+\hypertarget{class_character_ae6b11b3e6a84287216630ecc355ab8e3}{\index{Character@{Character}!show\-Damage@{show\-Damage}}
+\index{show\-Damage@{show\-Damage}!Character@{Character}}
+\subsubsection[{show\-Damage}]{\setlength{\rightskip}{0pt plus 5cm}void Character\-::show\-Damage (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_character_ae6b11b3e6a84287216630ecc355ab8e3}
+\hypertarget{class_character_a84a7de8166aa93320511fc4fc4e77b44}{\index{Character@{Character}!show\-Health@{show\-Health}}
+\index{show\-Health@{show\-Health}!Character@{Character}}
+\subsubsection[{show\-Health}]{\setlength{\rightskip}{0pt plus 5cm}void Character\-::show\-Health (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_character_a84a7de8166aa93320511fc4fc4e77b44}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_character_a9251eb7762d3ae204f3034bfb5e83476}{\index{Character@{Character}!m\-\_\-b\-Abilities@{m\-\_\-b\-Abilities}}
+\index{m\-\_\-b\-Abilities@{m\-\_\-b\-Abilities}!Character@{Character}}
+\subsubsection[{m\-\_\-b\-Abilities}]{\setlength{\rightskip}{0pt plus 5cm}bool$\ast$ Character\-::m\-\_\-b\-Abilities\hspace{0.3cm}{\ttfamily [private]}}}\label{class_character_a9251eb7762d3ae204f3034bfb5e83476}
+\hypertarget{class_character_a8ce5038804317cc41b3672b2f77aee77}{\index{Character@{Character}!m\-\_\-e\-Abilities@{m\-\_\-e\-Abilities}}
+\index{m\-\_\-e\-Abilities@{m\-\_\-e\-Abilities}!Character@{Character}}
+\subsubsection[{m\-\_\-e\-Abilities}]{\setlength{\rightskip}{0pt plus 5cm}{\bf abilities} Character\-::m\-\_\-e\-Abilities\hspace{0.3cm}{\ttfamily [private]}}}\label{class_character_a8ce5038804317cc41b3672b2f77aee77}
+\hypertarget{class_character_a504b1237f1321ae15abe0f359295a0d7}{\index{Character@{Character}!m\-\_\-sh\-Damage@{m\-\_\-sh\-Damage}}
+\index{m\-\_\-sh\-Damage@{m\-\_\-sh\-Damage}!Character@{Character}}
+\subsubsection[{m\-\_\-sh\-Damage}]{\setlength{\rightskip}{0pt plus 5cm}short Character\-::m\-\_\-sh\-Damage\hspace{0.3cm}{\ttfamily [private]}}}\label{class_character_a504b1237f1321ae15abe0f359295a0d7}
+\hypertarget{class_character_a50138cd901b1f729a01e5e018bf63256}{\index{Character@{Character}!m\-\_\-sh\-Health@{m\-\_\-sh\-Health}}
+\index{m\-\_\-sh\-Health@{m\-\_\-sh\-Health}!Character@{Character}}
+\subsubsection[{m\-\_\-sh\-Health}]{\setlength{\rightskip}{0pt plus 5cm}short Character\-::m\-\_\-sh\-Health\hspace{0.3cm}{\ttfamily [private]}}}\label{class_character_a50138cd901b1f729a01e5e018bf63256}
+\hypertarget{class_character_a2319f838d38029537e1e5c6e24c24ebb}{\index{Character@{Character}!m\-\_\-sh\-Intelligence@{m\-\_\-sh\-Intelligence}}
+\index{m\-\_\-sh\-Intelligence@{m\-\_\-sh\-Intelligence}!Character@{Character}}
+\subsubsection[{m\-\_\-sh\-Intelligence}]{\setlength{\rightskip}{0pt plus 5cm}short Character\-::m\-\_\-sh\-Intelligence\hspace{0.3cm}{\ttfamily [private]}}}\label{class_character_a2319f838d38029537e1e5c6e24c24ebb}
+\hypertarget{class_character_afd011d8f32a2f60e3ef604a191d3ebf4}{\index{Character@{Character}!m\-\_\-sh\-Level@{m\-\_\-sh\-Level}}
+\index{m\-\_\-sh\-Level@{m\-\_\-sh\-Level}!Character@{Character}}
+\subsubsection[{m\-\_\-sh\-Level}]{\setlength{\rightskip}{0pt plus 5cm}short Character\-::m\-\_\-sh\-Level\hspace{0.3cm}{\ttfamily [private]}}}\label{class_character_afd011d8f32a2f60e3ef604a191d3ebf4}
+\hypertarget{class_character_abb0c7e556292b3d93d52e9c9f9db6258}{\index{Character@{Character}!m\-\_\-sh\-Speed@{m\-\_\-sh\-Speed}}
+\index{m\-\_\-sh\-Speed@{m\-\_\-sh\-Speed}!Character@{Character}}
+\subsubsection[{m\-\_\-sh\-Speed}]{\setlength{\rightskip}{0pt plus 5cm}short Character\-::m\-\_\-sh\-Speed\hspace{0.3cm}{\ttfamily [private]}}}\label{class_character_abb0c7e556292b3d93d52e9c9f9db6258}
+\hypertarget{class_character_a500cced8623c4cca096e0555795b6025}{\index{Character@{Character}!m\-\_\-sh\-Strength@{m\-\_\-sh\-Strength}}
+\index{m\-\_\-sh\-Strength@{m\-\_\-sh\-Strength}!Character@{Character}}
+\subsubsection[{m\-\_\-sh\-Strength}]{\setlength{\rightskip}{0pt plus 5cm}short Character\-::m\-\_\-sh\-Strength\hspace{0.3cm}{\ttfamily [private]}}}\label{class_character_a500cced8623c4cca096e0555795b6025}
+\hypertarget{class_character_adaaccd5040167071f5aa3281cade4c19}{\index{Character@{Character}!m\-\_\-sh\-Toughness@{m\-\_\-sh\-Toughness}}
+\index{m\-\_\-sh\-Toughness@{m\-\_\-sh\-Toughness}!Character@{Character}}
+\subsubsection[{m\-\_\-sh\-Toughness}]{\setlength{\rightskip}{0pt plus 5cm}short Character\-::m\-\_\-sh\-Toughness\hspace{0.3cm}{\ttfamily [private]}}}\label{class_character_adaaccd5040167071f5aa3281cade4c19}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+Game\-Project/\-Game\-Project/\hyperlink{_character_8h}{Character.\-h}\item 
+Game\-Project/\-Game\-Project/\hyperlink{_character_8cpp}{Character.\-cpp}\end{DoxyCompactItemize}
