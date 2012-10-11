@@ -16,8 +16,6 @@ protected:
 	void setPosition(int x, int y);
 	Vector2f* getPosition();
 	void setSprite();
-	Game game;
-	
 
 public:
 	// Do we need all these constructors?
