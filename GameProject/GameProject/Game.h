@@ -4,7 +4,6 @@
 #include <SFML/System/Clock.hpp>
 #include <stdlib.h>
 #include <iostream>
-#include "Player.h"
 
 
  
@@ -23,8 +22,6 @@ private:
 	int m_iScreenHeight;
 	int m_iScreenBitColor;
 	bool m_bRunning;
-
-	Player* player;
 
 	void stop();
 	void run();

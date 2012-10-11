@@ -27,9 +27,6 @@ Game::Game()
 	m_iScreenHeight = 768;
 	m_iScreenBitColor = 32;
 	m_Window.create(sf::VideoMode(m_iScreenWidth, m_iScreenHeight, m_iScreenBitColor), m_sTitle);
-	player = new Player();
-	player -> loadContent();
-
 }
 
 void Game::start()
@@ -156,6 +153,5 @@ void Game::render(sf::Text text)
 {
 	m_Window.clear();
 	m_Window.draw(text);
-	m_Window.draw(player -> m_Sprite);
 	m_Window.display();
 }
