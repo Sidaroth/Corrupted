@@ -1,9 +1,11 @@
+#pragma once
+
 #include <SFML/Graphics.hpp>
 #include <SFML/System/Clock.hpp>
 #include <stdlib.h>
 #include <iostream>
 
-#pragma once
+
  
 // Making this as a singleton.. Might not be the best approach. (Static class?)
 
@@ -28,7 +30,7 @@ private:
 	void deInitialize();
 	void render(sf::Text text);
 	void processEvents();
-
+	void checkKeyboard();
 public:
 	static Game* getInstance();
 	void start();
