@@ -118,6 +118,21 @@ void Game::stop()
 	}
 }
 
+//void Game::checkKeyboard(){
+//	
+//	std::string 
+//
+//		//w a s d, q, e space, mouse 1, mouse 2 
+//
+//
+//if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+// {
+//     // move left...
+// }
+//
+//
+//}
+
 void Game::processEvents()
 {
 	sf::Event event;
@@ -129,6 +144,7 @@ void Game::processEvents()
 			m_Window.close();
 			//m_bRunning = false;
 		}
+		
 	}
 
 }

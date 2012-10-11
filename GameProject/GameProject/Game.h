@@ -28,7 +28,7 @@ private:
 	void deInitialize();
 	void render(sf::Text text);
 	void processEvents();
-
+	void checkKeyboard();
 public:
 	static Game* getInstance();
 	void start();

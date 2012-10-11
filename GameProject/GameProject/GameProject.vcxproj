@@ -79,11 +79,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\..\..\Downloads\leethomason-tinyxml2-3cd66ee\leethomason-tinyxml2-3cd66ee\tinyxml2.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Vector2f.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\..\..\Downloads\leethomason-tinyxml2-3cd66ee\leethomason-tinyxml2-3cd66ee\tinyxml2.h" />
     <ClInclude Include="Actor.h" />
     <ClInclude Include="Character.h" />
     <ClInclude Include="Enemy.h" />
@@ -96,6 +98,7 @@
     <ClInclude Include="Vector2f.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\..\..\..\Desktop\KeyActions.xml" />
     <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
