@@ -11,6 +11,16 @@ void Actor::draw()
 
 }
 
+bool Actor::loadContent()
+{
+	return 1;
+}
+
+sf::Sprite Actor::getSprite()
+{
+	return m_Sprite;
+}
+
 void Actor::setPosition(int x, int y)
 {
 	m_Position.x = x;
@@ -25,14 +35,4 @@ Vector2f* Actor::getPosition()
 void Actor::setSprite()
 {
 	
-}
-
-bool Actor::loadContent()
-{
-	if (!m_Texture.loadFromFile("../Resources/player.png"))
-	{
-		return EXIT_FAILURE;
-	}
-	
-	m_Sprite.setTexture(m_Texture);
 }

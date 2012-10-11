@@ -1,5 +1,5 @@
 #include "Game.h"
-
+#include "Player.h"
 
 // Lazy initialization
 Game* Game::m_gameInstance = NULL;
@@ -27,6 +27,7 @@ Game::Game()
 	m_iScreenHeight = 768;
 	m_iScreenBitColor = 32;
 	m_Window.create(sf::VideoMode(m_iScreenWidth, m_iScreenHeight, m_iScreenBitColor), m_sTitle);
+	player = new Player();
 }
 
 void Game::start()
@@ -49,7 +50,7 @@ void Game::run()
 	sf::Time currentTime;
 	sf::Time passedTime;
 
-	
+
 	char fps[10];
 
 	int tickCount = 0;
@@ -57,7 +58,7 @@ void Game::run()
 	float secondsPerTick = 1 / FRAMES_PER_SECOND;
 	sf::Text text;
 
-	
+
 	while ( m_bRunning )
 	{
 		ticked = false;
@@ -82,8 +83,8 @@ void Game::run()
 				frames = 0;
 			}
 		}
-			
-		
+
+
 		if(ticked)
 		{
 			processEvents();
@@ -96,6 +97,7 @@ void Game::run()
 
 void Game::initialize()
 {
+	player -> loadContent();
 	m_bRunning = true;
 }
 
@@ -145,7 +147,28 @@ void Game::processEvents()
 			m_bRunning = false;
 			break;
 		}
-		
+
+
+		// True is moving up, false down. 
+		if(sf::Keyboard::isKeyPressed(sf::Keyboard::W))
+		{
+			player -> moveVertical(true);
+		}
+		else if(sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+		{
+			player -> moveVertical(false);
+		}
+
+		// True is moving right, false left. 
+		if(sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+		{
+			player -> moveHorizontal(true);
+		}
+		else if(sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+		{
+			player -> moveHorizontal(false);
+		}
+
 	}
 }
 
@@ -153,5 +176,6 @@ void Game::render(sf::Text text)
 {
 	m_Window.clear();
 	m_Window.draw(text);
+	m_Window.draw(player -> getSprite());
 	m_Window.display();
 }
