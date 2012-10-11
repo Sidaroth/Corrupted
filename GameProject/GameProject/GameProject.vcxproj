@@ -91,7 +91,8 @@
     <ClInclude Include="Game.h" />
     <ClInclude Include="Objects.h" />
     <ClInclude Include="Player.h" />
-    <ClInclude Include="SceneHandler.h" />
+    <ClInclude Include="StateHandler.h" />
+    <ClInclude Include="GameState.h" />
     <ClInclude Include="Vector2f.h" />
   </ItemGroup>
   <ItemGroup>

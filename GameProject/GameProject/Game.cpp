@@ -21,23 +21,38 @@ Game* Game::getInstance()
 
 Game::Game()
 {
-	m_sTitle = "Corrupted";
+	m_sTitle = "Untitled";
+	m_shScreenWidth = 800;
+	m_shScreenHeight = 600;
+	m_shScreenBitColor = 32;
 	m_bRunning = false;
-	m_iScreenWidth = 1360;
-	m_iScreenHeight = 768;
-	m_iScreenBitColor = 32;
-	m_Window.create(sf::VideoMode(m_iScreenWidth, m_iScreenHeight, m_iScreenBitColor), m_sTitle);
+}
+
+void Game::initialize(const char* title, short width = 1336, short height = 768, short bitPP = 32, bool fullscreen = false)
+{
 	player = new Player();
+	player -> loadContent();
+	
+	m_sTitle = title;
+	m_shScreenWidth = width;
+	m_shScreenHeight = height;
+	m_shScreenBitColor = bitPP;
+
+	m_Window.create(sf::VideoMode(m_shScreenWidth, m_shScreenHeight, m_shScreenBitColor), m_sTitle);
+	m_bRunning = true;
+
+	std::cout << "Game initalized" << std::endl;
 }
 
 void Game::start()
 {
 	if(m_bRunning == false)	
 	{
-		initialize();
-		run();
-		deInitialize();
+		initialize("Corrupted");
 	}
+
+	run();
+	deInitialize();
 }
 
 void Game::run()
@@ -95,21 +110,15 @@ void Game::run()
 	}
 }
 
-void Game::initialize()
-{
-	player -> loadContent();
-	m_bRunning = true;
-}
-
 void Game::deInitialize()
 {
 	// uninitialize stuff
 	return;
 }
 
-void Game::tick()
+void Game::update()
 {
-
+	
 }
 
 void Game::stop()
