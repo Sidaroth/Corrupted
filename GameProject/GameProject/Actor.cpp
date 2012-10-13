@@ -4,6 +4,7 @@ Actor::Actor()
 {
 	m_Position.x = 0;
 	m_Position.y = 0;
+	m_shSpriteSize = 96;
 }
 
 void Actor::draw()
@@ -35,4 +36,9 @@ bool Actor::loadContent()
 	}
 	
 	m_Sprite.setTexture(m_Texture);
+}
+
+void Actor::setSpriteSize(short size)
+{
+	m_shSpriteSize = size;
 }

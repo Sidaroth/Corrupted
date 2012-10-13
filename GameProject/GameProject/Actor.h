@@ -6,12 +6,12 @@
 
 class Actor
 {
-private:
+protected:
 	sf::Texture m_Texture;
 	Vector2f m_Position;		// Hmm.. Sprite has a position, so is this needed? we'll see...
 	sf::Sprite m_Sprite;
+	short m_shSpriteSize;		//The width/height of a frame in the spritesheet
 
-protected:
 	void setPosition(int x, int y);
 	Vector2f* getPosition();
 	void setSprite();
@@ -24,4 +24,5 @@ public:
 	Actor(int x, int y);
 	Actor(int x, int y, sf::Sprite sprite);
 	Actor(sf::Sprite sprite);
+	void setSpriteSize(short size);
 };

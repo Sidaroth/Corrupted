@@ -68,7 +68,13 @@ bool* Character::getAbilities()
 
 void Character::setAnimation()
 {
+	sf::IntRect subRect;
+	subRect.left = m_shBitmapCol * m_shSpriteSize;
+	subRect.top = m_shBitmapRow * m_shSpriteSize;
+	subRect.width = m_shSpriteSize;
+	subRect.height = m_shSpriteSize;
 
+	m_Sprite.setTextureRect(subRect);
 }
 
 // Horizontal movement true means the character moves RIGHT / false means LEFT
