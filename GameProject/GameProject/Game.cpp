@@ -28,7 +28,7 @@ Game::Game()
 	m_bRunning = false;
 }
 
-void Game::initialize(const char* title, short width = 1336, short height = 768, short bitPP = 32, bool fullscreen = false)
+void Game::initialize(const char* title, short width, short height, short bitPP, bool fullscreen)
 {
 	player = new Player();
 	player -> loadContent();
@@ -85,7 +85,7 @@ void Game::run()
 
 		while( unprocessedSeconds > secondsPerTick )
 		{
-			tick();
+			update();
 			unprocessedSeconds -= secondsPerTick;
 			ticked = true;
 			tickCount++;
@@ -104,7 +104,7 @@ void Game::run()
 		{
 			processEvents();
 			//update game state here
-			render(text);
+			render();
 			frames++;
 		}
 	}
@@ -181,10 +181,9 @@ void Game::processEvents()
 	}
 }
 
-void Game::render(sf::Text text)
+void Game::render()
 {
 	m_Window.clear();
-	m_Window.draw(text);
 	m_Window.draw(player -> getSprite());
 	m_Window.display();
 }

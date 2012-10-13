@@ -24,7 +24,7 @@ private:
 	short m_shScreenBitColor;
 	bool m_bRunning;
 
-	Stack<GameState> stateStack;
+	//Stack<GameState> stateStack;
 
 	Player* player;
 public:
@@ -37,8 +37,8 @@ public:
 	void initialize(const char* title, short width = 1366, short height = 768, short bitPP = 32, bool fullscreen = false);
 	void deInitialize();
 
-	void changeState(GameState* state);
-	void pushState(GameState* state);
+	//void changeState(GameState* state);
+	//void pushState(GameState* state);
 	void popState();
 
 	void render();
