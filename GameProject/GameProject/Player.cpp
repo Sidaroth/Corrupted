@@ -19,5 +19,6 @@ bool Player::loadContent()
 	}
 
 	m_Sprite.setTexture(m_Texture);
+	animation();
 	return 0;
 }

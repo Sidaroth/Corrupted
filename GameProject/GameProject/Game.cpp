@@ -184,6 +184,7 @@ void Game::processEvents()
 void Game::render()
 {
 	m_Window.clear();
+	player->animation();
 	m_Window.draw(player -> getSprite());
 	m_Window.display();
 }

@@ -12,11 +12,6 @@ void Actor::draw()
 
 }
 
-bool Actor::loadContent()
-{
-	return 1;
-}
-
 sf::Sprite Actor::getSprite()
 {
 	return m_Sprite;
@@ -37,8 +32,6 @@ void Actor::setSprite()
 {
 	
 }
-<<<<<<< HEAD
-=======
 
 bool Actor::loadContent()
 {
@@ -54,4 +47,3 @@ void Actor::setSpriteSize(short size)
 {
 	m_shSpriteSize = size;
 }
->>>>>>> Nordli

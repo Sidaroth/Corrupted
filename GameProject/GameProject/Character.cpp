@@ -14,6 +14,7 @@ Character::Character() : Actor()
 
 	m_shBitmapRow = 0;
 	m_shBitmapCol = 0;
+	m_shFrameCount = 0;
 	
 	m_shLevel = 1;
 	m_shHealth = 50;
@@ -66,7 +67,7 @@ bool* Character::getAbilities()
 	return m_bAbilities;
 }
 
-void Character::setAnimation()
+void Character::setFrame()	///set subRect 
 {
 	sf::IntRect subRect;
 	subRect.left = m_shBitmapCol * m_shSpriteSize;
@@ -75,6 +76,29 @@ void Character::setAnimation()
 	subRect.height = m_shSpriteSize;
 
 	m_Sprite.setTextureRect(subRect);
+}
+
+void Character::setBitmapRow(short row)		///1=N, 2=NE, 3=E, 4=SE, 5=S, 6=SW, 7=W, 8=NW
+{
+	m_shBitmapRow = row;
+}
+
+void Character::animation()  ///calculate frame for animation
+{
+	const int ANIMATION_SPEED = 5;  ///Amount of frame per seconds
+
+	m_shFrameCount += 1;
+
+	if(m_shFrameCount % ANIMATION_SPEED == 0)
+	{
+		m_shBitmapCol += 1;
+		if ( ( m_shBitmapCol * m_shSpriteSize ) >= m_Texture.getSize( ).x - ( m_shSpriteSize ) )
+		{
+			m_shBitmapCol = 0;
+		}
+		std::cout << m_shBitmapCol;
+	}
+	setFrame();
 }
 
 // Horizontal movement true means the character moves RIGHT / false means LEFT
