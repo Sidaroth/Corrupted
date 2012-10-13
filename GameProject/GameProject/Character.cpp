@@ -63,6 +63,10 @@ bool* Character::getAbilities()
 	return m_bAbilities;
 }
 
+void Character::setAnimation()
+{
+
+}
 
 // Horizontal movement true means the character moves RIGHT / false means LEFT
 void Character::moveHorizontal(bool horizontalMovement)
