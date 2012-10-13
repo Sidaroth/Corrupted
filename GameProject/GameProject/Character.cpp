@@ -11,6 +11,9 @@ Character::Character() : Actor()
 	m_shToughness = BASE_STAT;
 	m_shIntelligence = BASE_STAT;
 	m_shStrength = BASE_STAT;
+
+	m_shBitmapRow = 0;
+	m_shBitmapCol = 0;
 	
 	m_shLevel = 1;
 	m_shHealth = 50;
