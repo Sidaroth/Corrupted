@@ -1,0 +1,4 @@
+<map id="Actor" name="Actor">
+<area shape="rect" id="node3" href="$class_character.html" title="{Character\n|&#45; m_eAbilities\l&#45; m_shHealth\l&#45; m_shDamage\l&#45; m_shSpeed\l&#45; m_shToughness\l&#45; m_shIntelligence\l&#45; m_shStrength\l&#45; m_shLevel\l&#45; m_bAbilities\l|+ attack()\l+ getHealth()\l+ getDamage()\l+ getSpeed()\l+ getToughness()\l+ getIntelligence()\l+ getStrength()\l+ getLevel()\l+ getAbilities()\l+ moveHorizontal()\l+ moveVertical()\l+ showDamage()\l+ showHealth()\l# Character()\l# Character()\l}" alt="" coords="9,277,140,677"/>
+<area shape="rect" id="node5" href="$class_player.html" title="{Player\n|&#45; m_shTotalSouls\l&#45; m_shCurrentSouls\l&#45; m_shWeaponLevel\l&#45; m_shArmorLevel\l&#45; m_sName\l|+ Player()\l+ Player()\l}" alt="" coords="5,726,144,877"/>
+</map>

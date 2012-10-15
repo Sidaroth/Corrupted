@@ -1,0 +1,10 @@
+<map id="Vector2f::Vector2f" name="Vector2f::Vector2f">
+<area shape="rect" id="node3" href="$class_vector2f.html#acab3acffc23f8bf9ba36d61e06134e87" title="Vector2f::operator+" alt="" coords="181,5,315,32"/>
+<area shape="rect" id="node5" href="$class_vector2f.html#aabf72717e6da6001e9a3d01aeb9b2fc6" title="Vector2f::operator&#45;" alt="" coords="183,56,313,83"/>
+<area shape="rect" id="node7" href="$class_vector2f.html#ab80cdeb3e397a1b721333efa7dc2b413" title="Vector2f::operator*" alt="" coords="183,107,313,133"/>
+<area shape="rect" id="node9" href="$class_vector2f.html#a5c633ed193d68fe42094e226b7ed4b2e" title="Vector2f::operator/" alt="" coords="183,157,313,184"/>
+<area shape="rect" id="node11" href="$class_vector2f.html#a6781e87d4d26cfc5d10a17e25c870f75" title="Vector2f::unit" alt="" coords="199,208,297,235"/>
+<area shape="rect" id="node13" href="$class_vector2f.html#a877a04381f86f6157086c7901d460fc7" title="Vector2f::turnLeft" alt="" coords="187,259,309,285"/>
+<area shape="rect" id="node15" href="$class_vector2f.html#af63c77fc78259eb26ea05113254ee7e3" title="Vector2f::turnRight" alt="" coords="183,309,313,336"/>
+<area shape="rect" id="node17" href="$class_vector2f.html#a4b32222b718c1e0e00317b1390fc555b" title="Vector2f::rotate" alt="" coords="193,360,303,387"/>
+</map>

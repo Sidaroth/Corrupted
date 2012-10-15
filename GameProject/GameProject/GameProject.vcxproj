@@ -95,8 +95,13 @@
     <ClInclude Include="KeyboardController.h" />
     <ClInclude Include="Objects.h" />
     <ClInclude Include="Player.h" />
+<<<<<<< HEAD
     <ClInclude Include="SceneHandler.h" />
     <ClInclude Include="tinyxml2.h" />
+=======
+    <ClInclude Include="StateHandler.h" />
+    <ClInclude Include="GameState.h" />
+>>>>>>> df5d1808936894fa2bdcaea22e7aa5631b900aaf
     <ClInclude Include="Vector2f.h" />
   </ItemGroup>
   <ItemGroup>

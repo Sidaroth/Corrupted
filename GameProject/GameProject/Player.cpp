@@ -9,3 +9,16 @@ Player::Player() : Character()
 
 	m_sName = "DERP";
 }
+
+bool Player::loadContent()
+{
+	std::cout << "DERP" << std::endl;
+	if (!m_Texture.loadFromFile("player.png"))
+	{
+		return EXIT_FAILURE;
+	}
+
+	m_Sprite.setTexture(m_Texture);
+	animation();
+	return 0;
+}

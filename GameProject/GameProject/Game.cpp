@@ -1,5 +1,5 @@
 #include "Game.h"
-
+#include "Player.h"
 
 // Lazy initialization
 Game* Game::m_gameInstance = NULL;
@@ -21,8 +21,12 @@ Game* Game::getInstance()
 
 Game::Game()
 {
-	m_sTitle = "Corrupted";
+	m_sTitle = "Untitled";
+	m_shScreenWidth = 800;
+	m_shScreenHeight = 600;
+	m_shScreenBitColor = 32;
 	m_bRunning = false;
+<<<<<<< HEAD
 	m_iScreenWidth = 1360;
 	m_iScreenHeight = 768;
 	m_iScreenBitColor = 32;
@@ -30,16 +34,35 @@ Game::Game()
 	//keyControl.loadXML();
 	
 	
+=======
+}
+
+void Game::initialize(const char* title, short width, short height, short bitPP, bool fullscreen)
+{
+	player = new Player();
+	player -> loadContent();
+	
+	m_sTitle = title;
+	m_shScreenWidth = width;
+	m_shScreenHeight = height;
+	m_shScreenBitColor = bitPP;
+
+	m_Window.create(sf::VideoMode(m_shScreenWidth, m_shScreenHeight, m_shScreenBitColor), m_sTitle);
+	m_bRunning = true;
+
+	std::cout << "Game initalized" << std::endl;
+>>>>>>> df5d1808936894fa2bdcaea22e7aa5631b900aaf
 }
 
 void Game::start()
 {
 	if(m_bRunning == false)	
 	{
-		initialize();
-		run();
-		deInitialize();
+		initialize("Corrupted");
 	}
+
+	run();
+	deInitialize();
 }
 
 void Game::run()
@@ -52,7 +75,7 @@ void Game::run()
 	sf::Time currentTime;
 	sf::Time passedTime;
 
-	
+
 	char fps[10];
 
 	int tickCount = 0;
@@ -60,7 +83,7 @@ void Game::run()
 	float secondsPerTick = 1 / FRAMES_PER_SECOND;
 	sf::Text text;
 
-	
+
 	while ( m_bRunning )
 	{
 		ticked = false;
@@ -72,7 +95,7 @@ void Game::run()
 
 		while( unprocessedSeconds > secondsPerTick )
 		{
-			tick();
+			update();
 			unprocessedSeconds -= secondsPerTick;
 			ticked = true;
 			tickCount++;
@@ -85,21 +108,16 @@ void Game::run()
 				frames = 0;
 			}
 		}
-			
-		
+
+
 		if(ticked)
 		{
 			processEvents();
 			//update game state here
-			render(text);
+			render();
 			frames++;
 		}
 	}
-}
-
-void Game::initialize()
-{
-	m_bRunning = true;
 }
 
 void Game::deInitialize()
@@ -108,9 +126,9 @@ void Game::deInitialize()
 	return;
 }
 
-void Game::tick()
+void Game::update()
 {
-
+	
 }
 
 void Game::stop()
@@ -134,13 +152,39 @@ void Game::processEvents()
 			m_bRunning = false;
 			break;
 		}
+<<<<<<< HEAD
 		keyControl.checkPressed();
+=======
+
+
+		// True is moving up, false down. 
+		if(sf::Keyboard::isKeyPressed(sf::Keyboard::W))
+		{
+			player -> moveVertical(true);
+		}
+		else if(sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+		{
+			player -> moveVertical(false);
+		}
+
+		// True is moving right, false left. 
+		if(sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+		{
+			player -> moveHorizontal(true);
+		}
+		else if(sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+		{
+			player -> moveHorizontal(false);
+		}
+
+>>>>>>> df5d1808936894fa2bdcaea22e7aa5631b900aaf
 	}
 }
 
-void Game::render(sf::Text text)
+void Game::render()
 {
 	m_Window.clear();
-	m_Window.draw(text);
+	player->animation();
+	m_Window.draw(player -> getSprite());
 	m_Window.display();
 }
