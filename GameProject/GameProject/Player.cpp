@@ -7,12 +7,11 @@ Player::Player() : Character()
 	m_shWeaponLevel = 1;
 	m_shArmorLevel = 1;
 
-	m_sName = "DERP";
+	m_sName = "Ronald McDonald";
 }
 
 bool Player::loadContent()
 {
-	std::cout << "DERP" << std::endl;
 	if (!m_Texture.loadFromFile("player.png"))
 	{
 		return EXIT_FAILURE;

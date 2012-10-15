@@ -1,24 +1,6 @@
 #include "Game.h"
 #include "Player.h"
 
-// Lazy initialization
-Game* Game::m_gameInstance = NULL;
-
-
-Game* Game::getInstance()
-{
-	if( m_gameInstance == NULL )	// Return a new game object if it doesn't exist
-	{
-		m_gameInstance = new Game();
-		return m_gameInstance;
-	}
-	else							// Else return the already existing object. 
-	{
-		return m_gameInstance;
-	}
-}
-
-
 Game::Game()
 {
 	m_sTitle = "Untitled";
@@ -41,7 +23,7 @@ void Game::initialize(const char* title, short width, short height, short bitPP,
 	m_Window.create(sf::VideoMode(m_shScreenWidth, m_shScreenHeight, m_shScreenBitColor), m_sTitle);
 	m_bRunning = true;
 
-	std::cout << "Game initalized" << std::endl;
+	std::cout << "Game initialized" << std::endl;
 }
 
 void Game::start()

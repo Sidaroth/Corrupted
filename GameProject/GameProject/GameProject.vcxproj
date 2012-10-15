@@ -91,6 +91,7 @@
     <ClInclude Include="Game.h" />
     <ClInclude Include="Objects.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="SplashScreen.h" />
     <ClInclude Include="StateHandler.h" />
     <ClInclude Include="GameState.h" />
     <ClInclude Include="Vector2f.h" />
@@ -101,6 +102,7 @@
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="SplashScreen.cpp" />
     <ClCompile Include="Vector2f.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
