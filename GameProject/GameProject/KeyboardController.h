@@ -4,12 +4,15 @@
 #include <iostream>
 #include <fstream>
 #include "tinyxml2.h"
+#include "Player.h"
+
 #pragma once
 
 class KeyboardController 
 {
 private:
-
+	
+	Player* player;
 	std::string moveFowardKey;
 	std::string moveBackwardKey;
 	std::string moveLeftKey;
@@ -46,5 +49,5 @@ public:
 	void getMoveLeftKey(char key);
 	void getMoveRightKey(char key);
 	bool loadXML();
-	KeyboardController();
+	KeyboardController(Player* player);
 };

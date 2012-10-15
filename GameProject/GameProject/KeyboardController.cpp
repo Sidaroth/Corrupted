@@ -2,11 +2,11 @@
 
 
 
-KeyboardController::KeyboardController(){
+KeyboardController::KeyboardController(Player* player_recieved){
 
 	//KeyBinding
 
-
+	player = player_recieved;
 	MyKeys key;
 	//Binding the left mouse button to the "Shoot" action
 	key.myInputType = MouseInput;
@@ -49,23 +49,46 @@ KeyboardController::KeyboardController(){
 
 void KeyboardController::checkPressed(){
 	 
-
+	//0=N, 1=NE, 2=E, 3=SE, 4=S, 5=SW, 6=W, 7=NW
+	//MOVEMENT
 	if (sf::Keyboard::isKeyPressed(Keys["foward"].myKeyCode))
 	{
-		std::cout << "Move UP" << std::endl;
-	}
-	if (sf::Keyboard::isKeyPressed(Keys["backward"].myKeyCode))
+		if (sf::Keyboard::isKeyPressed(Keys["right"].myKeyCode)){
+			std::cout << "UP-RIGHT pressed" << std::endl;
+			player->move(1);
+		}else if(sf::Keyboard::isKeyPressed(Keys["left"].myKeyCode)){
+			std::cout << "UP-LEFT" << std::endl;
+			player->move(7);
+		}else{
+			std::cout << "UP pressed" << std::endl;
+			player->move(0);
+		}
+	}else if(sf::Keyboard::isKeyPressed(Keys["backward"].myKeyCode))
 	{
-		std::cout << "Move DOWN" << std::endl;
-	}
-	if (sf::Keyboard::isKeyPressed(Keys["left"].myKeyCode))
+		if (sf::Keyboard::isKeyPressed(Keys["right"].myKeyCode)){
+			std::cout << "DOWN-RIGHT" << std::endl;
+			player->move(3);
+		}else if(sf::Keyboard::isKeyPressed(Keys["left"].myKeyCode)){
+			std::cout << "DOWN LEFT" << std::endl;
+			player->move(5);
+		}else{
+			std::cout << "DOWN pressed" << std::endl;
+			player->move(4);
+		}
+	}else
 	{
-		std::cout << "Move LEFT" << std::endl;
+		if (sf::Keyboard::isKeyPressed(Keys["right"].myKeyCode)){
+			std::cout << "RIGHT pressed" << std::endl;
+			player->move(2);
+		}
+		if (sf::Keyboard::isKeyPressed(Keys["left"].myKeyCode)){
+			std::cout << "LEFT pressed" << std::endl;
+			player->move(6);
+		}
 	}
-	if (sf::Keyboard::isKeyPressed(Keys["right"].myKeyCode))
-	{
-		std::cout << "Move RIGHT" << std::endl;
-	}
+	
+	
+	//OTHER ACTIONS
 	if (sf::Keyboard::isKeyPressed(Keys["skill_1"].myKeyCode))
 	{
 		std::cout << "Space pressed" << std::endl;

@@ -21,7 +21,7 @@ private:
 	short m_shScreenHeight;
 	short m_shScreenBitColor;
 	bool m_bRunning;
-	KeyboardController keyControl;
+	KeyboardController* keyControl;
 	sf::Color* m_BackgroundColor;
 	Player* player;
 

@@ -10,6 +10,7 @@ Game::Game()
 	m_bRunning = false;
 	m_BackgroundColor = new sf::Color(106, 76, 48, 255);
 	m_Window.create(sf::VideoMode(m_shScreenWidth, m_shScreenHeight, m_shScreenBitColor), m_sTitle);
+	
 	//keyControl.loadXML();
 }
 
@@ -17,7 +18,7 @@ void Game::initialize(const char* title, short width, short height, short bitPP,
 {
 	player = new Player();
 	player -> loadContent();
-	
+	keyControl = new KeyboardController(player);
 	m_sTitle = title;
 	m_shScreenWidth = width;
 	m_shScreenHeight = height;
@@ -82,6 +83,7 @@ void Game::run()
 				text.setString(fps);
 				frames = 0;
 			}
+			keyControl->checkPressed();
 		}
 
 
@@ -120,35 +122,15 @@ void Game::processEvents()
 	sf::Event event;
 	while (m_Window.pollEvent( event ))
 	{
-		switch (event.type)
+		
+		if((sf::Event::Closed) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)))
 		{
-		case sf::Event::Closed:
 			m_Window.close();
 			m_bRunning = false;
-			break;
 		}
 
-		keyControl.checkPressed();
-
-		// True is moving up, false down. 
-		if(sf::Keyboard::isKeyPressed(sf::Keyboard::W))
-		{
-			player -> moveVertical(true);
-		}
-		else if(sf::Keyboard::isKeyPressed(sf::Keyboard::S))
-		{
-			player -> moveVertical(false);
-		}
-
-		// True is moving right, false left. 
-		if(sf::Keyboard::isKeyPressed(sf::Keyboard::D))
-		{
-			player -> moveHorizontal(true);
-		}
-		else if(sf::Keyboard::isKeyPressed(sf::Keyboard::A))
-		{
-			player -> moveHorizontal(false);
-		}
+	//	keyControl->checkPressed();
+		
 	}
 }
 

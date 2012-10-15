@@ -42,8 +42,9 @@ public:
 	void setBitmapRow(short row);		///1=N, 2=NE, 3=E, 4=SE, 5=S, 6=SW, 7=W, 8=NW
 	void animation();				///calculate the correct frame to be set in setFrame
 	
-	void moveHorizontal(bool horizontalMovement);
-	void moveVertical(bool verticalMovement);
+	void moveHorizontal(bool horizontalMovement,bool verticalMovement);
+	void moveVertical(bool verticalMovement,bool horizontalMovement);
+	void move(short direction);
 
 	void showDamage();	// wut wut
 	void showHealth();	
