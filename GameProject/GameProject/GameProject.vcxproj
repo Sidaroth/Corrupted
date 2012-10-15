@@ -79,6 +79,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <None Include="..\..\Resources\KeyActions.xml">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <ItemGroup>
@@ -89,18 +92,29 @@
     <ClInclude Include="EnemyHandler.h" />
     <ClInclude Include="Environment.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="KeyboardController.h" />
     <ClInclude Include="Objects.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="SplashScreen.h" />
+    <ClInclude Include="SceneHandler.h" />
+    <ClInclude Include="tinyxml2.h" />
     <ClInclude Include="StateHandler.h" />
     <ClInclude Include="GameState.h" />
+    <ClInclude Include="TitleScreen.h" />
     <ClInclude Include="Vector2f.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Actor.cpp" />
     <ClCompile Include="Character.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="GameState.cpp" />
+    <ClCompile Include="KeyboardController.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="SplashScreen.cpp" />
+    <ClCompile Include="StateHandler.cpp" />
+    <ClCompile Include="tinyxml2.cpp" />
+    <ClCompile Include="TitleScreen.cpp" />
     <ClCompile Include="Vector2f.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

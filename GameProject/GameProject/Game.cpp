@@ -1,23 +1,6 @@
 #include "Game.h"
 #include "Player.h"
-
-// Lazy initialization
-Game* Game::m_gameInstance = NULL;
-
-
-Game* Game::getInstance()
-{
-	if( m_gameInstance == NULL )	// Return a new game object if it doesn't exist
-	{
-		m_gameInstance = new Game();
-		return m_gameInstance;
-	}
-	else							// Else return the already existing object. 
-	{
-		return m_gameInstance;
-	}
-}
-
+#include "StateHandler.h"
 
 Game::Game()
 {
@@ -26,10 +9,16 @@ Game::Game()
 	m_shScreenHeight = 600;
 	m_shScreenBitColor = 32;
 	m_bRunning = false;
+	m_BackgroundColor = new sf::Color(106, 76, 48, 255);
+	m_Window.create(sf::VideoMode(m_shScreenWidth, m_shScreenHeight, m_shScreenBitColor), m_sTitle);
+	//keyControl.loadXML();
 }
 
 void Game::initialize(const char* title, short width, short height, short bitPP, bool fullscreen)
 {
+	StateHandler::getInstance().initalize();
+	StateHandler::getInstance().loadContent();
+
 	player = new Player();
 	player -> loadContent();
 	
@@ -41,7 +30,7 @@ void Game::initialize(const char* title, short width, short height, short bitPP,
 	m_Window.create(sf::VideoMode(m_shScreenWidth, m_shScreenHeight, m_shScreenBitColor), m_sTitle);
 	m_bRunning = true;
 
-	std::cout << "Game initalized" << std::endl;
+	std::cout << "Game initialized" << std::endl;
 }
 
 void Game::start()
@@ -118,7 +107,7 @@ void Game::deInitialize()
 
 void Game::update()
 {
-	
+	StateHandler::getInstance().update();
 }
 
 void Game::stop()
@@ -129,20 +118,6 @@ void Game::stop()
 	}
 }
 
-//void Game::checkKeyboard(){
-//	
-//	std::string 
-//
-//		//w a s d, q, e space, mouse 1, mouse 2 
-//
-//
-//if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
-// {
-//     // move left...
-// }
-//
-//
-//}
 
 void Game::processEvents()
 {
@@ -157,6 +132,7 @@ void Game::processEvents()
 			break;
 		}
 
+		keyControl.checkPressed();
 
 		// True is moving up, false down. 
 		if(sf::Keyboard::isKeyPressed(sf::Keyboard::W))
@@ -178,12 +154,22 @@ void Game::processEvents()
 			player -> moveHorizontal(false);
 		}
 
+		if(sf::Keyboard::isKeyPressed(sf::Keyboard::T))
+		{
+			StateHandler::getInstance().addScreen(new TitleScreen);
+		}
+
+		if(sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+		{
+			StateHandler::getInstance().addScreen(new SplashScreen);
+		}
 	}
 }
 
 void Game::render()
 {
-	m_Window.clear();
+	m_Window.clear(*m_BackgroundColor);
+	StateHandler::getInstance().draw(m_Window);
 	player->animation();
 	m_Window.draw(player -> getSprite());
 	m_Window.display();

@@ -3,19 +3,17 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/System/Clock.hpp>
 #include <stdlib.h>
-#include <stack>
 #include <iostream>
 #include "Player.h"
 #include "GameState.h"
+#include "Player.h"
+#include "GameState.h"
+#include "KeyboardController.h"
 
- 
-// Making this as a singleton.. Might not be the best approach.
 
 class Game
 {
 private:
-	static Game* m_gameInstance;
-	Game();
 
 	sf::RenderWindow m_Window;
 	std::string m_sTitle;
@@ -23,13 +21,12 @@ private:
 	short m_shScreenHeight;
 	short m_shScreenBitColor;
 	bool m_bRunning;
-
-	//Stack<GameState> stateStack;
-
+	KeyboardController keyControl;
+	sf::Color* m_BackgroundColor;
 	Player* player;
-public:
-	static Game* getInstance();
 
+public:
+	Game();
 	void start();
 	void stop();
 	void run();
@@ -37,8 +34,8 @@ public:
 	void initialize(const char* title, short width = 1366, short height = 768, short bitPP = 32, bool fullscreen = false);
 	void deInitialize();
 
-	//void changeState(GameState* state);
-	//void pushState(GameState* state);
+	void changeState(GameState* state);
+	void pushState(GameState* state);
 	void popState();
 
 	void render();
