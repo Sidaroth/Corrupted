@@ -5,8 +5,8 @@
 #include <stdlib.h>
 #include <stack>
 #include <iostream>
-<<<<<<< HEAD
-#include "KeyboardController.h"
+#include "Player.h"
+#include "GameState.h"
 =======
 #include "Player.h"
 #include "GameState.h"
@@ -15,9 +15,13 @@
  
 // Making this as a singleton.. Might not be the best approach.
 
+ 
+// Making this as a singleton.. Might not be the best approach. (Static class?)
+
 class Game
 {
 private:
+
 	static Game* m_gameInstance;
 	Game();
 
@@ -34,6 +38,8 @@ private:
 	Player* player;
 public:
 	static Game* getInstance();
+
+	void start();
 
 	void start();
 	void stop();
