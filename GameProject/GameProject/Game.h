@@ -6,14 +6,10 @@
 #include <iostream>
 #include "Player.h"
 #include "GameState.h"
-=======
 #include "Player.h"
 #include "GameState.h"
->>>>>>> df5d1808936894fa2bdcaea22e7aa5631b900aaf
+#include "KeyboardController.h"
 
-
- 
-// Making this as a singleton.. Might not be the best approach. (Static class?)
 
 class Game
 {
@@ -26,13 +22,10 @@ private:
 	short m_shScreenBitColor;
 	bool m_bRunning;
 	KeyboardController keyControl;
-
+	sf::Color* m_BackgroundColor;
 	Player* player;
 
 public:
-
-	void start();
-
 	Game();
 	void start();
 	void stop();

@@ -95,31 +95,23 @@
     <ClInclude Include="KeyboardController.h" />
     <ClInclude Include="Objects.h" />
     <ClInclude Include="Player.h" />
-<<<<<<< HEAD
     <ClInclude Include="SplashScreen.h" />
-=======
-<<<<<<< HEAD
     <ClInclude Include="SceneHandler.h" />
     <ClInclude Include="tinyxml2.h" />
-=======
->>>>>>> 3007ad4e9e7466986c9eff8b891e38069b5ea700
     <ClInclude Include="StateHandler.h" />
     <ClInclude Include="GameState.h" />
->>>>>>> df5d1808936894fa2bdcaea22e7aa5631b900aaf
     <ClInclude Include="Vector2f.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Actor.cpp" />
     <ClCompile Include="Character.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="GameState.cpp" />
     <ClCompile Include="KeyboardController.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Player.cpp" />
-<<<<<<< HEAD
     <ClCompile Include="SplashScreen.cpp" />
-=======
     <ClCompile Include="tinyxml2.cpp" />
->>>>>>> 3007ad4e9e7466986c9eff8b891e38069b5ea700
     <ClCompile Include="Vector2f.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
