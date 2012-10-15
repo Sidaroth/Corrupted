@@ -8,6 +8,15 @@ Game::Game()
 	m_shScreenHeight = 600;
 	m_shScreenBitColor = 32;
 	m_bRunning = false;
+<<<<<<< HEAD
+	m_iScreenWidth = 1360;
+	m_iScreenHeight = 768;
+	m_iScreenBitColor = 32;
+	m_Window.create(sf::VideoMode(m_iScreenWidth, m_iScreenHeight, m_iScreenBitColor), m_sTitle);
+	//keyControl.loadXML();
+	
+	
+=======
 }
 
 void Game::initialize(const char* title, short width, short height, short bitPP, bool fullscreen)
@@ -24,6 +33,7 @@ void Game::initialize(const char* title, short width, short height, short bitPP,
 	m_bRunning = true;
 
 	std::cout << "Game initialized" << std::endl;
+>>>>>>> df5d1808936894fa2bdcaea22e7aa5631b900aaf
 }
 
 void Game::start()
@@ -111,20 +121,6 @@ void Game::stop()
 	}
 }
 
-//void Game::checkKeyboard(){
-//	
-//	std::string 
-//
-//		//w a s d, q, e space, mouse 1, mouse 2 
-//
-//
-//if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
-// {
-//     // move left...
-// }
-//
-//
-//}
 
 void Game::processEvents()
 {
@@ -138,6 +134,9 @@ void Game::processEvents()
 			m_bRunning = false;
 			break;
 		}
+<<<<<<< HEAD
+		keyControl.checkPressed();
+=======
 
 
 		// True is moving up, false down. 
@@ -160,12 +159,14 @@ void Game::processEvents()
 			player -> moveHorizontal(false);
 		}
 
+>>>>>>> df5d1808936894fa2bdcaea22e7aa5631b900aaf
 	}
 }
 
 void Game::render()
 {
 	m_Window.clear();
+	player->animation();
 	m_Window.draw(player -> getSprite());
 	m_Window.display();
 }

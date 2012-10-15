@@ -16,6 +16,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram1.cd" />
+    <None Include="..\..\Resources\KeyActions.xml">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Actor.h">
@@ -54,7 +57,14 @@
     <ClInclude Include="GameState.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+<<<<<<< HEAD
     <ClInclude Include="SplashScreen.h">
+=======
+    <ClInclude Include="tinyxml2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyboardController.h">
+>>>>>>> 3007ad4e9e7466986c9eff8b891e38069b5ea700
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -77,7 +87,14 @@
     <ClCompile Include="Vector2f.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+<<<<<<< HEAD
     <ClCompile Include="SplashScreen.cpp">
+=======
+    <ClCompile Include="tinyxml2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="KeyboardController.cpp">
+>>>>>>> 3007ad4e9e7466986c9eff8b891e38069b5ea700
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
