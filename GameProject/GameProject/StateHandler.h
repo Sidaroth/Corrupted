@@ -5,6 +5,7 @@
 
 #include "GameState.h"
 #include "SplashScreen.h"
+#include "TitleScreen.h"
 
 // Singleton class managing the state of the game (intro, menu, game, etc...)
 class StateHandler
@@ -26,4 +27,5 @@ public:
 	void update();
 	void draw(sf::RenderWindow &window);
 
+	void addScreen(GameState *state);
 };
