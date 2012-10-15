@@ -4,7 +4,7 @@
 #include <SFML/System/Clock.hpp>
 #include <stdlib.h>
 #include <iostream>
-
+#include "KeyboardController.h"
 
  
 // Making this as a singleton.. Might not be the best approach. (Static class?)
@@ -22,6 +22,7 @@ private:
 	int m_iScreenHeight;
 	int m_iScreenBitColor;
 	bool m_bRunning;
+	KeyboardController keyControl;
 
 	void stop();
 	void run();

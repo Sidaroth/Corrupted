@@ -27,6 +27,9 @@ Game::Game()
 	m_iScreenHeight = 768;
 	m_iScreenBitColor = 32;
 	m_Window.create(sf::VideoMode(m_iScreenWidth, m_iScreenHeight, m_iScreenBitColor), m_sTitle);
+	//keyControl.loadXML();
+	
+	
 }
 
 void Game::start()
@@ -118,20 +121,6 @@ void Game::stop()
 	}
 }
 
-//void Game::checkKeyboard(){
-//	
-//	std::string 
-//
-//		//w a s d, q, e space, mouse 1, mouse 2 
-//
-//
-//if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
-// {
-//     // move left...
-// }
-//
-//
-//}
 
 void Game::processEvents()
 {
@@ -145,7 +134,7 @@ void Game::processEvents()
 			m_bRunning = false;
 			break;
 		}
-		
+		keyControl.checkPressed();
 	}
 }
 
