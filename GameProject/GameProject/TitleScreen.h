@@ -1,14 +1,14 @@
 #include "GameState.h"
 
-class SplashScreen : public GameState
+class TitleScreen : public GameState
 {
 private:
 	sf::Text text;
 	sf::Font font;
 
 public:
-	SplashScreen();
-	~SplashScreen();
+	TitleScreen();
+	~TitleScreen();
 
 	void loadContent();
 	void unloadContent();

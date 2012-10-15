@@ -1,5 +1,6 @@
 #include "Game.h"
 #include "Player.h"
+#include "StateHandler.h"
 
 Game::Game()
 {
@@ -15,6 +16,9 @@ Game::Game()
 
 void Game::initialize(const char* title, short width, short height, short bitPP, bool fullscreen)
 {
+	StateHandler::getInstance().initalize();
+	StateHandler::getInstance().loadContent();
+
 	player = new Player();
 	player -> loadContent();
 	
@@ -103,7 +107,7 @@ void Game::deInitialize()
 
 void Game::update()
 {
-	
+	StateHandler::getInstance().update();
 }
 
 void Game::stop()
@@ -149,12 +153,23 @@ void Game::processEvents()
 		{
 			player -> moveHorizontal(false);
 		}
+
+		if(sf::Keyboard::isKeyPressed(sf::Keyboard::T))
+		{
+			StateHandler::getInstance().addScreen(new TitleScreen);
+		}
+
+		if(sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+		{
+			StateHandler::getInstance().addScreen(new SplashScreen);
+		}
 	}
 }
 
 void Game::render()
 {
 	m_Window.clear(*m_BackgroundColor);
+	StateHandler::getInstance().draw(m_Window);
 	player->animation();
 	m_Window.draw(player -> getSprite());
 	m_Window.display();

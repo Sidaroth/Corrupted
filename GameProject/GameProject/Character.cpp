@@ -108,7 +108,7 @@ void Character::moveHorizontal(bool horizontalMovement)
 	
 	if(horizontalMovement)
 	{
-		
+
 	}
 	else
 	{

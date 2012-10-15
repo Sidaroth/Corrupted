@@ -16,6 +16,15 @@ StateHandler::~StateHandler()
 
 }
 
+void StateHandler::addScreen(GameState *state)
+{
+	currentState -> unloadContent();
+	delete currentState;
+	
+	currentState = state;
+	currentState -> loadContent();
+}
+
 void StateHandler::initalize()
 {
 	currentState = new SplashScreen();
@@ -33,5 +42,5 @@ void StateHandler::update()
 
 void StateHandler::draw(sf::RenderWindow &window)
 {
-	currentState -> draw(&window);
+	currentState -> draw(window);
 }

@@ -100,6 +100,7 @@
     <ClInclude Include="tinyxml2.h" />
     <ClInclude Include="StateHandler.h" />
     <ClInclude Include="GameState.h" />
+    <ClInclude Include="TitleScreen.h" />
     <ClInclude Include="Vector2f.h" />
   </ItemGroup>
   <ItemGroup>
@@ -111,7 +112,9 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="SplashScreen.cpp" />
+    <ClCompile Include="StateHandler.cpp" />
     <ClCompile Include="tinyxml2.cpp" />
+    <ClCompile Include="TitleScreen.cpp" />
     <ClCompile Include="Vector2f.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

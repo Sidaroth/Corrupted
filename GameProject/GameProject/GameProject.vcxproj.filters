@@ -69,6 +69,9 @@
     <ClInclude Include="SceneHandler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="TitleScreen.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Actor.cpp">
@@ -99,6 +102,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="GameState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleScreen.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StateHandler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
