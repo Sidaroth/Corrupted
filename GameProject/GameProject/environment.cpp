@@ -4,18 +4,20 @@
 */
 
 #include "Environment.h"
+#include <iostream>
 
 EnvironmentHandler::EnvironmentHandler()
 {
 	TILESIZE = 96;
 }
 
-bool EnvironmentHandler::loadContent(std::string path)
+bool EnvironmentHandler::loadContent()
 {
 	if(!m_bitmap.loadFromFile("../../Resources/levelOne.png"))
 	{
 		return EXIT_FAILURE;
 	}
+
 	m_iHorizontalBitmapSize = m_bitmap.getSize().x;
 	m_iVerticalBitmapSize = m_bitmap.getSize().y;
 
@@ -23,11 +25,16 @@ bool EnvironmentHandler::loadContent(std::string path)
 	{
 		return EXIT_FAILURE;
 	}
+
+	bitmapToArray();
+	createLevel();
+
+	return EXIT_SUCCESS;
 }
 
 void EnvironmentHandler::draw(sf::RenderWindow &window)
 {
-	for( int i = 0; i <= m_sprites.size( ); i++ )
+	for( int i = 0; i < m_sprites.size( ); i++ )
 	{
 		window.draw( m_sprites[i] );
 	}
@@ -40,7 +47,8 @@ void EnvironmentHandler::bitmapToArray()
 	{
 		for( int i = 0; i < m_iHorizontalBitmapSize; i++ )
 		{
-			pixelColor = m_bitmap.getPixel(i+1,j+1);
+		//	std::cout << "i: " << i << " j: " << j << std::endl;
+			pixelColor = m_bitmap.getPixel(i,j);
 			RGB* rgb = new RGB;
 			rgb->red = pixelColor.r;
 			rgb->green = pixelColor.g;
@@ -50,6 +58,7 @@ void EnvironmentHandler::bitmapToArray()
 	}
 }
 
+/// Creates the level out of the floorArray
 void EnvironmentHandler::createLevel( ) 
 {
 	sf::Sprite sprite;
@@ -57,7 +66,7 @@ void EnvironmentHandler::createLevel( )
 	RGB* rgb = new RGB;
 	int spriteX = 0;
 	int spriteY = 0;
-	for( int i = 0; i <= m_floorArray.size(); i++ )
+	for( int i = 0; i < m_floorArray.size(); i++ )
 	{
 		sprite.setTexture( m_tiles );
 		rgb = m_floorArray[i];
@@ -73,81 +82,62 @@ void EnvironmentHandler::createLevel( )
 		m_sprites.push_back( sprite );
 	}
 }
-///creates the subrect for the tile, depending on the RGB color on the pixel
+/// creates the subrect for the tile, depending on the RGB color on the pixel
 sf::IntRect EnvironmentHandler::colorChart(RGB rgb)
 {
 	sf::IntRect subRect;
+	subRect.left = 0;
+	subRect.top = 0;
+	subRect.width = TILESIZE;
+	subRect.height = TILESIZE;
 
 	///floorTile1
 	if (rgb.red == 255 && rgb.green == 0 && rgb.blue == 0)
 	{
-		subRect.left = TILESIZE*0;
-		subRect.top = TILESIZE*0;
-		subRect.width = TILESIZE;
-		subRect.height = TILESIZE;
-		return subRect;
+		subRect.top = 0;
 	}
 	///floorTile2
-	if (rgb.red == 0 && rgb.green == 255 && rgb.blue == 0)
+	else if (rgb.red == 0 && rgb.green == 255 && rgb.blue == 0)
 	{
-		subRect.left = TILESIZE*1;
-		subRect.top = TILESIZE*1;
-		subRect.width = TILESIZE;
-		subRect.height = TILESIZE;
-		return subRect;
+		
+		subRect.top = TILESIZE * 1;
 	}
 	///floorTile3
-	if (rgb.red == 0 && rgb.green == 0 && rgb.blue == 255)
+	else if (rgb.red == 0 && rgb.green == 0 && rgb.blue == 255)
 	{
-		subRect.left = TILESIZE*2;
+		
 		subRect.top = TILESIZE*2;
-		subRect.width = TILESIZE;
-		subRect.height = TILESIZE;
-		return subRect;
 	}
 	///floorTile4
-	if (rgb.red == 255 && rgb.green == 255 && rgb.blue == 0)
+	else if (rgb.red == 255 && rgb.green == 255 && rgb.blue == 0)
 	{
-		subRect.left = TILESIZE*3;
 		subRect.top = TILESIZE*3;
-		subRect.width = TILESIZE;
-		subRect.height = TILESIZE;
-		return subRect;
 	}
 	///floorTile5
-	if (rgb.red == 255 && rgb.green == 0 && rgb.blue == 255)
+	else if (rgb.red == 255 && rgb.green == 0 && rgb.blue == 255)
 	{
-		subRect.left = TILESIZE*4;
 		subRect.top = TILESIZE*4;
-		subRect.width = TILESIZE;
-		subRect.height = TILESIZE;
-		return subRect;
 	}
 	///floorTile6
-	if (rgb.red == 0 && rgb.green == 255 && rgb.blue == 255)
+	else if (rgb.red == 0 && rgb.green == 255 && rgb.blue == 255)
 	{
-		subRect.left = TILESIZE*5;
 		subRect.top = TILESIZE*5;
-		subRect.width = TILESIZE;
-		subRect.height = TILESIZE;
-		return subRect;
 	}
 	///floorTile7
-	if (rgb.red == 153 && rgb.green == 0 && rgb.blue == 0)
+	else if (rgb.red == 153 && rgb.green == 0 && rgb.blue == 0)
 	{
-		subRect.left = TILESIZE*6;
 		subRect.top = TILESIZE*6;
-		subRect.width = TILESIZE;
-		subRect.height = TILESIZE;
-		return subRect;
 	}
 	///wallTile1
-	if (rgb.red == 0 && rgb.green == 0 && rgb.blue == 0)
+	else if (rgb.red == 0 && rgb.green == 0 && rgb.blue == 0)
 	{
-		subRect.left = TILESIZE*7;
-		subRect.top = TILESIZE*7;
-		subRect.width = TILESIZE;
-		subRect.height = TILESIZE;
-		return subRect;
+		subRect.top = TILESIZE * 6;
 	}
+	else
+	{
+		subRect.width = 0;
+		subRect.height = 0;
+	}
+
+	return subRect;
 }

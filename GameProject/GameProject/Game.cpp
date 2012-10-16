@@ -1,6 +1,7 @@
 #include "Game.h"
 #include "Player.h"
 #include "StateHandler.h"
+#include <assert.h>
 
 Game::Game()
 {

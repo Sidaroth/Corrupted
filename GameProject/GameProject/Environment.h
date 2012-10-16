@@ -25,7 +25,7 @@ private:
 
 public:
 	EnvironmentHandler();
-	bool loadContent(std::string path);
+	bool loadContent();
 	void draw(sf::RenderWindow &window);
 	void bitmapToArray();
 	void createLevel();
