@@ -6,6 +6,7 @@
 #include "GameState.h"
 #include "SplashScreen.h"
 #include "TitleScreen.h"
+#include "Level1.h"
 
 // Singleton class managing the state of the game (intro, menu, game, etc...)
 class StateHandler
