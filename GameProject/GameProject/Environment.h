@@ -14,14 +14,20 @@ private:
 		int green;
 		int blue;
 	};
+	int TILESIZE;
+
 	sf::Image m_bitmap;
+	sf::Texture m_tiles;
 	int m_iHorizontalBitmapSize;
 	int m_iVerticalBitmapSize;
 	std::vector<RGB*> m_floorArray;
+	std::vector<sf::Sprite> m_sprites;
 
 public:
+	EnvironmentHandler();
 	bool loadContent(std::string path);
+	void draw(sf::RenderWindow &window);
 	void bitmapToArray();
-	void drawLevel();
-	void colorChart(struct RGB);
+	void createLevel();
+	sf::IntRect colorChart(struct RGB);
 };
