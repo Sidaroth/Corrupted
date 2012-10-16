@@ -23,5 +23,5 @@ public:
 	bool loadContent(std::string path);
 	void bitmapToArray();
 	void drawLevel();
-	sf::IntRect colorChart(struct RGB);
+	void colorChart(struct RGB);
 };

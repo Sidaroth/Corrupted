@@ -12,7 +12,7 @@ Player::Player() : Character()
 
 bool Player::loadContent()
 {
-	if (!m_Texture.loadFromFile("player.png"))
+	if (!m_Texture.loadFromFile("../../Resources/player.png"))
 	{
 		return EXIT_FAILURE;
 	}

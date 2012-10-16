@@ -8,7 +8,7 @@
 
 bool EnvironmentHandler::loadContent(std::string path)
 {
-	if(!m_bitmap.loadFromFile("levelOne.png"))
+	if(!m_bitmap.loadFromFile("../../Resources/levelOne.png"))
 	{
 		return EXIT_FAILURE;
 	}
@@ -44,10 +44,11 @@ void EnvironmentHandler::drawLevel()
 	}
 }
 
-sf::IntRect EnvironmentHandler::colorChart(RGB rgb)
+void EnvironmentHandler::colorChart(RGB rgb)
 {
 	if (rgb.red == 255 && rgb.green == 0 && rgb.blue == 0)
 	{
-		
+		sf::IntRect subrect;
 	}
+	
 }
