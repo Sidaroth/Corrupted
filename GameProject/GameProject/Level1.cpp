@@ -19,7 +19,7 @@ void Level1::loadContent()
 	m_Viewport.reset(sf::FloatRect(0, 0, 1366, 768));
 	m_Viewport.setViewport(sf::FloatRect(0.0f, 0.0f,1.f, 1.0f));
 	m_Viewport.setCenter(1366/2, 768/2);
-	m_Viewport.zoom(3);
+	m_Viewport.zoom(2);
 	m_Level -> loadContent();
 }
 

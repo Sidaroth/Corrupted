@@ -30,4 +30,5 @@ public:
 	void bitmapToArray();
 	void createLevel();
 	sf::IntRect colorChart(struct RGB);
+	void checkWalls();
 };
