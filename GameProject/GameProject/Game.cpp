@@ -1,7 +1,6 @@
 #include "Game.h"
 #include "Player.h"
 #include "StateHandler.h"
-#include <assert.h>
 
 Game::Game()
 {
@@ -10,7 +9,7 @@ Game::Game()
 	m_shScreenHeight = 600;
 	m_shScreenBitColor = 32;
 	m_bRunning = false;
-	m_BackgroundColor = new sf::Color(106, 76, 48, 255);
+	m_BackgroundColor = new sf::Color(0, 0, 0, 255);
 	m_Window.create(sf::VideoMode(m_shScreenWidth, m_shScreenHeight, m_shScreenBitColor), m_sTitle);
 	
 	//keyControl.loadXML();

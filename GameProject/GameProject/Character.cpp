@@ -74,7 +74,6 @@ void Character::setFrame()	///set subRect
 	subRect.top = m_shBitmapRow * m_shSpriteSize;
 	subRect.width = m_shSpriteSize;
 	subRect.height = m_shSpriteSize;
-
 	m_Sprite.setTextureRect(subRect);
 }
 
