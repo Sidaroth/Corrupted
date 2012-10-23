@@ -25,11 +25,20 @@ bool EnvironmentHandler::loadContent( )
 	{
 		return EXIT_FAILURE;
 	}
+
 	m_floorArray.reserve( m_iHorizontalBitmapSize * m_iVerticalBitmapSize );
 	bitmapToArray( );
 	m_sprites.reserve( m_floorArray.size( ) );
 	createLevel( );
 	checkWalls( );
+
+	if(!m_objectBitmap.loadFromFile( "../../Resources/levelOneObjects.png" ) )
+	{
+		return EXIT_FAILURE;
+	}
+
+	m_objects.reserve( m_floorArray.size( ) );
+	findObjects();
 
 	return EXIT_SUCCESS;
 }
@@ -248,4 +257,42 @@ void EnvironmentHandler::checkWalls( )
 			}
 		}
 	}
+}
+/// Check the bitmap if it is possible to walk there(true) or not(false)
+void EnvironmentHandler::findObjects()
+{
+	sf::Color pixelColor;
+	for( int j = 0; j < m_iVerticalBitmapSize; j++ )
+	{
+		for( int i = 0; i < m_iHorizontalBitmapSize; i++ )
+		{
+			pixelColor = m_objectBitmap.getPixel( i,j );
+			if( pixelColor.r == 0 && pixelColor.g == 0 && pixelColor.b == 0 )
+			{
+				m_objects.push_back( false );
+			}
+			else if( pixelColor.r == 0 && pixelColor.g == 0 && pixelColor.b == 0 )
+			{
+				m_objects.push_back( true );
+			}
+			else if( pixelColor.r == 255 && pixelColor.g == 0 && pixelColor.b == 255 )
+			{
+				m_playerPosition.x = i * m_iHorizontalBitmapSize;
+				m_playerPosition.y = j * m_iVerticalBitmapSize;
+				m_objects.push_back( true );
+			}
+		}
+	}
+}
+
+bool EnvironmentHandler::checkCollision( Vector2f playerPosition )
+{
+	float x = playerPosition.x / m_iHorizontalBitmapSize;
+	float y = playerPosition.y / m_iVerticalBitmapSize;
+	return (bool)m_objects[x * y];
+}
+
+Vector2f EnvironmentHandler::getPlayerPosition( )
+{
+	return m_playerPosition;
 }
