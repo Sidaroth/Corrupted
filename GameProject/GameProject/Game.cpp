@@ -20,9 +20,6 @@ void Game::initialize(const char* title, short width, short height, short bitPP,
 	StateHandler::getInstance().initalize();
 	StateHandler::getInstance().loadContent();
 
-	player = new Player();
-	player -> loadContent();
-	keyControl = new KeyboardController(player);
 	m_sTitle = title;
 	m_shScreenWidth = width;
 	m_shScreenHeight = height;
@@ -75,7 +72,6 @@ void Game::run()
 
 		while( unprocessedSeconds > secondsPerTick )
 		{
-			update();
 			unprocessedSeconds -= secondsPerTick;
 			ticked = true;
 			tickCount++;
@@ -87,17 +83,16 @@ void Game::run()
 				text.setString(fps);
 				frames = 0;
 			}
-			keyControl->checkPressed();
 		}
-
 
 		if(ticked)
 		{
 			processEvents();
-			//update game state here
-			render();
-			frames++;
+			update();
+			
 		}
+		render();
+		frames++;
 	}
 }
 
@@ -157,7 +152,5 @@ void Game::render()
 {
 	m_Window.clear(*m_BackgroundColor);
 	StateHandler::getInstance().draw(m_Window);
-	player->animation();
-	m_Window.draw(player -> getSprite());
 	m_Window.display();
 }

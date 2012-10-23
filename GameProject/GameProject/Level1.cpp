@@ -12,6 +12,9 @@ void Level1::loadContent()
 		std::cout << "Could not load font" << std::endl;
 	}
 
+	player = new Player();
+	player -> loadContent();
+
 	text.setPosition(100, 50);
 	text.setString("Level 1");
 	text.setFont(font);
@@ -21,6 +24,7 @@ void Level1::loadContent()
 	m_Viewport.setCenter(1366/2, 768/2);
 	m_Viewport.zoom(2);
 	m_Level -> loadContent();
+	keyControl = new KeyboardController(player);
 }
 
 void Level1::unloadContent()
@@ -30,12 +34,14 @@ void Level1::unloadContent()
 
 void Level1::update()
 {
-
+	player -> animation();
+	keyControl->checkPressed();
 }
 
 void Level1::draw(sf::RenderWindow &window)
 {
 	window.setView(m_Viewport);
 	m_Level -> draw(window);
+	player -> draw(window);
 	window.draw(text);
 }

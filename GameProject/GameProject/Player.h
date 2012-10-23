@@ -19,4 +19,5 @@ public:
 	bool loadContent();
 	Player();
 	Player(std::string name);
+	void draw(sf::RenderWindow &window);
 };

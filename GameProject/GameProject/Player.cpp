@@ -23,3 +23,8 @@ bool Player::loadContent()
 	animation();
 	return 0;
 }
+
+void Player::draw(sf::RenderWindow &window)
+{
+	window.draw(m_Sprite);
+}
