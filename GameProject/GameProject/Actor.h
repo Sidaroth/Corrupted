@@ -12,7 +12,7 @@ protected:
 	sf::Sprite m_Sprite;
 	short m_shSpriteSize;		//The width/height of a frame in the spritesheet
 
-	void setPosition(int x, int y);
+	
 	Vector2f* getPosition();
 	void setSprite();
 
@@ -20,6 +20,7 @@ protected:
 
 public:
 	// Do we need all these constructors?
+	void setPosition(int x, int y);
 	void draw();
 	sf::Sprite getSprite();
 	Actor();

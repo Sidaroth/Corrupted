@@ -19,8 +19,10 @@ sf::Sprite Actor::getSprite()
 
 void Actor::setPosition(int x, int y)
 {
+	
 	m_Position.x = x;
 	m_Position.y = y;
+	m_Sprite.setPosition(x, y);
 }
 
 Vector2f* Actor::getPosition()

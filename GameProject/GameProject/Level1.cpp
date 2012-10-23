@@ -3,6 +3,7 @@
 Level1::Level1()
 {
 	m_Level = new EnvironmentHandler();
+	m_EnemyHandler = new EnemyHandler();
 }
 
 void Level1::loadContent()
@@ -24,6 +25,7 @@ void Level1::loadContent()
 	m_Viewport.setCenter(1366/2, 768/2);
 	m_Viewport.zoom(2);
 	m_Level -> loadContent();
+	m_EnemyHandler -> loadContent();
 	keyControl = new KeyboardController(player);
 }
 
@@ -43,5 +45,6 @@ void Level1::draw(sf::RenderWindow &window)
 	window.setView(m_Viewport);
 	m_Level -> draw(window);
 	player -> draw(window);
+	m_EnemyHandler -> draw(window);
 	window.draw(text);
 }

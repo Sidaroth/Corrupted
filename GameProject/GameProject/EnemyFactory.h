@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Enemy.h"
+#include "Skeleton.h"
 
 /// Factory handling the creation and deletion of all enemies. 
 class EnemyFactory
@@ -10,10 +11,9 @@ protected:
 public:
 	enum Enemies
 	{
-		Skeleton
-		// More soon..
+		Skellie
+		// More soon (tm)..
 	};
 
-	//Enemy createEnemy(Enemies enemyType);
-
+	Enemy* createEnemy(Enemies enemyType);
 };

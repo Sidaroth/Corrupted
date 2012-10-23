@@ -1,7 +1,10 @@
+#pragma once
+
 #include "GameState.h"
 #include "Environment.h"
 #include "Player.h"
 #include "KeyboardController.h"
+#include "EnemyHandler.h"
 
 class Level1 : public GameState
 {
@@ -12,7 +15,7 @@ private:
 	sf::View m_Viewport;
 	Player* player;
 	KeyboardController* keyControl;
-
+	EnemyHandler* m_EnemyHandler;
 
 public:
 	Level1();
