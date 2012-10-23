@@ -19,7 +19,6 @@ public:
 	~Level1();
 
 	void loadContent();
-	void unloadContent();
-	void update();
+	void unloadContent();	void update();
 	void draw(sf::RenderWindow &window);
 };
