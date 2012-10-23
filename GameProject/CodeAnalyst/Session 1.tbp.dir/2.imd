@@ -1,0 +1,13 @@
+﻿[C:\Program Files (x86)\AMD\CodeAnalyst\bin\CaProfileControl.dll]
+SIZE=0
+SAMPS=1
+ModuleType=1
+NUMSUBSECTIONS=1
+
+[SUB]
+BASEADDR=0x536f0000
+LINECOUNT=1
+5788,7616,1,1,[1 0] 1,0x3916
+[SUB_END]
+[END]
+

@@ -1,0 +1,15 @@
+﻿[C:\Windows\System32\drivers\dxgmms1.sys]
+SIZE=0
+SAMPS=3
+ModuleType=1
+NUMSUBSECTIONS=1
+
+[SUB]
+BASEADDR=0xfffff88002d0d000
+LINECOUNT=3
+4,4452,1,1,[2 0] 1,0xc3bf
+4,4452,1,1,[3 0] 1,0x1dbf5
+4032,7244,1,1,[2 0] 1,0x2043f
+[SUB_END]
+[END]
+

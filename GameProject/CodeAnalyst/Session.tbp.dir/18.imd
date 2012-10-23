@@ -1,0 +1,16 @@
+﻿[C:\Windows\SysWOW64\jscript9.dll]
+SIZE=0
+SAMPS=4
+ModuleType=1
+NUMSUBSECTIONS=1
+
+[SUB]
+BASEADDR=0x6e320000
+LINECOUNT=4
+4796,116,1,1,[3 0] 1,0x61b3
+4796,116,1,1,[2 0] 1,0x4ca4c
+4796,116,1,1,[3 0] 1,0x6a14d
+4796,116,1,1,[2 0] 1,0xa7f1e
+[SUB_END]
+[END]
+

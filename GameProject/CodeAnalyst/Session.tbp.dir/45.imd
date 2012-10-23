@@ -1,0 +1,16 @@
+﻿[C:\Windows\assembly\NativeImages_v4.0.30319_32\WindowsBase\93d94c6a0d6ed92a2703980e4ae47689\WindowsBase.ni.dll]
+SIZE=0
+SAMPS=4
+ModuleType=1
+NUMSUBSECTIONS=1
+
+[SUB]
+BASEADDR=0x63990000
+LINECOUNT=4
+5788,7616,1,1,[1 0] 1,0xd451e
+5788,7616,1,1,[0 0] 1,0xd4545
+5788,7616,1,1,[3 0] 1,0xd75d0
+5788,7616,1,1,[2 0] 1,0xdfdd1
+[SUB_END]
+[END]
+

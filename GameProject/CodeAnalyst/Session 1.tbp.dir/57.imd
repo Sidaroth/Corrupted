@@ -1,0 +1,14 @@
+﻿[C:\Windows\SysWOW64\msctf.dll]
+SIZE=0
+SAMPS=2
+ModuleType=1
+NUMSUBSECTIONS=1
+
+[SUB]
+BASEADDR=0x74c80000
+LINECOUNT=2
+8008,1776,1,1,[0 0] 1,0x5ffa
+8008,1776,1,1,[0 0] 1,0x6d35
+[SUB_END]
+[END]
+

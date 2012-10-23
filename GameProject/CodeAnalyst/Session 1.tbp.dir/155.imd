@@ -1,0 +1,12 @@
+﻿[unknown module pid (3328)]
+SIZE=0
+SAMPS=1
+ModuleType=5
+NUMSUBSECTIONS=1
+
+[SUB]
+LINECOUNT=1
+3328,3272,1,1,[1 0] 1,0x7731df85
+[SUB_END]
+[END]
+

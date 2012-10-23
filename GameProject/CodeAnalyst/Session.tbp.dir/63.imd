@@ -1,0 +1,13 @@
+﻿[unknown module pid (3544)]
+SIZE=0
+SAMPS=2
+ModuleType=5
+NUMSUBSECTIONS=1
+
+[SUB]
+LINECOUNT=2
+3544,5616,1,1,[3 0] 1,0x23f0e95
+3544,5616,1,1,[1 0] 1,0x6a14c71
+[SUB_END]
+[END]
+

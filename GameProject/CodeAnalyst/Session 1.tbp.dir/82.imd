@@ -1,0 +1,13 @@
+﻿[C:\Windows\System32\Drivers\mup.sys]
+SIZE=0
+SAMPS=1
+ModuleType=1
+NUMSUBSECTIONS=1
+
+[SUB]
+BASEADDR=0xfffff880017ed000
+LINECOUNT=1
+1232,3548,1,1,[1 0] 1,0x7d33
+[SUB_END]
+[END]
+

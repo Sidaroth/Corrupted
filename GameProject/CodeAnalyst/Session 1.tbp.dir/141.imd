@@ -1,0 +1,13 @@
+﻿[C:\Windows\syswow64\WS2_32.dll]
+SIZE=0
+SAMPS=2
+ModuleType=1
+NUMSUBSECTIONS=1
+
+[SUB]
+BASEADDR=0x76380000
+LINECOUNT=1
+1368,3572,2,2,[0 0] 1,[1 0] 1,0x37ea
+[SUB_END]
+[END]
+

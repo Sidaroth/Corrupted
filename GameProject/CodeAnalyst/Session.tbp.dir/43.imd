@@ -1,0 +1,16 @@
+﻿[C:\Windows\assembly\NativeImages_v4.0.30319_32\Presentatio5ae0f00f#\7bcbe928e7a02c799f4371f69095346a\PresentationFramework.ni.dll]
+SIZE=0
+SAMPS=4
+ModuleType=1
+NUMSUBSECTIONS=1
+
+[SUB]
+BASEADDR=0x56da0000
+LINECOUNT=4
+5788,7616,1,1,[3 0] 1,0x311c40
+5788,7616,1,1,[2 0] 1,0x326104
+5788,7616,1,1,[1 0] 1,0x32a16c
+5788,7616,1,1,[3 0] 1,0x34689c
+[SUB_END]
+[END]
+
