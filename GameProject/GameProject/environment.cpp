@@ -6,14 +6,14 @@
 #include "Environment.h"
 #include <iostream>
 
-EnvironmentHandler::EnvironmentHandler()
+EnvironmentHandler::EnvironmentHandler( )
 {
 	TILESIZE = 96;
 }
 
-bool EnvironmentHandler::loadContent()
+bool EnvironmentHandler::loadContent( )
 {
-	if(!m_bitmap.loadFromFile("../../Resources/levelOne.png"))
+	if( !m_bitmap.loadFromFile( "../../Resources/levelOne.png" ) )
 	{
 		return EXIT_FAILURE;
 	}
@@ -21,19 +21,20 @@ bool EnvironmentHandler::loadContent()
 	m_iHorizontalBitmapSize = m_bitmap.getSize().x;
 	m_iVerticalBitmapSize = m_bitmap.getSize().y;
 
-	if(!m_tiles.loadFromFile("../../Resources/tiles.png"))
+	if(!m_tiles.loadFromFile( "../../Resources/tiles.png" ) )
 	{
 		return EXIT_FAILURE;
 	}
-
-	bitmapToArray();
-	createLevel();
-	checkWalls();
+	m_floorArray.reserve( m_iHorizontalBitmapSize * m_iVerticalBitmapSize );
+	bitmapToArray( );
+	m_sprites.reserve( m_floorArray.size( ) );
+	createLevel( );
+	checkWalls( );
 
 	return EXIT_SUCCESS;
 }
 
-void EnvironmentHandler::draw(sf::RenderWindow &window)
+void EnvironmentHandler::draw( sf::RenderWindow &window )
 {
 	for( int i = 0; i < m_sprites.size( ); i++ )
 	{
@@ -49,7 +50,7 @@ void EnvironmentHandler::bitmapToArray()
 		for( int i = 0; i < m_iHorizontalBitmapSize; i++ )
 		{
 		//	std::cout << "i: " << i << " j: " << j << std::endl;
-			pixelColor = m_bitmap.getPixel(i,j);
+			pixelColor = m_bitmap.getPixel( i,j );
 			RGB* rgb = new RGB;
 			rgb->red = pixelColor.r;
 			rgb->green = pixelColor.g;
@@ -68,7 +69,7 @@ void EnvironmentHandler::createLevel( )
 	int spriteX = 0;
 	int spriteY = 0;
 
-	for( int i = 0; i < m_floorArray.size(); i++ )
+	for( int i = 0; i < m_floorArray.size( ); i++ )
 	{
 		sprite.setTexture( m_tiles );
 		rgb = m_floorArray[i];
@@ -86,7 +87,7 @@ void EnvironmentHandler::createLevel( )
 	}
 }
 /// creates the subrect for the tile, depending on the RGB color on the pixel
-sf::IntRect EnvironmentHandler::colorChart(RGB rgb)
+sf::IntRect EnvironmentHandler::colorChart( RGB rgb )
 {
 	sf::IntRect subRect;
 	subRect.left = 0;
@@ -95,42 +96,42 @@ sf::IntRect EnvironmentHandler::colorChart(RGB rgb)
 	subRect.height = TILESIZE;
 
 	///floorTile1
-	if (rgb.red == 255 && rgb.green == 0 && rgb.blue == 0)
+	if ( rgb.red == 255 && rgb.green == 0 && rgb.blue == 0 )
 	{
 		subRect.top = 0;
 	}
 	///floorTile2
-	else if (rgb.red == 0 && rgb.green == 255 && rgb.blue == 0)
+	else if ( rgb.red == 0 && rgb.green == 255 && rgb.blue == 0 )
 	{
 		subRect.top = TILESIZE * 1;
 	}
 	///floorTile3
-	else if (rgb.red == 0 && rgb.green == 0 && rgb.blue == 255)
+	else if ( rgb.red == 0 && rgb.green == 0 && rgb.blue == 255 )
 	{
 		subRect.top = TILESIZE * 2;
 	}
 	///floorTile4
-	else if (rgb.red == 255 && rgb.green == 255 && rgb.blue == 0)
+	else if ( rgb.red == 255 && rgb.green == 255 && rgb.blue == 0 )
 	{
 		subRect.top = TILESIZE * 3;
 	}
 	///floorTile5
-	else if (rgb.red == 255 && rgb.green == 0 && rgb.blue == 255)
+	else if ( rgb.red == 255 && rgb.green == 0 && rgb.blue == 255 )
 	{
 		subRect.top = TILESIZE * 4;
 	}
 	///floorTile6
-	else if (rgb.red == 0 && rgb.green == 255 && rgb.blue == 255)
+	else if ( rgb.red == 0 && rgb.green == 255 && rgb.blue == 255 )
 	{
 		subRect.top = TILESIZE * 5;
 	}
 	///floorTile7
-	else if (rgb.red == 153 && rgb.green == 0 && rgb.blue == 0)
+	else if ( rgb.red == 153 && rgb.green == 0 && rgb.blue == 0 )
 	{
 		subRect.top = TILESIZE * 6;
 	}
 	///wallTile1
-	else if (rgb.red == 0 && rgb.green == 0 && rgb.blue == 0)
+	else if ( rgb.red == 0 && rgb.green == 0 && rgb.blue == 0 )
 	{
 		subRect.top = TILESIZE * 7;
 	}
@@ -143,7 +144,7 @@ sf::IntRect EnvironmentHandler::colorChart(RGB rgb)
 	return subRect;
 }
 
-void EnvironmentHandler::checkWalls()
+void EnvironmentHandler::checkWalls( )
 {
 	sf::IntRect testRect;
 	sf::IntRect subRect;
@@ -159,14 +160,14 @@ void EnvironmentHandler::checkWalls()
 		below = false;
 		right = false;
 		left = false;
-		subRect =  m_sprites[i].getTextureRect();
+		subRect =  m_sprites[i].getTextureRect( );
 		if( subRect.top >= TILESIZE * 7 )
 		{
-			if( i > 0)
+			if( i > 0 )
 			{
 				if( i % m_iHorizontalBitmapSize != 0 )
 				{
-					testRect =  m_sprites[i - 1].getTextureRect();
+					testRect =  m_sprites[i - 1].getTextureRect( );
 
 					if( testRect.top >= TILESIZE * 7 )
 					{
@@ -174,11 +175,11 @@ void EnvironmentHandler::checkWalls()
 					}
 				}
 			}
-			if( i < m_sprites.size()-1 )
+			if( i < m_sprites.size( )-1 )
 			{
 				if( i % m_iHorizontalBitmapSize != ( m_iHorizontalBitmapSize - 1 ) )
 				{
-					testRect =  m_sprites[i + 1].getTextureRect();
+					testRect =  m_sprites[i + 1].getTextureRect( );
 
 					if( testRect.top >= TILESIZE * 7 )
 					{
@@ -188,7 +189,7 @@ void EnvironmentHandler::checkWalls()
 			}
 			if( i >= m_iHorizontalBitmapSize )
 			{
-				testRect =  m_sprites[i - m_iHorizontalBitmapSize].getTextureRect();
+				testRect =  m_sprites[i - m_iHorizontalBitmapSize].getTextureRect( );
 			
 				if( testRect.top >= TILESIZE * 7 )
 				{
@@ -197,7 +198,7 @@ void EnvironmentHandler::checkWalls()
 			}
 			if( i < ( m_sprites.size( ) - ( m_iHorizontalBitmapSize ) ) )
 			{
-				testRect =  m_sprites[i + m_iHorizontalBitmapSize].getTextureRect();
+				testRect =  m_sprites[i + m_iHorizontalBitmapSize].getTextureRect( );
 
 				if( testRect.top >= TILESIZE * 7 )
 				{
@@ -206,17 +207,17 @@ void EnvironmentHandler::checkWalls()
 			}
 			if( right && below && !above && !left )
 			{
-				subRect.top = (TILESIZE * 11);
-				m_sprites[i].setTextureRect(subRect);
+				subRect.top = ( TILESIZE * 11 );
+				m_sprites[i].setTextureRect( subRect );
 			}
 			else if( right && !below && above && !left )
 			{
-				subRect.top = (TILESIZE * 12);
-				m_sprites[i].setTextureRect(subRect);
+				subRect.top = ( TILESIZE * 12 );
+				m_sprites[i].setTextureRect( subRect );
 			}
 			else if( !right && !below && above && left )
 			{
-				subRect.top = (TILESIZE * 13);
+				subRect.top = ( TILESIZE * 13 );
 				m_sprites[i].setTextureRect(subRect);
 			}
 			else if( !right && below && !above && left )
@@ -228,21 +229,21 @@ void EnvironmentHandler::checkWalls()
 			{
 				if( i % m_iHorizontalBitmapSize == 0 )
 				{
-					subRect.top = (TILESIZE * 9);
-					m_sprites[i].setTextureRect(subRect);
+					subRect.top = ( TILESIZE * 9 );
+					m_sprites[i].setTextureRect( subRect );
 				}
 				else if( i % m_iHorizontalBitmapSize == ( m_iHorizontalBitmapSize - 1 ) )
 				{
-					subRect.top = (TILESIZE * 10);
-					m_sprites[i].setTextureRect(subRect);
+					subRect.top = ( TILESIZE * 10 );
+					m_sprites[i].setTextureRect( subRect );
 				}
 			}
 			else if( right && !below && !above && left )
 			{
 				if( i >= m_iHorizontalBitmapSize )
 				{
-					subRect.top = (TILESIZE * 8);
-					m_sprites[i].setTextureRect(subRect);
+					subRect.top = ( TILESIZE * 8 );
+					m_sprites[i].setTextureRect( subRect );
 				}
 			}
 		}
