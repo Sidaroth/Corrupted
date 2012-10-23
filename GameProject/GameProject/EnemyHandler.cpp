@@ -1,4 +1,5 @@
 #include "EnemyHandler.h"
+#include "Vector2f.h"
 
 void EnemyHandler::loadContent()
 {
@@ -10,7 +11,7 @@ void EnemyHandler::loadContent()
 
 	for(int i = 0; i < 3; i++)
 	{
-		m_EnemyVector[i] -> setPosition(100 * (i + 5), 100 * (i + 5));
+		m_EnemyVector[i] -> setPosition(Vector2f(100 * (i + 5), 100 * (i + 5)));
 	}
 }
 

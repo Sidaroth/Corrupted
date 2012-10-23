@@ -279,6 +279,7 @@ void EnvironmentHandler::findObjects()
 			{
 				m_playerPosition.x = i * m_iHorizontalBitmapSize;
 				m_playerPosition.y = j * m_iVerticalBitmapSize;
+				std::cout << i << " " << j << std::endl;
 				m_objects.push_back( true );
 			}
 		}

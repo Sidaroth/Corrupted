@@ -20,7 +20,7 @@ protected:
 
 public:
 	// Do we need all these constructors?
-	void setPosition(int x, int y);
+	void setPosition(Vector2f newPos);
 	void draw();
 	sf::Sprite getSprite();
 	Actor();

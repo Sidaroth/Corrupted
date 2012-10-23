@@ -17,12 +17,13 @@ sf::Sprite Actor::getSprite()
 	return m_Sprite;
 }
 
-void Actor::setPosition(int x, int y)
+void Actor::setPosition(Vector2f newPos)
 {
 	
-	m_Position.x = x;
-	m_Position.y = y;
-	m_Sprite.setPosition(x, y);
+	m_Position.x = newPos.x;
+	m_Position.y = newPos.y;
+
+	m_Sprite.setPosition(newPos.x, newPos.y);
 }
 
 Vector2f* Actor::getPosition()

@@ -1,5 +1,6 @@
 #include "Level1.h"
 
+
 Level1::Level1()
 {
 	m_Level = new EnvironmentHandler();
@@ -15,6 +16,7 @@ void Level1::loadContent()
 
 	player = new Player();
 	player -> loadContent();
+	
 
 	text.setPosition(100, 50);
 	text.setString("Level 1");
@@ -26,6 +28,7 @@ void Level1::loadContent()
 	m_Viewport.zoom(2);
 	m_Level -> loadContent();
 	m_EnemyHandler -> loadContent();
+	player -> setPosition(m_Level -> getPlayerPosition());
 	keyControl = new KeyboardController(player);
 }
 
