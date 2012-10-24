@@ -18,24 +18,29 @@ private:
 	int TILESIZE;
 
 	Vector2f m_playerPosition;
+
 	sf::Image m_bitmap;
 	sf::Texture m_tiles;
 	sf::Image m_objectBitmap;
+
 	int m_iHorizontalBitmapSize;
 	int m_iVerticalBitmapSize;
+
 	std::vector<RGB*> m_floorArray;
 	std::vector<sf::Sprite> m_sprites;
 	std::vector<bool> m_objects;
 
+	enum directions { NORTH, NORTH_EAST, EAST, SOUTH_EAST, SOUTH, SOUTH_WEST, WEST, NORTH_WEST };
+
 public:
-	EnvironmentHandler();
-	bool loadContent();
-	void draw(sf::RenderWindow &window);
-	void bitmapToArray();
-	void createLevel();
-	sf::IntRect colorChart(struct RGB);
-	void checkWalls();
-	void findObjects();
-	bool checkCollision( Vector2f playerPosition );
+	EnvironmentHandler( );
+	bool loadContent( );
+	void draw( sf::RenderWindow &window );
+	void bitmapToArray( );
+	void createLevel( );
+	sf::IntRect colorChart( struct RGB );
+	void checkWalls( );
+	void findObjects( );
+	bool checkCollision( Vector2f playerPosition, short direction );
 	Vector2f getPlayerPosition( );
 };

@@ -285,11 +285,38 @@ void EnvironmentHandler::findObjects()
 	}
 }
 
-bool EnvironmentHandler::checkCollision( Vector2f playerPosition )
+bool EnvironmentHandler::checkCollision( Vector2f playerPosition, short direction )
 {
 	float x = playerPosition.x / m_iHorizontalBitmapSize;
 	float y = playerPosition.y / m_iVerticalBitmapSize;
-	return (bool)m_objects[x * y];
+
+	switch (direction)
+	{
+		case NORTH:
+			return (bool)m_objects[( x * y ) - m_iHorizontalBitmapSize];
+		break;
+		case NORTH_EAST:
+			return (bool)m_objects[( x * y ) - ( m_iHorizontalBitmapSize + 1 )];
+		break;
+		case EAST:
+			return (bool)m_objects[( x * y ) + 1];
+		break;
+		case SOUTH_EAST:
+			return (bool)m_objects[( x * y ) + ( m_iHorizontalBitmapSize + 1 )];
+		break;
+		case SOUTH:
+			return (bool)m_objects[( x * y ) + m_iHorizontalBitmapSize];
+		break;
+		case SOUTH_WEST:
+			return (bool)m_objects[( x * y ) + ( m_iHorizontalBitmapSize - 1 )];
+		break;
+		case WEST:
+			return (bool)m_objects[( x * y ) - 1];
+		break;
+		case NORTH_WEST:
+			return (bool)m_objects[( x * y ) - ( m_iHorizontalBitmapSize - 1 )];
+		break;
+	}
 }
 
 Vector2f EnvironmentHandler::getPlayerPosition( )
