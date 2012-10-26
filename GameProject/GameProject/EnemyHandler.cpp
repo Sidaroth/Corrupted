@@ -39,3 +39,8 @@ void EnemyHandler::update()
 		m_EnemyVector[i] -> update();
 	}
 }
+
+void EnemyHandler::setCollisionMap(std::vector<bool>* collisionMap)
+{
+
+}

@@ -27,12 +27,22 @@ void StateHandler::addScreen(GameState *state)
 
 void StateHandler::initalize()
 {
-	currentState = new SplashScreen();
+	currentState = NULL;
+}
+
+void StateHandler::setStartState(GameState* state)
+{
+	currentState = state;
 }
 
 void StateHandler::loadContent()
 {
 	currentState -> loadContent();
+}
+
+void StateHandler::processEvents(sf::Event event)
+{
+	currentState -> processEvents(event);
 }
 
 void StateHandler::update()

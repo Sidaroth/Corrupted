@@ -99,7 +99,6 @@
     <ClInclude Include="Point.h" />
     <ClInclude Include="Skeleton.h" />
     <ClInclude Include="SplashScreen.h" />
-    <ClInclude Include="SceneHandler.h" />
     <ClInclude Include="tinyxml2.h" />
     <ClInclude Include="StateHandler.h" />
     <ClInclude Include="GameState.h" />

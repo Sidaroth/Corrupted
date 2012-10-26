@@ -7,11 +7,9 @@
 class GameState
 {
 public:
-	GameState();
-	~GameState();
-
-	virtual void loadContent();
-	virtual void unloadContent();
-	virtual void update();
-	virtual void draw(sf::RenderWindow &window);
+	virtual void loadContent() = 0;
+	virtual void unloadContent() = 0;
+	virtual void processEvents(sf::Event event) = 0;
+	virtual void update() = 0;
+	virtual void draw(sf::RenderWindow &window) = 0;
 };

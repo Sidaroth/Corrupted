@@ -1,4 +1,7 @@
+#pragma once
+
 #include "GameState.h"
+#include "StateHandler.h"
 
 class SplashScreen : public GameState
 {
@@ -12,6 +15,7 @@ public:
 
 	void loadContent();
 	void unloadContent();
+	void processEvents(sf::Event event);
 	void update();
 	void draw(sf::RenderWindow &window);
 };

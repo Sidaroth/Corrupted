@@ -1,7 +1,8 @@
+#pragma once
+
 #include "Actor.h"
 #include "Environment.h"
 
-#pragma once
 
 class Character : public Actor
 {

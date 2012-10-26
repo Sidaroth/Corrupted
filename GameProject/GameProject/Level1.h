@@ -1,6 +1,7 @@
 #pragma once
 
 #include "GameState.h"
+#include "StateHandler.h"
 #include "Environment.h"
 #include "Player.h"
 #include "KeyboardController.h"
@@ -22,6 +23,8 @@ public:
 	~Level1();
 
 	void loadContent();
-	void unloadContent();	void update();
+	void unloadContent();	
+	void processEvents(sf::Event event);
+	void update();
 	void draw(sf::RenderWindow &window);
 };

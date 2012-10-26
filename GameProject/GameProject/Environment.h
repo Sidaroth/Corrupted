@@ -1,3 +1,5 @@
+#pragma once
+
 /**
 *	@file
 *	This .h file that handles the environment, and translating the bitmap
@@ -6,7 +8,7 @@
 #include <vector>
 #include "Vector2f.h"
 
-#pragma once
+
 
 class EnvironmentHandler
 {
@@ -43,4 +45,6 @@ public:
 	void findObjects( );
 	bool checkCollision( Vector2f playerPosition );
 	Vector2f getPlayerPosition( );
+
+	std::vector<bool>* getObjectVector();
 };

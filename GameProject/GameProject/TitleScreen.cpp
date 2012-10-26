@@ -1,5 +1,9 @@
 #include "TitleScreen.h"
 
+// TEMPORARY!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+#include "Level1.h"
+#include "SplashScreen.h"
+
 TitleScreen::TitleScreen()
 {
 	// NATH'N!
@@ -25,6 +29,19 @@ void TitleScreen::unloadContent()
 void TitleScreen::update()
 {
 
+}
+
+void TitleScreen::processEvents(sf::Event event)
+{
+	if(sf::Keyboard::isKeyPressed(sf::Keyboard::U))
+	{
+		StateHandler::getInstance().addScreen(new Level1);
+	}
+
+	if(sf::Keyboard::isKeyPressed(sf::Keyboard::Y))
+	{
+		StateHandler::getInstance().addScreen(new SplashScreen);
+	}
 }
 
 void TitleScreen::draw(sf::RenderWindow &window)

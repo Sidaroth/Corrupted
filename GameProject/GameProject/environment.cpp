@@ -324,3 +324,8 @@ Vector2f EnvironmentHandler::getPlayerPosition( )
 {
 	return m_playerPosition;
 }
+
+std::vector<bool>* EnvironmentHandler::getObjectVector()
+{
+	return &m_objects;
+}

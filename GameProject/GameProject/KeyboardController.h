@@ -1,3 +1,5 @@
+#pragma once
+
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
 #include <stdlib.h>
@@ -6,7 +8,7 @@
 #include "tinyxml2.h"
 #include "Player.h"
 
-#pragma once
+
 
 class KeyboardController 
 {

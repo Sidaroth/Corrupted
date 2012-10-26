@@ -1,5 +1,6 @@
 #include "Game.h"
 #include "Player.h"
+#include "SplashScreen.h"
 #include "StateHandler.h"
 
 Game::Game()
@@ -18,6 +19,7 @@ Game::Game()
 void Game::initialize(const char* title, short width, short height, short bitPP, bool fullscreen)
 {
 	StateHandler::getInstance().initalize();
+	StateHandler::getInstance().setStartState(new SplashScreen());
 	StateHandler::getInstance().loadContent();
 
 	m_sTitle = title;
@@ -51,7 +53,6 @@ void Game::run()
 	sf::Time previousTime;
 	sf::Time currentTime;
 	sf::Time passedTime;
-
 
 	char fps[10];
 
@@ -99,7 +100,6 @@ void Game::run()
 void Game::deInitialize()
 {
 	// uninitialize stuff
-	return;
 }
 
 void Game::update()
@@ -121,30 +121,13 @@ void Game::processEvents()
 	sf::Event event;
 	while (m_Window.pollEvent( event ))
 	{
-		
-		if((sf::Event::Closed) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)))
+		if(event.type == sf::Event::Closed || (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)))
 		{
 			m_Window.close();
 			m_bRunning = false;
 		}
 
-	//	keyControl->checkPressed();
-		
-
-		if(sf::Keyboard::isKeyPressed(sf::Keyboard::T))
-		{
-			StateHandler::getInstance().addScreen(new TitleScreen);
-		}
-
-		if(sf::Keyboard::isKeyPressed(sf::Keyboard::Y))
-		{
-			StateHandler::getInstance().addScreen(new SplashScreen);
-		}
-
-		if(sf::Keyboard::isKeyPressed(sf::Keyboard::U))
-		{
-			StateHandler::getInstance().addScreen(new Level1);
-		}
+		StateHandler::getInstance().processEvents(event);
 	}
 }
 
