@@ -12,5 +12,6 @@ public:
 	Skeleton();
 	void sayHello();
 	void draw(sf::RenderWindow &window);
+	void update();
 	bool loadContent();
 };

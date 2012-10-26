@@ -8,4 +8,6 @@ Enemy* EnemyFactory::createEnemy(Enemies enemyType)
 		return new Skeleton();
 		break;
 	}
+
+	return NULL;
 }
