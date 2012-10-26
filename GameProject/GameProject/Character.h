@@ -1,4 +1,5 @@
 #include "Actor.h"
+#include "Environment.h"
 
 #pragma once
 
@@ -18,6 +19,7 @@ private:
 	short m_shFrameCount;
 	float m_fCriticalChance;	/// Chance to crit, 1 = 0%, 1.01 = 1% etc.
 	bool* m_bAbilities;
+	EnvironmentHandler* m_environmentLevel;
 
 protected:
 	Character();
@@ -40,6 +42,8 @@ public:
 	////////SET FUNCTIONS//////
 	void setFrame();				///set the correct frame in the animation
 	void setBitmapRow(short row);		///1=N, 2=NE, 3=E, 4=SE, 5=S, 6=SW, 7=W, 8=NW
+	void setEnvironmentLevel(EnvironmentHandler* environmentLevel);
+
 	void animation();				///calculate the correct frame to be set in setFrame
 	
 	void moveHorizontal(bool horizontalMovement,bool verticalMovement);
@@ -49,8 +53,6 @@ public:
 	
 	enum abilities { FIREBALL, FROSTBOLT, LIGHTNINGBOLT };
 	enum directions { NORTH, NORTH_EAST, EAST, SOUTH_EAST, SOUTH, SOUTH_WEST, WEST, NORTH_WEST };
-	directions m_eDirections;
-	abilities m_eAbilities;
 	void showDamage();	// wut wut
 	void showHealth();	
 };

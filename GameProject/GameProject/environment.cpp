@@ -266,57 +266,57 @@ void EnvironmentHandler::findObjects()
 	{
 		for( int i = 0; i < m_iHorizontalBitmapSize; i++ )
 		{
-			pixelColor = m_objectBitmap.getPixel( i,j );
+			pixelColor = m_objectBitmap.getPixel( i, j );
 			if( pixelColor.r == 0 && pixelColor.g == 0 && pixelColor.b == 0 )
 			{
 				m_objects.push_back( false );
+				//std::cout << '\n' << "vectorpos:  " << ( j * m_iHorizontalBitmapSize ) + i;
 			}
-			else if( pixelColor.r == 0 && pixelColor.g == 0 && pixelColor.b == 0 )
+			else if( pixelColor.r == 255 && pixelColor.g == 255 && pixelColor.b == 255 )
 			{
 				m_objects.push_back( true );
+				//std::cout << '\n' << "vectorpos:  " << ( j * m_iHorizontalBitmapSize ) + i;
 			}
 			else if( pixelColor.r == 255 && pixelColor.g == 0 && pixelColor.b == 255 )
 			{
-				m_playerPosition.x = i * m_iHorizontalBitmapSize;
-				m_playerPosition.y = j * m_iVerticalBitmapSize;
-				std::cout << i << " " << j << std::endl;
+				m_playerPosition.x = i * TILESIZE;
+				m_playerPosition.y = j * TILESIZE;
 				m_objects.push_back( true );
+				//std::cout << '\n' << "vectorpos:  " << ( j * m_iHorizontalBitmapSize ) + i;
 			}
 		}
 	}
 }
 
-bool EnvironmentHandler::checkCollision( Vector2f playerPosition, short direction )
+bool EnvironmentHandler::checkCollision( Vector2f playerPosition )
 {
-	float x = playerPosition.x / m_iHorizontalBitmapSize;
-	float y = playerPosition.y / m_iVerticalBitmapSize;
+	int x = playerPosition.x / TILESIZE;
+	int y = playerPosition.y / TILESIZE;
 
-	switch (direction)
+	//for(int i = 64*63; i <= 64*64; i++)
+	//{
+	//	std::cout << "\nObject Bool: " << (bool)m_objects[((y * m_iHorizontalBitmapSize) + x )];
+	//}
+
+	if(!m_objects[( ( y * m_iHorizontalBitmapSize) + x )] )
 	{
-		case NORTH:
-			return (bool)m_objects[( x * y ) - m_iHorizontalBitmapSize];
-		break;
-		case NORTH_EAST:
-			return (bool)m_objects[( x * y ) - ( m_iHorizontalBitmapSize + 1 )];
-		break;
-		case EAST:
-			return (bool)m_objects[( x * y ) + 1];
-		break;
-		case SOUTH_EAST:
-			return (bool)m_objects[( x * y ) + ( m_iHorizontalBitmapSize + 1 )];
-		break;
-		case SOUTH:
-			return (bool)m_objects[( x * y ) + m_iHorizontalBitmapSize];
-		break;
-		case SOUTH_WEST:
-			return (bool)m_objects[( x * y ) + ( m_iHorizontalBitmapSize - 1 )];
-		break;
-		case WEST:
-			return (bool)m_objects[( x * y ) - 1];
-		break;
-		case NORTH_WEST:
-			return (bool)m_objects[( x * y ) - ( m_iHorizontalBitmapSize - 1 )];
-		break;
+		return false;
+	}
+	else if(!m_objects[( ( y * m_iHorizontalBitmapSize) + ( x + 1 ) )] )
+	{
+		return false;
+	}
+	else if(!m_objects[( ( ( y + 1 ) * m_iHorizontalBitmapSize) + ( x + 1 ) )] )
+	{
+		return false;
+	}
+	else if(!m_objects[( ( ( y + 1 ) * m_iHorizontalBitmapSize) + x )] )
+	{
+		return false;
+	}
+	else
+	{
+		return true;
 	}
 }
 

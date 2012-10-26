@@ -95,51 +95,92 @@ void Character::animation()  ///calculate frame for animation
 		{
 			m_shBitmapCol = 0;
 		}
-		std::cout << m_shBitmapCol;
 	}
 	setFrame();
+}
+
+void Character::setEnvironmentLevel(EnvironmentHandler* environmentLevel)
+{
+	m_environmentLevel = environmentLevel;
 }
 
 void Character::move(short direction) // 0=N, 1=NE, 2=E, 3=SE, 4=S, 5=SW, 6=W, 7=NW
 {
 	// WE NEED TO CHECK IF THE PLAYER IS HITTING AN OBSTRUCTION HERE... (obstructions not yet implemented as of this writing)
-	
-	switch (direction){
-		
+	Vector2f currentPos;
+	currentPos.x = m_Sprite.getPosition().x;
+	currentPos.y = m_Sprite.getPosition().y;
+	switch (direction)
+	{	
 		case NORTH:
-			setBitmapRow( NORTH );
-			m_Sprite.move(0,-3);
+			currentPos.y -= 3;
+			if( m_environmentLevel -> checkCollision( currentPos ) )
+			{
+				setBitmapRow( NORTH );
+				m_Sprite.move(0,-3);
+			}
 		break;
 		case NORTH_EAST:
-			setBitmapRow( NORTH_EAST );
-			m_Sprite.move(3,-3);
+			currentPos.x += 3;
+			currentPos.y -= 3;
+			if( m_environmentLevel -> checkCollision( currentPos ) )
+			{
+				setBitmapRow( NORTH_EAST );
+				m_Sprite.move(3,-3);
+			}
 		break;
 		case EAST:
-			setBitmapRow( EAST );
-			m_Sprite.move(3,0);
+			currentPos.x += 3;
+			if( m_environmentLevel -> checkCollision( currentPos ) )
+			{
+				setBitmapRow( EAST );
+				m_Sprite.move(3,0);
+			}
 		break;
 		case SOUTH_EAST:
-			setBitmapRow( SOUTH_EAST );
-			m_Sprite.move(3,3);
+			currentPos.x += 3;
+			currentPos.y += 3;
+			if( m_environmentLevel -> checkCollision( currentPos ) )
+			{
+				setBitmapRow( SOUTH_EAST );
+				m_Sprite.move(3,3);
+			}
 		break;
 		case SOUTH:
-			setBitmapRow( SOUTH );
-			m_Sprite.move(0,3);
+			currentPos.y += 3;
+			if( m_environmentLevel -> checkCollision( currentPos ) )
+			{
+				setBitmapRow( SOUTH );
+				m_Sprite.move(0,3);
+			}
 		break;
 		case SOUTH_WEST:
-			setBitmapRow( SOUTH_WEST );
-			m_Sprite.move(-3,3);
+			currentPos.x -= 3;
+			currentPos.y += 3;
+			if( m_environmentLevel -> checkCollision( currentPos ) )
+			{
+				setBitmapRow( SOUTH_WEST );
+				m_Sprite.move(-3,3);
+			}
 		break;
 		case WEST:
-			setBitmapRow( WEST );
-			m_Sprite.move(-3,0);
+			currentPos.x -= 3;
+			if( m_environmentLevel -> checkCollision( currentPos ) )
+			{
+				setBitmapRow( WEST );
+				m_Sprite.move(-3,0);
+			}
 			break;
 		case NORTH_WEST:
-			setBitmapRow( NORTH_WEST );
-			m_Sprite.move(-3,-3);
+			currentPos.x -= 3;
+			currentPos.y -= 3;
+			if( m_environmentLevel -> checkCollision( currentPos ) )
+			{
+				setBitmapRow( NORTH_WEST );
+				m_Sprite.move(-3,-3);
+			}
 		break;
 	}
-
 }
 
 //////////////////////

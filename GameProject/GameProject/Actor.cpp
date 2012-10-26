@@ -28,7 +28,19 @@ void Actor::setPosition(Vector2f newPos)
 
 Vector2f* Actor::getPosition()
 {
+	m_Position.x = m_Sprite.getPosition().x;
+	m_Position.y = m_Sprite.getPosition().y;
 	return &m_Position;
+}
+
+float Actor::getXPosition()
+{
+		return m_Sprite.getPosition().x;
+}
+
+float Actor::getYPosition()
+{
+	return m_Sprite.getPosition().y;
 }
 
 void Actor::setSprite()

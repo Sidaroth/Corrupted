@@ -15,8 +15,8 @@ void Level1::loadContent()
 	}
 
 	player = new Player();
-	player -> loadContent();
-	
+	player -> loadContent();	
+	player -> setEnvironmentLevel(m_Level);
 
 	text.setPosition(100, 50);
 	text.setString("Level 1");
@@ -25,7 +25,7 @@ void Level1::loadContent()
 	m_Viewport.reset(sf::FloatRect(0, 0, 1366, 768));
 	m_Viewport.setViewport(sf::FloatRect(0.0f, 0.0f,1.f, 1.0f));
 	m_Viewport.setCenter(1366/2, 768/2);
-	m_Viewport.zoom(2);
+	m_Viewport.zoom(1.5);
 	m_Level -> loadContent();
 	m_EnemyHandler -> loadContent();
 	player -> setPosition(m_Level -> getPlayerPosition());
@@ -41,6 +41,8 @@ void Level1::update()
 {
 	player -> animation();
 	keyControl->checkPressed();
+
+	m_Viewport.setCenter(player -> getXPosition(), player -> getYPosition());
 }
 
 void Level1::draw(sf::RenderWindow &window)

@@ -6,6 +6,8 @@
 #include <vector>
 #include "Vector2f.h"
 
+#pragma once
+
 class EnvironmentHandler
 {
 private:
@@ -30,8 +32,6 @@ private:
 	std::vector<sf::Sprite> m_sprites;
 	std::vector<bool> m_objects;
 
-	enum directions { NORTH, NORTH_EAST, EAST, SOUTH_EAST, SOUTH, SOUTH_WEST, WEST, NORTH_WEST };
-
 public:
 	EnvironmentHandler( );
 	bool loadContent( );
@@ -41,6 +41,6 @@ public:
 	sf::IntRect colorChart( struct RGB );
 	void checkWalls( );
 	void findObjects( );
-	bool checkCollision( Vector2f playerPosition, short direction );
+	bool checkCollision( Vector2f playerPosition );
 	Vector2f getPlayerPosition( );
 };

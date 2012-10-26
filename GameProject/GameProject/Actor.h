@@ -12,8 +12,6 @@ protected:
 	sf::Sprite m_Sprite;
 	short m_shSpriteSize;		//The width/height of a frame in the spritesheet
 
-	
-	Vector2f* getPosition();
 	void setSprite();
 
 	virtual bool loadContent();
@@ -28,4 +26,8 @@ public:
 	Actor(int x, int y, sf::Sprite sprite);
 	Actor(sf::Sprite sprite);
 	void setSpriteSize(short size);
+
+	Vector2f* getPosition();
+	float getXPosition();
+	float getYPosition();
 };

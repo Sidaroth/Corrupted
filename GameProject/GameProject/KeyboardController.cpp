@@ -54,35 +54,35 @@ void KeyboardController::checkPressed(){
 	if (sf::Keyboard::isKeyPressed(Keys["foward"].myKeyCode))
 	{
 		if (sf::Keyboard::isKeyPressed(Keys["right"].myKeyCode)){
-			std::cout << "UP-RIGHT pressed" << std::endl;
+			//std::cout << "UP-RIGHT pressed" << std::endl;
 			player->move( player -> NORTH_EAST );
 		}else if(sf::Keyboard::isKeyPressed(Keys["left"].myKeyCode)){
-			std::cout << "UP-LEFT" << std::endl;
+			//std::cout << "UP-LEFT" << std::endl;
 			player->move( player -> NORTH_WEST );
 		}else{
-			std::cout << "UP pressed" << std::endl;
+			//std::cout << "UP pressed" << std::endl;
 			player->move( player -> NORTH );
 		}
 	}else if(sf::Keyboard::isKeyPressed(Keys["backward"].myKeyCode))
 	{
 		if (sf::Keyboard::isKeyPressed(Keys["right"].myKeyCode)){
-			std::cout << "DOWN-RIGHT" << std::endl;
+			//std::cout << "DOWN-RIGHT" << std::endl;
 			player->move( player -> SOUTH_EAST );
 		}else if(sf::Keyboard::isKeyPressed(Keys["left"].myKeyCode)){
-			std::cout << "DOWN LEFT" << std::endl;
+			//std::cout << "DOWN LEFT" << std::endl;
 			player->move( player -> SOUTH_WEST);
 		}else{
-			std::cout << "DOWN pressed" << std::endl;
+			//std::cout << "DOWN pressed" << std::endl;
 			player->move( player -> SOUTH );
 		}
 	}else
 	{
 		if (sf::Keyboard::isKeyPressed(Keys["right"].myKeyCode)){
-			std::cout << "RIGHT pressed" << std::endl;
+			//std::cout << "RIGHT pressed" << std::endl;
 			player->move( player -> EAST );
 		}
 		if (sf::Keyboard::isKeyPressed(Keys["left"].myKeyCode)){
-			std::cout << "LEFT pressed" << std::endl;
+			//std::cout << "LEFT pressed" << std::endl;
 			player->move( player -> WEST );
 		}
 	}
@@ -91,7 +91,7 @@ void KeyboardController::checkPressed(){
 	//OTHER ACTIONS
 	if (sf::Keyboard::isKeyPressed(Keys["skill_1"].myKeyCode))
 	{
-		std::cout << "Space pressed" << std::endl;
+		//std::cout << "Space pressed" << std::endl;
 	}
 
 }
