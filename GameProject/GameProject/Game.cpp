@@ -78,7 +78,7 @@ void Game::run()
 
 			if(tickCount % 60 == 0)
 			{
-				itoa(frames, fps, 10);
+				_itoa_s(frames, fps, 10);
 				std::cout << "fps: " << frames << std::endl;
 				text.setString(fps);
 				frames = 0;

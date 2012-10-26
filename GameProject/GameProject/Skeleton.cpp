@@ -28,3 +28,8 @@ void Skeleton::draw(sf::RenderWindow &window)
 {
 	window.draw(m_Sprite);
 }
+
+void Skeleton::update()
+{
+
+}
