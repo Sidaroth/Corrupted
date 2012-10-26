@@ -9,7 +9,7 @@ std::vector<Vector2f*> Enemy::findPath(Vector2f* startPos, Vector2f* goalPos)
 	Point* goal = new Point(*goalPos);
 	Point* current;
 	Point* child;
-	bool endReached = false;
+	bool goalReached = false;
 
 	std::list<Point*> openList;
 	std::list<Point*> closedList;
@@ -23,10 +23,44 @@ std::vector<Vector2f*> Enemy::findPath(Vector2f* startPos, Vector2f* goalPos)
 	openList.push_back(start);
 	start -> opened = true;
 
-	while(!endReached && loopsSoFar < NUMBER_OF_LOOPS)
+	while(!goalReached && loopsSoFar < NUMBER_OF_LOOPS)
 	{
+		for(i = openList.begin(); i != openList.end(); i++)
+		{
+			if(i == openList.begin())
+			{
+				current = (*i);
+			}
+				
+		}
 
+		if(current == goal)
+		{
+			goalReached = true;
+		}
+
+		openList.remove(current);
+		current -> opened = false;
+
+		closedList.push_back(current);
+		current -> closed = true;
+
+		// Get all walkable adjacent points X
+		// XXX
+		// XOX
+		// XXX		- O being the center / current
+		for(int x = -1; x <= 1; x++)
+		{
+			for(int y = -1; y <= 1; y++)
+			{
+				if(x == 0 && y == 0)
+				{
+					continue;
+				}
+			}
+		}
 	}
+
 
 	return finalPath;
 }

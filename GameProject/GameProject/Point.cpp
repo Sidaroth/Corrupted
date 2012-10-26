@@ -13,7 +13,13 @@ Point::Point()
 
 Point::Point(Vector2f position)
 {
-	Point();
+	parent = NULL;
+	closed = false;
+	opened = false;
+
+	f_cost = g_cost = h_cost = 0;
+	position.x = 0;
+	position.y = 0;
 
 	this -> position.x = position.x;
 	this -> position.y = position.y;
@@ -21,7 +27,17 @@ Point::Point(Vector2f position)
 
 Point::Point(Vector2f position, bool walkable)
 {
-	Point(position);
+	parent = NULL;
+	closed = false;
+	opened = false;
+
+	f_cost = g_cost = h_cost = 0;
+	position.x = 0;
+	position.y = 0;
+
+	this -> position.x = position.x;
+	this -> position.y = position.y;
+
 	this -> walkable = walkable;
 }
 
