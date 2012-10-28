@@ -6,13 +6,22 @@ void EnemyHandler::loadContent()
 	for(short i = 0; i < 3; i++)
 	{
 		m_EnemyVector.push_back(m_EnemyFactory -> createEnemy(m_EnemyFactory -> Skellie));
-		m_EnemyVector[i] -> loadContent();
+		
+		if(m_EnemyVector[i] != NULL)
+		{
+			m_EnemyVector[i] -> loadContent();
+		}
+		else
+		{
+			std::cout << "Something Broke in enemy creation..." << std::endl;
+			return;
+		}
 	}
 
 	// Temporarily done so that the enemies don't spawn on top of eachother, so we can see them all
 	for(short i = 0; i < 3; i++)
 	{
-		m_EnemyVector[i] -> setPosition(Vector2f(100 * (i + 5), 100 * (i + 5)));
+		m_EnemyVector[i] -> setPosition(Vector2f(float(100 * (i + 5)), float(100 * (i + 5))));
 	}
 }
 
@@ -40,7 +49,13 @@ void EnemyHandler::update()
 	}
 }
 
-void EnemyHandler::setCollisionMap(std::vector<bool>* collisionMap)
+void EnemyHandler::setCollisionMap(std::vector<bool>* collisionMap, int horizontalSize)
 {
+	this -> collisionMap = collisionMap;
+	m_HorizontalSize = horizontalSize;
 
+	for(unsigned short i = 0; i < m_EnemyVector.size(); i++)
+	{
+		m_EnemyVector[i] -> setCollisionMap(collisionMap, horizontalSize);
+	}
 }

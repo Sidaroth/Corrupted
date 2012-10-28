@@ -26,8 +26,9 @@ void Level1::loadContent()
 	text.setFont(font);
 
 	m_Level -> loadContent();
+
 	m_EnemyHandler -> loadContent();
-	m_EnemyHandler -> setCollisionMap(m_Level -> getObjectVector());
+	m_EnemyHandler -> setCollisionMap(m_Level -> getObjectVector(), m_Level -> getHorizontalBitmapSize());
 
 	player -> setPosition(m_Level -> getPlayerPosition());
 	keyControl = new KeyboardController(player);
@@ -60,6 +61,7 @@ void Level1::update()
 {
 	player -> animation();
 	keyControl->checkPressed();
+	m_EnemyHandler -> update();
 
 	m_Viewport.setCenter(player -> getXPosition(), player -> getYPosition());
 }

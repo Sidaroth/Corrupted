@@ -113,7 +113,6 @@
     <ClCompile Include="EnemyHandler.cpp" />
     <ClCompile Include="environment.cpp" />
     <ClCompile Include="Game.cpp" />
-    <ClCompile Include="GameState.cpp" />
     <ClCompile Include="KeyboardController.cpp" />
     <ClCompile Include="Level1.cpp" />
     <ClCompile Include="main.cpp" />

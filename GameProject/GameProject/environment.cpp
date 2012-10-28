@@ -45,7 +45,7 @@ bool EnvironmentHandler::loadContent( )
 
 void EnvironmentHandler::draw( sf::RenderWindow &window )
 {
-	for( int i = 0; i < m_sprites.size( ); i++ )
+	for(unsigned int i = 0; i < m_sprites.size( ); i++ )
 	{
 		window.draw( m_sprites[i] );
 	}
@@ -78,7 +78,7 @@ void EnvironmentHandler::createLevel( )
 	int spriteX = 0;
 	int spriteY = 0;
 
-	for( int i = 0; i < m_floorArray.size( ); i++ )
+	for(unsigned int i = 0; i < m_floorArray.size( ); i++ )
 	{
 		sprite.setTexture( m_tiles );
 		rgb = m_floorArray[i];
@@ -91,7 +91,7 @@ void EnvironmentHandler::createLevel( )
 			spriteY++;
 		}
 
-		sprite.setPosition( spriteX * TILESIZE , ( spriteY - 1 ) * TILESIZE );
+		sprite.setPosition( float(spriteX * TILESIZE) , float(( spriteY - 1 ) * TILESIZE) );
 		m_sprites.push_back( sprite );
 	}
 }
@@ -162,7 +162,7 @@ void EnvironmentHandler::checkWalls( )
 	bool right = false;
 	bool left = false;
 
-	for( int i = 0; i < m_sprites.size(); i++ )
+	for(unsigned int i = 0; i < m_sprites.size(); i++ )
 	{
 		//std::cout << "\nmod: " << i % m_iHorizontalBitmapSize;
 		above = false;
@@ -279,8 +279,8 @@ void EnvironmentHandler::findObjects()
 			}
 			else if( pixelColor.r == 255 && pixelColor.g == 0 && pixelColor.b == 255 )
 			{
-				m_playerPosition.x = i * TILESIZE;
-				m_playerPosition.y = j * TILESIZE;
+				m_playerPosition.x = float(i * TILESIZE);
+				m_playerPosition.y = float(j * TILESIZE);
 				m_objects.push_back( true );
 				//std::cout << '\n' << "vectorpos:  " << ( j * m_iHorizontalBitmapSize ) + i;
 			}
@@ -290,8 +290,8 @@ void EnvironmentHandler::findObjects()
 
 bool EnvironmentHandler::checkCollision( Vector2f playerPosition )
 {
-	int x = playerPosition.x / TILESIZE;
-	int y = playerPosition.y / TILESIZE;
+	int x = int(playerPosition.x / TILESIZE);
+	int y = int(playerPosition.y / TILESIZE);
 
 	//for(int i = 64*63; i <= 64*64; i++)
 	//{
@@ -328,4 +328,9 @@ Vector2f EnvironmentHandler::getPlayerPosition( )
 std::vector<bool>* EnvironmentHandler::getObjectVector()
 {
 	return &m_objects;
+}
+
+int EnvironmentHandler::getHorizontalBitmapSize()
+{
+	return m_iHorizontalBitmapSize;
 }

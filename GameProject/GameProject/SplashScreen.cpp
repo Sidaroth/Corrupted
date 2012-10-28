@@ -18,7 +18,6 @@ void SplashScreen::loadContent()
 
 	text.setPosition(100, 50);
 	text.setString("SplashScreen");
-	std::cout << "DAFAQ" << std::endl;
 	text.setFont(font);
 }
 

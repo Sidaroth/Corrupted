@@ -47,4 +47,5 @@ public:
 	Vector2f getPlayerPosition( );
 
 	std::vector<bool>* getObjectVector();
+	int getHorizontalBitmapSize();
 };

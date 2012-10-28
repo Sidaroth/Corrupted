@@ -30,8 +30,8 @@ public:
 	short h_cost;
 
 	Point();
-	Point(Vector2f position);
-	Point(Vector2f position, bool walkable);
+	Point(int x, int y);
+	Point(int x, int y, bool walkable);
 	
 	void  setParent(Point* parent);
 	short findGCost(Point* parent);

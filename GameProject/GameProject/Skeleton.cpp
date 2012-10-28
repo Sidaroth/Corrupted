@@ -2,7 +2,7 @@
 
 Skeleton::Skeleton()
 {
-	std::cout << "I'm being created! Yay!" << std::endl;
+
 }
 
 void Skeleton::sayHello()
@@ -31,5 +31,10 @@ void Skeleton::draw(sf::RenderWindow &window)
 
 void Skeleton::update()
 {
+	std::vector<Vector2f*> path = findPath(m_Sprite.getPosition().x, m_Sprite.getPosition().y, 600, 700);
 
+	//for(unsigned int i = 0; i < path.size(); i++)
+	//{
+	//	std::cout << "path " << i << ": " << path[i] << std::endl;
+	//}
 }

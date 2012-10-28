@@ -11,7 +11,7 @@ Point::Point()
 	position.y = 0;
 }
 
-Point::Point(Vector2f position)
+Point::Point(int x, int y)
 {
 	parent = NULL;
 	closed = false;
@@ -25,7 +25,7 @@ Point::Point(Vector2f position)
 	this -> position.y = position.y;
 }
 
-Point::Point(Vector2f position, bool walkable)
+Point::Point(int x, int y, bool walkable)
 {
 	parent = NULL;
 	closed = false;
@@ -35,8 +35,8 @@ Point::Point(Vector2f position, bool walkable)
 	position.x = 0;
 	position.y = 0;
 
-	this -> position.x = position.x;
-	this -> position.y = position.y;
+	this -> position.x = x;
+	this -> position.y = y;
 
 	this -> walkable = walkable;
 }
@@ -44,13 +44,16 @@ Point::Point(Vector2f position, bool walkable)
 /// Calculates the G Cost (distance from the start) 
 short Point::findGCost(Point* parent)
 {
-	if(position.x == parent -> position.x || position.y == parent -> position.y)
+	if(parent != NULL)
 	{
-		return parent -> g_cost + ORTHOGONAL_MOVEMENT_COST;
-	}
-	else
-	{
-		return parent -> g_cost + DIAGONAL_MOVEMENT_COST;
+		if(position.x == parent -> position.x || position.y == parent -> position.y)
+		{
+			return parent -> g_cost + ORTHOGONAL_MOVEMENT_COST;
+		}
+		else
+		{
+			return parent -> g_cost + DIAGONAL_MOVEMENT_COST;
+		}
 	}
 }
 
