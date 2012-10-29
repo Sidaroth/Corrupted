@@ -51,6 +51,8 @@ void KeyboardController::checkPressed(){
 	 if(!player->isDoingAction()){
 	//0=N, 1=NE, 2=E, 3=SE, 4=S, 5=SW, 6=W, 7=NW
 	//MOVEMENT
+
+
 	if (sf::Keyboard::isKeyPressed(Keys["foward"].myKeyCode))
 	{
 		if (sf::Keyboard::isKeyPressed(Keys["right"].myKeyCode)){
@@ -104,6 +106,10 @@ void KeyboardController::checkPressed(){
 		std::cout << "Position X: " << v_mouse_position.x << " Position Y: " << v_mouse_position.y << std::endl;
 		Vector2f* v2f_player_position;
 		v2f_player_position = player->getSpritePosition();
+
+		v2f_player_position->x=1366/2;
+		v2f_player_position->y=768/2;
+		//1366/2, 768/2
 		std::cout << " PLAYER Position X: " << v2f_player_position->x << "PLAYER  Position Y: " << v2f_player_position->y << std::endl;
 		Vector2f* v2f_atack_direction = new Vector2f();
 		float angle = atan2((v2f_player_position->y-v_mouse_position.y),(v2f_player_position->x-v_mouse_position.x));

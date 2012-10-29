@@ -52,6 +52,7 @@ public:
 	void moveVertical(bool verticalMovement,bool horizontalMovement);
 	void move(short direction);
 	void changeAnimationToWalk();
+	void changeAnimationToStand();
 	
 	enum abilities { FIREBALL, FROSTBOLT, LIGHTNINGBOLT };
 	enum directions { NORTH, NORTH_EAST, EAST, SOUTH_EAST, SOUTH, SOUTH_WEST, WEST, NORTH_WEST };

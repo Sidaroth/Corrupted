@@ -10,6 +10,15 @@ class Actor
 {
 protected:
 	sf::Texture m_Texture;
+	struct actionTexture
+	{
+		sf::Texture imgTexture;
+		int size;
+	};
+
+	std::map<std::string,actionTexture> m_TexturesActions;
+
+
 	Vector2f m_Position;		// Hmm.. Sprite has a position, so is this needed? we'll see...
 	sf::Sprite m_Sprite;
 	short m_shSpriteSize;		//The width/height of a frame in the spritesheet
