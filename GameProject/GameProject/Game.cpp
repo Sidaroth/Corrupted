@@ -81,6 +81,7 @@ void Game::run()
 			{
 				_itoa_s(frames, fps, 10);
 				std::cout << "fps: " << frames << std::endl;
+				frames_per_sec.setString(fps);
 				text.setString(fps);
 				frames = 0;
 			}
@@ -135,5 +136,6 @@ void Game::render()
 {
 	m_Window.clear(*m_BackgroundColor);
 	StateHandler::getInstance().draw(m_Window);
+	m_Window.draw(frames_per_sec);
 	m_Window.display();
 }
