@@ -36,7 +36,7 @@ void Level1::loadContent()
 	m_Viewport.reset(sf::FloatRect(0, 0, 1366, 768));
 	m_Viewport.setViewport(sf::FloatRect(0.0f, 0.0f,1.f, 1.0f));
 	m_Viewport.setCenter(1366/2, 768/2);
-	m_Viewport.zoom(1.5);
+	m_Viewport.zoom(1.0);
 }
 
 void Level1::unloadContent()
@@ -46,6 +46,7 @@ void Level1::unloadContent()
 
 void Level1::processEvents(sf::Event event)
 {
+		
 		if(sf::Keyboard::isKeyPressed(sf::Keyboard::T))
 		{
 			StateHandler::getInstance().addScreen(new TitleScreen);
@@ -55,13 +56,23 @@ void Level1::processEvents(sf::Event event)
 		{
 			StateHandler::getInstance().addScreen(new SplashScreen);
 		}
+
+
+		if (event.type == sf::Event::KeyReleased)
+		{
+			 if(!player->isDoingAction())
+			 {
+				player->changeAnimationToStand();
+			 }
+		}
 }
 
 void Level1::update()
 {
+	keyControl->checkPressed();
 	player -> animation();
 	player -> update();
-	keyControl->checkPressed();
+	
 	m_EnemyHandler -> update();
 
 	m_Viewport.setCenter(player -> getXPosition(), player -> getYPosition());

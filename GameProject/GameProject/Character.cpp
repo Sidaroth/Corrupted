@@ -29,11 +29,7 @@ void Character::attack(short row) ///0=N, 1=NE, 2=E, 3=SE, 4=S, 5=SW, 6=W, 7=NW
 	if(!m_bDoingAction){
 		
 		//This has to work totally different, if not, when the plaer holds the mouse button it is not working properly!
-		if (!m_Texture.loadFromFile("player_attack.png"))
-		{
-		}else{
-		m_Sprite.setTexture(m_Texture);
-		}
+		m_Sprite.setTexture(m_TexturesActions["attack"].imgTexture);
 		m_shBitmapCol = 0;
 		m_bDoingAction=true;
 
@@ -46,17 +42,17 @@ void Character::startAction(){
 }
 void Character::endAction(){
 	m_bDoingAction = false;
-	changeAnimationToWalk();
+	m_Sprite.setTexture(m_TexturesActions["still"].imgTexture);
 }
-//This function is just provisional (only for testing)
 void Character::changeAnimationToWalk(){
-	if (!m_Texture.loadFromFile("player.png"))
-	{
-	}else{
-	m_Sprite.setTexture(m_Texture);
-	}
-}
 	
+	m_Sprite.setTexture(m_TexturesActions["move"].imgTexture);
+}
+void Character::changeAnimationToStand(){
+	m_shBitmapCol = 0;
+	m_Sprite.setTexture(m_TexturesActions["still"].imgTexture);
+}
+		
 bool Character::isDoingAction(){
 	return m_bDoingAction;
 }
@@ -122,13 +118,17 @@ void Character::animation()  ///calculate frame for animation
 
 	m_shFrameCount += 1;
 
+	sf::Texture temptex;
+	m_Sprite.getTexture();
 	if(m_shFrameCount % ANIMATION_SPEED == 0)
 	{
+		
 		m_shBitmapCol += 1;
-		if ( ( m_shBitmapCol * m_shSpriteSize ) >= m_Texture.getSize( ).x - ( m_shSpriteSize ) )
+		if ( ( m_shBitmapCol * m_shSpriteSize ) >= m_Sprite.getTexture()->getSize().x - ( m_shSpriteSize ) )
 		{
-			m_shBitmapCol = 0;
 			endAction();
+			m_shBitmapCol = 0;
+			
 		}
 	}
 	setFrame();
@@ -141,6 +141,7 @@ void Character::setEnvironmentLevel(EnvironmentHandler* environmentLevel)
 
 void Character::move(short direction) // 0=N, 1=NE, 2=E, 3=SE, 4=S, 5=SW, 6=W, 7=NW
 {
+	changeAnimationToWalk();
 	// WE NEED TO CHECK IF THE PLAYER IS HITTING AN OBSTRUCTION HERE... (obstructions not yet implemented as of this writing)
 	Vector2f currentPos;
 	currentPos.x = m_Sprite.getPosition().x;
@@ -156,12 +157,12 @@ void Character::move(short direction) // 0=N, 1=NE, 2=E, 3=SE, 4=S, 5=SW, 6=W, 7
 			}
 		break;
 		case NORTH_EAST:
-			currentPos.x += 3;
-			currentPos.y -= 3;
+			currentPos.x += 1.2;
+			currentPos.y -= 1.2;
 			if( m_environmentLevel -> checkCollision( currentPos ) )
 			{
 				setBitmapRow( NORTH_EAST );
-				m_Sprite.move(3,-3);
+				m_Sprite.move(2.1,-2.1);
 			}
 		break;
 		case EAST:
@@ -173,12 +174,12 @@ void Character::move(short direction) // 0=N, 1=NE, 2=E, 3=SE, 4=S, 5=SW, 6=W, 7
 			}
 		break;
 		case SOUTH_EAST:
-			currentPos.x += 3;
-			currentPos.y += 3;
+			currentPos.x += 1.2;
+			currentPos.y += 1.2;
 			if( m_environmentLevel -> checkCollision( currentPos ) )
 			{
 				setBitmapRow( SOUTH_EAST );
-				m_Sprite.move(3,3);
+				m_Sprite.move(2.1,2.1);
 			}
 		break;
 		case SOUTH:
@@ -190,12 +191,12 @@ void Character::move(short direction) // 0=N, 1=NE, 2=E, 3=SE, 4=S, 5=SW, 6=W, 7
 			}
 		break;
 		case SOUTH_WEST:
-			currentPos.x -= 3;
-			currentPos.y += 3;
+			currentPos.x -= 1.2;
+			currentPos.y += 1.2;
 			if( m_environmentLevel -> checkCollision( currentPos ) )
 			{
 				setBitmapRow( SOUTH_WEST );
-				m_Sprite.move(-3,3);
+				m_Sprite.move(-2.1,2.1);
 			}
 		break;
 		case WEST:
@@ -207,12 +208,12 @@ void Character::move(short direction) // 0=N, 1=NE, 2=E, 3=SE, 4=S, 5=SW, 6=W, 7
 			}
 			break;
 		case NORTH_WEST:
-			currentPos.x -= 3;
-			currentPos.y -= 3;
+			currentPos.x -= 1.2;
+			currentPos.y -= 1.2;
 			if( m_environmentLevel -> checkCollision( currentPos ) )
 			{
 				setBitmapRow( NORTH_WEST );
-				m_Sprite.move(-3,-3);
+				m_Sprite.move(-2.1,-2.1);
 			}
 		break;
 	}
