@@ -60,6 +60,7 @@ void Level1::processEvents(sf::Event event)
 void Level1::update()
 {
 	player -> animation();
+	player -> update();
 	keyControl->checkPressed();
 	m_EnemyHandler -> update();
 
@@ -70,7 +71,7 @@ void Level1::draw(sf::RenderWindow &window)
 {
 	window.setView(m_Viewport);
 	m_Level -> draw(window);
-	player -> draw(window);
 	m_EnemyHandler -> draw(window);
 	window.draw(text);
+	player -> draw(window);
 }
