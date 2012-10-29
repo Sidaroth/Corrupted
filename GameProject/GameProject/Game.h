@@ -15,6 +15,7 @@ class Game
 {
 private:
 
+	sf::Text frames_per_sec;
 	sf::RenderWindow m_Window;
 	std::string m_sTitle;
 	short m_shScreenWidth;

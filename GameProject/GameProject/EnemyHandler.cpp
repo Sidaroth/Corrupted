@@ -21,7 +21,7 @@ void EnemyHandler::loadContent()
 	// Temporarily done so that the enemies don't spawn on top of eachother, so we can see them all
 	for(short i = 0; i < 3; i++)
 	{
-		m_EnemyVector[i] -> setPosition(Vector2f(float(100 * (i + 5)), float(100 * (i + 5))));
+		m_EnemyVector[i] -> setPosition(Vector2f(float(150 * (i + 5)), float(100 * (i + 5))));
 	}
 }
 

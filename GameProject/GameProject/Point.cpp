@@ -26,7 +26,7 @@ Point::Point(int x, int y)
 	xPosition = x;
 	yPosition = y;
 
-	std::cout << xPosition << ", " << yPosition << std::endl;
+	//std::cout << xPosition << ", " << yPosition << std::endl;
 
 
 	//m_Position.x = x;
@@ -61,7 +61,7 @@ short Point::findHCost(Point* goal)
 		short horizontalDistance = abs(goal -> xPosition - xPosition);
 		short verticalDistance = abs(goal -> yPosition - yPosition);
 		
-		return horizontalDistance + verticalDistance * ORTHOGONAL_MOVEMENT_COST;
+		return (horizontalDistance + verticalDistance) * ORTHOGONAL_MOVEMENT_COST;
 	}
 
 	return -1;
