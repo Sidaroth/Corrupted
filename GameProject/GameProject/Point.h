@@ -19,11 +19,10 @@
 class Point
 {
 public:
-	Vector2f position;
-	Point* parent;
-	bool closed;
-	bool opened;
-	bool walkable;
+//	Vector2f m_Position;
+	short xPosition;
+	short yPosition;
+	Point* m_Parent;
 
 	short f_cost;
 	short g_cost;
@@ -31,10 +30,9 @@ public:
 
 	Point();
 	Point(int x, int y);
-	Point(int x, int y, bool walkable);
 	
 	void  setParent(Point* parent);
-	short findGCost(Point* parent);
+	short findGCost();
 	short findHCost(Point* goal);
 	short findFCost(Point* goal);
 	Vector2f* findPosition();

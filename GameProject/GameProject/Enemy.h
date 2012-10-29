@@ -7,6 +7,7 @@
 #include "Point.h"
 
 #define TILESIZE 96
+#define getParent(m) (m - 1) / 2
 
 /// The generic class for our enemies. All types of enemies will inherit from this class
 class Enemy : public Character

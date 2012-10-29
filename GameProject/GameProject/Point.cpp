@@ -1,60 +1,54 @@
 #include "Point.h"
+#include <iostream>
+
 
 Point::Point()
 {
-	parent = NULL;
-	closed = false;
-	opened = false;
+	m_Parent = NULL;
 
 	f_cost = g_cost = h_cost = 0;
-	position.x = 0;
-	position.y = 0;
+
+	//m_Position.x = 0;
+	//m_Position.y = 0;
+
+	xPosition = 0;
+	yPosition = 0;
 }
 
 Point::Point(int x, int y)
 {
-	parent = NULL;
-	closed = false;
-	opened = false;
+	m_Parent = NULL;
 
 	f_cost = g_cost = h_cost = 0;
-	position.x = 0;
-	position.y = 0;
 
-	this -> position.x = position.x;
-	this -> position.y = position.y;
-}
 
-Point::Point(int x, int y, bool walkable)
-{
-	parent = NULL;
-	closed = false;
-	opened = false;
+	
+	xPosition = x;
+	yPosition = y;
 
-	f_cost = g_cost = h_cost = 0;
-	position.x = 0;
-	position.y = 0;
+	std::cout << xPosition << ", " << yPosition << std::endl;
 
-	this -> position.x = x;
-	this -> position.y = y;
 
-	this -> walkable = walkable;
+	//m_Position.x = x;
+	//m_Position.y = y;
 }
 
 /// Calculates the G Cost (distance from the start) 
-short Point::findGCost(Point* parent)
+short Point::findGCost()
 {
-	if(parent != NULL)
+	if(m_Parent != NULL)
 	{
-		if(position.x == parent -> position.x || position.y == parent -> position.y)
+		if(xPosition != m_Parent -> xPosition && yPosition != m_Parent -> yPosition)		// If not on the same row or column - means the move was diagonal. 
 		{
-			return parent -> g_cost + ORTHOGONAL_MOVEMENT_COST;
+			return m_Parent -> g_cost + DIAGONAL_MOVEMENT_COST;
 		}
 		else
 		{
-			return parent -> g_cost + DIAGONAL_MOVEMENT_COST;
+			return m_Parent -> g_cost + ORTHOGONAL_MOVEMENT_COST;
 		}
 	}
+	
+	return -1;
 }
 
 /// Calculates the H Cost (distance to the goal - Manhattan style) abs is used so it works "both ways"
@@ -62,17 +56,24 @@ short Point::findGCost(Point* parent)
 // (Will look into other heuristics functions later)
 short Point::findHCost(Point* goal)
 {
-	short horizontalDistance = abs(goal -> position.x - position.x);
-	short verticalDistance = abs(goal -> position.y - position.y);
-	return horizontalDistance + verticalDistance * ORTHOGONAL_MOVEMENT_COST;
+	if(goal != NULL)
+	{
+		short horizontalDistance = abs(goal -> xPosition - xPosition);
+		short verticalDistance = abs(goal -> yPosition - yPosition);
+		
+		return horizontalDistance + verticalDistance * ORTHOGONAL_MOVEMENT_COST;
+	}
+
+	return -1;
 }
 
 /// Calculates the F cost (The cost of moving to this node, in essence the heuristic(H) + path-cost so far(G)
 short Point::findFCost(Point* goal)
 {
-	g_cost = findGCost(parent);
+	g_cost = findGCost();
 	h_cost = findHCost(goal);
 	f_cost = g_cost + h_cost;
+
 	return f_cost;
 }
 
@@ -80,19 +81,24 @@ short Point::findFCost(Point* goal)
 /// Checks if the point(node) has a parent. Used in backtracking / recreating the best path.
 bool Point::hasParent()
 {
-	return parent != NULL;
+	return m_Parent != NULL;
 }
 
 /// Finds the position on the tileset (hence the 96.0f - Tilesize)
 Vector2f* Point::findPosition()
 {
-	return new Vector2f(position.x * 96.0f, position.y * 96.0f);
+	return 0; //new Vector2f(m_Position.x * 96.0f, m_Position.y * 96.0f);
+}
+
+void Point::setParent(Point* parent)
+{
+	m_Parent = parent;
 }
 
 ////////////////// GETTERS ////////////////////
 Point* Point::getParent()
 {
-	return parent;
+	return m_Parent;
 }
 
 short Point::getFCost()
