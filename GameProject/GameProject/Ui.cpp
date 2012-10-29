@@ -22,9 +22,9 @@ bool Ui::loadContent()
 	m_uiBackgroundSprite.setTexture(m_uiBackground);
 	m_uiBackgroundSprite.setPosition(0, 0);
 
-	text.setPosition(100, 50);
-	text.setString("THIS IS THE CURRENT GUI");
-	text.setFont(font);
+	titleText.setPosition(100, 50);
+	titleText.setString("THIS IS THE CURRENT GUI");
+	titleText.setFont(font);
 }
 
 void Ui::unloadContent()
@@ -41,7 +41,7 @@ void Ui::draw(sf::RenderWindow &window)
 {
 	window.setView(m_view);
 
-	window.draw(text);
+	window.draw(titleText);
 	window.draw(m_uiBackgroundSprite);
 
 	window.setView(window.getDefaultView());

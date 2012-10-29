@@ -22,19 +22,17 @@ bool Player::loadContent()
 	m_Sprite.setTexture(m_Texture);
 	animation();
 
-	ui = new Ui();
-	ui->loadContent();
+	
 
 	return 0;
 }
 
 void Player::update() 
 {
-	ui->update();
+	
 }
 
 void Player::draw(sf::RenderWindow &window)
 {
 	window.draw(m_Sprite);
-	ui->draw(window);
 }

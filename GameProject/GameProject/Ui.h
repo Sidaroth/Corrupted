@@ -10,8 +10,9 @@ private:
 	sf::Texture m_uiBackground;
 	sf::Sprite m_uiBackgroundSprite;
 	
-	sf::Text text;
 	sf::Font font;
+	sf::Text titleText;
+	sf::Text statText;
 
 public:
 	Ui();

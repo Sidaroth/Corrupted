@@ -99,6 +99,7 @@
     <ClInclude Include="Point.h" />
     <ClInclude Include="Skeleton.h" />
     <ClInclude Include="SplashScreen.h" />
+    <ClInclude Include="SuperLevel.h" />
     <ClInclude Include="tinyxml2.h" />
     <ClInclude Include="StateHandler.h" />
     <ClInclude Include="GameState.h" />
@@ -122,6 +123,7 @@
     <ClCompile Include="Skeleton.cpp" />
     <ClCompile Include="SplashScreen.cpp" />
     <ClCompile Include="StateHandler.cpp" />
+    <ClCompile Include="SuperLevel.cpp" />
     <ClCompile Include="tinyxml2.cpp" />
     <ClCompile Include="TitleScreen.cpp" />
     <ClCompile Include="Ui.cpp" />

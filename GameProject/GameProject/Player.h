@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Character.h"
-#include "Ui.h"
+
 
 class Player : public Character
 {
@@ -13,8 +13,6 @@ private:
 	short m_shArmorLevel; 
 
 	std::string m_sName;
-	Ui* ui;
-
 
 
 protected:
