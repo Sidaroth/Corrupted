@@ -141,7 +141,7 @@ void Game::processEvents()
 			StateHandler::getInstance().addScreen(new TitleScreen);
 		}
 
-		if(sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+		if(sf::Keyboard::isKeyPressed(sf::Keyboard::Y))
 		{
 			StateHandler::getInstance().addScreen(new SplashScreen);
 		}

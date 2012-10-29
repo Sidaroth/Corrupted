@@ -19,13 +19,13 @@ private:
 	short m_shFrameCount;
 	float m_fCriticalChance;	///Chance to crit, 1 = 0%, 1.01 = 1% etc.
 	bool* m_bAbilities;
-
+	bool m_bDoingAction;
 protected:
 	Character();
 	Character(int variablesHere); // TEMPORARY. 
 
 public:
-	void attack();
+	void attack(short row); ///0=N, 1=NE, 2=E, 3=SE, 4=S, 5=SW, 6=W, 7=NW
 
 	///////GET FUNCTIONS///////
 	short getHealth();
@@ -45,7 +45,10 @@ public:
 	void moveHorizontal(bool horizontalMovement,bool verticalMovement);
 	void moveVertical(bool verticalMovement,bool horizontalMovement);
 	void move(short direction);
-
+	void changeAnimationToWalk();
 	void showDamage();	// wut wut
 	void showHealth();	
+	void startAction();
+	void endAction();
+	bool isDoingAction();
 };

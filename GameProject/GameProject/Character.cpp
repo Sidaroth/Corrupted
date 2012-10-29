@@ -1,5 +1,5 @@
 #include "Character.h"
-
+#include <time.h>
 //////////////////////////// CONSTRUCTORS ////////////////////////
 
 const short BASE_STAT = 5;
@@ -11,7 +11,7 @@ Character::Character() : Actor()
 	m_shToughness = BASE_STAT;
 	m_shIntelligence = BASE_STAT;
 	m_shStrength = BASE_STAT;
-
+	m_bDoingAction = false;
 	m_shBitmapRow = 0;
 	m_shBitmapCol = 0;
 	m_shFrameCount = 0;
@@ -22,9 +22,43 @@ Character::Character() : Actor()
 	m_bAbilities = new bool[false, false, false];
 }
 
-void Character::attack()
+void Character::attack(short row) ///0=N, 1=NE, 2=E, 3=SE, 4=S, 5=SW, 6=W, 7=NW
 {
+	setBitmapRow(row);
 	
+	if(!m_bDoingAction){
+		
+		//This has to work totally different, if not, when the plaer holds the mouse button it is not working properly!
+		if (!m_Texture.loadFromFile("player_attack.png"))
+		{
+		}else{
+		m_Sprite.setTexture(m_Texture);
+		}
+		m_shBitmapCol = 0;
+		m_bDoingAction=true;
+
+	}
+	
+}
+
+void Character::startAction(){
+	m_bDoingAction = true;
+}
+void Character::endAction(){
+	m_bDoingAction = false;
+	changeAnimationToWalk();
+}
+//This function is just provisional (only for testing)
+void Character::changeAnimationToWalk(){
+	if (!m_Texture.loadFromFile("player.png"))
+	{
+	}else{
+	m_Sprite.setTexture(m_Texture);
+	}
+}
+	
+bool Character::isDoingAction(){
+	return m_bDoingAction;
 }
 
 short Character::getHealth()
@@ -95,8 +129,9 @@ void Character::animation()  ///calculate frame for animation
 		if ( ( m_shBitmapCol * m_shSpriteSize ) >= m_Texture.getSize( ).x - ( m_shSpriteSize ) )
 		{
 			m_shBitmapCol = 0;
+			endAction();
 		}
-		std::cout << m_shBitmapCol;
+		//std::cout << m_shBitmapCol;
 	}
 	setFrame();
 }

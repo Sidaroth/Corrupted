@@ -26,6 +26,16 @@ void Actor::setPosition(int x, int y)
 Vector2f* Actor::getPosition()
 {
 	return &m_Position;
+	
+}
+
+Vector2f* Actor::getSpritePosition(){
+	Vector2f* auxVector = new Vector2f();
+	sf::FloatRect bounds = m_Sprite.getLocalBounds();
+	auxVector ->x =m_Sprite.getPosition().x+(bounds.width/2);
+	auxVector ->y = m_Sprite.getPosition().y+(bounds.height/2);
+
+	return  auxVector;
 }
 
 void Actor::setSprite()
@@ -41,6 +51,7 @@ bool Actor::loadContent()
 	}
 	
 	m_Sprite.setTexture(m_Texture);
+	
 }
 
 void Actor::setSpriteSize(short size)

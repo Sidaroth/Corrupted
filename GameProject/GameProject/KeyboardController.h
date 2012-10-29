@@ -5,6 +5,8 @@
 #include <fstream>
 #include "tinyxml2.h"
 #include "Player.h"
+#include <vector>
+#include <math.h>
 
 #pragma once
 

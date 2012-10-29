@@ -1,6 +1,7 @@
 #include "Vector2f.h"	
 #include <iostream>
 #include "SFML/Graphics.hpp"
+#include <SFML/Window.hpp>
 
 #pragma once		// make sure it's only included once. 
 
@@ -19,7 +20,9 @@ protected:
 	virtual bool loadContent();
 
 public:
+
 	// Do we need all these constructors?
+	Vector2f* getSpritePosition();
 	void draw();
 	sf::Sprite getSprite();
 	Actor();
