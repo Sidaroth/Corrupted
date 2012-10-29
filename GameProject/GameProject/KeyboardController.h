@@ -1,3 +1,5 @@
+#pragma once
+
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
 #include <stdlib.h>
@@ -8,7 +10,7 @@
 #include <vector>
 #include <math.h>
 
-#pragma once
+
 
 class KeyboardController 
 {

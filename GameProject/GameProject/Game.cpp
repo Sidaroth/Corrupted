@@ -1,5 +1,6 @@
 #include "Game.h"
 #include "Player.h"
+#include "SplashScreen.h"
 #include "StateHandler.h"
 
 Game::Game()
@@ -9,7 +10,7 @@ Game::Game()
 	m_shScreenHeight = 600;
 	m_shScreenBitColor = 32;
 	m_bRunning = false;
-	m_BackgroundColor = new sf::Color(106, 76, 48, 255);
+	m_BackgroundColor = new sf::Color(0, 0, 0, 255);
 	m_Window.create(sf::VideoMode(m_shScreenWidth, m_shScreenHeight, m_shScreenBitColor), m_sTitle);
 	
 	//keyControl.loadXML();
@@ -18,11 +19,9 @@ Game::Game()
 void Game::initialize(const char* title, short width, short height, short bitPP, bool fullscreen)
 {
 	StateHandler::getInstance().initalize();
+	StateHandler::getInstance().setStartState(new SplashScreen());
 	StateHandler::getInstance().loadContent();
 
-	player = new Player();
-	player -> loadContent();
-	keyControl = new KeyboardController(player);
 	m_sTitle = title;
 	m_shScreenWidth = width;
 	m_shScreenHeight = height;
@@ -55,7 +54,6 @@ void Game::run()
 	sf::Time currentTime;
 	sf::Time passedTime;
 
-
 	char fps[10];
 
 	int tickCount = 0;
@@ -75,36 +73,33 @@ void Game::run()
 
 		while( unprocessedSeconds > secondsPerTick )
 		{
-			update();
 			unprocessedSeconds -= secondsPerTick;
 			ticked = true;
 			tickCount++;
 
 			if(tickCount % 60 == 0)
 			{
-				itoa(frames, fps, 10);
+				_itoa_s(frames, fps, 10);
 				std::cout << "fps: " << frames << std::endl;
 				text.setString(fps);
 				frames = 0;
 			}
-			keyControl->checkPressed();
 		}
-
 
 		if(ticked)
 		{
 			processEvents();
-			//update game state here
-			render();
-			frames++;
+			update();
+			
 		}
+		render();
+		frames++;
 	}
 }
 
 void Game::deInitialize()
 {
 	// uninitialize stuff
-	return;
 }
 
 void Game::update()
@@ -126,25 +121,13 @@ void Game::processEvents()
 	sf::Event event;
 	while (m_Window.pollEvent( event ))
 	{
-		
-		if((sf::Event::Closed) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)))
+		if(event.type == sf::Event::Closed || (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)))
 		{
 			m_Window.close();
 			m_bRunning = false;
 		}
 
-	//	keyControl->checkPressed();
-		
-
-		if(sf::Keyboard::isKeyPressed(sf::Keyboard::T))
-		{
-			StateHandler::getInstance().addScreen(new TitleScreen);
-		}
-
-		if(sf::Keyboard::isKeyPressed(sf::Keyboard::Y))
-		{
-			StateHandler::getInstance().addScreen(new SplashScreen);
-		}
+		StateHandler::getInstance().processEvents(event);
 	}
 }
 
@@ -152,7 +135,5 @@ void Game::render()
 {
 	m_Window.clear(*m_BackgroundColor);
 	StateHandler::getInstance().draw(m_Window);
-	player->animation();
-	m_Window.draw(player -> getSprite());
 	m_Window.display();
 }

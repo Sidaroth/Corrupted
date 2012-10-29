@@ -1,12 +1,13 @@
-#include "Actor.h"
-
 #pragma once
+
+#include "Actor.h"
+#include "Environment.h"
+
 
 class Character : public Actor
 {
 private: 
-	enum abilities { FIREBALL, FROSTBOLT, LIGHTNINGBOLT };
-	abilities m_eAbilities;
+	
 	short m_shHealth;
 	short m_shDamage;
 	short m_shSpeed;
@@ -14,12 +15,14 @@ private:
 	short m_shIntelligence;
 	short m_shStrength;
 	short m_shLevel;
-	short m_shBitmapRow;		///What frame of the animation from the spritesheet to display
-	short m_shBitmapCol;		///What animation to display from the spritesheet
+	short m_shBitmapRow;		/// What frame of the animation from the spritesheet to display
+	short m_shBitmapCol;		/// What animation to display from the spritesheet
 	short m_shFrameCount;
-	float m_fCriticalChance;	///Chance to crit, 1 = 0%, 1.01 = 1% etc.
+	float m_fCriticalChance;	/// Chance to crit, 1 = 0%, 1.01 = 1% etc.
 	bool* m_bAbilities;
 	bool m_bDoingAction;
+	EnvironmentHandler* m_environmentLevel;
+
 protected:
 	Character();
 	Character(int variablesHere); // TEMPORARY. 
@@ -36,16 +39,22 @@ public:
 	short getStrength();
 	short getLevel();
 	bool* getAbilities();
+	
 
 	////////SET FUNCTIONS//////
 	void setFrame();				///set the correct frame in the animation
 	void setBitmapRow(short row);		///1=N, 2=NE, 3=E, 4=SE, 5=S, 6=SW, 7=W, 8=NW
+	void setEnvironmentLevel(EnvironmentHandler* environmentLevel);
+
 	void animation();				///calculate the correct frame to be set in setFrame
 	
 	void moveHorizontal(bool horizontalMovement,bool verticalMovement);
 	void moveVertical(bool verticalMovement,bool horizontalMovement);
 	void move(short direction);
 	void changeAnimationToWalk();
+	
+	enum abilities { FIREBALL, FROSTBOLT, LIGHTNINGBOLT };
+	enum directions { NORTH, NORTH_EAST, EAST, SOUTH_EAST, SOUTH, SOUTH_WEST, WEST, NORTH_WEST };
 	void showDamage();	// wut wut
 	void showHealth();	
 	void startAction();

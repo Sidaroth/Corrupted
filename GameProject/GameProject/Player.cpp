@@ -12,12 +12,29 @@ Player::Player() : Character()
 
 bool Player::loadContent()
 {
-	if (!m_Texture.loadFromFile("player.png"))
+	sf::Image maskingImage;
+	if (!maskingImage.loadFromFile("../../Resources/player.png"))
 	{
 		return EXIT_FAILURE;
 	}
-
+	maskingImage.createMaskFromColor(sf::Color (106, 76, 48), 0);
+	m_Texture.loadFromImage( maskingImage );
 	m_Sprite.setTexture(m_Texture);
 	animation();
+
+	ui = new Ui();
+	ui->loadContent();
+
 	return 0;
+}
+
+void Player::update() 
+{
+	ui->update();
+}
+
+void Player::draw(sf::RenderWindow &window)
+{
+	window.draw(m_Sprite);
+	ui->draw(window);
 }

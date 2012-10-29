@@ -1,21 +1,24 @@
 #pragma once
 
 #include "GameState.h"
-#include "StateHandler.h"
 
-class TitleScreen : public GameState
-{
+class Ui {
+
 private:
+	sf::View m_view;
+
+	sf::Texture m_uiBackground;
+	sf::Sprite m_uiBackgroundSprite;
+	
 	sf::Text text;
 	sf::Font font;
 
 public:
-	TitleScreen();
-	~TitleScreen();
+	Ui();
+	~Ui();
 
-	void loadContent();
+	bool loadContent();
 	void unloadContent();
-	void processEvents(sf::Event event);
 	void update();
 	void draw(sf::RenderWindow &window);
 };

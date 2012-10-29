@@ -1,9 +1,10 @@
+#pragma once		// make sure it's only included once. 
+
 #include "Vector2f.h"	
 #include <iostream>
 #include "SFML/Graphics.hpp"
 #include <SFML/Window.hpp>
 
-#pragma once		// make sure it's only included once. 
 
 class Actor
 {
@@ -13,8 +14,6 @@ protected:
 	sf::Sprite m_Sprite;
 	short m_shSpriteSize;		//The width/height of a frame in the spritesheet
 
-	void setPosition(int x, int y);
-	Vector2f* getPosition();
 	void setSprite();
 
 	virtual bool loadContent();
@@ -23,6 +22,7 @@ public:
 
 	// Do we need all these constructors?
 	Vector2f* getSpritePosition();
+	void setPosition(Vector2f newPos);
 	void draw();
 	sf::Sprite getSprite();
 	Actor();
@@ -30,4 +30,8 @@ public:
 	Actor(int x, int y, sf::Sprite sprite);
 	Actor(sf::Sprite sprite);
 	void setSpriteSize(short size);
+
+	Vector2f* getPosition();
+	float getXPosition();
+	float getYPosition();
 };

@@ -54,36 +54,36 @@ void KeyboardController::checkPressed(){
 	if (sf::Keyboard::isKeyPressed(Keys["foward"].myKeyCode))
 	{
 		if (sf::Keyboard::isKeyPressed(Keys["right"].myKeyCode)){
-			std::cout << "UP-RIGHT pressed" << std::endl;
-			player->move(1);
+			//std::cout << "UP-RIGHT pressed" << std::endl;
+			player->move( player -> NORTH_EAST );
 		}else if(sf::Keyboard::isKeyPressed(Keys["left"].myKeyCode)){
-			std::cout << "UP-LEFT" << std::endl;
-			player->move(7);
+			//std::cout << "UP-LEFT" << std::endl;
+			player->move( player -> NORTH_WEST );
 		}else{
-			std::cout << "UP pressed" << std::endl;
-			player->move(0);
+			//std::cout << "UP pressed" << std::endl;
+			player->move( player -> NORTH );
 		}
 	}else if(sf::Keyboard::isKeyPressed(Keys["backward"].myKeyCode))
 	{
 		if (sf::Keyboard::isKeyPressed(Keys["right"].myKeyCode)){
-			std::cout << "DOWN-RIGHT" << std::endl;
-			player->move(3);
+			//std::cout << "DOWN-RIGHT" << std::endl;
+			player->move( player -> SOUTH_EAST );
 		}else if(sf::Keyboard::isKeyPressed(Keys["left"].myKeyCode)){
-			std::cout << "DOWN LEFT" << std::endl;
-			player->move(5);
+			//std::cout << "DOWN LEFT" << std::endl;
+			player->move( player -> SOUTH_WEST);
 		}else{
-			std::cout << "DOWN pressed" << std::endl;
-			player->move(4);
+			//std::cout << "DOWN pressed" << std::endl;
+			player->move( player -> SOUTH );
 		}
 	}else
 	{
 		if (sf::Keyboard::isKeyPressed(Keys["right"].myKeyCode)){
-			std::cout << "RIGHT pressed" << std::endl;
-			player->move(2);
+			//std::cout << "RIGHT pressed" << std::endl;
+			player->move( player -> EAST );
 		}
 		if (sf::Keyboard::isKeyPressed(Keys["left"].myKeyCode)){
-			std::cout << "LEFT pressed" << std::endl;
-			player->move(6);
+			//std::cout << "LEFT pressed" << std::endl;
+			player->move( player -> WEST );
 		}
 	}
 	
@@ -91,7 +91,7 @@ void KeyboardController::checkPressed(){
 	//OTHER ACTIONS
 	if (sf::Keyboard::isKeyPressed(Keys["skill_1"].myKeyCode))
 	{
-		std::cout << "Space pressed" << std::endl;
+		//std::cout << "Space pressed" << std::endl;
 	}
 	if(sf::Mouse::isButtonPressed(Keys["shoot" ].myMouseButton)){
 		std::cout << "Mouse left pressed" << std::endl;

@@ -108,7 +108,6 @@ void Character::setFrame()	///set subRect
 	subRect.top = m_shBitmapRow * m_shSpriteSize;
 	subRect.width = m_shSpriteSize;
 	subRect.height = m_shSpriteSize;
-
 	m_Sprite.setTextureRect(subRect);
 }
 
@@ -131,86 +130,92 @@ void Character::animation()  ///calculate frame for animation
 			m_shBitmapCol = 0;
 			endAction();
 		}
-		//std::cout << m_shBitmapCol;
 	}
 	setFrame();
 }
 
-// Horizontal movement true means the character moves RIGHT / false means LEFT
-void Character::moveHorizontal(bool horizontalMovement,bool verticalMovement)
+void Character::setEnvironmentLevel(EnvironmentHandler* environmentLevel)
 {
-	// WE NEED TO CHECK IF THE PLAYER IS HITTING AN OBSTRUCTION HERE... (obstructions not yet implemented as of this writing)
-	
-	if(horizontalMovement)
-	{
-		setBitmapRow(6);
-		m_Sprite.move(-3,0);
-	}
-	else
-	{
-		setBitmapRow(2);
-		m_Sprite.move(3,0);
-	}
+	m_environmentLevel = environmentLevel;
 }
 
-void Character::move(short direction) //0=N, 1=NE, 2=E, 3=SE, 4=S, 5=SW, 6=W, 7=NW
+void Character::move(short direction) // 0=N, 1=NE, 2=E, 3=SE, 4=S, 5=SW, 6=W, 7=NW
 {
 	// WE NEED TO CHECK IF THE PLAYER IS HITTING AN OBSTRUCTION HERE... (obstructions not yet implemented as of this writing)
-	
-	switch (direction){
-		
-		case 0:
-			setBitmapRow(0);
-			m_Sprite.move(0,-3);
+	Vector2f currentPos;
+	currentPos.x = m_Sprite.getPosition().x;
+	currentPos.y = m_Sprite.getPosition().y;
+	switch (direction)
+	{	
+		case NORTH:
+			currentPos.y -= 3;
+			if( m_environmentLevel -> checkCollision( currentPos ) )
+			{
+				setBitmapRow( NORTH );
+				m_Sprite.move(0,-3);
+			}
 		break;
-		case 1:
-			setBitmapRow(1);
-			m_Sprite.move(3,-3);
+		case NORTH_EAST:
+			currentPos.x += 3;
+			currentPos.y -= 3;
+			if( m_environmentLevel -> checkCollision( currentPos ) )
+			{
+				setBitmapRow( NORTH_EAST );
+				m_Sprite.move(3,-3);
+			}
 		break;
-		case 2:
-			setBitmapRow(2);
-			m_Sprite.move(3,0);
+		case EAST:
+			currentPos.x += 3;
+			if( m_environmentLevel -> checkCollision( currentPos ) )
+			{
+				setBitmapRow( EAST );
+				m_Sprite.move(3,0);
+			}
 		break;
-		case 3:
-			setBitmapRow(3);
-			m_Sprite.move(3,3);
+		case SOUTH_EAST:
+			currentPos.x += 3;
+			currentPos.y += 3;
+			if( m_environmentLevel -> checkCollision( currentPos ) )
+			{
+				setBitmapRow( SOUTH_EAST );
+				m_Sprite.move(3,3);
+			}
 		break;
-		case 4:
-			setBitmapRow(4);
-			m_Sprite.move(0,3);
+		case SOUTH:
+			currentPos.y += 3;
+			if( m_environmentLevel -> checkCollision( currentPos ) )
+			{
+				setBitmapRow( SOUTH );
+				m_Sprite.move(0,3);
+			}
 		break;
-		case 5:
-			setBitmapRow(5);
-			m_Sprite.move(-3,3);
+		case SOUTH_WEST:
+			currentPos.x -= 3;
+			currentPos.y += 3;
+			if( m_environmentLevel -> checkCollision( currentPos ) )
+			{
+				setBitmapRow( SOUTH_WEST );
+				m_Sprite.move(-3,3);
+			}
 		break;
-		case 6:
-			setBitmapRow(6);
-			m_Sprite.move(-3,0);
+		case WEST:
+			currentPos.x -= 3;
+			if( m_environmentLevel -> checkCollision( currentPos ) )
+			{
+				setBitmapRow( WEST );
+				m_Sprite.move(-3,0);
+			}
 			break;
-		case 7:
-			setBitmapRow(7);
-			m_Sprite.move(-3,-3);
+		case NORTH_WEST:
+			currentPos.x -= 3;
+			currentPos.y -= 3;
+			if( m_environmentLevel -> checkCollision( currentPos ) )
+			{
+				setBitmapRow( NORTH_WEST );
+				m_Sprite.move(-3,-3);
+			}
 		break;
-
 	}
-
-}
-
-
-// Vertical movement true means the character moves UP / false means DOWN
-void Character::moveVertical(bool verticalMovement, bool horizontalMovement)
-{
-	if(verticalMovement)
-	{
-		setBitmapRow(0);
-		m_Sprite.move(0,-3);
-	}
-	else
-	{
-		setBitmapRow(4);
-		m_Sprite.move(0,3);
-	}
-	// WE NEED TO CHECK IF THE PLAYER IS HITTING AN OBSTRUCTION HERE... (obstructions not yet implemented as of this writing)
 }
 
 //////////////////////
