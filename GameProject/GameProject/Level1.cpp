@@ -40,6 +40,7 @@ void Level1::unloadContent()
 void Level1::update()
 {
 	player -> animation();
+	player -> update();
 	keyControl->checkPressed();
 
 	m_Viewport.setCenter(player -> getXPosition(), player -> getYPosition());
@@ -49,7 +50,7 @@ void Level1::draw(sf::RenderWindow &window)
 {
 	window.setView(m_Viewport);
 	m_Level -> draw(window);
-	player -> draw(window);
 	m_EnemyHandler -> draw(window);
 	window.draw(text);
+	player -> draw(window);
 }
