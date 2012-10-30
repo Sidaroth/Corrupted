@@ -14,31 +14,31 @@ Level1::Level1()
 void Level1::loadContent()
 {
 	superLoadContent();
-	if(!font.loadFromFile("../../Resources/impact.ttf"))
-	{
-		std::cout << "Could not load font" << std::endl;
-	}
+	//if(!font.loadFromFile("../../Resources/impact.ttf"))
+	//{
+	//	std::cout << "Could not load font" << std::endl;
+	//}
 
-	player = new Player();
-	player -> loadContent();	
-	player -> setEnvironmentLevel(m_Level);
+	//player = new Player();
+	//player -> loadContent();	
+	//player -> setEnvironmentLevel(m_Level);
 
 	text.setPosition(100, 50);
 	text.setString("Level 1");
 	text.setFont(font);
 
-	m_Level -> loadContent();
+	//m_Level -> loadContent();
 
-	m_EnemyHandler -> loadContent();
-	m_EnemyHandler -> setCollisionMap(m_Level -> getObjectVector(), m_Level -> getHorizontalBitmapSize());
+	//m_EnemyHandler -> loadContent();
+	//m_EnemyHandler -> setCollisionMap(m_Level -> getObjectVector(), m_Level -> getHorizontalBitmapSize());
 
-	player -> setPosition(m_Level -> getPlayerPosition());
-	keyControl = new KeyboardController(player);
-	
-	m_Viewport.reset(sf::FloatRect(0, 0, 1366, 768));
-	m_Viewport.setViewport(sf::FloatRect(0.0f, 0.0f,1.f, 1.0f));
-	m_Viewport.setCenter(1366/2, 768/2);
-	m_Viewport.zoom(1.0);
+	//player -> setPosition(m_Level -> getPlayerPosition());
+	//keyControl = new KeyboardController(player);
+	//
+	//m_Viewport.reset(sf::FloatRect(0, 0, 1366, 768));
+	//m_Viewport.setViewport(sf::FloatRect(0.0f, 0.0f,1.f, 1.0f));
+	//m_Viewport.setCenter(1366/2, 768/2);
+	//m_Viewport.zoom(1.0);
 }
 /*
 void Level1::unloadContent()
@@ -85,9 +85,9 @@ void Level1::draw(sf::RenderWindow &window)
 {
 		superDraw(window);
 		window.draw(text);
-	window.setView(m_Viewport);
-	m_Level -> draw(window);
-	m_EnemyHandler -> draw(window);
-	window.draw(text);
-	player -> draw(window);
+	//window.setView(m_Viewport);
+	//m_Level -> draw(window);
+	//m_EnemyHandler -> draw(window);
+	//window.draw(text);
+	//player -> draw(window);
 }
