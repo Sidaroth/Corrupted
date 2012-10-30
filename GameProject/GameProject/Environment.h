@@ -38,7 +38,7 @@ private:
 public:
 	EnvironmentHandler( );
 	bool loadContent( );
-	void draw( sf::RenderWindow &window );
+	void draw();
 	void bitmapToArray( );
 	void createLevel( );
 	sf::IntRect colorChart( struct RGB );

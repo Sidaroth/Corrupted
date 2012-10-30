@@ -21,5 +21,5 @@ public:
 	bool loadContent();
 	void unloadContent();
 	void update();
-	void draw(sf::RenderWindow &window);
+	void draw();
 };

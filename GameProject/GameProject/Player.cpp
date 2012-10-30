@@ -1,4 +1,5 @@
 #include "Player.h"
+#include "StateHandler.h"
 
 Player::Player() : Character()
 {
@@ -56,7 +57,7 @@ void Player::update()
 	
 }
 
-void Player::draw(sf::RenderWindow &window)
+void Player::draw()
 {
-	window.draw(m_Sprite);
+	StateHandler::getInstance().m_pWindow->draw(m_Sprite);
 }

@@ -13,9 +13,9 @@ public:
 	TitleScreen();
 	~TitleScreen();
 
-	void loadContent();
+	void loadContent(sf::RenderWindow* window);
 	void unloadContent();
 	void processEvents(sf::Event event);
 	void update();
-	void draw(sf::RenderWindow &window);
+	void draw();
 };

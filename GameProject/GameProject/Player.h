@@ -23,5 +23,5 @@ public:
 	Player(std::string name);
 	bool loadContent();
 	void update();
-	void draw(sf::RenderWindow &window);
+	void draw();
 };

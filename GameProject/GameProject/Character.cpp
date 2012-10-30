@@ -114,7 +114,7 @@ void Character::setBitmapRow(short row)		///0=N, 1=NE, 2=E, 3=SE, 4=S, 5=SW, 6=W
 
 void Character::animation()  ///calculate frame for animation
 {
-	const int ANIMATION_SPEED = 5;  ///Amount of frame per seconds
+	const int ANIMATION_SPEED = 4;  ///Amount of frame per seconds
 
 	m_shFrameCount += 1;
 

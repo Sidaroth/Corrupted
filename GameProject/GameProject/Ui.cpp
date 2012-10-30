@@ -1,4 +1,5 @@
 #include "Ui.h"
+#include "StateHandler.h"
 
 Ui::Ui()
 {
@@ -37,12 +38,12 @@ void Ui::update()
 	
 }
 
-void Ui::draw(sf::RenderWindow &window)
+void Ui::draw()
 {
-	window.setView(m_view);
+	StateHandler::getInstance().m_pWindow->setView(m_view);
 
-	window.draw(titleText);
-	window.draw(m_uiBackgroundSprite);
+	StateHandler::getInstance().m_pWindow->draw(titleText);
+	StateHandler::getInstance().m_pWindow->draw(m_uiBackgroundSprite);
 
-	window.setView(window.getDefaultView());
+	StateHandler::getInstance().m_pWindow->setView(StateHandler::getInstance().m_pWindow->getDefaultView());
 }

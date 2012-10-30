@@ -3,6 +3,7 @@
 // TEMPORARY!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 #include "TitleScreen.h"
 #include "SplashScreen.h"
+#include "StateHandler.h"
 
 Level1::Level1()
 {
@@ -11,9 +12,9 @@ Level1::Level1()
 	m_EnemyHandler = new EnemyHandler();
 }
 
-void Level1::loadContent()
+void Level1::loadContent(sf::RenderWindow* window)
 {
-	superLoadContent();
+	superLoadContent(window);
 	text.setPosition(100, 50);
 	text.setString("Level 1");
 	text.setFont(font);
@@ -31,9 +32,9 @@ void Level1::loadContent()
 //{
 //}
 
-void Level1::draw(sf::RenderWindow &window)
+void Level1::draw()
 {
-		superDraw(window);
-		window.draw(text);
+		superDraw();
+		StateHandler::getInstance().m_pWindow->draw(text);
 
 }

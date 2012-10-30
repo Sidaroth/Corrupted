@@ -1,5 +1,5 @@
 #include "Skeleton.h"
-
+#include "StateHandler.h"
 Skeleton::Skeleton()
 {
 
@@ -24,9 +24,9 @@ bool Skeleton::loadContent()
 	return 0;
 }
 
-void Skeleton::draw(sf::RenderWindow &window)
+void Skeleton::draw()
 {
-	window.draw(m_Sprite);
+	StateHandler::getInstance().m_pWindow->draw(m_Sprite);
 }
 
 void Skeleton::update()

@@ -2,10 +2,10 @@
 
 
 
-KeyboardController::KeyboardController(Player* player_recieved){
+KeyboardController::KeyboardController(Player* player_recieved,sf::RenderWindow* window_recieved){
 
 	//KeyBinding (We will have to change it so instead of being hardcoded it will be read from a file.
-
+	window = window_recieved;
 	player = player_recieved;
 	MyKeys key;
 	//Binding the left mouse button to the "Shoot" action
@@ -101,6 +101,8 @@ void KeyboardController::checkPressed(){
 		//Calculate direction of the atack
 
 		sf::Vector2i v_mouse_position;
+		
+		//sf::Window = &window;
 		v_mouse_position = sf::Mouse::getPosition();
 	
 		std::cout << "Position X: " << v_mouse_position.x << " Position Y: " << v_mouse_position.y << std::endl;

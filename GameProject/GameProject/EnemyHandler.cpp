@@ -33,11 +33,11 @@ void EnemyHandler::unloadContent()
 	}
 }
 
-void EnemyHandler::draw(sf::RenderWindow &window)
+void EnemyHandler::draw()
 {
 	for(unsigned short i = 0; i < m_EnemyVector.size(); i++)
 	{
-		m_EnemyVector[i] -> draw(window);
+		m_EnemyVector[i] -> draw();
 	}
 }
 

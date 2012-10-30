@@ -11,7 +11,7 @@ protected:
 public:
 	Skeleton();
 	void sayHello();
-	void draw(sf::RenderWindow &window);
+	void draw();
 	void update();
 	bool loadContent();
 };

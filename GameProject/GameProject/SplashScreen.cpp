@@ -9,8 +9,9 @@ SplashScreen::SplashScreen()
 	// NATH'N!
 }
 
-void SplashScreen::loadContent()
+void SplashScreen::loadContent(sf::RenderWindow* window)
 {
+	m_pWindow = window;
 	if(!font.loadFromFile("../../Resources/impact.ttf"))
 	{
 		std::cout << "Could not load font" << std::endl;
@@ -44,7 +45,7 @@ void SplashScreen::processEvents(sf::Event event)
 	}
 }
 
-void SplashScreen::draw(sf::RenderWindow &window)
+void SplashScreen::draw()
 {
-	window.draw(text);
+	m_pWindow->draw(text);
 }

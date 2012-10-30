@@ -24,9 +24,9 @@ public:
 	SuperLevel();
 	~SuperLevel();
 
-	void superLoadContent();
+	void superLoadContent(sf::RenderWindow* window);
 	void unloadContent();	
 	void processEvents(sf::Event event);
 	void update();
-	void superDraw(sf::RenderWindow &window);
+	void superDraw();
 };

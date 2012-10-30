@@ -1,5 +1,5 @@
 #include "SuperLevel.h"
-
+#include "StateHandler.h"
 // TEMPORARY!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 #include "TitleScreen.h"
 #include "SplashScreen.h"
@@ -15,8 +15,9 @@ SuperLevel::~SuperLevel()
 
 }
 
-void SuperLevel::superLoadContent()
+void SuperLevel::superLoadContent(sf::RenderWindow* window)
 {
+	m_pWindow = window;
 	if(!font.loadFromFile("../../Resources/impact.ttf"))
 	{
 		std::cout << "Could not load font" << std::endl;
@@ -35,12 +36,13 @@ void SuperLevel::superLoadContent()
 	m_EnemyHandler -> setCollisionMap(m_Level -> getObjectVector(), m_Level -> getHorizontalBitmapSize());
 
 	player -> setPosition(m_Level -> getPlayerPosition());
-	keyControl = new KeyboardController(player);
+	
+	keyControl = new KeyboardController(player,StateHandler::getInstance().m_pWindow);
 	
 	m_Viewport.reset(sf::FloatRect(0, 0, 1366, 768));
 	m_Viewport.setViewport(sf::FloatRect(0.0f, 0.0f,1.f, 1.0f));
 	m_Viewport.setCenter(1366/2, 768/2);
-	m_Viewport.zoom(1.5);
+	m_Viewport.zoom(1);
 }
 
 void SuperLevel::unloadContent()
@@ -59,6 +61,14 @@ void SuperLevel::processEvents(sf::Event event)
 		{
 			StateHandler::getInstance().addScreen(new SplashScreen);
 		}
+		if (event.type == sf::Event::KeyReleased)
+		{
+			 if(!player->isDoingAction())
+			 {
+				player->changeAnimationToStand();
+			 }
+		}
+
 }
 
 void SuperLevel::update()
@@ -72,11 +82,12 @@ void SuperLevel::update()
 	m_Viewport.setCenter(player -> getXPosition(), player -> getYPosition());
 }
 
-void SuperLevel::superDraw(sf::RenderWindow &window)
+void SuperLevel::superDraw()
 {	
-	m_Level -> draw(window);
-	m_EnemyHandler -> draw(window);
-	player -> draw(window);
-	ui->draw(window);
-	window.setView(m_Viewport);
+	m_Level -> draw();
+	m_EnemyHandler -> draw();
+	player -> draw();
+	ui->draw();
+	StateHandler::getInstance().m_pWindow->setView(m_Viewport);
+	
 }

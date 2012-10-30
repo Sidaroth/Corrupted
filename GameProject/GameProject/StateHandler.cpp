@@ -22,7 +22,7 @@ void StateHandler::addScreen(GameState *state)
 	delete currentState;
 	
 	currentState = state;
-	currentState -> loadContent();
+	currentState -> loadContent(m_pWindow);
 }
 
 void StateHandler::initalize()
@@ -35,9 +35,10 @@ void StateHandler::setStartState(GameState* state)
 	currentState = state;
 }
 
-void StateHandler::loadContent()
-{
-	currentState -> loadContent();
+void StateHandler::loadContent(sf::RenderWindow* window)
+{	
+	m_pWindow = window;
+	currentState -> loadContent(window);
 }
 
 void StateHandler::processEvents(sf::Event event)
@@ -50,7 +51,7 @@ void StateHandler::update()
 	currentState -> update();
 }
 
-void StateHandler::draw(sf::RenderWindow &window)
+void StateHandler::draw()
 {
-	currentState -> draw(window);
+	currentState -> draw();
 }

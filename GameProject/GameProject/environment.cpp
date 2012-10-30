@@ -5,6 +5,7 @@
 
 #include "Environment.h"
 #include <iostream>
+#include "StateHandler.h"
 
 EnvironmentHandler::EnvironmentHandler( )
 {
@@ -43,11 +44,11 @@ bool EnvironmentHandler::loadContent( )
 	return EXIT_SUCCESS;
 }
 
-void EnvironmentHandler::draw( sf::RenderWindow &window )
+void EnvironmentHandler::draw()
 {
 	for(unsigned int i = 0; i < m_sprites.size( ); i++ )
 	{
-		window.draw( m_sprites[i] );
+		StateHandler::getInstance().m_pWindow->draw( m_sprites[i] );
 	}
 }
 

@@ -9,12 +9,14 @@ TitleScreen::TitleScreen()
 	// NATH'N!
 }
 
-void TitleScreen::loadContent()
+void TitleScreen::loadContent(sf::RenderWindow* window)
 {
 	if(!font.loadFromFile("../../Resources/impact.ttf"))
 	{
 		std::cout << "Could not load font" << std::endl;
 	}
+
+	m_pWindow = window;
 
 	text.setPosition(100, 50);
 	text.setString("TitleScreen");
@@ -44,7 +46,7 @@ void TitleScreen::processEvents(sf::Event event)
 	}
 }
 
-void TitleScreen::draw(sf::RenderWindow &window)
+void TitleScreen::draw()
 {
-	window.draw(text);
+	m_pWindow->draw(text);
 }

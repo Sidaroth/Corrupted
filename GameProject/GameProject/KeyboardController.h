@@ -22,6 +22,7 @@ private:
 	std::string moveLeftKey;
 	std::string moveRIghtKey;
 	std::string spaceKey;
+	sf::RenderWindow* window;
 
 	enum InputType
 	{
@@ -41,7 +42,7 @@ private:
 	std::map<std::string,MyKeys> Keys;
 
 public:
-
+	KeyboardController(Player* player,sf::RenderWindow* window);
 	void checkPressed();
 	void setKeyToAction (MyKeys,std::string action);
 	void setMoveFowardKey(char key);

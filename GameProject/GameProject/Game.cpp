@@ -18,9 +18,7 @@ Game::Game()
 
 void Game::initialize(const char* title, short width, short height, short bitPP, bool fullscreen)
 {
-	StateHandler::getInstance().initalize();
-	StateHandler::getInstance().setStartState(new SplashScreen());
-	StateHandler::getInstance().loadContent();
+
 
 	m_sTitle = title;
 	m_shScreenWidth = width;
@@ -30,7 +28,13 @@ void Game::initialize(const char* title, short width, short height, short bitPP,
 	m_Window.create(sf::VideoMode(m_shScreenWidth, m_shScreenHeight, m_shScreenBitColor), m_sTitle);
 	m_bRunning = true;
 
+	StateHandler::getInstance().initalize();
+	StateHandler::getInstance().setStartState(new SplashScreen());
+	StateHandler::getInstance().loadContent(&m_Window);
+
+
 	std::cout << "Game initialized" << std::endl;
+
 }
 
 void Game::start()
@@ -135,7 +139,7 @@ void Game::processEvents()
 void Game::render()
 {
 	m_Window.clear(*m_BackgroundColor);
-	StateHandler::getInstance().draw(m_Window);
+	StateHandler::getInstance().draw();
 	m_Window.draw(frames_per_sec);
 	m_Window.display();
 }

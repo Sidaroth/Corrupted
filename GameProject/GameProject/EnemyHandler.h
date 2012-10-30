@@ -15,6 +15,6 @@ public:
 	void loadContent();
 	void unloadContent();
 	void setCollisionMap(std::vector<bool>* collisionMap, int horizontalSize);
-	void draw(sf::RenderWindow &window);
+	void draw();
 	void update();
 };

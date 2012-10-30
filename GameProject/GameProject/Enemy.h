@@ -20,7 +20,7 @@ protected:
 
 public:
 	virtual void sayHello() = 0;
-	virtual void draw(sf::RenderWindow &window) = 0;
+	virtual void draw() = 0;
 	virtual void update() = 0;
 	virtual bool loadContent() = 0;
 	void setCollisionMap(std::vector<bool>* collisionMap, int horizontalSize);
