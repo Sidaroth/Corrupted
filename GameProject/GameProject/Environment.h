@@ -19,6 +19,7 @@ private:
 		int green;
 		int blue;
 	};
+
 	int TILESIZE;
 
 	Vector2f m_playerPosition;
