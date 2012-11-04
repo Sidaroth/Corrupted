@@ -46,9 +46,38 @@ bool EnvironmentHandler::loadContent( )
 
 void EnvironmentHandler::draw()
 {
-	for(unsigned int i = 0; i < m_sprites.size( ); i++ )
+	sf::View tempView = StateHandler::getInstance().m_pWindow->getView();
+
+	//Top left corner of the View
+	int windowX = tempView.getCenter( ).x - ( tempView.getSize( ).x / 2 );
+	int windowY = tempView.getCenter( ).y - ( tempView.getSize( ).y / 2 );
+
+	if( windowX < 0 )
 	{
-		StateHandler::getInstance().m_pWindow->draw( m_sprites[i] );
+		windowX = 0;
+	}
+	if( windowY < 0 )
+	{
+		windowY = 0;
+	}
+	//find the first square that is needed to be drawn
+	windowX /= TILESIZE;
+	windowY /= TILESIZE;
+
+	int windowXEnd = ( tempView.getSize( ).x / TILESIZE ) + ( windowX + 1 );
+	int windowYEnd = ( tempView.getSize( ).y / TILESIZE ) + windowY;
+
+	//std::cout << "\nWindowX: " << windowX << "  WindowY: " << windowY;
+	//std::cout << "\nWindowXEnd: " << windowXEnd << "  WindowYEnd: " << windowYEnd << std::endl;
+	for( unsigned int j = windowY; j <= windowYEnd; j++ )
+	{
+		for( unsigned int i = windowX; i <= windowXEnd; i++ )
+		{
+			if( ( j * m_iHorizontalBitmapSize ) + ( i ) < m_sprites.size() )
+			{
+				StateHandler::getInstance().m_pWindow->draw( m_sprites[ ( j * m_iHorizontalBitmapSize ) + ( i ) ] );
+			}
+		}
 	}
 }
 
