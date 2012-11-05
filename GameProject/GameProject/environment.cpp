@@ -83,14 +83,15 @@ void EnvironmentHandler::draw()
 
 void EnvironmentHandler::bitmapToArray()
 {
-	sf::Color pixelColor;
+	sf::Color pixelColor;			
+	RGB* rgb;
 	for( int j = 0; j < m_iVerticalBitmapSize; j++ )
 	{
 		for( int i = 0; i < m_iHorizontalBitmapSize; i++ )
 		{
 		//	std::cout << "i: " << i << " j: " << j << std::endl;
 			pixelColor = m_bitmap.getPixel( i,j );
-			RGB* rgb = new RGB;
+			rgb = new RGB;
 			rgb->red = pixelColor.r;
 			rgb->green = pixelColor.g;
 			rgb->blue = pixelColor.b;
