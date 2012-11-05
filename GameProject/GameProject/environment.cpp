@@ -320,34 +320,45 @@ void EnvironmentHandler::findObjects()
 
 bool EnvironmentHandler::checkCollision( Vector2f playerPosition )
 {
-	int x = int(playerPosition.x / TILESIZE);
-	int y = int(playerPosition.y / TILESIZE);
+	int x = ( ( playerPosition.x + 35 ) / TILESIZE );
+	int y = ( ( playerPosition.y + 48 ) / TILESIZE );
 
 	//for(int i = 64*63; i <= 64*64; i++)
 	//{
 	//	std::cout << "\nObject Bool: " << (bool)m_objects[((y * m_iHorizontalBitmapSize) + x )];
 	//}
-
+	
+	//check top left corner
 	if(!m_objects[( ( y * m_iHorizontalBitmapSize) + x )] )
 	{
 		return false;
 	}
-	else if(!m_objects[( ( y * m_iHorizontalBitmapSize) + ( x + 1 ) )] )
+	
+	x = ( ( playerPosition.x - 35 ) / TILESIZE );
+
+	//check top right corner
+	if(!m_objects[( ( y * m_iHorizontalBitmapSize) + ( x + 1 ) )] )
+	{
+		return false;
+	}		
+
+	y = ( ( playerPosition.y - 15 ) / TILESIZE );
+
+	//check bottom right corner
+	if(!m_objects[( ( ( y + 1 ) * m_iHorizontalBitmapSize) + ( x + 1 ) )] )
 	{
 		return false;
 	}
-	else if(!m_objects[( ( ( y + 1 ) * m_iHorizontalBitmapSize) + ( x + 1 ) )] )
+
+	x = ( ( playerPosition.x + 35 ) / TILESIZE );
+
+	//check bottom left corner	
+	if(!m_objects[( ( ( y + 1 ) * m_iHorizontalBitmapSize) + x )] )
 	{
 		return false;
 	}
-	else if(!m_objects[( ( ( y + 1 ) * m_iHorizontalBitmapSize) + x )] )
-	{
-		return false;
-	}
-	else
-	{
-		return true;
-	}
+	
+	return true;
 }
 
 Vector2f EnvironmentHandler::getPlayerPosition( )
