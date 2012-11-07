@@ -2,6 +2,7 @@
 
 #include "Actor.h"
 #include "Environment.h"
+#include "Projectile.h"
 
 
 class Character : public Actor
