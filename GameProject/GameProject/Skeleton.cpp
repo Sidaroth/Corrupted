@@ -17,6 +17,9 @@ bool Skeleton::loadContent()
 	{
 		return EXIT_FAILURE;
 	}
+
+	test = 0;
+
 	maskingImage.createMaskFromColor(sf::Color (106, 76, 48), 0);
 	m_Texture.loadFromImage( maskingImage );
 	m_Sprite.setTexture(m_Texture);
@@ -31,10 +34,27 @@ void Skeleton::draw()
 
 void Skeleton::update()
 {
-	std::vector<Vector2f*> path = findPath(m_Sprite.getPosition().x, m_Sprite.getPosition().y, 800, 800);
+	if(test % 200 == 0)
+	{
+		Vector2f* path = findPath(m_Sprite.getPosition().x, m_Sprite.getPosition().y, 96, 96);
 
-	//for(unsigned int i = 0; i < path.size(); i++)
-	//{
-	//	std::cout << "path " << i << ": " << path[i] << std::endl;
-	//}
+
+		if(path -> x > m_Sprite.getPosition().x)
+		{
+			move(SOUTH);
+		}
+		else
+		{
+			move(NORTH);
+		}
+
+		if(path -> y > m_Sprite.getPosition().y)
+		{
+			move(EAST);
+		}
+		else
+		{
+			move(WEST);
+		}
+	}
 }

@@ -6,8 +6,8 @@
 
 SuperLevel::SuperLevel()
 {
-	m_Level = new EnvironmentHandler();
-	m_EnemyHandler = new EnemyHandler();
+	/*m_Level = new EnvironmentHandler();
+	m_EnemyHandler = new EnemyHandler();*/
 }
 
 SuperLevel::~SuperLevel()
@@ -23,6 +23,8 @@ void SuperLevel::superLoadContent(sf::RenderWindow* window)
 		std::cout << "Could not load font" << std::endl;
 	}
 
+	m_Level -> loadContent();
+
 	player = new Player();
 	player -> loadContent();	
 	player -> setEnvironmentLevel(m_Level);
@@ -30,9 +32,7 @@ void SuperLevel::superLoadContent(sf::RenderWindow* window)
 	ui = new Ui();
 	ui->loadContent();
 
-	m_Level -> loadContent();
-
-	m_EnemyHandler -> loadContent();
+	m_EnemyHandler -> loadContent(m_Level);
 	m_EnemyHandler -> setCollisionMap(m_Level -> getObjectVector(), m_Level -> getHorizontalBitmapSize());
 
 	player -> setPosition(m_Level -> getPlayerPosition());

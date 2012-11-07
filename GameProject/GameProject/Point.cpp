@@ -8,11 +8,11 @@ Point::Point()
 
 	f_cost = g_cost = h_cost = 0;
 
-	//m_Position.x = 0;
-	//m_Position.y = 0;
-
 	xPosition = 0;
 	yPosition = 0;
+
+	inOpenList = false;
+	inClosedList = false;
 }
 
 Point::Point(int x, int y)
@@ -21,17 +21,16 @@ Point::Point(int x, int y)
 
 	f_cost = g_cost = h_cost = 0;
 
-
+	
+	inOpenList = false;
+	inClosedList = false;
 	
 	xPosition = x;
 	yPosition = y;
 
-	//std::cout << xPosition << ", " << yPosition << std::endl;
 
-
-	//m_Position.x = x;
-	//m_Position.y = y;
 }
+
 
 /// Calculates the G Cost (distance from the start) 
 short Point::findGCost()
@@ -70,7 +69,6 @@ short Point::findHCost(Point* goal)
 /// Calculates the F cost (The cost of moving to this node, in essence the heuristic(H) + path-cost so far(G)
 short Point::findFCost(Point* goal)
 {
-	g_cost = findGCost();
 	h_cost = findHCost(goal);
 	f_cost = g_cost + h_cost;
 
@@ -96,10 +94,10 @@ void Point::setParent(Point* parent)
 }
 
 ////////////////// GETTERS ////////////////////
-Point* Point::getParent()
-{
-	return m_Parent;
-}
+//Point* Point::getParent()
+//{
+//	return m_Parent;
+//}
 
 short Point::getFCost()
 {

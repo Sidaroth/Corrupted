@@ -21,11 +21,11 @@ private:
 	float m_fCriticalChance;	/// Chance to crit, 1 = 0%, 1.01 = 1% etc.
 	bool* m_bAbilities;
 	bool m_bDoingAction;
-	EnvironmentHandler* m_environmentLevel;
+	
 
 protected:
 	Character();
-	Character(int variablesHere); // TEMPORARY. 
+	EnvironmentHandler* m_environmentLevel;
 
 public:
 	void attack(short row); ///0=N, 1=NE, 2=E, 3=SE, 4=S, 5=SW, 6=W, 7=NW

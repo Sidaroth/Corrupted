@@ -36,11 +36,16 @@ public:
 	short findHCost(Point* goal);
 	short findFCost(Point* goal);
 	Vector2f* findPosition();
+	
+	bool inOpenList;
+	bool inClosedList;
 
 	bool hasParent();
 
+	//bool operator== (Point* point);
+
 	// GETTERS
-	Point* getParent();
+	//Point* getParent();
 	short getFCost();
 	short getGCost();
 	short getHCost();
