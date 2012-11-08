@@ -25,7 +25,7 @@ bool Ui::loadContent()
 	m_uiBackgroundSprite.setPosition(0, 0);
 
 	rightSideText.setPosition(1085, 583);
-	rightSideText.setString("Strength: \nIntelligence: \nToughness: \nSpeed: ");
+	rightSideText.setString("Strength: \nIntelligence: \nToughness: \nSpeed: \n\nMelee Damage: \nSpell Damage\nCritical Chance: ");
 	rightSideText.setScale(0.5, 0.5);
 	rightSideText.setFont(font);
 
@@ -55,11 +55,14 @@ void Ui::update(Player* player)
 	rightSideStats.setString(numberToString(m_player->getStrength())+"\n"+
 								numberToString(m_player->getIntelligence())+"\n"+
 								numberToString(m_player->getToughness())+"\n"+
-								numberToString(m_player->getSpeed()));
+								numberToString(m_player->getSpeed())+"\n\n\t\t"+
+								numberToString(m_player->getMeleeDamage())+"\n\t\t"+
+								numberToString(m_player->getSpellDamage())+"\n\t\t"+
+								numberToString(m_player->getCriticalChance())+"%");
 
-	//rightSideSecondaryStats.setString(numberToString(m_player->getCurrentSouls())+"\n\n"+
-	//									numberToString(m_player->getWeaponLevel())+"\n"+
-	//									numberToString(m_player->getArmorLevel()));
+	rightSideSecondaryStats.setString(numberToString(m_player->getCurrentSouls())+"\n\n"+
+										numberToString(m_player->getWeaponLevel())+"\n"+
+										numberToString(m_player->getArmorLevel()));
 }
 
 void Ui::draw()

@@ -54,10 +54,33 @@ bool Player::loadContent()
 
 void Player::update() 
 {
-	
+	m_shMaxHealth = m_shToughness*m_shToughness*2;
+	m_shMeleeDamage = m_shStrength*m_shStrength;
+	m_shSpellDamage = m_shIntelligence*m_shIntelligence;
+	m_fCriticalChance = m_shStrength/5 + m_shSpeed/2;
 }
 
 void Player::draw()
 {
 	StateHandler::getInstance().m_pWindow->draw(m_Sprite);
+}
+
+short Player::getTotalSouls()
+{
+	return m_shTotalSouls;
+}
+
+short Player::getCurrentSouls()
+{
+	return m_shCurrentSouls;
+}
+
+short Player::getWeaponLevel()
+{
+	return m_shWeaponLevel;
+}
+
+short Player::getArmorLevel()
+{
+	return m_shArmorLevel;
 }

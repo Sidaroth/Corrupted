@@ -8,22 +8,28 @@ class Character : public Actor
 {
 private: 
 	
-	short m_shHealth;
-	short m_shDamage;
-	short m_shSpeed;
-	short m_shToughness;
-	short m_shIntelligence;
-	short m_shStrength;
-	short m_shLevel;
+	
+	
 	short m_shBitmapRow;		/// What frame of the animation from the spritesheet to display
 	short m_shBitmapCol;		/// What animation to display from the spritesheet
 	short m_shFrameCount;
-	float m_fCriticalChance;	/// Chance to crit, 1 = 0%, 1.01 = 1% etc.
+	
 	bool* m_bAbilities;
 	bool m_bDoingAction;
 	EnvironmentHandler* m_environmentLevel;
 
 protected:
+	short m_shCurrentHealth;
+	short m_shSpeed;
+	short m_shToughness;
+	short m_shIntelligence;
+	short m_shStrength;
+
+	short m_shMaxHealth;
+	short m_shMeleeDamage;
+	short m_shSpellDamage;
+	float m_fCriticalChance;	/// Given in percent
+
 	Character();
 	Character(int variablesHere); // TEMPORARY. 
 
@@ -31,13 +37,15 @@ public:
 	void attack(short row); ///0=N, 1=NE, 2=E, 3=SE, 4=S, 5=SW, 6=W, 7=NW
 
 	///////GET FUNCTIONS///////
-	short getHealth();
-	short getDamage();
+	short getMaxHealth();
+	short getCurrentHealth();
+	short getMeleeDamage();
+	short getSpellDamage();
 	short getSpeed();
 	short getToughness();
 	short getIntelligence();
 	short getStrength();
-	short getLevel();
+	float getCriticalChance();
 	bool* getAbilities();
 	
 

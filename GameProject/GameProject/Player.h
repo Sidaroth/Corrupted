@@ -24,4 +24,9 @@ public:
 	bool loadContent();
 	void update();
 	void draw();
+
+	short getTotalSouls();
+	short getCurrentSouls();
+	short getWeaponLevel();
+	short getArmorLevel();
 };
