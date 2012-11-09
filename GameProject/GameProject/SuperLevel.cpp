@@ -75,7 +75,7 @@ void SuperLevel::update()
 {
 	player -> animation();
 	player -> update();
-	ui -> update();
+	ui -> update(player);
 	keyControl->checkPressed();
 	m_EnemyHandler -> update();
 
