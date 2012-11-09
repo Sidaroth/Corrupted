@@ -9,6 +9,7 @@ class Skeleton : public Enemy
 protected:
 
 public:
+	short test;
 	Skeleton();
 	void sayHello();
 	void draw();

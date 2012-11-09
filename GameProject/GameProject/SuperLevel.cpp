@@ -6,8 +6,8 @@
 
 SuperLevel::SuperLevel()
 {
-	m_Level = new EnvironmentHandler();
-	m_EnemyHandler = new EnemyHandler();
+	/*m_Level = new EnvironmentHandler();
+	m_EnemyHandler = new EnemyHandler();*/
 }
 
 SuperLevel::~SuperLevel()
@@ -23,6 +23,8 @@ void SuperLevel::superLoadContent(sf::RenderWindow* window)
 		std::cout << "Could not load font" << std::endl;
 	}
 
+	m_Level -> loadContent();
+
 	player = new Player();
 	player -> loadContent();	
 	player -> setEnvironmentLevel(m_Level);
@@ -30,9 +32,7 @@ void SuperLevel::superLoadContent(sf::RenderWindow* window)
 	ui = new Ui();
 	ui->loadContent();
 
-	m_Level -> loadContent();
-
-	m_EnemyHandler -> loadContent();
+	m_EnemyHandler -> loadContent(m_Level);
 	m_EnemyHandler -> setCollisionMap(m_Level -> getObjectVector(), m_Level -> getHorizontalBitmapSize());
 
 	player -> setPosition(m_Level -> getPlayerPosition());
@@ -42,7 +42,7 @@ void SuperLevel::superLoadContent(sf::RenderWindow* window)
 	m_Viewport.reset(sf::FloatRect(0, 0, 1366, 768));
 	m_Viewport.setViewport(sf::FloatRect(0.0f, 0.0f,1.f, 1.0f));
 	m_Viewport.setCenter(1366/2, 768/2);
-	m_Viewport.zoom(1);
+	m_Viewport.zoom(2);
 }
 
 void SuperLevel::unloadContent()
@@ -75,7 +75,7 @@ void SuperLevel::update()
 {
 	player -> animation();
 	player -> update();
-	ui -> update();
+	ui -> update(player);
 	keyControl->checkPressed();
 	m_EnemyHandler -> update();
 

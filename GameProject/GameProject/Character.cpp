@@ -153,7 +153,6 @@ void Character::setEnvironmentLevel(EnvironmentHandler* environmentLevel)
 void Character::move(short direction) // 0=N, 1=NE, 2=E, 3=SE, 4=S, 5=SW, 6=W, 7=NW
 {
 	changeAnimationToWalk();
-	// WE NEED TO CHECK IF THE PLAYER IS HITTING AN OBSTRUCTION HERE... (obstructions not yet implemented as of this writing)
 	Vector2f newPosition;
 	newPosition.x = m_Sprite.getPosition().x;
 	newPosition.y = m_Sprite.getPosition().y;

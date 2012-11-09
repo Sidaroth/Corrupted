@@ -7,7 +7,6 @@
 
 Level1::Level1()
 {
-	
 	m_Level = new EnvironmentHandler();
 	m_EnemyHandler = new EnemyHandler();
 }
