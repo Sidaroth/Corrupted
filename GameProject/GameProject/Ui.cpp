@@ -4,17 +4,20 @@
 
 Ui::Ui()
 {
-	// We'll see..
+	m_shFrameCount = 0;
 }
 
 bool Ui::loadContent()
 {
+	sf::Image maskingImage;
+	
+
 	if(!m_uiBackground.loadFromFile("../../Resources/GUI.PNG"))
 	{
 		return EXIT_FAILURE;
 	}
 
-	if(!m_healthDiamond.loadFromFile("../../Resources/healthDiamond.PNG"))
+	if(!maskingImage.loadFromFile("../../Resources/healthDiamond.PNG"))
 	{
 		return EXIT_FAILURE;
 	}
@@ -31,8 +34,12 @@ bool Ui::loadContent()
 
 	m_view.reset(sf::FloatRect(0, 0, 1366, 768));
 
+	maskingImage.createMaskFromColor(sf::Color(0, 0, 0), 0);
+
+	m_healthDiamond.loadFromImage(maskingImage);
+
 	m_healthDiamondSprite.setTexture(m_healthDiamond);
-	m_healthDiamondSprite.setPosition(75, 650);
+	m_healthDiamondSprite.setPosition(125, 650);
 	m_healthDiamondSprite.setOrigin(50, 50);
 
 	m_uiBackgroundSprite.setTexture(m_uiBackground);
@@ -80,8 +87,13 @@ void Ui::update(Player* player)
 										numberToString(m_player->getWeaponLevel())+"\n"+
 										numberToString(m_player->getArmorLevel()));
 
-	healthRotation = (101 - (m_player->getCurrentHealth()/m_player->getMaxHealth()*100));
-	m_healthDiamondSprite.setRotation(healthRotation);
+	healthRotation = (105 - (m_player->getCurrentHealth()/m_player->getMaxHealth()*100));
+	m_shFrameCount += 1;
+	if(m_shFrameCount % healthRotation == 0)
+	{
+		m_healthDiamondSprite.rotate(healthRotation);
+	}
+	
 }
 
 void Ui::draw()
@@ -99,7 +111,7 @@ void Ui::draw()
 template <typename T>
   std::string numberToString ( T Number )
   {
-     std::ostringstream ss;
-     ss << Number;
-     return ss.str();
+	 std::ostringstream ss;
+	 ss << Number;
+	 return ss.str();
   }

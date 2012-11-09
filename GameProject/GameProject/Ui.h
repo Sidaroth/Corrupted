@@ -28,7 +28,8 @@ private:
 	sf::Text rightSideSecondaryStats;
 
 	Player* m_player;
-	float healthRotation;
+	int healthRotation;
+	short m_shFrameCount;
 
 public:
 	Ui();

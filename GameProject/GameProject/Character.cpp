@@ -14,6 +14,7 @@ Character::Character() : Actor()
 	m_shBitmapRow = 0;
 	m_shBitmapCol = 0;
 	m_shFrameCount = 0;
+	m_shMaxHealth = 50;
 	
 	m_shCurrentHealth = m_shMaxHealth;
 
