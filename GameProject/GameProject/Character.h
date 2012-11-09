@@ -23,7 +23,6 @@ private:
 	bool* m_bAbilities;
 	bool m_bDoingAction;
 	std::vector<Projectile*> m_vProjectiles;
-	EnvironmentHandler* m_environmentLevel;
 
 protected:
 	Character();
