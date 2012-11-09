@@ -89,7 +89,6 @@ Vector2f* Enemy::findPath(int startX, int startY, int goalX, int goalY)
 	while(!goalReached && tilesChecked < NUMBER_OF_TILES_TO_CHECK)
 	{
 		// Deleting & Selecting
-
 			current = openList[1];
 			openList[1] = openList[numberOfOpenListItems];
 			numberOfOpenListItems--;
