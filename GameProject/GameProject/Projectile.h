@@ -13,6 +13,7 @@ private:
 	short m_shBitmapRow;
 	short m_shSpriteSize;
 	short m_shFrameCount;
+	short m_shTraveled;
 	bool m_bExist;
 	Vector2f m_vPosition;
 	float m_fAngle;

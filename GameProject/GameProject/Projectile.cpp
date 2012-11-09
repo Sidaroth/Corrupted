@@ -7,7 +7,7 @@ Projectile::Projectile( )
 	m_shDamage = 0;
 	m_vPosition.x = 0;
 	m_vPosition.y = 0;
-	m_sTraveled = 0;
+	m_shTraveled = 0;
 	m_bExist = false;
 	m_shSpriteSize = 48;
 	m_shBitmapRow = 0;
@@ -23,7 +23,7 @@ void Projectile::initiate( short spell, short damage, Vector2f position, Vector2
 	m_shDamage = damage;
 	m_vPosition = position;
 	m_bExist = true;
-	m_sTraveled = 0;
+	m_shTraveled = 0;
 
 	if( m_shSpell == FIREBALL )
 	{
@@ -59,8 +59,8 @@ void Projectile::move( )
 
 	m_Sprite.setPosition( newX, newY );
 
-	m_sTraveled += ( newX + newY );
-	if( m_sTraveled > 2000 )
+	m_shTraveled += ( newX + newY );
+	if( m_shTraveled > 2000 )
 	{
 		m_bExist = false;
 	}
