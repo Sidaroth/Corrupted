@@ -42,5 +42,6 @@ Thumbs.db
 ./GameProject/ipch/
 ./GameProject/Debug/
 ./GameProject/Release/
+./GameProject/GameProject/Release/
 ./GameProject/GameProject/Debug/
 ./GameProject/CodeAnalyst/
