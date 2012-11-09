@@ -37,10 +37,15 @@ void Projectile::initiate( short spell, short damage, Vector2f position, Vector2
 
 bool Projectile::loadContent( )
 {
-	if(!m_Texture.loadFromFile( "../../Resources/Fireball.png" ) )
+	sf::Image maskingImage;
+
+	if (!maskingImage.loadFromFile("../../Resources/Fireball.png"))
 	{
 		return EXIT_FAILURE;
 	}
+	maskingImage.createMaskFromColor(sf::Color (255, 255, 255), 0);
+	m_Texture.loadFromImage( maskingImage );
+
 	m_vTextures.push_back( m_Texture );
 
 	return EXIT_SUCCESS;
@@ -48,8 +53,8 @@ bool Projectile::loadContent( )
 
 void Projectile::move( )
 {
-	float newX = m_vPosition.x + 10 * cos( m_fAngle );
-	float newY = m_vPosition.y + 10 * sin( m_fAngle );
+	float newX = m_vPosition.x + 10 * -sin( m_fAngle );
+	float newY = m_vPosition.y + 10 * -cos( m_fAngle );
 
 	m_Sprite.setPosition( newX, newY );
 
