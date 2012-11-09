@@ -6,7 +6,6 @@ const short BASE_STAT = 5;
 
 Character::Character() : Actor()
 {
-	m_shDamage = 10;
 	m_shSpeed = BASE_STAT;
 	m_shToughness = BASE_STAT;
 	m_shIntelligence = BASE_STAT;
@@ -15,9 +14,9 @@ Character::Character() : Actor()
 	m_shBitmapRow = 0;
 	m_shBitmapCol = 0;
 	m_shFrameCount = 0;
+	m_shMaxHealth = 50;
 	
-	m_shLevel = 1;
-	m_shHealth = 50;
+	m_shCurrentHealth = m_shMaxHealth;
 
 	m_bAbilities = new bool[false, false, false];
 }
@@ -68,14 +67,24 @@ bool Character::isDoingAction(){
 	return m_bDoingAction;
 }
 
-short Character::getHealth()
+short Character::getMaxHealth()
 {
-	return m_shHealth;
+	return m_shMaxHealth;
 }
 
-short Character::getDamage()
+short Character::getCurrentHealth()
 {
-	return m_shDamage;
+	return m_shCurrentHealth;
+}
+
+short Character::getMeleeDamage()
+{
+	return m_shMeleeDamage;
+}
+
+short Character::getSpellDamage()
+{
+	return m_shSpellDamage;
 }
 
 short Character::getSpeed()
@@ -98,9 +107,10 @@ short Character::getStrength()
 	return m_shStrength;
 }
 
-short Character::getLevel()
+
+float Character::getCriticalChance()
 {
-	return m_shLevel;
+	return m_fCriticalChance;
 }
 
 bool* Character::getAbilities()

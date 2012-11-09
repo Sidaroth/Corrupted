@@ -2,6 +2,7 @@
 
 #include "StateHandler.h"
 #include "GameState.h"
+#include "Game.h"
 #include "Player.h"
 #include <sstream>
 
@@ -14,6 +15,9 @@ private:
 
 	sf::Texture m_uiBackground;
 	sf::Sprite m_uiBackgroundSprite;
+
+	sf::Texture m_healthDiamond;
+	sf::Sprite m_healthDiamondSprite;
 	
 	sf::Font font;
 
@@ -24,6 +28,8 @@ private:
 	sf::Text rightSideSecondaryStats;
 
 	Player* m_player;
+	int healthRotation;
+	short m_shFrameCount;
 
 public:
 	Ui();

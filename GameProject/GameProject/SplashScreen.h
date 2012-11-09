@@ -6,8 +6,9 @@
 class SplashScreen : public GameState
 {
 private:
-	sf::Text text;
-	sf::Font font;
+
+	sf::Texture m_splashScreen;
+	sf::Sprite m_splashScreenSprite;
 
 public:
 	SplashScreen();

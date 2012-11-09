@@ -4,11 +4,24 @@
 
 Ui::Ui()
 {
-	// We'll see..
+	m_shFrameCount = 0;
 }
 
 bool Ui::loadContent()
 {
+	sf::Image maskingImage;
+	
+
+	if(!m_uiBackground.loadFromFile("../../Resources/GUI.PNG"))
+	{
+		return EXIT_FAILURE;
+	}
+
+	if(!maskingImage.loadFromFile("../../Resources/healthDiamond.PNG"))
+	{
+		return EXIT_FAILURE;
+	}
+
 	if(!m_uiBackground.loadFromFile("../../Resources/GUI.PNG"))
 	{
 		return EXIT_FAILURE;
@@ -21,11 +34,19 @@ bool Ui::loadContent()
 
 	m_view.reset(sf::FloatRect(0, 0, 1366, 768));
 
+	maskingImage.createMaskFromColor(sf::Color(0, 0, 0), 0);
+
+	m_healthDiamond.loadFromImage(maskingImage);
+
+	m_healthDiamondSprite.setTexture(m_healthDiamond);
+	m_healthDiamondSprite.setPosition(125, 650);
+	m_healthDiamondSprite.setOrigin(50, 50);
+
 	m_uiBackgroundSprite.setTexture(m_uiBackground);
 	m_uiBackgroundSprite.setPosition(0, 0);
 
 	rightSideText.setPosition(1085, 583);
-	rightSideText.setString("Strength: \nIntelligence: \nToughness: \nSpeed: ");
+	rightSideText.setString("Strength: \nIntelligence: \nToughness: \nSpeed: \n\nMelee Damage: \nSpell Damage\nCritical Chance: ");
 	rightSideText.setScale(0.5, 0.5);
 	rightSideText.setFont(font);
 
@@ -41,6 +62,8 @@ bool Ui::loadContent()
 	rightSideSecondaryStats.setPosition(1325, 583);
 	rightSideSecondaryStats.setScale(0.5, 0.5);
 	rightSideSecondaryStats.setFont(font);
+
+
 }
 
 void Ui::unloadContent()
@@ -55,11 +78,22 @@ void Ui::update(Player* player)
 	rightSideStats.setString(numberToString(m_player->getStrength())+"\n"+
 								numberToString(m_player->getIntelligence())+"\n"+
 								numberToString(m_player->getToughness())+"\n"+
-								numberToString(m_player->getSpeed()));
+								numberToString(m_player->getSpeed())+"\n\n\t\t"+
+								numberToString(m_player->getMeleeDamage())+"\n\t\t"+
+								numberToString(m_player->getSpellDamage())+"\n\t\t"+
+								numberToString(m_player->getCriticalChance())+"%");
 
-	//rightSideSecondaryStats.setString(numberToString(m_player->getCurrentSouls())+"\n\n"+
-	//									numberToString(m_player->getWeaponLevel())+"\n"+
-	//									numberToString(m_player->getArmorLevel()));
+	rightSideSecondaryStats.setString(numberToString(m_player->getCurrentSouls())+"\n\n"+
+										numberToString(m_player->getWeaponLevel())+"\n"+
+										numberToString(m_player->getArmorLevel()));
+
+	healthRotation = (105 - (m_player->getCurrentHealth()/m_player->getMaxHealth()*100));
+	m_shFrameCount += 1;
+	if(m_shFrameCount % healthRotation == 0)
+	{
+		m_healthDiamondSprite.rotate(healthRotation);
+	}
+	
 }
 
 void Ui::draw()
@@ -67,6 +101,7 @@ void Ui::draw()
 	StateHandler::getInstance().m_pWindow->setView(m_view);
 
 	StateHandler::getInstance().m_pWindow->draw(m_uiBackgroundSprite);
+	StateHandler::getInstance().m_pWindow->draw(m_healthDiamondSprite);
 	StateHandler::getInstance().m_pWindow->draw(rightSideText);
 	StateHandler::getInstance().m_pWindow->draw(rightSideStats);
 	StateHandler::getInstance().m_pWindow->draw(rightSideSecondaryText);
@@ -76,7 +111,7 @@ void Ui::draw()
 template <typename T>
   std::string numberToString ( T Number )
   {
-     std::ostringstream ss;
-     ss << Number;
-     return ss.str();
+	 std::ostringstream ss;
+	 ss << Number;
+	 return ss.str();
   }
