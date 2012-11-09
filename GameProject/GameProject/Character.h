@@ -48,7 +48,9 @@ public:
 	void setEnvironmentLevel(EnvironmentHandler* environmentLevel);
 
 	void animation();				///calculate the correct frame to be set in setFrame
-	
+	virtual void draw();
+	virtual void update();
+
 	void moveHorizontal(bool horizontalMovement,bool verticalMovement);
 	void moveVertical(bool verticalMovement,bool horizontalMovement);
 	void move(short direction);
@@ -62,4 +64,5 @@ public:
 	void startAction();
 	void endAction();
 	bool isDoingAction();
+	void castSpell( Vector2f mouseCoordinates, short spell );
 };

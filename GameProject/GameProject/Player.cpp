@@ -57,10 +57,11 @@ bool Player::loadContent()
 
 void Player::update() 
 {
-	
+	Character::update();
 }
 
 void Player::draw()
 {
+	Character::draw();
 	StateHandler::getInstance().m_pWindow->draw(m_Sprite);
 }

@@ -139,10 +139,39 @@ void Character::animation()  ///calculate frame for animation
 		{
 			endAction();
 			m_shBitmapCol = 0;
-			
 		}
 	}
 	setFrame();
+
+	for( int i = 0; i < m_vProjectiles.size( ); i++ )
+	{
+		if( m_vProjectiles[i]->exist( ) )
+		{
+			m_vProjectiles[i]->animation( );
+		}
+	}
+}
+
+void Character::draw( )
+{
+	for( int i = 0; i < m_vProjectiles.size( ); i++ )
+	{
+		if( m_vProjectiles[i]->exist( ) )
+		{
+			m_vProjectiles[i]->draw( );
+		}
+	}
+}
+
+void Character::update( )
+{
+	for( int i = 0; i < m_vProjectiles.size( ); i++ )
+	{
+		if( m_vProjectiles[i]->exist( ) )
+		{
+			m_vProjectiles[i]->move( );
+		}
+	}
 }
 
 void Character::setEnvironmentLevel(EnvironmentHandler* environmentLevel)
@@ -262,4 +291,25 @@ void Character::showDamage()
 void Character::showHealth()
 {
 
+}
+
+void Character::castSpell( Vector2f mouseCoordinates, short spell )
+{
+	if( m_bAbilities[spell] )
+	{
+		for( int i = 0; i < m_vProjectiles.size( ); i++ )
+		{
+			if( !m_vProjectiles[i]->exist( ) )
+			{
+				m_vProjectiles[i]->initiate( spell, m_shDamage, m_Position, mouseCoordinates );
+				i = m_vProjectiles.size( ) + 1;
+			}
+			else if ( i == m_vProjectiles.size( ) )
+			{
+				Projectile* projectile = new Projectile;
+				projectile -> loadContent();
+				m_vProjectiles.push_back( projectile );
+			}
+		}
+	}
 }
