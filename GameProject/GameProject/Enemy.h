@@ -17,6 +17,7 @@ protected:
 	std::vector<bool>* collisionMap;
 	short m_HorizontalBitmapSize;
 	short m_VerticalBitmapSize;
+	std::vector<Vector2f*> m_Path;
 
 public:
 	virtual void sayHello() = 0;

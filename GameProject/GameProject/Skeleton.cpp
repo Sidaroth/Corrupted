@@ -38,8 +38,7 @@ void Skeleton::update()
 	{
 		Vector2f* path = findPath(m_Sprite.getPosition().x, m_Sprite.getPosition().y, 96, 96);
 
-
-		if(path -> x > m_Sprite.getPosition().x)
+		if(path -> y > m_Sprite.getPosition().y)
 		{
 			move(SOUTH);
 		}
@@ -48,7 +47,7 @@ void Skeleton::update()
 			move(NORTH);
 		}
 
-		if(path -> y > m_Sprite.getPosition().y)
+		if(path -> x > m_Sprite.getPosition().x)
 		{
 			move(EAST);
 		}

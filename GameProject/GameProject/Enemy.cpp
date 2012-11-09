@@ -34,17 +34,15 @@ void Enemy::setCollisionMap(std::vector<bool>* collisionMap, int horizontalSize)
 	*/
 Vector2f* Enemy::findPath(int startX, int startY, int goalX, int goalY)
 {
-	Vector2f* finalPath;
 	std::list<Point*> closedList;
 	std::list<Point*> openList;
 	std::list<Point*>::iterator it;
 
 	Point* openHeapList[400];
 
-	bool goalReached = false;
 	bool doNotCheck = false;
 
-	const short NUMBER_OF_TILES_TO_CHECK = 30;
+	const short NUMBER_OF_TILES_TO_CHECK = 45;
 	short tilesChecked = 0;
 	
 	short currentRow = startY / TILESIZE;
@@ -62,10 +60,9 @@ Vector2f* Enemy::findPath(int startX, int startY, int goalX, int goalY)
 	current -> findGCost();
 	current -> findFCost(goal);
 
-
 	while(!openList.empty() && tilesChecked < NUMBER_OF_TILES_TO_CHECK)
 	{
-		// Pick lowest FCost
+		// Pick lowest FCost -- SLOOOOOW PART..
 		for(it = openList.begin(); it != openList.end(); ++it)
 		{
 			short fCost = (*it) -> getFCost();
@@ -74,17 +71,7 @@ Vector2f* Enemy::findPath(int startX, int startY, int goalX, int goalY)
 			{
 				lowestFCost = fCost;
 				current = (*it);
-				std::cout << current -> xPosition << ", " << current -> yPosition << std::endl;
 			}
-		}
-
-	
-		//std::cout << "Tiles: " << tilesChecked << std::endl;
-		if(current == goal)
-		{
-			std::cout << "Does it ever go here?" << std::endl;
-			it = closedList.end();
-			return new Vector2f( (*it) -> xPosition * TILESIZE, (*it) -> yPosition * TILESIZE );
 		}
 		
 		currentRow = current -> yPosition;
@@ -95,7 +82,13 @@ Vector2f* Enemy::findPath(int startX, int startY, int goalX, int goalY)
 		current -> inOpenList = false;
 		current -> inClosedList = true;
 
-		tilesChecked++;
+
+		if(current == goal)
+		{
+			std::cout << "Does it ever go here?" << std::endl;
+			return new Vector2f(current -> xPosition * TILESIZE, current -> yPosition * TILESIZE);
+		}
+
 
 		// Check all adjacent tiles. 
 		for(int y = -1; y <= 1; ++y)
@@ -134,7 +127,6 @@ Vector2f* Enemy::findPath(int startX, int startY, int goalX, int goalY)
 
 								if(!adjacent -> inOpenList || tentativeGScore <= adjacent -> getGCost())	// If not in openList
 								{
-									// Came from?
 									adjacent -> g_cost = tentativeGScore;
 									adjacent -> findFCost(goal);
 
@@ -143,15 +135,16 @@ Vector2f* Enemy::findPath(int startX, int startY, int goalX, int goalY)
 										openList.push_front(adjacent);
 										adjacent -> inOpenList = true;
 									}
-								}	
+								}
 							}
 						}
 					}
 				}
 			}
 		}
+
+		tilesChecked++;
 	}
 
-	return new Vector2f(0, 0);
+	return new Vector2f(startX, startY);
 }
-
