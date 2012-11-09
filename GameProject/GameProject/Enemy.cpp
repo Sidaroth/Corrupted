@@ -52,48 +52,58 @@ Vector2f* Enemy::findPath(int startX, int startY, int goalX, int goalY)
 	short openList[OPEN_LIST_ELEMENTS];
 
 	short fCost[OPEN_LIST_ELEMENTS];
+	short gCost[OPEN_LIST_ELEMENTS];
 	short openX[OPEN_LIST_ELEMENTS];
 	short openY[OPEN_LIST_ELEMENTS];
+
+	short goalTileX = goalX / TILESIZE;
+	short goalTileY = goalY / TILESIZE;
+
 
 	short squaresChecked = 0;			// total number of items added to the open list. 
 	short tilesChecked = 0;				// total number of items added to the closed list. 
 
-	short numberOfOpenListItems = 0;	// Number of items currently in the open list
-	short numberOfClosedListItems = 0;	// Number of items currently in the closed list
+	short numberOfOpenListItems = 1;	// Number of items currently in the open list
+	short numberOfClosedListItems = 1;	// Number of items currently in the closed list
 
 	short currentRow = startY / TILESIZE;
 	short currentColumn = startX / TILESIZE;
 	short currentPos = 0;						// Current position in collision vector (1D)
 
-	short m = 0;
-	short current = 0;
+	short newInsertPos = 0;
+	short current = 1;
 	short u = 1;	// Temporary bullshit variables... should be renamed to convey what they do. 
 	short v = 1;
 	short temp = 0;
 
 	bool goalReached = false;
+	bool doNotCheck = false;
 	bool placeInHeapFound = false;
 
-	return new Vector2f(startX, startY);
+	openList[current] = current;
+	gCost[current] = 0;
+	fCost[current] = 0;
+	openX[current] = currentColumn;
+	openY[current] = currentRow;
 
 	while(!goalReached && tilesChecked < NUMBER_OF_TILES_TO_CHECK)
 	{
-		
-
 		// Deleting & Selecting
 
 			current = openList[1];
 			openList[1] = openList[numberOfOpenListItems];
 			numberOfOpenListItems--;
 
-			if(openX[current] == goalX / TILESIZE && openY[current] == goalY / TILESIZE)
+			currentRow = openY[current];
+			currentColumn = openX[current];
+
+			if(currentColumn == goalTileX && currentRow == goalTileY)
 			{
 				goalReached = true;
 			}
 
 
 			placeInHeapFound = false;
-
 
 			v = 1;
 			
@@ -133,47 +143,70 @@ Vector2f* Enemy::findPath(int startX, int startY, int goalX, int goalY)
 					placeInHeapFound = true;
 				}
 			}
-			
+		
+		// Deletion / selection end. 
 
 
+		// Find and add neighbours to openList. 
 
-
-
-
-		// insertion.
-
-			squaresChecked++;
-			numberOfOpenListItems++;
-			openList[numberOfOpenListItems] = squaresChecked;
-
-			m = numberOfOpenListItems;
-
-			while(m > 1)
+			for(int y = -1; y <= 1; ++y)
 			{
-				// Check if child is <= parent, if so, swap.
-				if(fCost[openList[ m ]] <= fCost[openList[ m / 2 ]])
+				for(int x = -1; x <= 1; ++x)
 				{
-					temp = openList[ m / 2 ];
-					openList[ m / 2 ] = openList[ m ];
-					openList[m] = temp;
+					if( !(x == 0 && y == 0))	// If not self. 
+					{
+						currentPos = ((currentRow + y) * m_HorizontalBitmapSize) + (currentColumn + x);
+
+						if( (*collisionMap)[currentPos] )	// If walkable
+						{
+
+							// Figure ut Gcost
+							// If diagonal move
+							if(openX[current] != openX[current / 2] && openY[current] != openY[current / 2])
+							{
+								gCost[current] = gCost[current / 2] + DIAGONAL_MOVEMENT_COST;
+							}
+							else	// Orthogonal
+							{
+								gCost[current] = gCost[current / 2] + ORTHOGONAL_MOVEMENT_COST;
+							}
+
+							// HCost & FCost
+							fCost[current] = gCost[current] + abs((openX[current] + goalTileX) + abs(openY[current] + goalTileY)) * ORTHOGONAL_MOVEMENT_COST;
+
+
+
+							++squaresChecked;
+							++numberOfOpenListItems;
+							openList[numberOfOpenListItems] = squaresChecked;
+
+							newInsertPos = numberOfOpenListItems;
+
+							while(newInsertPos > 1)		// While the new insert Has not reached the top. 
+							{
+								// Check if child is <= parent, if so, swap.
+								if(fCost[openList[ newInsertPos ]] <= fCost[openList[ newInsertPos / 2 ]])
+								{
+									temp = openList[ newInsertPos / 2 ];
+									openList[ newInsertPos / 2 ] = openList[ newInsertPos ];
+									openList[newInsertPos] = temp;
 				
-					m = m / 2;
-				}
-				else
-				{
-					m = 0;
+									newInsertPos = newInsertPos / 2;
+								}
+								else
+								{
+									newInsertPos = 0;
+								}
+							}
+						}
+					}
 				}
 			}
 
-		// insertion end
-
-
-
-
-
-
+		++tilesChecked;
 	}
 
+	return new Vector2f(startX, startY);
 }
 
 

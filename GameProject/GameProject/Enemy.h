@@ -5,6 +5,7 @@
 #include <list>
 #include "Vector2f.h"
 #include "Point.h"
+#include "Math.h"
 
 #define TILESIZE 96
 #define getParent(m) (m - 1) / 2
