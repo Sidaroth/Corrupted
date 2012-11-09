@@ -3,10 +3,15 @@
 
 	Projectile::Projectile( )
 	{
+		m_shSpell = NULL;
+		m_shDamage = 0;
+		m_vPosition.x = 0;
+		m_vPosition.y = 0;
 
+		m_fAngle = 0;
 	}
 
-	Projectile::Projectile( short spell, short damage,Vector2f position, Vector2f mouseCoordinates )
+	void Projectile::Initiate( short spell, short damage,Vector2f position, Vector2f mouseCoordinates )
 	{
 		m_shSpell = spell;
 		m_shDamage = damage;

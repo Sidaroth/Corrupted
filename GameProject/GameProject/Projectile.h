@@ -16,7 +16,8 @@ private:
 
 public:
 	Projectile( );
-	Projectile( short spell, short damage, Vector2f position, Vector2f mouseCoordinates );
+	//Projectile( short spell, short damage, Vector2f position, Vector2f mouseCoordinates );
+	void Initiate ( short spell, short damage, Vector2f position, Vector2f mouseCoordinates );
 	bool loadContent( );
 	void move( );
 	void draw( );

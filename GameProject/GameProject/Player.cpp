@@ -13,6 +13,9 @@ Player::Player() : Character()
 
 bool Player::loadContent()
 {
+	//load projectiles in character
+	Character::loadContent();
+
 	sf::Image maskingImage;
 		//Loading move action
 	if (!maskingImage.loadFromFile("../../Resources/player.png"))
