@@ -311,7 +311,7 @@ void Character::castSpell( Vector2f mouseCoordinates, short spell )
 		{
 			if( !m_vProjectiles[i]->exist( ) )
 			{
-				m_vProjectiles[i]->initiate( spell, m_shDamage, m_Position, mouseCoordinates );
+				m_vProjectiles[i]->initiate( spell, m_shSpellDamage, m_Position, mouseCoordinates );
 				i = m_vProjectiles.size( ) + 1;
 			}
 			else if ( i == m_vProjectiles.size( ) )

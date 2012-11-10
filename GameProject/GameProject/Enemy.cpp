@@ -9,16 +9,12 @@ void Enemy::setCollisionMap(std::vector<bool>* collisionMap, int horizontalSize)
 }
 
 /// adds 10 for orthogonal movement, 14 for diagonal. Precalculating this avoids any 
-/// decimal and square root calculations during runtime. The pythagorean theroem states that 
+/// decimal and square root calculations during runtime. The pythagorean theorem states that 
 /// c^2 = b^2 + a^2, giving c = sqroot(1^2 + 1^2) = sqroot(2) as the answer.
 /// The square root of 2 is 1.414, hence 14. 
 #define ORTHOGONAL_MOVEMENT_COST 10;	// Orthogonal == horizontal || vertical. 
 #define DIAGONAL_MOVEMENT_COST 14;
 
-// C++ only defines null if any standard libraries are included. 
-#ifndef NULL
-#define NULL 0
-#endif
 
 	/*!
 	 Pathfinding algorithm (A*) using a Binary Heap representation of the openList. 
@@ -56,8 +52,8 @@ Vector2f* Enemy::findPath(int startX, int startY, int goalX, int goalY)
 	short openX[OPEN_LIST_ELEMENTS];
 	short openY[OPEN_LIST_ELEMENTS];
 
-	short goalTileX = goalX / TILESIZE;
-	short goalTileY = goalY / TILESIZE;
+	short goalTileX = goalX;
+	short goalTileY = goalY;
 
 
 	short squaresChecked = 0;			// total number of items added to the open list. 
@@ -79,6 +75,15 @@ Vector2f* Enemy::findPath(int startX, int startY, int goalX, int goalY)
 	bool goalReached = false;
 	bool doNotCheck = false;
 	bool placeInHeapFound = false;
+
+	for(int i = 0; i < OPEN_LIST_ELEMENTS; i++)
+	{
+		openX[i] = 0;
+		openY[i] = 0;
+		fCost[i] = 0;
+		gCost[i] = 0;
+		openList[i] = 0;
+	}
 
 	openList[current] = current;
 	gCost[current] = 0;
@@ -156,6 +161,12 @@ Vector2f* Enemy::findPath(int startX, int startY, int goalX, int goalY)
 					if( !(x == 0 && y == 0))	// If not self. 
 					{
 						currentPos = ((currentRow + y) * m_HorizontalBitmapSize) + (currentColumn + x);
+						
+						// derp... .. fix her
+						++squaresChecked;
+						openX[squaresChecked] = openX[current] + x;
+						openY[squaresChecked] = openY[current] + y;
+
 
 						if( (*collisionMap)[currentPos] )	// If walkable
 						{
@@ -176,9 +187,10 @@ Vector2f* Enemy::findPath(int startX, int startY, int goalX, int goalY)
 
 
 
-							++squaresChecked;
+							
 							++numberOfOpenListItems;
 							openList[numberOfOpenListItems] = squaresChecked;
+							
 
 							newInsertPos = numberOfOpenListItems;
 

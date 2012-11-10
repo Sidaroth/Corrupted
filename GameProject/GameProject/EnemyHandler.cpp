@@ -8,6 +8,7 @@ void EnemyHandler::loadContent(EnvironmentHandler* level)
 		
 	if(m_EnemyVector[0] != NULL)
 	{
+		std::cout << "Enemy created!\n";
 		m_EnemyVector[0] -> loadContent();
 	}
 	else

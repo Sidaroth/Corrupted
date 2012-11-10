@@ -9,6 +9,7 @@
 
 EnvironmentHandler::EnvironmentHandler( )
 {
+	std::cout << "Environment created!\n";
 	TILESIZE = 96;
 }
 

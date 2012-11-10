@@ -32,9 +32,6 @@ void SuperLevel::superLoadContent(sf::RenderWindow* window)
 	ui = new Ui();
 	ui->loadContent();
 
-	m_EnemyHandler -> loadContent(m_Level);
-	m_EnemyHandler -> setCollisionMap(m_Level -> getObjectVector(), m_Level -> getHorizontalBitmapSize());
-
 	player -> setPosition(m_Level -> getPlayerPosition());
 	
 	keyControl = new KeyboardController(player,StateHandler::getInstance().m_pWindow);
