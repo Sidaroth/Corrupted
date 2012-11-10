@@ -199,93 +199,108 @@ void Character::move(short direction) // 0=N, 1=NE, 2=E, 3=SE, 4=S, 5=SW, 6=W, 7
 	{	
 		case NORTH:
 			newPosition.y -= 3;
+			setBitmapRow( NORTH );
+			
 			if( m_environmentLevel -> checkCollision( newPosition ) )
 			{
-				setBitmapRow( NORTH );
 				m_Sprite.move(0,-3);
 			}
 		break;
+
 		case NORTH_EAST:
 			newPosition.x += 2.1;
+			setBitmapRow( NORTH_EAST );
+			
 			if( m_environmentLevel -> checkCollision( newPosition ) )
 			{
-				setBitmapRow( NORTH_EAST );
 				m_Sprite.move(2.1, 0);
 			}
 			newPosition.x -= 2.1; //back to original x position
 			newPosition.y -= 2.1;
+			
 			if( m_environmentLevel -> checkCollision( newPosition ) )
 			{
-				setBitmapRow( NORTH_EAST );
 				m_Sprite.move(0,-2.1);
 			}
 		break;
+
 		case EAST:
 			newPosition.x += 3;
+			setBitmapRow( EAST );
+
 			if( m_environmentLevel -> checkCollision( newPosition ) )
 			{
-				setBitmapRow( EAST );
 				m_Sprite.move(3,0);
 			}
 		break;
+
 		case SOUTH_EAST:
 			newPosition.x += 2.1;
+			setBitmapRow( SOUTH_EAST );
+
 			if( m_environmentLevel -> checkCollision( newPosition ) )
 			{
-				setBitmapRow( SOUTH_EAST );
 				m_Sprite.move(2.1,0);
 			}
 			newPosition.x -= 2.1; //back to original x position
 			newPosition.y += 2.1;
+			
 			if( m_environmentLevel -> checkCollision( newPosition ) )
 			{
-				setBitmapRow( SOUTH_EAST );
 				m_Sprite.move(0,2.1);
 			}
 		break;
+
 		case SOUTH:
 			newPosition.y += 3;
+			setBitmapRow( SOUTH );
+		
 			if( m_environmentLevel -> checkCollision( newPosition ) )
 			{
-				setBitmapRow( SOUTH );
 				m_Sprite.move(0,3);
 			}
 		break;
+
 		case SOUTH_WEST:
 			newPosition.x -= 2.1;
+			setBitmapRow( SOUTH_WEST );
+		
 			if( m_environmentLevel -> checkCollision( newPosition ) )
 			{
-				setBitmapRow( SOUTH_WEST );
 				m_Sprite.move(-2.1,0);
 			}
 			newPosition.x += 2.1; //back to original x position
 			newPosition.y += 2.1;
+			
 			if( m_environmentLevel -> checkCollision( newPosition ) )
 			{
-				setBitmapRow( SOUTH_WEST );
 				m_Sprite.move(0,2.1);
 			}
 		break;
+
 		case WEST:
 			newPosition.x -= 3;
+			setBitmapRow( WEST );
+		
 			if( m_environmentLevel -> checkCollision( newPosition ) )
 			{
-				setBitmapRow( WEST );
 				m_Sprite.move(-3,0);
 			}
 			break;
+
 		case NORTH_WEST:
 			newPosition.x -= 2.1;
+			setBitmapRow( NORTH_WEST );
+
 			if( m_environmentLevel -> checkCollision( newPosition ) )
 			{
-				setBitmapRow( NORTH_WEST );
 				m_Sprite.move(-2.1,0);
 			}
 			newPosition.x += 2.1; //back to original x position
 			newPosition.y -= 2.1;
+			
 			if( m_environmentLevel -> checkCollision( newPosition ) )
 			{
-				setBitmapRow( NORTH_WEST );
 				m_Sprite.move(0,-2.1);
 			}
 		break;
