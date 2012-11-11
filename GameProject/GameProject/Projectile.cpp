@@ -109,3 +109,13 @@ void Projectile::setFrame()	///set subRect
 	subRect.height = m_shSpriteSize;
 	m_Sprite.setTextureRect( subRect );
 }
+
+void Projectile::setInvisible()
+{
+	m_bExist = false;
+}
+
+void Projectile::setEnvironmentObjects(std::vector<bool>* objects)
+{
+	m_objects = objects;
+}

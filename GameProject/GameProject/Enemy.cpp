@@ -220,7 +220,10 @@ Vector2f* Enemy::findPath(int startX, int startY, int goalX, int goalY)
 	return new Vector2f(startX, startY);
 }
 
-
+std::vector<Projectile*>* Enemy::getProjectile( )
+{
+	return &m_vProjectiles;
+}
 
 
 

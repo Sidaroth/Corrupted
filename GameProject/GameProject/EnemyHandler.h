@@ -19,4 +19,5 @@ public:
 	void setCollisionMap(std::vector<bool>* collisionMap, int horizontalSize);
 	void draw();
 	void update();
+	std::vector<Enemy*>* getEnemyVector( );
 };

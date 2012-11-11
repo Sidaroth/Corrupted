@@ -338,3 +338,8 @@ void Character::castSpell( Vector2f mouseCoordinates, short spell )
 		}
 	}
 }
+
+void Character::takeDamage( short damage )
+{
+	m_shCurrentHealth -= damage;
+}

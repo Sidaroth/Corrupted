@@ -28,6 +28,7 @@ void SuperLevel::superLoadContent(sf::RenderWindow* window)
 	player = new Player();
 	player -> loadContent();	
 	player -> setEnvironmentLevel(m_Level);
+	player -> setEnemyVector( m_EnemyHandler->getEnemyVector( ) );
 
 	ui = new Ui();
 	ui->loadContent();

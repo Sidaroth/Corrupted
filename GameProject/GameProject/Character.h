@@ -17,7 +17,6 @@ private:
 	
 	bool* m_bAbilities;
 	bool m_bDoingAction;
-	std::vector<Projectile*> m_vProjectiles;
 
 protected:
 	short m_shCurrentHealth;
@@ -33,6 +32,7 @@ protected:
 
 	Character();
 	EnvironmentHandler* m_environmentLevel;
+	std::vector<Projectile*> m_vProjectiles;
 
 public:
 	void attack(short row); ///0=N, 1=NE, 2=E, 3=SE, 4=S, 5=SW, 6=W, 7=NW
@@ -73,4 +73,5 @@ public:
 	void endAction();
 	bool isDoingAction();
 	void castSpell( Vector2f mouseCoordinates, short spell );
+	void takeDamage( short damage );
 };

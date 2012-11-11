@@ -27,6 +27,7 @@ public:
 	virtual bool loadContent() = 0;
 	void setCollisionMap(std::vector<bool>* collisionMap, int horizontalSize);
 	Vector2f* findPath(int startX, int startY, int goalX, int goalY);
+	std::vector<Projectile*>* getProjectile( );
 };
 
 

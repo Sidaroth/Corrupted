@@ -19,6 +19,7 @@ private:
 	float m_fAngle;
 	std::vector<sf::Texture> m_vTextures;
 	enum m_abilities { FIREBALL, FROSTBOLT, LIGHTNINGBOLT };
+	std::vector<bool>* m_objects;
 
 public:
 	Projectile( );
@@ -30,4 +31,6 @@ public:
 	void draw( );
 	bool exist( );
 	void setFrame( );
+	void setInvisible( );
+	void setEnvironmentObjects(std::vector<bool>* objects);
 };
