@@ -50,8 +50,6 @@ bool Player::loadContent()
 	m_Sprite.setTexture(m_TexturesActions["still"].imgTexture);
 	animation();
 
-	
-
 	return 0;
 }
 

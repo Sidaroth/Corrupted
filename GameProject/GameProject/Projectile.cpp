@@ -98,6 +98,8 @@ void Projectile::animation( )
 		}
 	}
 	setFrame();
+
+	checkCollision();
 }
 
 void Projectile::setFrame()	///set subRect 
@@ -118,4 +120,41 @@ void Projectile::setInvisible()
 void Projectile::setEnvironmentObjects(std::vector<bool>* objects)
 {
 	m_objects = objects;
+}
+
+void Projectile::checkCollision( )
+{
+	const short TILESIZE = 96;
+	int x = ( ( m_Position.x ) / TILESIZE );
+	int y = ( ( m_Position.y ) / TILESIZE );
+
+	//check top left corner
+	if(!m_objects -> at( ( ( y * m_shHorizontalBitmapSize) + x ) ) )
+	{
+		setInvisible();
+	}
+
+	x = ( ( m_Position.x - 48 ) / TILESIZE );
+
+	//check top right corner
+	if(!m_objects -> at( ( ( y * m_shHorizontalBitmapSize) + ( x + 1 ) ) ) )
+	{
+		setInvisible();
+	}		
+
+	y = ( ( m_Position.y - 48 ) / TILESIZE );
+
+	//check bottom right corner
+	if(!m_objects -> at( ( ( ( y + 1 ) * m_shHorizontalBitmapSize) + ( x + 1 ) ) ) )
+	{
+		setInvisible();
+	}
+
+	x = ( ( m_Position.x ) / TILESIZE );
+
+	//check bottom left corner	
+	if(!m_objects -> at( ( ( ( y + 1 ) * m_shHorizontalBitmapSize) + x ) ) )
+	{
+		setInvisible();
+	}
 }

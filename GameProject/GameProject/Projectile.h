@@ -20,6 +20,9 @@ private:
 	std::vector<sf::Texture> m_vTextures;
 	enum m_abilities { FIREBALL, FROSTBOLT, LIGHTNINGBOLT };
 	std::vector<bool>* m_objects;
+	short m_shHorizontalBitmapSize;
+
+	void checkCollision( );
 
 public:
 	Projectile( );
