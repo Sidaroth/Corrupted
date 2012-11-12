@@ -15,7 +15,6 @@ void Enemy::setCollisionMap(std::vector<bool>* collisionMap, int horizontalSize)
 #define ORTHOGONAL_MOVEMENT_COST 10;	// Orthogonal == horizontal || vertical. 
 #define DIAGONAL_MOVEMENT_COST 14;
 
-
 	/*!
 	 Pathfinding algorithm (A*) using a Binary Heap representation of the openList. 
 
@@ -30,87 +29,107 @@ void Enemy::setCollisionMap(std::vector<bool>* collisionMap, int horizontalSize)
 	 (0,0), (1,0), (2,0), (3,0), (4,0), (0,1), (1,1), (2,1), (3,1), (4,1), (0,2), (1,2), (2,2), (3,2), (4,2), (0,3), (1,3), (2,3), (3,3), (4,3), (0,4), (1,4), (2,4), (3,4), (4,4) 
 
 	 We can find the coordinate position in the array by doing (row * horizontalSize + column).
-	 Example: if the position we want is (2, 1) we can find it in the array by doing 1 * 5 + 2 = 7 (For humans this would be 8, but as programmers we count from 0)
-	 Example2: if the position we want is (3,0) we can find it in the array by doing 0 * 5 + 3 = 3 (For humans this would be 4, but as programmers we count from 0)
-	 Example3: if the position we want is (3,4) we can find it in the array by doing 4 * 5 + 3 = 23 (For humans this would be 24, but as programmers we count from 0)
+	 Example1: if the position we want is (2, 1) we can find it in the array by doing 1 * 5 + 2 = 7 (For humans this would be 8, but as programmers we count from 0)
+	 Example2: if the position we want is (3, 0) we can find it in the array by doing 0 * 5 + 3 = 3 (For humans this would be 4, but as programmers we count from 0)
+	 Example3: if the position we want is (3, 4) we can find it in the array by doing 4 * 5 + 3 = 23 (For humans this would be 24, but as programmers we count from 0)
 
 
 	 Let n be the number of elements in the heap and i be an arbitrary valid index of the array storing the heap. If the tree root is at index 0, with valid indices 0 through n-1, then each element a[i] has
 	 children a[2i+1] and a[2i+2]
 	 parent   a[floor((i−1)/2)]			- Flooring is just getting the integer value of a number. 
 
+
+	 Brace yourself...
 	*/
-Vector2f* Enemy::findPath(int startX, int startY, int goalX, int goalY)
+short Enemy::findPath(int startX, int startY, int goalX, int goalY)
 {
-	const short OPEN_LIST_ELEMENTS = 500;
-	const short NUMBER_OF_TILES_TO_CHECK = 20;
+	m_Path.clear();
+	const short NUMBER_OF_TILES_TO_CHECK = 30;
+	m_Path.reserve(NUMBER_OF_TILES_TO_CHECK);
 
-	short openList[OPEN_LIST_ELEMENTS];
+	path = UNDETERMINED;
 
-	short fCost[OPEN_LIST_ELEMENTS];
-	short gCost[OPEN_LIST_ELEMENTS];
-	short openX[OPEN_LIST_ELEMENTS];
-	short openY[OPEN_LIST_ELEMENTS];
-
-	short goalTileX = goalX;
-	short goalTileY = goalY;
+	goalTileX = goalX / TILESIZE;
+	goalTileY = goalY / TILESIZE;
+	startX = startX / TILESIZE;
+	startY = startY / TILESIZE;
 
 
-	short squaresChecked = 0;			// total number of items added to the open list. 
-	short tilesChecked = 0;				// total number of items added to the closed list. 
+	parentXval = 0;
+	parentYval = 0;
 
-	short numberOfOpenListItems = 1;	// Number of items currently in the open list
-	short numberOfClosedListItems = 1;	// Number of items currently in the closed list
-
-	short currentRow = startY / TILESIZE;
-	short currentColumn = startX / TILESIZE;
-	short currentPos = 0;						// Current position in collision vector (1D)
-
-	short newInsertPos = 0;
-	short current = 1;
-	short u = 1;	// Temporary bullshit variables... should be renamed to convey what they do. 
-	short v = 1;
-	short temp = 0;
-
-	bool goalReached = false;
-	bool doNotCheck = false;
-	bool placeInHeapFound = false;
-
-	for(int i = 0; i < OPEN_LIST_ELEMENTS; i++)
+	if(goalTileX == startX && goalTileY == startY)
 	{
-		openX[i] = 0;
-		openY[i] = 0;
-		fCost[i] = 0;
-		gCost[i] = 0;
-		openList[i] = 0;
+		path = FOUND;
 	}
 
-	openList[current] = current;
-	gCost[current] = 0;
-	fCost[current] = 0;
-	openX[current] = currentColumn;
-	openY[current] = currentRow;
+	bool placeInHeapFound = false;
+	short whichList[OPEN_LIST_ELEMENTS][OPEN_LIST_ELEMENTS];
 
-	while(!goalReached && tilesChecked < NUMBER_OF_TILES_TO_CHECK)
+	short temp = 0;
+	short insertPosition = 0;
+	short numberOfClosedListItems = 1;	// Number of items currently in the closed list
+	short currentPos = 0;				// Current position in collision vector (1D)
+
+	bool goalReached = false;
+	
+
+	short v = 1;
+	short u = v;
+
+	onClosedList = onClosedList + 2;		// changing the values of these is faster than constantly resetting whichList to 0. 
+	onOpenList = onClosedList - 1;
+
+	if(onClosedList > 100000)		// reset whichList occasionaly. 
 	{
-		// Deleting & Selecting
-			current = openList[1];
+		for(int i = 0; i < m_VerticalBitmapSize; i++)
+		{
+			for(int j = 0; j < m_HorizontalBitmapSize; j++)
+			{
+				whichList[i][j] = 0;
+			}
+			onClosedList = 10;
+		}
+	}
+
+	openList[1] = 1;
+	openX[1] = startX;
+	openY[1] = startY;
+	gCost[startX][startY] = 0;
+
+	squaresChecked = 0;
+	tilesChecked = 0;
+	numberOfOpenListItems = 1;
+
+	
+
+	//initializePathFind();
+
+
+	
+
+	while(path == UNDETERMINED && tilesChecked < NUMBER_OF_TILES_TO_CHECK)
+	{
+		if(numberOfOpenListItems != 0)
+		{
+			// Deleting & Selecting
+			parentXval = openX[openList[1]];
+			parentYval = openY[openList[1]];
+		
+
+			whichList[parentXval][parentYval] = onClosedList;
+
 			openList[1] = openList[numberOfOpenListItems];
 			numberOfOpenListItems--;
 
-			currentRow = openY[current];
-			currentColumn = openX[current];
+			//std::cout << parentYval << ", " << parentXval << ", " << openList[1] << std::endl;
+			
 
-			if(currentColumn == goalTileX && currentRow == goalTileY)
-			{
-				goalReached = true;
-			}
-
-
+			//selectFromOpenList();
 			placeInHeapFound = false;
 
 			v = 1;
-			
+						
 			while(!placeInHeapFound)			// Find the place in the heap for the element we moved. 
 			{
 				u = v;
@@ -148,218 +167,207 @@ Vector2f* Enemy::findPath(int startX, int startY, int goalX, int goalY)
 				}
 			}
 		
-		// Deletion / selection end. 
+			// Deletion / selection end. 
 
+			// Find and add neighbours to openList. 
 
-		// Find and add neighbours to openList. 
-
-			for(int y = -1; y <= 1; ++y)
+			for(int row = parentYval - 1; row <= parentYval + 1; ++row)
 			{
-				for(int x = -1; x <= 1; ++x)
+				for(int column = parentXval - 1; column <= parentXval + 1; ++column)
 				{
-					if( !(x == 0 && y == 0))	// If not self. 
+					if( !(column == 0 && row == 0))	// If not self. 
 					{
-						currentPos = ((currentRow + y) * m_HorizontalBitmapSize) + (currentColumn + x);
-						
-						// derp... .. fix her
-						++squaresChecked;
-						openX[squaresChecked] = openX[current] + x;
-						openY[squaresChecked] = openY[current] + y;
-
-
-						if( (*collisionMap)[currentPos] )	// If walkable
+						if(whichList[column][row] != onClosedList)
 						{
+							currentPos = (row * m_HorizontalBitmapSize) + column;
 
-							// Figure ut Gcost
-							// If diagonal move
-							if(openX[current] != openX[current / 2] && openY[current] != openY[current / 2])
+							if( (*collisionMap)[currentPos] )	// If walkable
 							{
-								gCost[current] = gCost[current / 2] + DIAGONAL_MOVEMENT_COST;
-							}
-							else	// Orthogonal
-							{
-								gCost[current] = gCost[current / 2] + ORTHOGONAL_MOVEMENT_COST;
-							}
-
-							// HCost & FCost
-							fCost[current] = gCost[current] + abs((openX[current] + goalTileX) + abs(openY[current] + goalTileY)) * ORTHOGONAL_MOVEMENT_COST;
-
-
-
-							
-							++numberOfOpenListItems;
-							openList[numberOfOpenListItems] = squaresChecked;
-							
-
-							newInsertPos = numberOfOpenListItems;
-
-							while(newInsertPos > 1)		// While the new insert Has not reached the top. 
-							{
-								// Check if child is <= parent, if so, swap.
-								if(fCost[openList[ newInsertPos ]] <= fCost[openList[ newInsertPos / 2 ]])
+								if(whichList[column][row] != onOpenList)	// If it hasn't been checked before. 
 								{
-									temp = openList[ newInsertPos / 2 ];
-									openList[ newInsertPos / 2 ] = openList[ newInsertPos ];
-									openList[newInsertPos] = temp;
+									//insertIntoOpenList(column, row);
+									temp = 0;
+									insertPosition = 0;
+	
+									++squaresChecked;
+									insertPosition = numberOfOpenListItems + 1;
+									openList[insertPosition] = squaresChecked;
+									openX[squaresChecked] = column;
+									openY[squaresChecked] = row;
+
+
+									// Figure ut Gcost
+															// If diagonal move
+									if(abs(column - parentXval) == 1 && abs(row - parentYval) == 1)
+									{
+										temp = DIAGONAL_MOVEMENT_COST; 
+									}
+									else	// Orthogonal
+									{
+										temp = ORTHOGONAL_MOVEMENT_COST;
+									}
+
+									gCost[column][row] = gCost[parentXval][parentYval] + temp;
+
+									// HCost & FCost
+									fCost[openList[insertPosition]] = gCost[column][row] + (abs(column + goalTileX) + abs(row + goalTileY)) * ORTHOGONAL_MOVEMENT_COST;
+
+									parentX[column][row] = parentXval;
+									parentY[column][row] = parentYval;
+	
+									while(insertPosition > 1)		// While the new insert Has not reached the top. 
+									{
+										// Check if child is <= parent, if so, swap.
+										if(fCost[openList[ insertPosition ]] <= fCost[openList[ insertPosition / 2 ]])
+										{
+											temp = openList[ insertPosition / 2 ];
+											openList[ insertPosition / 2 ] = openList[ insertPosition ];
+											openList[insertPosition] = temp;
 				
-									newInsertPos = newInsertPos / 2;
+											insertPosition = insertPosition / 2;
+										}
+										else
+										{
+											insertPosition = 0;
+										}
+									}
+
+									++numberOfOpenListItems;
+									// Change whichlist to show that the new item is on the openList. 
+									whichList[column][row] = onOpenList;
 								}
-								else
+								else	// If it is already on the openList.
 								{
-									newInsertPos = 0;
+									// Figure ut Gcost
+									// If diagonal move
+									if(abs(column - parentXval) == 1 && abs(row - parentYval) == 1)
+									{
+										temp = DIAGONAL_MOVEMENT_COST; 
+									}
+									else	// Orthogonal
+									{
+										temp = ORTHOGONAL_MOVEMENT_COST;
+									}
+
+									temp = gCost[parentXval][parentYval] + temp;
+
+									if(temp < gCost[column][row])	// If it has found a shorter path. 
+									{
+										parentX[column][row] = parentXval;
+										parentY[column][row] = parentYval;
+										gCost[column][row] = temp;
+
+										// We have to change it's position in the heap, meaning we have to find it, then recalculate it's fCost, then move it to it's appropriate
+										// position in the heap. This may stay the same, or it may change. 
+										for(int i = 1; i <= numberOfOpenListItems; i++)
+										{
+											// Item found. 
+											if(openX[openList[i]] == column && openY[openList[i]] == row)
+											{
+												// Recalculate
+												fCost[openList[i]] = gCost[column][row] + (abs(openX[openList[i]] + goalTileX) + abs(openY[openList[i]] + goalTileY)) * ORTHOGONAL_MOVEMENT_COST;
+
+												insertPosition = i;
+
+												while(insertPosition > 1)
+												{
+													// Check if child is < parent. If so swap. 
+													if(fCost[openList[ insertPosition ]] < fCost[openList[ insertPosition / 2 ]])
+													{
+														temp = openList[insertPosition / 2];
+														openList[insertPosition / 2] = openList[insertPosition];
+														openList[insertPosition] = temp;
+														
+														insertPosition = insertPosition / 2;		// Going further up the heap. 
+													}
+													else
+													{
+														insertPosition = 0;	// step out of while. 
+													}
+												}
+
+												i = numberOfOpenListItems + 2;	// break out of for. 
+											}
+										}
+									}
 								}
 							}
 						}
+			
 					}
 				}
 			}
 
-		++tilesChecked;
+			++tilesChecked;
+		}
+		else
+		{
+			path = NONEXISTANT;
+		}
+
+		if(whichList[goalTileX][goalTileY] == onOpenList)	// on closed list? hmmm
+		{
+			path = FOUND;
+		}
+
 	}
 
-	return new Vector2f(startX, startY);
+	if(path == FOUND)
+	{
+		Vector2f* pathStep;
+		short tempX;
+		short pathX;
+		short pathY;
+
+		pathX = goalTileX; 
+		pathY = goalTileY;
+
+		
+		while(pathX != startX || pathY != startY)
+		{
+			pathStep = new Vector2f(pathX * TILESIZE, pathY * TILESIZE);
+			m_Path.push_back(pathStep);
+			
+			tempX = parentX[pathX][pathY];
+			pathY = parentY[pathX][pathY];
+			pathX = tempX;
+		}
+
+		pathLength = m_Path.size();
+	}
+	
+	return path;
 }
 
+void Enemy::initializePathFind()
+{
+	//numberOfOpenListItems = 1;
+	//squaresChecked =  0;
+	//tilesChecked = 0;
+	//current = 1;
 
-
-
-
-
-
-
-
-
-
-	//std::list<Point*> closedList;
-	//std::list<Point*> openList;
-	//std::list<Point*>::iterator it;
-
-	//Point* openHeapList[400];
-
-	//bool doNotCheck = false;
-
-	//const short NUMBER_OF_TILES_TO_CHECK = 20;
-	//short tilesChecked = 0;
-	//
-	//short currentRow = startY / TILESIZE;
-	//short currentColumn = startX / TILESIZE;
-	//short currentPos = 0;						// Current position in collision vector (1D)
-	//short lowestFCost = 10000;
-	//short tentativeGScore = 0;
-
-	//Point* current = new Point(currentRow, currentColumn);
-	//Point* goal = new Point(goalX / TILESIZE, goalY / TILESIZE);
-	//Point* adjacent;
-
-	//openList.push_back(current);
-	//current -> inOpenList = true;
-	//current -> findGCost();
-	//current -> findFCost(goal);
-
-	//while(!openList.empty() && tilesChecked < NUMBER_OF_TILES_TO_CHECK)
+	//for(int i = 0; i < OPEN_LIST_ELEMENTS; i++)
 	//{
-	//	lowestFCost = 100000;
-	//	// Pick lowest FCost -- SLOOOOOW PART..
-	//	for(it = openList.begin(); it != openList.end(); ++it)
-	//	{
-	//		short fCost = (*it) -> getFCost();
-
-	//		if(fCost < lowestFCost)
-	//		{
-	//			lowestFCost = fCost;
-	//			current = (*it);
-	//		}
-	//	}
-	//	
-	//	currentRow = current -> yPosition;
-	//	currentColumn = current -> xPosition;
-
-	//	std::cout << "Before: ";
-	//	for(it = openList.begin(); it != openList.end(); ++it)
-	//	{
-	//		std::cout << (*it) -> xPosition << ", " << (*it) -> yPosition << ", " << (*it) -> inOpenList << ", " << (*it) -> inClosedList << " ... ";
-	//	}
-
-	//	openList.remove(current);
-
-	//	std::cout << "\nAfter:  ";
-
-	//	for(it = openList.begin(); it != openList.end(); ++it)
-	//	{
-	//		std::cout << (*it) -> xPosition << ", " << (*it) -> yPosition << ", " << (*it) -> inOpenList  << ", " << (*it) -> inClosedList << " ... ";
-	//	}
-
-	//	std::cout << "\n\n";
-
-	//	char a;
-	//	std::cin >> a;
-
-	//	closedList.push_front(current);
-	//	current -> inOpenList = false;
-	//	current -> inClosedList = true;
-
-
-	//	if(current == goal)
-	//	{
-	//		std::cout << "Does it ever go here?" << std::endl;
-	//		return new Vector2f(current -> xPosition * TILESIZE, current -> yPosition * TILESIZE);
-	//	}
-
-
-	//	// Check all adjacent tiles. 
-	//	for(int y = -1; y <= 1; ++y)
-	//	{
-	//		for(int x = -1; x <= 1; ++x)
-	//		{
-	//			if( !(x == 0 && y == 0) )		// If not self.
-	//			{
-	//				doNotCheck = false;
-
-	//				// Check map boundaries. 
-	//				if((currentRow == 0 && y == -1) || ( currentRow == m_VerticalBitmapSize && y == 1 ))
-	//				{
-	//					doNotCheck = true;
-	//				}
-
-	//				if(( currentColumn == 0 && x == -1 ) || ( currentColumn == m_HorizontalBitmapSize && x == 1 ))
-	//				{
-	//					doNotCheck = true;
-	//				}
-
-
-	//				if(!doNotCheck)
-	//				{
-	//					currentPos = ((currentRow + y) * m_HorizontalBitmapSize) + (currentColumn + x);
-
-	//					//std::cout << currentPos << std::endl;
-	//					if( (*collisionMap)[currentPos] )		// If walkable. 
-	//					{
-	//						adjacent = new Point(currentColumn + x, currentRow + y);
-	//						adjacent -> setParent(current);
-
-	//						if(!adjacent -> inClosedList)	// not in closed List
-	//						{
-	//							tentativeGScore = adjacent -> findGCost();
-
-	//							if(!adjacent -> inOpenList || tentativeGScore <= adjacent -> getGCost())	// If not in openList
-	//							{
-	//								adjacent -> g_cost = tentativeGScore;
-	//								adjacent -> findFCost(goal);
-
-	//								if(!adjacent -> inOpenList)
-	//								{
-	//									openList.push_front(adjacent);
-	//									adjacent -> inOpenList = true;
-	//								}
-	//							}
-	//						}
-	//					}
-	//				}
-	//			}
-	//		}
-	//	}
-
-	//	tilesChecked++;
+	//	openX[i] = 0;
+	//	openY[i] = 0;
+	//	fCost[i] = 0;
+	//	openList[i] = 0;
 	//}
 
-	//return new Vector2f(10 * 96, 12 * 96);
+	//openList[current] = current;
+	//gCost[currentColumn][currentRow] = 0;
+	//fCost[current] = 0;
+	//openX[current] = currentColumn;
+	//openY[current] = currentRow;
+}
+//
+//if(openX[squaresChecked] != openX[squaresChecked / 2] && openY[squaresChecked] != openY[squaresChecked / 2])
+//									{
+//										temp = DIAGONAL_MOVEMENT_COST; 
+//										//gCost[squaresChecked] = gCost[squaresChecked / 2] + DIAGONAL_MOVEMENT_COST;
+//									}
+//									else	// Orthogonal
+//									{
+//										temp = ORTHOGONAL_MOVEMENT_COST;
+//										//gCost[squaresChecked] = gCost[squaresChecked / 2] + ORTHOGONAL_MOVEMENT_COST;
+//									}

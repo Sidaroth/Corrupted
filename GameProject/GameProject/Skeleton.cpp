@@ -2,7 +2,9 @@
 #include "StateHandler.h"
 Skeleton::Skeleton()
 {
-
+	onClosedList = 10;
+	onOpenList = 1;
+	pathLength = UNDETERMINED;
 }
 
 void Skeleton::sayHello()
@@ -34,26 +36,41 @@ void Skeleton::draw()
 
 void Skeleton::update()
 {
-	if(test % 200 == 0)
+	// If it has no path, or has walked a certain amount of steps on it's present path. Calculate new path. 
+	if(m_Path.size() == 0 || pathLength - m_Path.size() == 5)
 	{
-		Vector2f* path = findPath(m_Sprite.getPosition().x, m_Sprite.getPosition().y, 96, 96);
-
-		if(path -> y > m_Sprite.getPosition().y)
-		{
-			move(SOUTH);
-		}
-		else
-		{
-			move(NORTH);
-		}
-
-		if(path -> x > m_Sprite.getPosition().x)
-		{
-			move(EAST);
-		}
-		else
-		{
-			move(WEST);
-		}
+		std::cout << "Calculating new path" << std::endl;
+		findPath(m_Sprite.getPosition().x, m_Sprite.getPosition().y, 96, 96);
 	}
+
+	//std::cout << "Moving!" << std::endl;
+	pathLocation = m_Path.size() - 1;
+	pathStep = m_Path[pathLocation];
+
+	if(pathStep -> y > m_Sprite.getPosition().y)
+	{
+		move(SOUTH);
+	}
+	else if(pathStep -> y < m_Sprite.getPosition().y)
+	{
+		move(NORTH);
+	}
+
+	if(pathStep -> x > m_Sprite.getPosition().x)
+	{
+		move(EAST);
+	}
+	else if(pathStep -> x < m_Sprite.getPosition().x)
+	{
+		move(WEST);
+	}
+
+	if((m_Sprite.getPosition().x - pathStep -> x <= 10 &&
+		m_Sprite.getPosition().x - pathStep -> x > -10)		
+		&& (m_Sprite.getPosition().y - pathStep -> y <= 0 &&
+			m_Sprite.getPosition().y - pathStep -> y > -10))
+	{
+		m_Path.erase(m_Path.end() - 1);
+	}
+
 }
