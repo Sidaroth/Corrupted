@@ -33,7 +33,7 @@ void SuperLevel::superLoadContent(sf::RenderWindow* window)
 	Vector2f derp;
 	derp.x = 500;
 	derp.y = 500;
-	//player -> castSpell(derp, 0);
+	player -> castSpell(derp, 0);
 
 	ui = new Ui();
 	ui->loadContent();

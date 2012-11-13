@@ -61,6 +61,17 @@ void Projectile::move( )
 
 	m_vPosition.x = newX;
 	m_vPosition.y = newY;
+
+	if( m_shTraveled < 2000 )
+	{
+		m_shTraveled += 10 * sin( m_fAngle );
+		m_shTraveled +=	10 * cos( m_fAngle );
+	}
+	else
+	{
+		m_bExist = false;
+	}
+
 }
 
 void Projectile::draw( )
