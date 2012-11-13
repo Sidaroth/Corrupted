@@ -7,14 +7,18 @@
 
 Level1::Level1()
 {
-	
 	m_Level = new EnvironmentHandler();
 	m_EnemyHandler = new EnemyHandler();
+	std::cout << "Level created!\n";
 }
 
 void Level1::loadContent(sf::RenderWindow* window)
 {
 	superLoadContent(window);
+
+	m_EnemyHandler -> loadContent(m_Level);
+	m_EnemyHandler -> setCollisionMap(m_Level -> getObjectVector(), m_Level -> getHorizontalBitmapSize());
+	
 	text.setPosition(100, 50);
 	text.setString("Level 1");
 	text.setFont(font);

@@ -12,14 +12,15 @@ SplashScreen::SplashScreen()
 void SplashScreen::loadContent(sf::RenderWindow* window)
 {
 	m_pWindow = window;
-	if(!font.loadFromFile("../../Resources/impact.ttf"))
+
+	if(!m_splashScreen.loadFromFile("../../Resources/splashScreen.PNG"))
 	{
-		std::cout << "Could not load font" << std::endl;
+		std::cout << "Could not load splashscreen" << std::endl;
 	}
 
-	text.setPosition(100, 50);
-	text.setString("SplashScreen");
-	text.setFont(font);
+	m_splashScreenSprite.setTexture(m_splashScreen);
+	m_splashScreenSprite.setPosition(0, 0);
+
 }
 
 void SplashScreen::unloadContent()
@@ -39,7 +40,7 @@ void SplashScreen::processEvents(sf::Event event)
 		StateHandler::getInstance().addScreen(new Level1);
 	}
 
-	if(sf::Keyboard::isKeyPressed(sf::Keyboard::T))
+	else if(event.type == sf::Event::KeyPressed)
 	{
 		StateHandler::getInstance().addScreen(new TitleScreen);
 	}
@@ -47,5 +48,5 @@ void SplashScreen::processEvents(sf::Event event)
 
 void SplashScreen::draw()
 {
-	m_pWindow->draw(text);
+	m_pWindow->draw(m_splashScreenSprite);
 }

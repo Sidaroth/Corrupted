@@ -49,5 +49,7 @@ Thumbs.db
 ################
 ipch/
 Debug/
+Release/
 GameProject/Debug/
+GameProject/Release/
 CodeAnalyst/

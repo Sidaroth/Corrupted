@@ -6,7 +6,6 @@ const short BASE_STAT = 5;
 
 Character::Character() : Actor()
 {
-	m_shDamage = 10;
 	m_shSpeed = BASE_STAT;
 	m_shToughness = BASE_STAT;
 	m_shIntelligence = BASE_STAT;
@@ -15,9 +14,9 @@ Character::Character() : Actor()
 	m_shBitmapRow = 0;
 	m_shBitmapCol = 0;
 	m_shFrameCount = 0;
+	m_shMaxHealth = 50;
 	
-	m_shLevel = 1;
-	m_shHealth = 50;
+	m_shCurrentHealth = m_shMaxHealth;
 
 	m_bAbilities = new bool[false, false, false];
 }
@@ -32,9 +31,21 @@ void Character::attack(short row) ///0=N, 1=NE, 2=E, 3=SE, 4=S, 5=SW, 6=W, 7=NW
 		m_Sprite.setTexture(m_TexturesActions["attack"].imgTexture);
 		m_shBitmapCol = 0;
 		m_bDoingAction=true;
-
 	}
-	
+}
+
+bool Character::loadContent()
+{
+	//create 5 temp projectiles on load for each enemy/player
+	Projectile* projectile;
+	for( int i = 0; i < 5; i++ )
+	{
+		projectile = new Projectile( );
+		projectile -> loadContent( );
+		projectile -> setEnvironmentObjects( m_environmentLevel -> getObjectVector( ) );
+		m_vProjectiles.push_back( projectile );
+	}
+	return 0;
 }
 
 void Character::startAction(){
@@ -57,14 +68,24 @@ bool Character::isDoingAction(){
 	return m_bDoingAction;
 }
 
-short Character::getHealth()
+short Character::getMaxHealth()
 {
-	return m_shHealth;
+	return m_shMaxHealth;
 }
 
-short Character::getDamage()
+short Character::getCurrentHealth()
 {
-	return m_shDamage;
+	return m_shCurrentHealth;
+}
+
+short Character::getMeleeDamage()
+{
+	return m_shMeleeDamage;
+}
+
+short Character::getSpellDamage()
+{
+	return m_shSpellDamage;
 }
 
 short Character::getSpeed()
@@ -87,9 +108,10 @@ short Character::getStrength()
 	return m_shStrength;
 }
 
-short Character::getLevel()
+
+float Character::getCriticalChance()
 {
-	return m_shLevel;
+	return m_fCriticalChance;
 }
 
 bool* Character::getAbilities()
@@ -128,10 +150,39 @@ void Character::animation()  ///calculate frame for animation
 		{
 			endAction();
 			m_shBitmapCol = 0;
-			
 		}
 	}
 	setFrame();
+
+	for( int i = 0; i < m_vProjectiles.size( ); i++ )
+	{
+		if( m_vProjectiles[i]->exist( ) )
+		{
+			m_vProjectiles[i]->animation( );
+		}
+	}
+}
+
+void Character::draw( )
+{
+	for( int i = 0; i < m_vProjectiles.size( ); i++ )
+	{
+		if( m_vProjectiles[i]->exist( ) )
+		{
+			m_vProjectiles[i]->draw( );
+		}
+	}
+}
+
+void Character::update( )
+{
+	for( int i = 0; i < m_vProjectiles.size( ); i++ )
+	{
+		if( m_vProjectiles[i]->exist( ) )
+		{
+			m_vProjectiles[i]->move( );
+		}
+	}
 }
 
 void Character::setEnvironmentLevel(EnvironmentHandler* environmentLevel)
@@ -142,7 +193,6 @@ void Character::setEnvironmentLevel(EnvironmentHandler* environmentLevel)
 void Character::move(short direction) // 0=N, 1=NE, 2=E, 3=SE, 4=S, 5=SW, 6=W, 7=NW
 {
 	changeAnimationToWalk();
-	// WE NEED TO CHECK IF THE PLAYER IS HITTING AN OBSTRUCTION HERE... (obstructions not yet implemented as of this writing)
 	Vector2f newPosition;
 	newPosition.x = m_Sprite.getPosition().x;
 	newPosition.y = m_Sprite.getPosition().y;
@@ -150,93 +200,108 @@ void Character::move(short direction) // 0=N, 1=NE, 2=E, 3=SE, 4=S, 5=SW, 6=W, 7
 	{	
 		case NORTH:
 			newPosition.y -= 3;
+			setBitmapRow( NORTH );
+			
 			if( m_environmentLevel -> checkCollision( newPosition ) )
 			{
-				setBitmapRow( NORTH );
 				m_Sprite.move(0,-3);
 			}
 		break;
+
 		case NORTH_EAST:
 			newPosition.x += 2.1;
+			setBitmapRow( NORTH_EAST );
+			
 			if( m_environmentLevel -> checkCollision( newPosition ) )
 			{
-				setBitmapRow( NORTH_EAST );
 				m_Sprite.move(2.1, 0);
 			}
 			newPosition.x -= 2.1; //back to original x position
 			newPosition.y -= 2.1;
+			
 			if( m_environmentLevel -> checkCollision( newPosition ) )
 			{
-				setBitmapRow( NORTH_EAST );
 				m_Sprite.move(0,-2.1);
 			}
 		break;
+
 		case EAST:
 			newPosition.x += 3;
+			setBitmapRow( EAST );
+
 			if( m_environmentLevel -> checkCollision( newPosition ) )
 			{
-				setBitmapRow( EAST );
 				m_Sprite.move(3,0);
 			}
 		break;
+
 		case SOUTH_EAST:
 			newPosition.x += 2.1;
+			setBitmapRow( SOUTH_EAST );
+
 			if( m_environmentLevel -> checkCollision( newPosition ) )
 			{
-				setBitmapRow( SOUTH_EAST );
 				m_Sprite.move(2.1,0);
 			}
 			newPosition.x -= 2.1; //back to original x position
 			newPosition.y += 2.1;
+			
 			if( m_environmentLevel -> checkCollision( newPosition ) )
 			{
-				setBitmapRow( SOUTH_EAST );
 				m_Sprite.move(0,2.1);
 			}
 		break;
+
 		case SOUTH:
 			newPosition.y += 3;
+			setBitmapRow( SOUTH );
+		
 			if( m_environmentLevel -> checkCollision( newPosition ) )
 			{
-				setBitmapRow( SOUTH );
 				m_Sprite.move(0,3);
 			}
 		break;
+
 		case SOUTH_WEST:
 			newPosition.x -= 2.1;
+			setBitmapRow( SOUTH_WEST );
+		
 			if( m_environmentLevel -> checkCollision( newPosition ) )
 			{
-				setBitmapRow( SOUTH_WEST );
 				m_Sprite.move(-2.1,0);
 			}
 			newPosition.x += 2.1; //back to original x position
 			newPosition.y += 2.1;
+			
 			if( m_environmentLevel -> checkCollision( newPosition ) )
 			{
-				setBitmapRow( SOUTH_WEST );
 				m_Sprite.move(0,2.1);
 			}
 		break;
+
 		case WEST:
 			newPosition.x -= 3;
+			setBitmapRow( WEST );
+		
 			if( m_environmentLevel -> checkCollision( newPosition ) )
 			{
-				setBitmapRow( WEST );
 				m_Sprite.move(-3,0);
 			}
 			break;
+
 		case NORTH_WEST:
 			newPosition.x -= 2.1;
+			setBitmapRow( NORTH_WEST );
+
 			if( m_environmentLevel -> checkCollision( newPosition ) )
 			{
-				setBitmapRow( NORTH_WEST );
 				m_Sprite.move(-2.1,0);
 			}
 			newPosition.x += 2.1; //back to original x position
 			newPosition.y -= 2.1;
+			
 			if( m_environmentLevel -> checkCollision( newPosition ) )
 			{
-				setBitmapRow( NORTH_WEST );
 				m_Sprite.move(0,-2.1);
 			}
 		break;
@@ -252,4 +317,30 @@ void Character::showDamage()
 void Character::showHealth()
 {
 
+}
+
+void Character::castSpell( Vector2f mouseCoordinates, short spell )
+{
+	if( m_bAbilities[spell] )
+	{
+		for( int i = 0; i < m_vProjectiles.size( ); i++ )
+		{
+			if( !m_vProjectiles[i]->exist( ) )
+			{
+				m_vProjectiles[i]->initiate( spell, m_shSpellDamage, m_Position, mouseCoordinates );
+				i = m_vProjectiles.size( ) + 1;
+			}
+			else if ( i == m_vProjectiles.size( ) )
+			{
+				Projectile* projectile = new Projectile;
+				projectile -> loadContent();
+				m_vProjectiles.push_back( projectile );
+			}
+		}
+	}
+}
+
+void Character::takeDamage( short damage )
+{
+	m_shCurrentHealth -= damage;
 }

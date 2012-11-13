@@ -1,6 +1,12 @@
 #pragma once
 
+#include "StateHandler.h"
 #include "GameState.h"
+#include "Game.h"
+#include "Player.h"
+#include <sstream>
+
+
 
 class Ui {
 
@@ -9,10 +15,24 @@ private:
 
 	sf::Texture m_uiBackground;
 	sf::Sprite m_uiBackgroundSprite;
+
+	sf::Texture m_healthDiamond;
+	sf::Sprite m_healthDiamondSprite;
 	
+
+	Player* m_player;
 	sf::Font font;
-	sf::Text titleText;
-	sf::Text statText;
+
+	sf::Text rightSideText;
+	sf::Text rightSideStats;
+
+	sf::Text rightSideSecondaryText;
+	sf::Text rightSideSecondaryStats;
+
+	sf::Text healthText;
+
+	int healthRotation;
+	short m_shFrameCount;
 
 public:
 	Ui();
@@ -20,6 +40,8 @@ public:
 
 	bool loadContent();
 	void unloadContent();
-	void update();
-	void draw();
+	void update(Player* player);
+	void draw();	
 };
+
+template <typename T> std::string numberToString ( T Number );

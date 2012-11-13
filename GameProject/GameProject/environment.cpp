@@ -9,6 +9,7 @@
 
 EnvironmentHandler::EnvironmentHandler( )
 {
+	std::cout << "Environment created!\n";
 	TILESIZE = 96;
 }
 
@@ -46,22 +47,52 @@ bool EnvironmentHandler::loadContent( )
 
 void EnvironmentHandler::draw()
 {
-	for(unsigned int i = 0; i < m_sprites.size( ); i++ )
+	sf::View tempView = StateHandler::getInstance().m_pWindow->getView();
+
+	//Top left corner of the View
+	int windowX = tempView.getCenter( ).x - ( tempView.getSize( ).x / 2 );
+	int windowY = tempView.getCenter( ).y - ( tempView.getSize( ).y / 2 );
+
+	if( windowX < 0 )
 	{
-		StateHandler::getInstance().m_pWindow->draw( m_sprites[i] );
+		windowX = 0;
+	}
+	if( windowY < 0 )
+	{
+		windowY = 0;
+	}
+	//find the first square that is needed to be drawn
+	windowX /= TILESIZE;
+	windowY /= TILESIZE;
+
+	int windowXEnd = ( tempView.getSize( ).x / TILESIZE ) + ( windowX + 1 );
+	int windowYEnd = ( tempView.getSize( ).y / TILESIZE ) + windowY;
+
+	//std::cout << "\nWindowX: " << windowX << "  WindowY: " << windowY;
+	//std::cout << "\nWindowXEnd: " << windowXEnd << "  WindowYEnd: " << windowYEnd << std::endl;
+	for( unsigned int j = windowY; j <= windowYEnd; j++ )
+	{
+		for( unsigned int i = windowX; i <= windowXEnd; i++ )
+		{
+			if( ( j * m_iHorizontalBitmapSize ) + ( i ) < m_sprites.size() )
+			{
+				StateHandler::getInstance().m_pWindow->draw( m_sprites[ ( j * m_iHorizontalBitmapSize ) + ( i ) ] );
+			}
+		}
 	}
 }
 
 void EnvironmentHandler::bitmapToArray()
 {
-	sf::Color pixelColor;
+	sf::Color pixelColor;			
+	RGB* rgb;
 	for( int j = 0; j < m_iVerticalBitmapSize; j++ )
 	{
 		for( int i = 0; i < m_iHorizontalBitmapSize; i++ )
 		{
 		//	std::cout << "i: " << i << " j: " << j << std::endl;
 			pixelColor = m_bitmap.getPixel( i,j );
-			RGB* rgb = new RGB;
+			rgb = new RGB;
 			rgb->red = pixelColor.r;
 			rgb->green = pixelColor.g;
 			rgb->blue = pixelColor.b;
@@ -291,34 +322,45 @@ void EnvironmentHandler::findObjects()
 
 bool EnvironmentHandler::checkCollision( Vector2f playerPosition )
 {
-	int x = int(playerPosition.x / TILESIZE);
-	int y = int(playerPosition.y / TILESIZE);
+	int x = ( ( playerPosition.x + 35 ) / TILESIZE );
+	int y = ( ( playerPosition.y + 48 ) / TILESIZE );
 
 	//for(int i = 64*63; i <= 64*64; i++)
 	//{
 	//	std::cout << "\nObject Bool: " << (bool)m_objects[((y * m_iHorizontalBitmapSize) + x )];
 	//}
-
+	
+	//check top left corner
 	if(!m_objects[( ( y * m_iHorizontalBitmapSize) + x )] )
 	{
 		return false;
 	}
-	else if(!m_objects[( ( y * m_iHorizontalBitmapSize) + ( x + 1 ) )] )
+	
+	x = ( ( playerPosition.x - 35 ) / TILESIZE );
+
+	//check top right corner
+	if(!m_objects[( ( y * m_iHorizontalBitmapSize) + ( x + 1 ) )] )
+	{
+		return false;
+	}		
+
+	y = ( ( playerPosition.y - 15 ) / TILESIZE );
+
+	//check bottom right corner
+	if(!m_objects[( ( ( y + 1 ) * m_iHorizontalBitmapSize) + ( x + 1 ) )] )
 	{
 		return false;
 	}
-	else if(!m_objects[( ( ( y + 1 ) * m_iHorizontalBitmapSize) + ( x + 1 ) )] )
+
+	x = ( ( playerPosition.x + 35 ) / TILESIZE );
+
+	//check bottom left corner	
+	if(!m_objects[( ( ( y + 1 ) * m_iHorizontalBitmapSize) + x )] )
 	{
 		return false;
 	}
-	else if(!m_objects[( ( ( y + 1 ) * m_iHorizontalBitmapSize) + x )] )
-	{
-		return false;
-	}
-	else
-	{
-		return true;
-	}
+	
+	return true;
 }
 
 Vector2f EnvironmentHandler::getPlayerPosition( )

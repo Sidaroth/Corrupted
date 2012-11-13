@@ -1,28 +1,24 @@
 #include "EnemyHandler.h"
 #include "Vector2f.h"
 
-void EnemyHandler::loadContent()
+void EnemyHandler::loadContent(EnvironmentHandler* level)
 {
-	for(short i = 0; i < 3; i++)
-	{
-		m_EnemyVector.push_back(m_EnemyFactory -> createEnemy(m_EnemyFactory -> Skellie));
+	m_Level = level;
+	m_EnemyVector.push_back(m_EnemyFactory -> createEnemy(m_EnemyFactory -> Skellie));
 		
-		if(m_EnemyVector[i] != NULL)
-		{
-			m_EnemyVector[i] -> loadContent();
-		}
-		else
-		{
-			std::cout << "Something Broke in enemy creation..." << std::endl;
-			return;
-		}
+	if(m_EnemyVector[0] != NULL)
+	{
+		std::cout << "Enemy created!\n";
+		m_EnemyVector[0] -> loadContent();
+	}
+	else
+	{
+		std::cout << "Something Broke in enemy creation..." << std::endl;
+		return;
 	}
 
-	// Temporarily done so that the enemies don't spawn on top of eachother, so we can see them all
-	for(short i = 0; i < 3; i++)
-	{
-		m_EnemyVector[i] -> setPosition(Vector2f(float(150 * (i + 5)), float(100 * (i + 5))));
-	}
+	m_EnemyVector[0] -> setEnvironmentLevel(m_Level);
+	m_EnemyVector[0] -> setPosition(Vector2f(960, 960));
 }
 
 void EnemyHandler::unloadContent()
@@ -58,4 +54,9 @@ void EnemyHandler::setCollisionMap(std::vector<bool>* collisionMap, int horizont
 	{
 		m_EnemyVector[i] -> setCollisionMap(collisionMap, horizontalSize);
 	}
+}
+
+std::vector<Enemy*>* EnemyHandler::getEnemyVector( )
+{
+	return &m_EnemyVector;
 }
