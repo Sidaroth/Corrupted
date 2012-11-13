@@ -19,6 +19,8 @@ private:
 	sf::Texture m_healthDiamond;
 	sf::Sprite m_healthDiamondSprite;
 	
+
+	Player* m_player;
 	sf::Font font;
 
 	sf::Text rightSideText;
@@ -27,7 +29,8 @@ private:
 	sf::Text rightSideSecondaryText;
 	sf::Text rightSideSecondaryStats;
 
-	Player* m_player;
+	sf::Text healthText;
+
 	int healthRotation;
 	short m_shFrameCount;
 

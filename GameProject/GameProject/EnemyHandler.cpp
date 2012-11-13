@@ -55,3 +55,8 @@ void EnemyHandler::setCollisionMap(std::vector<bool>* collisionMap, int horizont
 		m_EnemyVector[i] -> setCollisionMap(collisionMap, horizontalSize);
 	}
 }
+
+std::vector<Enemy*>* EnemyHandler::getEnemyVector( )
+{
+	return &m_EnemyVector;
+}

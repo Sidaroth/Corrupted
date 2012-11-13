@@ -26,6 +26,7 @@ protected:
 	std::vector<Vector2f*> m_Path;
 	Vector2f* pathStep;
 
+	std::vector<Projectile*>* getProjectile( );
 	
 	short squaresChecked;			// total number of items added to the open list. 
 	short tilesChecked;				// total number of items added to the closed list. 

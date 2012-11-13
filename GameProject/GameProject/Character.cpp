@@ -41,7 +41,8 @@ bool Character::loadContent()
 	for( int i = 0; i < 5; i++ )
 	{
 		projectile = new Projectile( );
-		projectile->loadContent( );
+		projectile -> loadContent( );
+		projectile -> setEnvironmentObjects( m_environmentLevel -> getObjectVector( ) );
 		m_vProjectiles.push_back( projectile );
 	}
 	return 0;
@@ -337,4 +338,9 @@ void Character::castSpell( Vector2f mouseCoordinates, short spell )
 			}
 		}
 	}
+}
+
+void Character::takeDamage( short damage )
+{
+	m_shCurrentHealth -= damage;
 }

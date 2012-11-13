@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Character.h"
+#include "Enemy.h"
 
 
 class Player : public Character
@@ -14,6 +15,9 @@ private:
 
 	std::string m_sName;
 
+	std::vector<Enemy*>* m_EnemyVector;
+
+	void collisionCheck( );
 
 protected:
 
@@ -29,4 +33,6 @@ public:
 	short getCurrentSouls();
 	short getWeaponLevel();
 	short getArmorLevel();
+
+	void setEnemyVector( std::vector<Enemy*>* enemyVector);
 };

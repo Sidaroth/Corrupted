@@ -297,7 +297,7 @@ short Enemy::findPath(int startX, int startY, int goalX, int goalY)
 					}
 				}
 			}
-
+}
 			++tilesChecked;
 		}
 		else
