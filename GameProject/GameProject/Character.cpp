@@ -140,7 +140,6 @@ void Character::animation()  ///calculate frame for animation
 
 	m_shFrameCount += 1;
 
-	sf::Texture temptex;
 	m_Sprite.getTexture();
 	if(m_shFrameCount % ANIMATION_SPEED == 0)
 	{

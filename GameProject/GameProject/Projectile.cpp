@@ -54,16 +54,10 @@ bool Projectile::loadContent( )
 
 void Projectile::move( )
 {
-	float newX = m_vPosition.x + 10 * -sin( m_fAngle );
-	float newY = m_vPosition.y + 10 * -cos( m_fAngle );
+	float newX = m_vPosition.x + 10 * sin( m_fAngle );
+	float newY = m_vPosition.y + 10 * cos( m_fAngle );
 
 	m_Sprite.setPosition( newX, newY );
-
-	m_shTraveled += ( newX + newY );
-	if( m_shTraveled > 2000 )
-	{
-		m_bExist = false;
-	}
 
 	m_vPosition.x = newX;
 	m_vPosition.y = newY;
@@ -85,7 +79,6 @@ void Projectile::animation( )
 
 	m_shFrameCount += 1;
 
-	sf::Texture temptex;
 	m_Sprite.getTexture();
 		
 	if(m_shFrameCount % ANIMATION_SPEED == 0)
@@ -124,37 +117,37 @@ void Projectile::setEnvironmentObjects(std::vector<bool>* objects)
 
 void Projectile::checkCollision( )
 {
-	const short TILESIZE = 96;
-	int x = ( ( m_Position.x ) / TILESIZE );
-	int y = ( ( m_Position.y ) / TILESIZE );
+	//const short TILESIZE = 96;
+	//int x = ( ( m_Position.x ) / TILESIZE );
+	//int y = ( ( m_Position.y ) / TILESIZE );
 
-	//check top left corner
-	if(!m_objects -> at( ( ( y * m_shHorizontalBitmapSize) + x ) ) )
-	{
-		setInvisible();
-	}
+	////check top left corner
+	//if(!m_objects -> at( ( ( y * m_shHorizontalBitmapSize) + x ) ) )
+	//{
+	//	setInvisible();
+	//}
 
-	x = ( ( m_Position.x - 48 ) / TILESIZE );
+	//x = ( ( m_Position.x - 48 ) / TILESIZE );
 
-	//check top right corner
-	if(!m_objects -> at( ( ( y * m_shHorizontalBitmapSize) + ( x + 1 ) ) ) )
-	{
-		setInvisible();
-	}		
+	////check top right corner
+	//if(!m_objects -> at( ( ( y * m_shHorizontalBitmapSize) + ( x + 1 ) ) ) )
+	//{
+	//	setInvisible();
+	//}		
 
-	y = ( ( m_Position.y - 48 ) / TILESIZE );
+	//y = ( ( m_Position.y - 48 ) / TILESIZE );
 
-	//check bottom right corner
-	if(!m_objects -> at( ( ( ( y + 1 ) * m_shHorizontalBitmapSize) + ( x + 1 ) ) ) )
-	{
-		setInvisible();
-	}
+	////check bottom right corner
+	//if(!m_objects -> at( ( ( ( y + 1 ) * m_shHorizontalBitmapSize) + ( x + 1 ) ) ) )
+	//{
+	//	setInvisible();
+	//}
 
-	x = ( ( m_Position.x ) / TILESIZE );
+	//x = ( ( m_Position.x ) / TILESIZE );
 
-	//check bottom left corner	
-	if(!m_objects -> at( ( ( ( y + 1 ) * m_shHorizontalBitmapSize) + x ) ) )
-	{
-		setInvisible();
-	}
+	////check bottom left corner	
+	//if(!m_objects -> at( ( ( ( y + 1 ) * m_shHorizontalBitmapSize) + x ) ) )
+	//{
+	//	setInvisible();
+	//}
 }
