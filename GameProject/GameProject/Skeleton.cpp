@@ -43,34 +43,37 @@ void Skeleton::update()
 		findPath(m_Sprite.getPosition().x, m_Sprite.getPosition().y, 96, 96);
 	}
 
-	//std::cout << "Moving!" << std::endl;
 	pathLocation = m_Path.size() - 1;
-	pathStep = m_Path[pathLocation];
 
-	if(pathStep -> y > m_Sprite.getPosition().y)
+	//std::cout << "Moving!" << std::endl;
+	if(pathLocation >= 1) // If there is a path
 	{
-		move(SOUTH);
-	}
-	else if(pathStep -> y < m_Sprite.getPosition().y)
-	{
-		move(NORTH);
-	}
+		pathStep = m_Path[pathLocation];
 
-	if(pathStep -> x > m_Sprite.getPosition().x)
-	{
-		move(EAST);
-	}
-	else if(pathStep -> x < m_Sprite.getPosition().x)
-	{
-		move(WEST);
-	}
+		if(pathStep -> y > m_Sprite.getPosition().y)
+		{
+			move(SOUTH);
+		}
+		else if(pathStep -> y < m_Sprite.getPosition().y)
+		{
+			move(NORTH);
+		}
 
-	if((m_Sprite.getPosition().x - pathStep -> x <= 10 &&
-		m_Sprite.getPosition().x - pathStep -> x > -10)		
-		&& (m_Sprite.getPosition().y - pathStep -> y <= 0 &&
-			m_Sprite.getPosition().y - pathStep -> y > -10))
-	{
-		m_Path.erase(m_Path.end() - 1);
-	}
+		if(pathStep -> x > m_Sprite.getPosition().x)
+		{
+			move(EAST);
+		}
+		else if(pathStep -> x < m_Sprite.getPosition().x)
+		{
+			move(WEST);
+		}
 
+		if((m_Sprite.getPosition().x - pathStep -> x <= 10 &&
+			m_Sprite.getPosition().x - pathStep -> x > -10)		
+			&& (m_Sprite.getPosition().y - pathStep -> y <= 0 &&
+				m_Sprite.getPosition().y - pathStep -> y > -10))
+		{
+			m_Path.erase(m_Path.end() - 1);
+		}
+	}
 }

@@ -55,6 +55,8 @@ void SuperLevel::unloadContent()
 
 void SuperLevel::processEvents(sf::Event event)
 {
+		keyControl->checkMouse(event);
+
 		if(sf::Keyboard::isKeyPressed(sf::Keyboard::T))
 		{
 			StateHandler::getInstance().addScreen(new TitleScreen);
@@ -63,6 +65,16 @@ void SuperLevel::processEvents(sf::Event event)
 		if(sf::Keyboard::isKeyPressed(sf::Keyboard::Y))
 		{
 			StateHandler::getInstance().addScreen(new SplashScreen);
+		}
+
+		if(sf::Keyboard::isKeyPressed(sf::Keyboard::O))
+		{
+			player -> takeDamage(5);
+		}
+		
+		if(sf::Keyboard::isKeyPressed(sf::Keyboard::P))
+		{
+			player -> takeDamage(-5);
 		}
 		if (event.type == sf::Event::KeyReleased)
 		{

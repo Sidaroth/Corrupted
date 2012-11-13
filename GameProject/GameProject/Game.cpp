@@ -3,6 +3,7 @@
 #include "SplashScreen.h"
 #include "StateHandler.h"
 
+
 Game::Game()
 {
 	m_sTitle = "Untitled";
@@ -12,7 +13,28 @@ Game::Game()
 	m_bRunning = false;
 	m_BackgroundColor = new sf::Color(0, 0, 0, 255);
 	m_Window.create(sf::VideoMode(m_shScreenWidth, m_shScreenHeight, m_shScreenBitColor), m_sTitle);
-	
+	//JUST TRYING SOUNDS
+	 sf::Music music;
+	  // Open it from an audio file
+	 if (!music.openFromFile("../../Resources/sounds/sound.wav"))
+	 {
+		 // error...
+		 std::cout << "Error at music loading" << std::endl;
+
+	 }else{
+
+		  // Change some parameters
+		 music.setPosition(0, 1, 10); // change its 3D position
+		 music.setPitch(2);           // increase the pitch
+		 music.setVolume(120);         // reduce the volume
+		 music.setLoop(true);         // make it loop
+
+		 // Play it
+		 music.play();
+		 std::cout << "Playing music" << std::endl;
+	 }
+
+	//END JUST TRYING SOUNDS
 	//keyControl.loadXML();
 }
 

@@ -3,7 +3,9 @@
 
 
 KeyboardController::KeyboardController(Player* player_recieved,sf::RenderWindow* window_recieved){
+	
 
+		
 	//KeyBinding (We will have to change it so instead of being hardcoded it will be read from a file.
 	window = window_recieved;
 	player = player_recieved;
@@ -40,14 +42,93 @@ KeyboardController::KeyboardController(Player* player_recieved,sf::RenderWindow*
 	key.myKeyCode = sf::Keyboard::S;
 	Keys["backward"] = key;
 	//EndKeyBinding
-
+	
 	
 	std::cout << "Keyboard controller created" << std::endl;
 	//loadXML();
+	audio_manager.loadAudio();
+}
+
+void KeyboardController::checkMouse(sf::Event event)
+{
+
+	if (event.type == sf::Event::MouseButtonPressed)
+	{
+		if (event.mouseButton.button == sf::Mouse::Left)
+		{
+
+
+
+			std::cout << "the left button was pressed" << std::endl;
+			std::cout << "mouse x: " << event.mouseButton.x << std::endl;
+			std::cout << "mouse y: " << event.mouseButton.y << std::endl;
+		
+			//Calculate direction of the atack
+
+			sf::Vector2i v_mouse_position;
+		
+			//sf::Window = &window;
+			v_mouse_position.x = event.mouseButton.x;
+			v_mouse_position.y = event.mouseButton.y;
+	
+			std::cout << "Position X: " << v_mouse_position.x << " Position Y: " << v_mouse_position.y << std::endl;
+			Vector2f* v2f_player_position;
+			v2f_player_position = player->getSpritePosition();
+			
+			v2f_player_position->x=window->getSize().x/2;
+			v2f_player_position->y=window->getSize().y/2;
+			//1366/2, 768/2
+			std::cout << " PLAYER Position X: " << v2f_player_position->x << "PLAYER  Position Y: " << v2f_player_position->y << std::endl;
+			Vector2f* v2f_atack_direction = new Vector2f();
+			float angle = atan2((v2f_player_position->y-v_mouse_position.y),(v2f_player_position->x-v_mouse_position.x));
+
+			std::cout << "Angle: " << angle << std::endl;
+		
+			int i_atack_direction=0;
+		
+			if((angle>0)&&(angle<=0.3925)){
+				std::cout << "Atacking WEAST" << std::endl;
+				i_atack_direction=6;
+			}else if((angle>0.3925)&&(angle<=1.1775)){
+				i_atack_direction=7;
+				std::cout << "ATACKING NORTH-WEAST" << std::endl;
+			}else if((angle>1.1775)&&(angle<=1.9625)){
+				i_atack_direction=0;
+				std::cout << "ATACKING NORTH" << std::endl;
+			}else if((angle>1.9625)&&(angle<=2.7475)){
+				i_atack_direction=1;
+				std::cout << "ATACKING NORTH-EAST" << std::endl;
+			}else if((angle>2.7475)&&(angle<=3.14)){
+				i_atack_direction=2;
+				std::cout << "ATACKING EAST" << std::endl;
+			}else if((angle<=0)&&(angle>-0.3925)){
+				std::cout << "Atacking WEAST" << std::endl;
+				i_atack_direction=6;
+			}else if((angle<=-0.3925)&&(angle>-1.1775)){
+				i_atack_direction=5;
+				std::cout << "ATACKING SOUTH-WEAST" << std::endl;
+			}else if((angle<=-1.1775)&&(angle>-1.9625)){
+				i_atack_direction=4;
+				std::cout << "ATACKING SOUTH" << std::endl;
+			}else if((angle<=-1.9625)&&(angle>-2.7475)){
+				i_atack_direction=3;
+				std::cout << "ATACKING SOUTH-EAST" << std::endl;
+			}else if((angle<=-2.7475)&&(angle>-3.14)){
+				i_atack_direction=2;
+				std::cout << "ATACKING EAST" << std::endl;
+			}
+
+			//End calculate direction
+
+			player->attack(i_atack_direction); ///0=N, 1=NE, 2=E, 3=SE, 4=S, 5=SW, 6=W, 7=NW
+			audio_manager.playSound("atack_miss");
+		}
+	}
 
 }
 
-void KeyboardController::checkPressed(){
+void KeyboardController::checkPressed()
+{
 	 if(!player->isDoingAction()){
 	//0=N, 1=NE, 2=E, 3=SE, 4=S, 5=SW, 6=W, 7=NW
 	//MOVEMENT
@@ -93,9 +174,13 @@ void KeyboardController::checkPressed(){
 	//OTHER ACTIONS
 	if (sf::Keyboard::isKeyPressed(Keys["skill_1"].myKeyCode))
 	{
-		//std::cout << "Space pressed" << std::endl;
+		std::cout << "Space pressed" << std::endl;
+		
 	}
 	if(sf::Mouse::isButtonPressed(Keys["shoot" ].myMouseButton)){
+		
+		
+		/*
 		std::cout << "Mouse left pressed" << std::endl;
 		
 		//Calculate direction of the atack
@@ -116,7 +201,7 @@ void KeyboardController::checkPressed(){
 		Vector2f* v2f_atack_direction = new Vector2f();
 		float angle = atan2((v2f_player_position->y-v_mouse_position.y),(v2f_player_position->x-v_mouse_position.x));
 		/*v2f_atack_direction->x = (v2f_player_position->x - v_mouse_position.x);
-		v2f_atack_direction->y = (v2f_player_position->y - v_mouse_position.y);*/
+		v2f_atack_direction->y = (v2f_player_position->y - v_mouse_position.y);
 
 		
 
@@ -159,10 +244,20 @@ void KeyboardController::checkPressed(){
 		//End calculate direction
 
 		player->attack(i_atack_direction); ///0=N, 1=NE, 2=E, 3=SE, 4=S, 5=SW, 6=W, 7=NW
+
+		*/
 	}
 	if(sf::Mouse::isButtonPressed(sf::Mouse::Right)){
+		
+		audio_manager.playSound("lvl_up");
+		
 		std::cout << "Mouse Right pressed" << std::endl;
-		player->changeAnimationToWalk();
+		
+		
+		//	system( "pause" );  
+	
+			
+		
 	}
 
 	}
