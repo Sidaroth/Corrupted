@@ -9,6 +9,7 @@
 #include "Player.h"
 #include "GameState.h"
 #include "KeyboardController.h"
+#include<SFML\Audio.hpp>
 
 
 class Game
