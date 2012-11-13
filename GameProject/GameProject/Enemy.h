@@ -26,8 +26,6 @@ protected:
 	std::vector<Vector2f*> m_Path;
 	Vector2f* pathStep;
 
-	std::vector<Projectile*>* getProjectile( );
-	
 	short squaresChecked;			// total number of items added to the open list. 
 	short tilesChecked;				// total number of items added to the closed list. 
 	
@@ -62,6 +60,9 @@ public:
 	virtual void update() = 0;
 	virtual bool loadContent() = 0;
 	void setCollisionMap(std::vector<bool>* collisionMap, int horizontalSize);
+	
+	std::vector<Projectile*>* getProjectile( );
+	
 
 	short findPath(int startX, int startY, int goalX, int goalY);
 

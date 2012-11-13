@@ -297,7 +297,6 @@ short Enemy::findPath(int startX, int startY, int goalX, int goalY)
 					}
 				}
 			}
-}
 			++tilesChecked;
 		}
 		else
@@ -339,35 +338,8 @@ short Enemy::findPath(int startX, int startY, int goalX, int goalY)
 	return path;
 }
 
-void Enemy::initializePathFind()
+
+std::vector<Projectile*>* Enemy::getProjectile( )
 {
-	//numberOfOpenListItems = 1;
-	//squaresChecked =  0;
-	//tilesChecked = 0;
-	//current = 1;
-
-	//for(int i = 0; i < OPEN_LIST_ELEMENTS; i++)
-	//{
-	//	openX[i] = 0;
-	//	openY[i] = 0;
-	//	fCost[i] = 0;
-	//	openList[i] = 0;
-	//}
-
-	//openList[current] = current;
-	//gCost[currentColumn][currentRow] = 0;
-	//fCost[current] = 0;
-	//openX[current] = currentColumn;
-	//openY[current] = currentRow;
+	return &m_vProjectiles;
 }
-//
-//if(openX[squaresChecked] != openX[squaresChecked / 2] && openY[squaresChecked] != openY[squaresChecked / 2])
-//									{
-//										temp = DIAGONAL_MOVEMENT_COST; 
-//										//gCost[squaresChecked] = gCost[squaresChecked / 2] + DIAGONAL_MOVEMENT_COST;
-//									}
-//									else	// Orthogonal
-//									{
-//										temp = ORTHOGONAL_MOVEMENT_COST;
-//										//gCost[squaresChecked] = gCost[squaresChecked / 2] + ORTHOGONAL_MOVEMENT_COST;
-//									}
