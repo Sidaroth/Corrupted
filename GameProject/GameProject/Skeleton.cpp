@@ -44,6 +44,7 @@ void Skeleton::update()
 	}
 
 	pathLocation = m_Path.size() - 1;
+
 	//std::cout << "Moving!" << std::endl;
 	if(pathLocation >= 1) // If there is a path
 	{
