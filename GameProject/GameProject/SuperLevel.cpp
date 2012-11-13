@@ -52,6 +52,8 @@ void SuperLevel::unloadContent()
 
 void SuperLevel::processEvents(sf::Event event)
 {
+		keyControl->checkMouse(event);
+
 		if(sf::Keyboard::isKeyPressed(sf::Keyboard::T))
 		{
 			StateHandler::getInstance().addScreen(new TitleScreen);

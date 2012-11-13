@@ -9,7 +9,7 @@
 #include "Player.h"
 #include <vector>
 #include <math.h>
-
+#include "AudioManager.h"
 
 
 class KeyboardController 
@@ -23,7 +23,7 @@ private:
 	std::string moveRIghtKey;
 	std::string spaceKey;
 	sf::RenderWindow* window;
-
+	AudioManager audio_manager;
 	enum InputType
 	{
 		KeyboardInput,
@@ -44,6 +44,7 @@ private:
 public:
 	KeyboardController(Player* player,sf::RenderWindow* window);
 	void checkPressed();
+	void checkMouse(sf::Event event);
 	void setKeyToAction (MyKeys,std::string action);
 	void setMoveFowardKey(char key);
 	void setMoveBackwardKey(char key);
