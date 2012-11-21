@@ -69,13 +69,24 @@ void SuperLevel::processEvents(sf::Event event)
 
 		if(sf::Keyboard::isKeyPressed(sf::Keyboard::O))
 		{
-			player -> takeDamage(5);
+			player -> takeDamage(1);
 		}
 		
 		if(sf::Keyboard::isKeyPressed(sf::Keyboard::P))
 		{
-			player -> takeDamage(-5);
+			player -> takeDamage(-1);
 		}
+
+		if(sf::Keyboard::isKeyPressed(sf::Keyboard::K))
+		{
+			player -> modifySouls(5);
+		}
+
+		if(sf::Keyboard::isKeyPressed(sf::Keyboard::L))
+		{
+			player -> modifySouls(-5);
+		}
+
 		if (event.type == sf::Event::KeyReleased)
 		{
 			 if(!player->isDoingAction())

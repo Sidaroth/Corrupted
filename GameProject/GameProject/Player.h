@@ -13,6 +13,8 @@ private:
 	short m_shWeaponLevel;
 	short m_shArmorLevel; 
 
+	short m_saStatArray[6];
+
 	std::string m_sName;
 
 	std::vector<Enemy*>* m_EnemyVector;
@@ -33,6 +35,11 @@ public:
 	short getCurrentSouls();
 	short getWeaponLevel();
 	short getArmorLevel();
+
+	int getStatArray(int stat);
+	void increaseStat(int stat);
+
+	void modifySouls(short amount);
 
 	void setEnemyVector( std::vector<Enemy*>* enemyVector);
 };
