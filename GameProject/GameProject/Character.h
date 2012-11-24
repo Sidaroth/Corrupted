@@ -19,13 +19,15 @@ private:
 	bool m_bDoingAction;
 
 protected:
-	short m_shCurrentHealth;
-	short m_shSpeed;
-	short m_shToughness;
-	short m_shIntelligence;
+	
 	short m_shStrength;
+	short m_shIntelligence;
+	short m_shToughness;
+	short m_shSpeed;
 
+	short m_shCurrentHealth;
 	short m_shMaxHealth;
+
 	short m_shMeleeDamage;
 	short m_shSpellDamage;
 	float m_fCriticalChance;	/// Given in percent
