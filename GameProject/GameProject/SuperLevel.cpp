@@ -26,19 +26,20 @@ void SuperLevel::superLoadContent(sf::RenderWindow* window)
 	m_Level -> loadContent();
 
 	player = new Player();
-	player -> loadContent();	
-	player -> setEnvironmentLevel(m_Level);
-	player -> setEnemyVector( m_EnemyHandler->getEnemyVector( ) );
+	player -> setEnvironmentLevel( m_Level );
+	player -> loadContent();
 
-	Vector2f derp;
-	derp.x = 500;
-	derp.y = 500;
-	player -> castSpell(derp, 0);
+	player -> setEnemyVector( m_EnemyHandler->getEnemyVector( ) );
 
 	ui = new Ui();
 	ui->loadContent();
 
 	player -> setPosition(m_Level -> getPlayerPosition());
+
+	Vector2f derp;
+	derp.x = 500;
+	derp.y = 500;
+	player -> castSpell(derp, 0);
 	
 	keyControl = new KeyboardController(player,StateHandler::getInstance().m_pWindow);
 	

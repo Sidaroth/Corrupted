@@ -42,7 +42,7 @@ bool Character::loadContent()
 	{
 		projectile = new Projectile( );
 		projectile -> loadContent( );
-		projectile -> setEnvironmentObjects( m_environmentLevel -> getObjectVector( ) );
+		projectile -> setEnvironmentObjects( m_environmentLevel -> getObjectVector( ), m_environmentLevel -> getHorizontalBitmapSize( ) );
 		m_vProjectiles.push_back( projectile );
 	}
 	return 0;
@@ -332,7 +332,8 @@ void Character::castSpell( Vector2f mouseCoordinates, short spell )
 			else if ( i == m_vProjectiles.size( ) )
 			{
 				Projectile* projectile = new Projectile;
-				projectile -> loadContent();
+				projectile -> loadContent( );
+				projectile -> setEnvironmentObjects( m_environmentLevel -> getObjectVector( ), m_environmentLevel -> getHorizontalBitmapSize( ) );
 				m_vProjectiles.push_back( projectile );
 			}
 		}

@@ -5,8 +5,8 @@ Projectile::Projectile( )
 {
 	m_shSpell = NULL;
 	m_shDamage = 0;
-	m_vPosition.x = 0;
-	m_vPosition.y = 0;
+	m_Position.x = 0;
+	m_Position.y = 0;
 	m_shTraveled = 0;
 	m_bExist = false;
 	m_shSpriteSize = 48;
@@ -21,7 +21,7 @@ void Projectile::initiate( short spell, short damage, Vector2f position, Vector2
 {
 	m_shSpell = spell;
 	m_shDamage = damage;
-	m_vPosition = position;
+	m_Position = position;
 	m_bExist = true;
 	m_shTraveled = 0;
 
@@ -30,8 +30,8 @@ void Projectile::initiate( short spell, short damage, Vector2f position, Vector2
 		m_Sprite.setTexture( m_vTextures[FIREBALL] );
 	}
 
-	float deltaY = mouseCoordinates.y - m_vPosition.y;
-	float deltaX = mouseCoordinates.x - m_vPosition.x;
+	float deltaY = mouseCoordinates.y - m_Position.y;
+	float deltaX = mouseCoordinates.x - m_Position.x;
 
 	m_fAngle = atan2( deltaY, deltaX ) * 180 / 3.1415;
 }
@@ -54,13 +54,13 @@ bool Projectile::loadContent( )
 
 void Projectile::move( )
 {
-	float newX = m_vPosition.x + 10 * sin( m_fAngle );
-	float newY = m_vPosition.y + 10 * cos( m_fAngle );
+	float newX = m_Position.x + 10 * sin( m_fAngle );
+	float newY = m_Position.y + 10 * cos( m_fAngle );
 
 	m_Sprite.setPosition( newX, newY );
 
-	m_vPosition.x = newX;
-	m_vPosition.y = newY;
+	m_Position.x = newX;
+	m_Position.y = newY;
 
 	if( m_shTraveled < 2000 )
 	{
@@ -121,44 +121,47 @@ void Projectile::setInvisible()
 	m_bExist = false;
 }
 
-void Projectile::setEnvironmentObjects(std::vector<bool>* objects)
+void Projectile::setEnvironmentObjects(std::vector<bool>* objects, short horizontalBitmapSize )
 {
 	m_objects = objects;
+	m_shHorizontalBitmapSize = horizontalBitmapSize;
 }
 
 void Projectile::checkCollision( )
 {
-	//const short TILESIZE = 96;
-	//int x = ( ( m_Position.x ) / TILESIZE );
-	//int y = ( ( m_Position.y ) / TILESIZE );
+	const short TILESIZE = 96;
+	int x = ( ( m_Position.x ) / TILESIZE );
+	int y = ( ( m_Position.y ) / TILESIZE );
+	m_objects -> at( 1 );
+	float derp =( y * m_shHorizontalBitmapSize) + x;
+	std::cout << derp << std::endl;
+	//check top left corner
+	if( !m_objects -> at( ( ( y * m_shHorizontalBitmapSize) + x ) ) )
+	{
+		setInvisible();
+	}
 
-	////check top left corner
-	//if(!m_objects -> at( ( ( y * m_shHorizontalBitmapSize) + x ) ) )
-	//{
-	//	setInvisible();
-	//}
+	x = ( ( m_Position.x - 48 ) / TILESIZE );
 
-	//x = ( ( m_Position.x - 48 ) / TILESIZE );
+	//check top right corner
+	if(! m_objects -> at( ( ( y * m_shHorizontalBitmapSize) + ( x + 1 ) ) ) )
+	{
+		setInvisible();
+	}		
 
-	////check top right corner
-	//if(!m_objects -> at( ( ( y * m_shHorizontalBitmapSize) + ( x + 1 ) ) ) )
-	//{
-	//	setInvisible();
-	//}		
+	y = ( ( m_Position.y - 48 ) / TILESIZE );
 
-	//y = ( ( m_Position.y - 48 ) / TILESIZE );
+	//check bottom right corner
+	if( !m_objects -> at( ( ( ( y + 1 ) * m_shHorizontalBitmapSize) + ( x + 1 ) ) ) )
+	{
+		setInvisible();
+	}
 
-	////check bottom right corner
-	//if(!m_objects -> at( ( ( ( y + 1 ) * m_shHorizontalBitmapSize) + ( x + 1 ) ) ) )
-	//{
-	//	setInvisible();
-	//}
+	x = ( ( m_Position.x ) / TILESIZE );
 
-	//x = ( ( m_Position.x ) / TILESIZE );
-
-	////check bottom left corner	
-	//if(!m_objects -> at( ( ( ( y + 1 ) * m_shHorizontalBitmapSize) + x ) ) )
-	//{
-	//	setInvisible();
-	//}
+	//check bottom left corner	
+	if( !m_objects -> at( ( ( ( y + 1 ) * m_shHorizontalBitmapSize) + x ) ) )
+	{
+		setInvisible();
+	}
 }
