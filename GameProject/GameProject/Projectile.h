@@ -15,7 +15,6 @@ private:
 	short m_shFrameCount;
 	short m_shTraveled;
 	bool m_bExist;
-	Vector2f m_vPosition;
 	float m_fAngle;
 	std::vector<sf::Texture> m_vTextures;
 	enum m_abilities { FIREBALL, FROSTBOLT, LIGHTNINGBOLT };
@@ -35,5 +34,5 @@ public:
 	bool exist( );
 	void setFrame( );
 	void setInvisible( );
-	void setEnvironmentObjects(std::vector<bool>* objects);
+	void setEnvironmentObjects(std::vector<bool>* objects, short horizontalBitmapSize );
 };

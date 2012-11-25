@@ -18,7 +18,12 @@ private:
 
 	sf::Texture m_healthDiamond;
 	sf::Sprite m_healthDiamondSprite;
-	
+
+	sf::Texture m_increaseButtonGray;
+	sf::Texture m_increaseButtonRed;
+
+	sf::Sprite increaseButtonSpriteArray[6];
+	bool increasable[6];
 
 	Player* m_player;
 	sf::Font font;
@@ -31,7 +36,7 @@ private:
 
 	sf::Text healthText;
 
-	int healthRotation;
+	float healthRotation;
 	short m_shFrameCount;
 
 public:

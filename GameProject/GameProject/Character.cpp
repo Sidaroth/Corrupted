@@ -42,7 +42,7 @@ bool Character::loadContent()
 	//{
 	//	projectile = new Projectile( );
 	//	projectile -> loadContent( );
-	//	projectile -> setEnvironmentObjects( m_environmentLevel -> getObjectVector( ) );
+		projectile -> setEnvironmentObjects( m_environmentLevel -> getObjectVector( ), m_environmentLevel -> getHorizontalBitmapSize( ) );
 	//	m_vProjectiles.push_back( projectile );
 	//}
 	return 0;
@@ -140,12 +140,11 @@ void Character::animation()  ///calculate frame for animation
 
 	m_shFrameCount += 1;
 
-	sf::Texture temptex;
 	m_Sprite.getTexture();
 	if(m_shFrameCount % ANIMATION_SPEED == 0)
 	{
 		
-		m_shBitmapCol += 1;
+		m_shBitmapCol += 1;C:\Program Files (x86)\KDiff3
 		if ( ( m_shBitmapCol * m_shSpriteSize ) >= m_Sprite.getTexture()->getSize().x - ( m_shSpriteSize ) )
 		{
 			endAction();
@@ -333,7 +332,8 @@ void Character::castSpell( Vector2f mouseCoordinates, short spell )
 			else if ( i == m_vProjectiles.size( ) )
 			{
 				Projectile* projectile = new Projectile;
-				projectile -> loadContent();
+				projectile -> loadContent( );
+				projectile -> setEnvironmentObjects( m_environmentLevel -> getObjectVector( ), m_environmentLevel -> getHorizontalBitmapSize( ) );
 				m_vProjectiles.push_back( projectile );
 			}
 		}

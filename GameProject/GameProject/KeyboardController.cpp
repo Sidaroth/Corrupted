@@ -265,7 +265,7 @@ void KeyboardController::checkPressed()
 	
 
 
-bool KeyboardController::loadXML(){
+/*bool KeyboardController::loadXML(){
 
 	tinyxml2::XMLDocument doc;
 
@@ -283,7 +283,7 @@ bool KeyboardController::loadXML(){
 			title = textNode->Value();
 			printf( "Name of play (2): %s\n", title );
 			//dump_to_stdout( &doc ); // defined later in the tutorial*/
-		}
+	/*	}
 		else
 		{
 			std::cout << "I don't know how to read files?...!" << std::endl;
@@ -291,3 +291,4 @@ bool KeyboardController::loadXML(){
 
 	return true;
 }
+*/

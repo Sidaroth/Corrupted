@@ -248,44 +248,74 @@ void EnvironmentHandler::checkWalls( )
 			}
 			if( right && below && !above && !left )
 			{
-				subRect.top = ( TILESIZE * 11 );
+				subRect.top = ( TILESIZE * 9 );
 				m_sprites[i].setTextureRect( subRect );
 			}
 			else if( right && !below && above && !left )
 			{
-				subRect.top = ( TILESIZE * 12 );
+				subRect.top = ( TILESIZE * 7 );
 				m_sprites[i].setTextureRect( subRect );
 			}
 			else if( !right && !below && above && left )
 			{
-				subRect.top = ( TILESIZE * 13 );
+				subRect.top = ( TILESIZE * 10 );
 				m_sprites[i].setTextureRect(subRect);
 			}
 			else if( !right && below && !above && left )
 			{
-				subRect.top = (TILESIZE * 14);
+				subRect.top = ( TILESIZE * 8 );
 				m_sprites[i].setTextureRect(subRect);
 			}
 			else if( !right && below && above && !left )
 			{
-				if( i % m_iHorizontalBitmapSize == 0 )
-				{
-					subRect.top = ( TILESIZE * 9 );
-					m_sprites[i].setTextureRect( subRect );
-				}
-				else if( i % m_iHorizontalBitmapSize == ( m_iHorizontalBitmapSize - 1 ) )
-				{
-					subRect.top = ( TILESIZE * 10 );
-					m_sprites[i].setTextureRect( subRect );
-				}
-			}
-			else if( right && !below && !above && left )
-			{
-				if( i >= m_iHorizontalBitmapSize )
+				//if( i % m_iHorizontalBitmapSize == 0 )
 				{
 					subRect.top = ( TILESIZE * 8 );
 					m_sprites[i].setTextureRect( subRect );
 				}
+				//else if( i % m_iHorizontalBitmapSize == ( m_iHorizontalBitmapSize - 1 ) )
+				//{
+				//	subRect.top = ( TILESIZE * 10 );
+				//	m_sprites[i].setTextureRect( subRect );
+				//}
+			}
+			//else if( right && !below && !above && left )
+			//{
+			//	if( i >= m_iHorizontalBitmapSize )
+			//	{
+			//		subRect.top = ( TILESIZE * 8 );
+			//		m_sprites[i].setTextureRect( subRect );
+			//	}
+			//}
+			else if( right && above && below && !left )
+			{
+				subRect.top = ( TILESIZE * 11 );
+				m_sprites[i].setTextureRect(subRect);
+			}
+			else if( !right && above && below && left )
+			{
+				subRect.top = ( TILESIZE * 8 );
+				m_sprites[i].setTextureRect(subRect);
+			}
+			else if( right && !above && below && left )
+			{
+				subRect.top = ( TILESIZE * 11 );
+				m_sprites[i].setTextureRect(subRect);
+			}
+			else if( right && above && !below && left )
+			{
+				subRect.top = ( TILESIZE * 7 );
+				m_sprites[i].setTextureRect(subRect);
+			}
+			else if( right && above && below && left )
+			{
+				subRect.top = ( TILESIZE * 11 );
+				m_sprites[i].setTextureRect(subRect);
+			}
+			else if( ( !right && above && !below && !left ) || ( !right && !above && below && !left ) )
+			{
+				subRect.top = ( TILESIZE * 8 );
+				m_sprites[i].setTextureRect(subRect);
 			}
 		}
 	}

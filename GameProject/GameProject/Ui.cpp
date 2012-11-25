@@ -5,6 +5,10 @@
 Ui::Ui()
 {
 	m_shFrameCount = 0;
+	for (int i = 0; i <= 5; i++) {
+		increasable[i] = false;
+	}
+	
 }
 
 bool Ui::loadContent()
@@ -18,6 +22,16 @@ bool Ui::loadContent()
 	}
 
 	if(!maskingImage.loadFromFile("../../Resources/healthDiamond.PNG"))
+	{
+		return EXIT_FAILURE;
+	}
+
+	if(!m_increaseButtonGray.loadFromFile("../../Resources/increaseButtonGray.PNG"))
+	{
+		return EXIT_FAILURE;
+	}
+
+	if(!m_increaseButtonRed.loadFromFile("../../Resources/increaseButtonRed.PNG"))
 	{
 		return EXIT_FAILURE;
 	}
@@ -39,23 +53,33 @@ bool Ui::loadContent()
 	m_healthDiamondSprite.setPosition(125, 650);
 	m_healthDiamondSprite.setOrigin(50, 50);
 
+	for (int i = 0; i <= 5; i++) {
+		increaseButtonSpriteArray[i].setTexture(m_increaseButtonGray);
+	}
+	increaseButtonSpriteArray[0].setPosition(1200, 586);
+	increaseButtonSpriteArray[1].setPosition(1200, 608);
+	increaseButtonSpriteArray[2].setPosition(1200, 631);
+	increaseButtonSpriteArray[3].setPosition(1200, 652);
+	increaseButtonSpriteArray[4].setPosition(1345, 631);
+	increaseButtonSpriteArray[5].setPosition(1345, 652);
+
 
 	rightSideText.setPosition(1085, 583);
 	rightSideText.setString("Strength: \nIntelligence: \nToughness: \nSpeed: \n\nMelee Damage: \nSpell Damage\nCritical Chance: ");
-	rightSideText.setScale(0.5, 0.5);
+	rightSideText.setScale(0.6, 0.6);
 	rightSideText.setFont(font);
 
 	rightSideSecondaryText.setPosition(1225, 583);
 	rightSideSecondaryText.setString("Souls: \n\nWeapon Level: \nArmor Level: ");
-	rightSideSecondaryText.setScale(0.5, 0.5);
+	rightSideSecondaryText.setScale(0.6, 0.6);
 	rightSideSecondaryText.setFont(font);
 
 	rightSideStats.setPosition(1185, 583);
-	rightSideStats.setScale(0.5, 0.5);
+	rightSideStats.setScale(0.6, 0.6);
 	rightSideStats.setFont(font);
 
-	rightSideSecondaryStats.setPosition(1325, 583);
-	rightSideSecondaryStats.setScale(0.5, 0.5);
+	rightSideSecondaryStats.setPosition(1333, 583);
+	rightSideSecondaryStats.setScale(0.6, 0.6);
 	rightSideSecondaryStats.setFont(font);
 
 	healthText.setPosition(95, 710);
@@ -85,14 +109,45 @@ void Ui::update(Player* player)
 										numberToString(m_player->getWeaponLevel())+"\n"+
 										numberToString(m_player->getArmorLevel()));
 
+	for (int i = 0; i <= 5; i++)
+	{
+		if (m_player->getCurrentSouls() >= m_player->getStatArray(i)*10) 
+		{
+			increaseButtonSpriteArray[i].setTexture(m_increaseButtonRed);
+			increasable[i] = true;
+		}
+		else
+		{
+			increaseButtonSpriteArray[i].setTexture(m_increaseButtonGray);
+			increasable[i] = false;
+		}
+	}
+
+	sf::Event event;
+	while (StateHandler::getInstance().m_pWindow->pollEvent(event)) 
+	{
+		for (int i = 0; i <= 5; i++) 
+		{
+			if (event.mouseButton.x >= increaseButtonSpriteArray[i].getPosition().x &&
+				event.mouseButton.x <= increaseButtonSpriteArray[i].getPosition().x + 15 &&
+				event.mouseButton.y >= increaseButtonSpriteArray[i].getPosition().y &&
+				event.mouseButton.y <= increaseButtonSpriteArray[i].getPosition().y + 15 &&
+				increasable[i] == true) 
+			{
+				m_player->increaseStat(i);
+				m_player->modifySouls(m_player->getStatArray(i)*-10);
+			}	
+		}
+	}
+
 	healthText.setString(numberToString(m_player->getCurrentHealth())+" / " +
 							numberToString(m_player->getMaxHealth())); 
 
 
-	healthRotation = (105 - (m_player->getCurrentHealth()/m_player->getMaxHealth()*100));
+	healthRotation = ((105 - (m_player->getCurrentHealth()/m_player->getMaxHealth()*100))/5);
 	m_shFrameCount += 1;
 
-	if(m_shFrameCount % healthRotation == 0)
+	if(m_shFrameCount % 4 == 0)
 	{
 		m_healthDiamondSprite.rotate(healthRotation);
 	}
@@ -110,6 +165,9 @@ void Ui::draw()
 	StateHandler::getInstance().m_pWindow->draw(rightSideSecondaryText);
 	StateHandler::getInstance().m_pWindow->draw(rightSideSecondaryStats);
 	StateHandler::getInstance().m_pWindow->draw(healthText);
+	for (int i = 0; i <= 5; i++) {
+		StateHandler::getInstance().m_pWindow->draw(increaseButtonSpriteArray[i]);
+	}
 }
 
 template <typename T>

@@ -25,14 +25,20 @@ void SuperLevel::superLoadContent(sf::RenderWindow* window)
 	m_Level -> loadContent();
 
 	player = new Player();
-	player -> loadContent();	
-	player -> setEnvironmentLevel(m_Level);
+	player -> setEnvironmentLevel( m_Level );
+	player -> loadContent();
+
 	player -> setEnemyVector( m_EnemyHandler->getEnemyVector( ) );
 
 	//ui = new Ui();
 	//ui->loadContent();
 
 	player -> setPosition(m_Level -> getPlayerPosition());
+
+	Vector2f derp;
+	derp.x = 500;
+	derp.y = 500;
+	player -> castSpell(derp, 0);
 	
 	//keyControl = new KeyboardController(player,StateHandler::getInstance().m_pWindow);
 	
@@ -63,13 +69,24 @@ void SuperLevel::processEvents(sf::Event event)
 
 		if(sf::Keyboard::isKeyPressed(sf::Keyboard::O))
 		{
-			player -> takeDamage(5);
+			player -> takeDamage(1);
 		}
 		
 		if(sf::Keyboard::isKeyPressed(sf::Keyboard::P))
 		{
-			player -> takeDamage(-5);
+			player -> takeDamage(-1);
 		}
+
+		if(sf::Keyboard::isKeyPressed(sf::Keyboard::K))
+		{
+			player -> modifySouls(5);
+		}
+
+		if(sf::Keyboard::isKeyPressed(sf::Keyboard::L))
+		{
+			player -> modifySouls(-5);
+		}
+
 		if (event.type == sf::Event::KeyReleased)
 		{
 			 if(!player->isDoingAction())

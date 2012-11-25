@@ -8,6 +8,11 @@ Player::Player() : Character()
 	m_shWeaponLevel = 1;
 	m_shArmorLevel = 1;
 
+	for (int i = 0; i <= 5; i++)
+	{
+		m_saStatArray[i] = 0;
+	}
+
 	m_sName = "Ronald McDonald";
 }
 
@@ -62,6 +67,13 @@ void Player::update()
 	m_shSpellDamage = m_shIntelligence*m_shIntelligence;
 	m_fCriticalChance = m_shStrength/5 + m_shSpeed/2;
 
+	m_saStatArray[0] = m_shStrength;
+	m_saStatArray[1] = m_shIntelligence;
+	m_saStatArray[2] = m_shToughness;
+	m_saStatArray[3] = m_shSpeed;
+	m_saStatArray[4] = m_shWeaponLevel;
+	m_saStatArray[5] = m_shArmorLevel;
+
 	collisionCheck( );
 }
 
@@ -89,6 +101,45 @@ short Player::getWeaponLevel()
 short Player::getArmorLevel()
 {
 	return m_shArmorLevel;
+}
+
+int Player::getStatArray(int stat) 
+{
+	return m_saStatArray[stat];
+}
+
+void Player::increaseStat(int stat)
+{
+	switch (stat) {
+	case 0:
+		m_shStrength++;
+		break;
+	case 1:
+		m_shIntelligence++;
+		break;
+	case 2:
+		m_shToughness++;
+		break;
+	case 3:
+		m_shSpeed++;
+		break;
+	case 4:
+		m_shWeaponLevel++;
+		break;
+	case 5:
+		m_shArmorLevel++;
+		break;
+	}
+}
+
+void Player::modifySouls(short amount) 
+{
+	m_shCurrentSouls += amount;
+
+	if (amount > 0)
+	{
+		m_shTotalSouls += amount;
+	}
 }
 
 void Player::setEnemyVector(std::vector<Enemy*>* enemyVector)

@@ -5,7 +5,6 @@
 #include <stdlib.h>
 #include <iostream>
 #include <fstream>
-#include "tinyxml2.h"
 #include "Player.h"
 #include <vector>
 #include <math.h>
@@ -54,6 +53,6 @@ public:
 	void getMoveBackwardKey(char key);
 	void getMoveLeftKey(char key);
 	void getMoveRightKey(char key);
-	bool loadXML();
+	//bool loadXML();
 	KeyboardController(Player* player);
 };
