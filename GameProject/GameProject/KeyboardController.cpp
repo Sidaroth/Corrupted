@@ -46,7 +46,7 @@ KeyboardController::KeyboardController(Player* player_recieved,sf::RenderWindow*
 	
 	std::cout << "Keyboard controller created" << std::endl;
 	//loadXML();
-	audio_manager.loadAudio();
+//	audio_manager.loadAudio();
 }
 
 void KeyboardController::checkMouse(sf::Event event)
@@ -121,7 +121,7 @@ void KeyboardController::checkMouse(sf::Event event)
 			//End calculate direction
 
 			player->attack(i_atack_direction); ///0=N, 1=NE, 2=E, 3=SE, 4=S, 5=SW, 6=W, 7=NW
-			audio_manager.playSound("atack_miss");
+		//	audio_manager.playSound("atack_miss");
 		}
 	}
 
@@ -249,7 +249,7 @@ void KeyboardController::checkPressed()
 	}
 	if(sf::Mouse::isButtonPressed(sf::Mouse::Right)){
 		
-		audio_manager.playSound("lvl_up");
+		//audio_manager.playSound("lvl_up");
 		
 		std::cout << "Mouse Right pressed" << std::endl;
 		

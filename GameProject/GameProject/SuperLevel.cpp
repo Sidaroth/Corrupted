@@ -6,8 +6,7 @@
 
 SuperLevel::SuperLevel()
 {
-	/*m_Level = new EnvironmentHandler();
-	m_EnemyHandler = new EnemyHandler();*/
+
 }
 
 SuperLevel::~SuperLevel()
@@ -30,12 +29,12 @@ void SuperLevel::superLoadContent(sf::RenderWindow* window)
 	player -> setEnvironmentLevel(m_Level);
 	player -> setEnemyVector( m_EnemyHandler->getEnemyVector( ) );
 
-	ui = new Ui();
-	ui->loadContent();
+	//ui = new Ui();
+	//ui->loadContent();
 
 	player -> setPosition(m_Level -> getPlayerPosition());
 	
-	keyControl = new KeyboardController(player,StateHandler::getInstance().m_pWindow);
+	//keyControl = new KeyboardController(player,StateHandler::getInstance().m_pWindow);
 	
 	m_Viewport.reset(sf::FloatRect(0, 0, 1366, 768));
 	m_Viewport.setViewport(sf::FloatRect(0.0f, 0.0f,1.f, 1.0f));
@@ -50,7 +49,7 @@ void SuperLevel::unloadContent()
 
 void SuperLevel::processEvents(sf::Event event)
 {
-		keyControl->checkMouse(event);
+	//	keyControl->checkMouse(event);
 
 		if(sf::Keyboard::isKeyPressed(sf::Keyboard::T))
 		{
@@ -78,15 +77,14 @@ void SuperLevel::processEvents(sf::Event event)
 				player->changeAnimationToStand();
 			 }
 		}
-
 }
 
 void SuperLevel::update()
 {
 	player -> animation();
 	player -> update();
-	ui -> update(player);
-	keyControl->checkPressed();
+//	ui -> update(player);
+//	keyControl->checkPressed();
 	m_EnemyHandler -> update();
 
 	m_Viewport.setCenter(player -> getXPosition(), player -> getYPosition());
@@ -97,7 +95,6 @@ void SuperLevel::superDraw()
 	m_Level -> draw();
 	m_EnemyHandler -> draw();
 	player -> draw();
-	ui->draw();
+	//ui->draw();
 	StateHandler::getInstance().m_pWindow->setView(m_Viewport);
-	
 }

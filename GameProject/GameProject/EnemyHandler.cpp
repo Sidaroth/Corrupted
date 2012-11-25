@@ -4,21 +4,45 @@
 void EnemyHandler::loadContent(EnvironmentHandler* level)
 {
 	m_Level = level;
-	m_EnemyVector.push_back(m_EnemyFactory -> createEnemy(m_EnemyFactory -> Skellie));
+	//m_EnemyVector.push_back(m_EnemyFactory -> createEnemy(m_EnemyFactory -> Skellie));
+
+	//if(m_EnemyVector[0] != NULL)
+	//{
+	//	std::cout << "Enemy created!\n";
+	//	m_EnemyVector[0] -> loadContent();
+	//}
+	//else
+	//{
+	//	std::cout << "Something Broke in enemy creation..." << std::endl;
+	//	return;
+	//}
+
+	//m_EnemyVector[0] -> setEnvironmentLevel(m_Level);
+	//m_EnemyVector[0] -> setPosition(Vector2f(960, 960));
+
+	for(int i = 0; i < 3; i++)
+	{
 		
-	if(m_EnemyVector[0] != NULL)
-	{
-		std::cout << "Enemy created!\n";
-		m_EnemyVector[0] -> loadContent();
-	}
-	else
-	{
-		std::cout << "Something Broke in enemy creation..." << std::endl;
-		return;
+		m_EnemyVector.push_back(m_EnemyFactory -> createEnemy(m_EnemyFactory -> Skellie));
+
+		if(m_EnemyVector[i] != NULL)
+		{
+			std::cout << "Enemy created!\n";
+			m_EnemyVector[i] -> loadContent();
+		}
+		else
+		{
+			std::cout << "Something Broke in enemy creation..." << std::endl;
+			return;
+		}
+
+
+		m_EnemyVector[i] -> setEnvironmentLevel(m_Level);
 	}
 
-	m_EnemyVector[0] -> setEnvironmentLevel(m_Level);
 	m_EnemyVector[0] -> setPosition(Vector2f(960, 960));
+	m_EnemyVector[1] -> setPosition(Vector2f(96, 960));
+	m_EnemyVector[2] -> setPosition(Vector2f(960, 96));
 }
 
 void EnemyHandler::unloadContent()

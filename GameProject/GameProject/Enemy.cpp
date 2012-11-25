@@ -72,6 +72,11 @@ short Enemy::findPath(int startX, int startY, int goalX, int goalY)
 	short currentPos = 0;				// Current position in collision vector (1D)
 
 	bool goalReached = false;
+
+	Vector2f* pathStep;
+	short tempX;
+	short pathX;
+	short pathY;
 	
 
 	short v = 1;
@@ -313,14 +318,8 @@ short Enemy::findPath(int startX, int startY, int goalX, int goalY)
 
 	if(path == FOUND)
 	{
-		Vector2f* pathStep;
-		short tempX;
-		short pathX;
-		short pathY;
-
 		pathX = goalTileX; 
 		pathY = goalTileY;
-
 		
 		while(pathX != startX || pathY != startY)
 		{

@@ -153,6 +153,8 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="AudioManager.cpp">
+		<Filter>Source Files</Filter>
+	</ClCompile>
     <ClCompile Include="Projectile.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>

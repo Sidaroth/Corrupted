@@ -50,6 +50,7 @@ bool AudioManager::playSound(std::string sound_id){
 	s_mSound.setBuffer(sb_mBuffer);
 	s_mSound.play();
 	std::cout << "AudioManager: Sound playing..." << std::endl;
+	return true;
 }
 
 

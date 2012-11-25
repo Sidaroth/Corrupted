@@ -37,14 +37,14 @@ void Character::attack(short row) ///0=N, 1=NE, 2=E, 3=SE, 4=S, 5=SW, 6=W, 7=NW
 bool Character::loadContent()
 {
 	//create 5 temp projectiles on load for each enemy/player
-	Projectile* projectile;
-	for( int i = 0; i < 5; i++ )
-	{
-		projectile = new Projectile( );
-		projectile -> loadContent( );
-		projectile -> setEnvironmentObjects( m_environmentLevel -> getObjectVector( ) );
-		m_vProjectiles.push_back( projectile );
-	}
+	//Projectile* projectile;
+	//for( int i = 0; i < 5; i++ )
+	//{
+	//	projectile = new Projectile( );
+	//	projectile -> loadContent( );
+	//	projectile -> setEnvironmentObjects( m_environmentLevel -> getObjectVector( ) );
+	//	m_vProjectiles.push_back( projectile );
+	//}
 	return 0;
 }
 
