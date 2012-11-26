@@ -1,0 +1,5 @@
+<map id="StateHandler::addScreen" name="StateHandler::addScreen">
+<area shape="rect" id="node3" href="$class_splash_screen.html#afa655212406ec3b032b18974fa3ca94b" title="SplashScreen::processEvents" alt="" coords="222,5,418,32"/>
+<area shape="rect" id="node5" href="$class_super_level.html#a366228089b384e2a8041bbdffc98be31" title="SuperLevel::processEvents" alt="" coords="231,56,409,83"/>
+<area shape="rect" id="node7" href="$class_title_screen.html#ad82b865ef2757efedea1cf1da67bcf05" title="TitleScreen::processEvents" alt="" coords="230,107,410,133"/>
+</map>

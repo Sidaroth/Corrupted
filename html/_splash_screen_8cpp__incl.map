@@ -1,0 +1,22 @@
+<map id="GameProject/GameProject/SplashScreen.cpp" name="GameProject/GameProject/SplashScreen.cpp">
+<area shape="rect" id="node3" href="$_splash_screen_8h.html" title="SplashScreen.h" alt="" coords="89,245,204,272"/>
+<area shape="rect" id="node17" href="$_title_screen_8h.html" title="TitleScreen.h" alt="" coords="228,245,327,272"/>
+<area shape="rect" id="node21" href="$_level1_8h.html" title="Level1.h" alt="" coords="408,96,477,123"/>
+<area shape="rect" id="node5" href="$_game_state_8h.html" title="GameState.h" alt="" coords="135,395,233,421"/>
+<area shape="rect" id="node11" href="$_state_handler_8h.html" title="StateHandler.h" alt="" coords="131,320,239,347"/>
+<area shape="rect" id="node23" href="$_super_level_8h.html" title="SuperLevel.h" alt="" coords="656,171,752,197"/>
+<area shape="rect" id="node27" href="$_environment_8h.html" title="Environment.h" alt="" coords="1264,693,1368,720"/>
+<area shape="rect" id="node36" href="$_player_8h.html" title="Player.h" alt="" coords="1153,469,1223,496"/>
+<area shape="rect" id="node58" href="$_keyboard_controller_8h.html" title="KeyboardController.h" alt="" coords="689,395,831,421"/>
+<area shape="rect" id="node79" href="$_enemy_handler_8h.html" title="EnemyHandler.h" alt="" coords="1306,320,1424,347"/>
+<area shape="rect" id="node91" href="$_ui_8h.html" title="Ui.h" alt="" coords="584,245,629,272"/>
+<area shape="rect" id="node32" href="$_vector2f_8h.html" title="Vector2f.h" alt="" coords="1339,843,1420,869"/>
+<area shape="rect" id="node38" href="$_character_8h.html" title="Character.h" alt="" coords="1139,619,1228,645"/>
+<area shape="rect" id="node52" href="$_enemy_8h.html" title="Enemy.h" alt="" coords="1408,544,1483,571"/>
+<area shape="rect" id="node40" href="$_actor_8h.html" title="Actor.h" alt="" coords="1181,768,1245,795"/>
+<area shape="rect" id="node48" href="$_projectile_8h.html" title="Projectile.h" alt="" coords="1153,693,1239,720"/>
+<area shape="rect" id="node70" href="$_audio_manager_8h.html" title="AudioManager.h" alt="" coords="606,469,721,496"/>
+<area shape="rect" id="node81" href="$_enemy_factory_8h.html" title="EnemyFactory.h" alt="" coords="1406,395,1524,421"/>
+<area shape="rect" id="node84" href="$_skeleton_8h.html" title="Skeleton.h" alt="" coords="1406,469,1489,496"/>
+<area shape="rect" id="node95" href="$_game_8h.html" title="Game.h" alt="" coords="526,320,593,347"/>
+</map>

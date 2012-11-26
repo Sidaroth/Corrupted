@@ -1,0 +1,7 @@
+<map id="KeyboardController" name="KeyboardController">
+<area shape="rect" id="node2" href="$class_player.html" title="Player" alt="" coords="43,264,101,291"/>
+<area shape="rect" id="node4" href="$class_character.html" title="Character" alt="" coords="33,187,111,213"/>
+<area shape="rect" id="node6" href="$class_actor.html" title="Actor" alt="" coords="5,96,59,123"/>
+<area shape="rect" id="node8" href="$class_vector2f.html" title="Vector2f" alt="" coords="58,5,128,32"/>
+<area shape="rect" id="node10" href="$class_environment_handler.html" title="EnvironmentHandler" alt="" coords="83,96,220,123"/>
+</map>

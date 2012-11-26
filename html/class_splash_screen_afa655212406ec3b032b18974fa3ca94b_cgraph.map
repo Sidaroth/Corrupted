@@ -1,0 +1,6 @@
+<map id="SplashScreen::processEvents" name="SplashScreen::processEvents">
+<area shape="rect" id="node3" href="$class_state_handler.html#a384475d0948afc0c4f06359fe7e56d0f" title="StateHandler::getInstance" alt="" coords="251,5,423,32"/>
+<area shape="rect" id="node5" href="$class_state_handler.html#a90cb26dc423f26e37af27b7d3d7b57ff" title="StateHandler::addScreen" alt="" coords="254,56,421,83"/>
+<area shape="rect" id="node7" href="$class_state_handler.html#a105a3a4832759999f65d52f4804719ce" title="StateHandler::unloadContent" alt="" coords="473,31,661,57"/>
+<area shape="rect" id="node9" href="$class_state_handler.html#a115856dd9a5227b41ad6d53243fbb363" title="StateHandler::loadContent" alt="" coords="479,81,654,108"/>
+</map>

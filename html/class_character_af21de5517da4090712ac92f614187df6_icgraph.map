@@ -1,0 +1,9 @@
+<map id="Character::setBitmapRow" name="Character::setBitmapRow">
+<area shape="rect" id="node3" href="$class_character.html#a1871d011acf4fcb210429d2a5b242577" title="0=N, 1=NE, 2=E, 3=SE, 4=S, 5=SW, 6=W, 7=NW" alt="" coords="224,20,347,47"/>
+<area shape="rect" id="node9" href="$class_character.html#a2504a3fd2c17bbed8f8cfc9265c1cfce" title="Character::move" alt="" coords="227,77,343,104"/>
+<area shape="rect" id="node5" href="$class_keyboard_controller.html#a6ddf16975781cc1ca5409d4e6e45ee4c" title="KeyboardController\l::checkMouse" alt="" coords="395,5,527,46"/>
+<area shape="rect" id="node7" href="$class_super_level.html#a366228089b384e2a8041bbdffc98be31" title="SuperLevel::processEvents" alt="" coords="576,12,755,39"/>
+<area shape="rect" id="node11" href="$class_keyboard_controller.html#a030f4309cbc40503f4e1586d92bb5126" title="KeyboardController\l::checkPressed" alt="" coords="395,70,527,111"/>
+<area shape="rect" id="node15" href="$class_skeleton.html#a8ca67263e787bfa554a76a99eacda8a2" title="Skeleton::update" alt="" coords="401,136,521,163"/>
+<area shape="rect" id="node13" href="$class_super_level.html#a55858702d59db30844e64fd699a29b42" title="SuperLevel::update" alt="" coords="599,77,731,104"/>
+</map>

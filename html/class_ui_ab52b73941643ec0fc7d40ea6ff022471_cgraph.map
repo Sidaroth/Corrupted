@@ -1,0 +1,19 @@
+<map id="Ui::update" name="Ui::update">
+<area shape="rect" id="node3" href="$_ui_8cpp.html#a5116afea572c49cccf1bff6f51f66dbc" title="numberToString" alt="" coords="174,5,287,32"/>
+<area shape="rect" id="node5" href="$class_character.html#a56dc21cdc1c460fac9ab013e09a36dd9" title="Character::getStrength" alt="" coords="154,56,307,83"/>
+<area shape="rect" id="node7" href="$class_character.html#a79a7ef5e8b1bdca05424fe611fe056b9" title="Character::getIntelligence" alt="" coords="146,107,315,133"/>
+<area shape="rect" id="node9" href="$class_character.html#ad607ba44fdccc8b571f19194cc205dd4" title="Character::getToughness" alt="" coords="147,157,314,184"/>
+<area shape="rect" id="node11" href="$class_character.html#a50c26b239e9687ba5b34665a65a11dbe" title="Character::getSpeed" alt="" coords="160,208,301,235"/>
+<area shape="rect" id="node13" href="$class_character.html#a50294e555de2dd3aa50b11dfe4e76c15" title="Character::getMeleeDamage" alt="" coords="137,259,324,285"/>
+<area shape="rect" id="node15" href="$class_character.html#af4618e46d08112b18f02ca9b3f8f1b10" title="Character::getSpellDamage" alt="" coords="140,309,321,336"/>
+<area shape="rect" id="node17" href="$class_character.html#a7c2588369eadf04c66e155e0a3c0195c" title="Character::getCriticalChance" alt="" coords="137,360,325,387"/>
+<area shape="rect" id="node19" href="$class_player.html#a4c3e4a0c61f13187c7452acef74b8b81" title="Player::getCurrentSouls" alt="" coords="151,411,311,437"/>
+<area shape="rect" id="node21" href="$class_player.html#a350df62bef6c8c75bad1832e4eb486c9" title="Player::getWeaponLevel" alt="" coords="149,461,312,488"/>
+<area shape="rect" id="node23" href="$class_player.html#acd614db3f032c7067fa4bc74214c7001" title="Player::getArmorLevel" alt="" coords="156,512,305,539"/>
+<area shape="rect" id="node25" href="$class_player.html#a9a76f451a6bc69822971bf56dae944c3" title="Player::getStatArray" alt="" coords="161,563,301,589"/>
+<area shape="rect" id="node27" href="$class_state_handler.html#a384475d0948afc0c4f06359fe7e56d0f" title="StateHandler::getInstance" alt="" coords="145,613,317,640"/>
+<area shape="rect" id="node29" href="$class_player.html#ac732febd618b4e347bed644517d10fdc" title="Player::increaseStat" alt="" coords="161,664,301,691"/>
+<area shape="rect" id="node31" href="$class_player.html#af09f4deeb786c597805ad6e4ae4ed93a" title="Player::modifySouls" alt="" coords="161,715,300,741"/>
+<area shape="rect" id="node33" href="$class_character.html#a73df5663423fbc0e88aa8d8061e19a73" title="Character::getCurrentHealth" alt="" coords="139,765,322,792"/>
+<area shape="rect" id="node35" href="$class_character.html#a050464bb381494ae37c17c999a3afea7" title="Character::getMaxHealth" alt="" coords="147,816,314,843"/>
+</map>

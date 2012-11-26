@@ -1,4 +1,6 @@
 <map id="Character" name="Character">
-<area shape="rect" id="node5" href="$class_player.html" title="{Player\n|&#45; m_shTotalSouls\l&#45; m_shCurrentSouls\l&#45; m_shWeaponLevel\l&#45; m_shArmorLevel\l&#45; m_sName\l|+ Player()\l+ Player()\l}" alt="" coords="5,726,144,877"/>
-<area shape="rect" id="node2" href="$class_actor.html" title="{Actor\n|&#45; m_Texture\l&#45; m_Position\l&#45; m_Sprite\l|+ loadContent()\l+ draw()\l+ Actor()\l+ Actor()\l+ Actor()\l+ Actor()\l# setPosition()\l# getPosition()\l# setSprite()\l}" alt="" coords="19,5,129,229"/>
+<area shape="rect" id="node5" href="$class_enemy.html" title="The generic class for our enemies. All types of enemies will inherit from this class." alt="" coords="10,155,72,181"/>
+<area shape="rect" id="node9" href="$class_player.html" title="Player" alt="" coords="97,155,156,181"/>
+<area shape="rect" id="node2" href="$class_actor.html" title="Actor" alt="" coords="57,5,111,32"/>
+<area shape="rect" id="node7" href="$class_skeleton.html" title="Skeleton" alt="" coords="5,229,77,256"/>
 </map>

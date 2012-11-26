@@ -1,0 +1,4 @@
+<map id="Character::takeDamage" name="Character::takeDamage">
+<area shape="rect" id="node3" href="$class_player.html#a2ea364bba69e21f05a35ec74195e208c" title="Player::collisionCheck" alt="" coords="214,5,365,32"/>
+<area shape="rect" id="node5" href="$class_player.html#a82c3476f3e65a4e2ac6bcd040771bdd4" title="Player::update" alt="" coords="413,5,520,32"/>
+</map>

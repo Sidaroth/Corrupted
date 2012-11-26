@@ -1,3 +1,16 @@
 <map id="GameProject/GameProject/Player.h" name="GameProject/GameProject/Player.h">
-<area shape="rect" id="node3" href="$_player_8cpp.html" title="GameProject/GameProject\l/Player.cpp" alt="" coords="5,97,184,138"/>
+<area shape="rect" id="node3" href="$_game_8h.html" title="GameProject/GameProject\l/Game.h" alt="" coords="689,187,868,229"/>
+<area shape="rect" id="node5" href="$_game_8cpp.html" title="GameProject/GameProject\l/Game.cpp" alt="" coords="461,278,640,319"/>
+<area shape="rect" id="node7" href="$_ui_8h.html" title="GameProject/GameProject/Ui.h" alt="" coords="867,285,1072,312"/>
+<area shape="rect" id="node9" href="$_super_level_8h.html" title="GameProject/GameProject\l/SuperLevel.h" alt="" coords="309,369,488,410"/>
+<area shape="rect" id="node25" href="$_keyboard_controller_8h.html" title="GameProject/GameProject\l/KeyboardController.h" alt="" coords="436,97,615,138"/>
+<area shape="rect" id="node34" href="$_player_8cpp.html" title="GameProject/GameProject\l/Player.cpp" alt="" coords="943,97,1121,138"/>
+<area shape="rect" id="node23" href="$main_8cpp.html" title="GameProject/GameProject\l/main.cpp" alt="" coords="664,278,843,319"/>
+<area shape="rect" id="node21" href="$_ui_8cpp.html" title="GameProject/GameProject\l/Ui.cpp" alt="" coords="880,369,1059,410"/>
+<area shape="rect" id="node11" href="$_level1_8h.html" title="GameProject/GameProject\l/Level1.h" alt="" coords="208,459,387,501"/>
+<area shape="rect" id="node19" href="$_super_level_8cpp.html" title="GameProject/GameProject\l/SuperLevel.cpp" alt="" coords="411,459,589,501"/>
+<area shape="rect" id="node13" href="$_level1_8cpp.html" title="GameProject/GameProject\l/Level1.cpp" alt="" coords="5,550,184,591"/>
+<area shape="rect" id="node15" href="$_splash_screen_8cpp.html" title="GameProject/GameProject\l/SplashScreen.cpp" alt="" coords="208,550,387,591"/>
+<area shape="rect" id="node17" href="$_title_screen_8cpp.html" title="GameProject/GameProject\l/TitleScreen.cpp" alt="" coords="411,550,589,591"/>
+<area shape="rect" id="node28" href="$_keyboard_controller_8cpp.html" title="GameProject/GameProject\l/KeyboardController.cpp" alt="" coords="436,187,615,229"/>
 </map>

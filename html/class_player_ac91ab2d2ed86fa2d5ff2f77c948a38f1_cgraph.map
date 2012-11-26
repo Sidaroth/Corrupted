@@ -1,0 +1,6 @@
+<map id="Player::loadContent" name="Player::loadContent">
+<area shape="rect" id="node3" href="$class_character.html#a78f90bdc10de44990d8749dd14dacc9f" title="0=N, 1=NE, 2=E, 3=SE, 4=S, 5=SW, 6=W, 7=NW" alt="" coords="189,5,344,32"/>
+<area shape="rect" id="node5" href="$class_character.html#ae549397cedf43714722ba91e890d4844" title="calculate frame for animation" alt="" coords="195,56,338,83"/>
+<area shape="rect" id="node7" href="$class_character.html#a3eadb3f3e0b582bc5ab1dc8df0fcdc63" title="Character::endAction" alt="" coords="392,31,536,57"/>
+<area shape="rect" id="node9" href="$class_character.html#a665c27e81de5af3e7929cb558ace0576" title="set subRect" alt="" coords="393,81,535,108"/>
+</map>
