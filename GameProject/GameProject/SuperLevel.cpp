@@ -39,11 +39,6 @@ void SuperLevel::superLoadContent(sf::RenderWindow* window)
 	ui->loadContent();
 
 	player -> setPosition(m_Level -> getPlayerPosition());
-
-	Vector2f derp;
-	derp.x = 500;
-	derp.y = 500;
-	player -> castSpell(derp, 0);
 	
 	keyControl = new KeyboardController(player,StateHandler::getInstance().m_pWindow);
 	
