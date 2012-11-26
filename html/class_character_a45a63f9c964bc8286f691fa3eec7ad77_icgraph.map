@@ -1,0 +1,3 @@
+<map id="Character::draw" name="Character::draw">
+<area shape="rect" id="node3" href="$class_player.html#ac18c9d30d2997765321c62030a4b20b7" title="calculate the correct frame to be set in setFrame" alt="" coords="169,5,263,32"/>
+</map>

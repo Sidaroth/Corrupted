@@ -90,7 +90,7 @@ $(document).ready(function(){initNavTree('_environment_8h.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -100,19 +100,48 @@ $(document).ready(function(){initNavTree('_environment_8h.html','');});
 </div>
 
 <div class="header">
+  <div class="summary">
+<a href="#nested-classes">Classes</a>  </div>
   <div class="headertitle">
 <div class="title">Environment.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
+<div class="textblock"><code>#include &quot;SFML/Graphics.hpp&quot;</code><br/>
+<code>#include &lt;vector&gt;</code><br/>
+<code>#include &quot;<a class="el" href="_vector2f_8h_source.html">Vector2f.h</a>&quot;</code><br/>
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for Environment.h:</div>
+<div class="dyncontent">
+<div class="center"><img src="_environment_8h__incl.png" border="0" usemap="#_game_project_2_game_project_2_environment_8h" alt=""/></div>
+<map name="_game_project_2_game_project_2_environment_8h" id="_game_project_2_game_project_2_environment_8h">
+<area shape="rect" id="node7" href="_vector2f_8h.html" title="Vector2f.h" alt="" coords="249,96,329,123"/></map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><img src="_environment_8h__dep__incl.png" border="0" usemap="#_game_project_2_game_project_2_environment_8hdep" alt=""/></div>
+<map name="_game_project_2_game_project_2_environment_8hdep" id="_game_project_2_game_project_2_environment_8hdep">
+<area shape="rect" id="node3" href="_character_8h.html" title="GameProject/GameProject\l/Character.h" alt="" coords="683,97,861,138"/><area shape="rect" id="node15" href="_enemy_handler_8h.html" title="GameProject/GameProject\l/EnemyHandler.h" alt="" coords="987,459,1165,501"/><area shape="rect" id="node19" href="_super_level_8h.html" title="GameProject/GameProject\l/SuperLevel.h" alt="" coords="671,641,849,682"/><area shape="rect" id="node62" href="environment_8cpp.html" title="GameProject/GameProject\l/environment.cpp" alt="" coords="1291,97,1469,138"/><area shape="rect" id="node5" href="_character_8cpp.html" title="GameProject/GameProject\l/Character.cpp" alt="" coords="581,187,760,229"/><area shape="rect" id="node7" href="_enemy_8h.html" title="GameProject/GameProject\l/Enemy.h" alt="" coords="784,187,963,229"/><area shape="rect" id="node36" href="_player_8h.html" title="GameProject/GameProject\l/Player.h" alt="" coords="455,278,633,319"/><area shape="rect" id="node9" href="_enemy_8cpp.html" title="GameProject/GameProject\l/Enemy.cpp" alt="" coords="657,278,836,319"/><area shape="rect" id="node11" href="_enemy_factory_8h.html" title="GameProject/GameProject\l/EnemyFactory.h" alt="" coords="784,369,963,410"/><area shape="rect" id="node31" href="_skeleton_8h.html" title="GameProject/GameProject\l/Skeleton.h" alt="" coords="911,278,1089,319"/><area shape="rect" id="node13" href="_enemy_factory_8cpp.html" title="GameProject/GameProject\l/EnemyFactory.cpp" alt="" coords="784,459,963,501"/><area shape="rect" id="node17" href="_enemy_handler_8cpp.html" title="GameProject/GameProject\l/EnemyHandler.cpp" alt="" coords="860,550,1039,591"/><area shape="rect" id="node21" href="_level1_8h.html" title="GameProject/GameProject\l/Level1.h" alt="" coords="569,731,748,773"/><area shape="rect" id="node29" href="_super_level_8cpp.html" title="GameProject/GameProject\l/SuperLevel.cpp" alt="" coords="772,731,951,773"/><area shape="rect" id="node23" href="_level1_8cpp.html" title="GameProject/GameProject\l/Level1.cpp" alt="" coords="367,822,545,863"/><area shape="rect" id="node25" href="_splash_screen_8cpp.html" title="GameProject/GameProject\l/SplashScreen.cpp" alt="" coords="569,822,748,863"/><area shape="rect" id="node27" href="_title_screen_8cpp.html" title="GameProject/GameProject\l/TitleScreen.cpp" alt="" coords="772,822,951,863"/><area shape="rect" id="node34" href="_skeleton_8cpp.html" title="GameProject/GameProject\l/Skeleton.cpp" alt="" coords="987,369,1165,410"/><area shape="rect" id="node38" href="_game_8h.html" title="GameProject/GameProject\l/Game.h" alt="" coords="88,459,267,501"/><area shape="rect" id="node40" href="_game_8cpp.html" title="GameProject/GameProject\l/Game.cpp" alt="" coords="544,550,723,591"/><area shape="rect" id="node42" href="_ui_8h.html" title="GameProject/GameProject/Ui.h" alt="" coords="5,557,211,584"/><area shape="rect" id="node49" href="_keyboard_controller_8h.html" title="GameProject/GameProject\l/KeyboardController.h" alt="" coords="252,369,431,410"/><area shape="rect" id="node58" href="_player_8cpp.html" title="GameProject/GameProject\l/Player.cpp" alt="" coords="455,369,633,410"/><area shape="rect" id="node47" href="main_8cpp.html" title="GameProject/GameProject\l/main.cpp" alt="" coords="235,550,413,591"/><area shape="rect" id="node45" href="_ui_8cpp.html" title="GameProject/GameProject\l/Ui.cpp" alt="" coords="19,641,197,682"/><area shape="rect" id="node52" href="_keyboard_controller_8cpp.html" title="GameProject/GameProject\l/KeyboardController.cpp" alt="" coords="291,459,469,501"/></map>
+</div>
+</div>
 <p><a href="_environment_8h_source.html">Go to the source code of this file.</a></p>
-</div><!-- contents -->
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_environment_handler.html">EnvironmentHandler</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_environment_handler_1_1_r_g_b.html">EnvironmentHandler::RGB</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>This .h file that handles the environment, and translating the bitmap </p>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_5e5f3a715e7f4bae10d417bd6733b721.html">GameProject</a></li><li class="navelem"><a class="el" href="dir_34cc078ae5f7d305ee8fab46b09a011f.html">GameProject</a></li><li class="navelem"><a class="el" href="_environment_8h.html">Environment.h</a></li>
-    <li class="footer">Generated on Thu Oct 11 2012 16:42:00 for Corrupted by
+    <li class="footer">Generated on Mon Nov 26 2012 12:45:41 for Corrupted by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.2 </li>
   </ul>

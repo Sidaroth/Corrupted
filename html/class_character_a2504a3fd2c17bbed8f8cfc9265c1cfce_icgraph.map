@@ -1,0 +1,5 @@
+<map id="Character::move" name="Character::move">
+<area shape="rect" id="node3" href="$class_keyboard_controller.html#a030f4309cbc40503f4e1586d92bb5126" title="KeyboardController\l::checkPressed" alt="" coords="171,5,303,46"/>
+<area shape="rect" id="node7" href="$class_skeleton.html#a8ca67263e787bfa554a76a99eacda8a2" title="Skeleton::update" alt="" coords="177,71,297,97"/>
+<area shape="rect" id="node5" href="$class_super_level.html#a55858702d59db30844e64fd699a29b42" title="SuperLevel::update" alt="" coords="353,12,485,39"/>
+</map>

@@ -1,0 +1,6 @@
+<map id="Enemy" name="Enemy">
+<area shape="rect" id="node2" href="$class_character.html" title="Character" alt="" coords="47,187,125,213"/>
+<area shape="rect" id="node4" href="$class_actor.html" title="Actor" alt="" coords="47,96,100,123"/>
+<area shape="rect" id="node6" href="$class_vector2f.html" title="Vector2f" alt="" coords="38,5,108,32"/>
+<area shape="rect" id="node8" href="$class_environment_handler.html" title="EnvironmentHandler" alt="" coords="125,96,261,123"/>
+</map>

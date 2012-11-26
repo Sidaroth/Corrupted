@@ -1,4 +1,4 @@
 <map id="Player" name="Player">
-<area shape="rect" id="node2" href="$class_character.html" title="{Character\n|&#45; m_eAbilities\l&#45; m_shHealth\l&#45; m_shDamage\l&#45; m_shSpeed\l&#45; m_shToughness\l&#45; m_shIntelligence\l&#45; m_shStrength\l&#45; m_shLevel\l&#45; m_bAbilities\l|+ attack()\l+ getHealth()\l+ getDamage()\l+ getSpeed()\l+ getToughness()\l+ getIntelligence()\l+ getStrength()\l+ getLevel()\l+ getAbilities()\l+ moveHorizontal()\l+ moveVertical()\l+ showDamage()\l+ showHealth()\l# Character()\l# Character()\l}" alt="" coords="9,277,140,677"/>
-<area shape="rect" id="node4" href="$class_actor.html" title="{Actor\n|&#45; m_Texture\l&#45; m_Position\l&#45; m_Sprite\l|+ loadContent()\l+ draw()\l+ Actor()\l+ Actor()\l+ Actor()\l+ Actor()\l# setPosition()\l# getPosition()\l# setSprite()\l}" alt="" coords="19,5,129,229"/>
+<area shape="rect" id="node2" href="$class_character.html" title="Character" alt="" coords="5,80,83,107"/>
+<area shape="rect" id="node4" href="$class_actor.html" title="Actor" alt="" coords="17,5,71,32"/>
 </map>

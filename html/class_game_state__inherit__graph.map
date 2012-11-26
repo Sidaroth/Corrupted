@@ -1,0 +1,6 @@
+<map id="GameState" name="GameState">
+<area shape="rect" id="node3" href="$class_splash_screen.html" title="SplashScreen" alt="" coords="5,80,107,107"/>
+<area shape="rect" id="node5" href="$class_super_level.html" title="SuperLevel" alt="" coords="132,80,217,107"/>
+<area shape="rect" id="node9" href="$class_title_screen.html" title="TitleScreen" alt="" coords="242,80,328,107"/>
+<area shape="rect" id="node7" href="$class_level1.html" title="Level1" alt="" coords="145,155,204,181"/>
+</map>

@@ -1,0 +1,4 @@
+<map id="Level1" name="Level1">
+<area shape="rect" id="node2" href="$class_super_level.html" title="SuperLevel" alt="" coords="7,80,92,107"/>
+<area shape="rect" id="node4" href="$class_game_state.html" title="GameState" alt="" coords="5,5,93,32"/>
+</map>

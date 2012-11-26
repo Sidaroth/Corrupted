@@ -90,7 +90,7 @@ $(document).ready(function(){initNavTree('_enemy_handler_8h_source.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -104,13 +104,37 @@ $(document).ready(function(){initNavTree('_enemy_handler_8h_source.html','');});
 <div class="title">EnemyHandler.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="_enemy_handler_8h.html">Go to the documentation of this file.</a><div class="fragment"></div><!-- fragment --></div><!-- contents -->
+<a href="_enemy_handler_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_enemy_factory_8h.html">EnemyFactory.h</a>&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;SFML/Graphics.hpp&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_environment_8h.html">Environment.h</a>&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
+<div class="line"><a name="l00007"></a><span class="lineno"><a class="code" href="class_enemy_handler.html">    7</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_enemy_handler.html">EnemyHandler</a></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;{</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="code" href="class_enemy_handler.html#adf00916a190606d620c5897ca1233804">   10</a></span>&#160;    <a class="code" href="class_enemy_factory.html" title="Factory handling the creation and deletion of all enemies.">EnemyFactory</a>* <a class="code" href="class_enemy_handler.html#adf00916a190606d620c5897ca1233804">m_EnemyFactory</a>;</div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="code" href="class_enemy_handler.html#a07881ea60de0eee8e917a586ad3d2f78">   11</a></span>&#160;    <a class="code" href="class_environment_handler.html">EnvironmentHandler</a>* <a class="code" href="class_enemy_handler.html#a07881ea60de0eee8e917a586ad3d2f78">m_Level</a>;</div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="code" href="class_enemy_handler.html#ab26fc0b44fbfc95fb59284853ffa29be">   12</a></span>&#160;    <span class="keywordtype">short</span> <a class="code" href="class_enemy_handler.html#ab26fc0b44fbfc95fb59284853ffa29be">m_HorizontalSize</a>;             <span class="comment">// --- </span></div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="code" href="class_enemy_handler.html#ae8ebeb6bf2f43ee997674f0a76ea8054">   13</a></span>&#160;    std::vector&lt;bool&gt;* <a class="code" href="class_enemy_handler.html#ae8ebeb6bf2f43ee997674f0a76ea8054">collisionMap</a>;    <span class="comment">// Are these 2 really needed? </span></div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="code" href="class_enemy_handler.html#aaa748cc3281d07724b1c79a6c38cc945">   14</a></span>&#160;    std::vector&lt;Enemy*&gt; <a class="code" href="class_enemy_handler.html#aaa748cc3281d07724b1c79a6c38cc945">m_EnemyVector</a>;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <a class="code" href="class_enemy_handler.html#aa170e30c543566c8ee867d3733a31b7d">~EnemyHandler</a>();</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_enemy_handler.html#a2e85de5ad6eabf8c47b9902efc5b15b0">loadContent</a>(<a class="code" href="class_environment_handler.html">EnvironmentHandler</a>* level);</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_enemy_handler.html#acb66b56e43b7bf69bc97277a672ed596">unloadContent</a>();</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_enemy_handler.html#afd80bc99a5329e9b69f7e12efe0bf0d6">setCollisionMap</a>(std::vector&lt;bool&gt;* <a class="code" href="class_enemy_handler.html#ae8ebeb6bf2f43ee997674f0a76ea8054">collisionMap</a>, <span class="keywordtype">int</span> horizontalSize);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_enemy_handler.html#afbe37952607d3ae51d943aae957ed1a0">draw</a>();</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_enemy_handler.html#aaedc81b10c3fbd5d9a719275974ca4b3">update</a>(<a class="code" href="class_vector2f.html">Vector2f</a>* playerPos);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    std::vector&lt;Enemy*&gt;* <a class="code" href="class_enemy_handler.html#ac313788f514f2d4348655a81dbdafb95">getEnemyVector</a>( );</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;};</div>
+</div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_5e5f3a715e7f4bae10d417bd6733b721.html">GameProject</a></li><li class="navelem"><a class="el" href="dir_34cc078ae5f7d305ee8fab46b09a011f.html">GameProject</a></li><li class="navelem"><a class="el" href="_enemy_handler_8h.html">EnemyHandler.h</a></li>
-    <li class="footer">Generated on Thu Oct 11 2012 16:42:00 for Corrupted by
+    <li class="footer">Generated on Mon Nov 26 2012 12:45:41 for Corrupted by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.2 </li>
   </ul>

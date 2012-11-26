@@ -1,0 +1,4 @@
+<map id="Game::update" name="Game::update">
+<area shape="rect" id="node3" href="$class_state_handler.html#a384475d0948afc0c4f06359fe7e56d0f" title="StateHandler::getInstance" alt="" coords="158,5,330,32"/>
+<area shape="rect" id="node5" href="$class_state_handler.html#adbda8b1fd1d752c8171be4ecf6b91737" title="StateHandler::update" alt="" coords="172,56,316,83"/>
+</map>

@@ -1,0 +1,6 @@
+<map id="Player::update" name="Player::update">
+<area shape="rect" id="node3" href="$class_character.html#ab9168412ef9b2c8726b0de4dfb63e604" title="Character::update" alt="" coords="173,5,299,32"/>
+<area shape="rect" id="node5" href="$class_player.html#a2ea364bba69e21f05a35ec74195e208c" title="Player::collisionCheck" alt="" coords="161,56,311,83"/>
+<area shape="rect" id="node7" href="$class_actor.html#a9ec6f26161cadc978f8ba6d2c5ba1377" title="Actor::getPosition" alt="" coords="377,31,503,57"/>
+<area shape="rect" id="node9" href="$class_character.html#a23f6d87c24e672568cdfdb10659b22dc" title="Character::takeDamage" alt="" coords="361,81,519,108"/>
+</map>

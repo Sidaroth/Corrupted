@@ -1,0 +1,6 @@
+<map id="AudioManager::playSound" name="AudioManager::playSound">
+<area shape="rect" id="node3" href="$class_keyboard_controller.html#a6ddf16975781cc1ca5409d4e6e45ee4c" title="KeyboardController\l::checkMouse" alt="" coords="230,5,362,46"/>
+<area shape="rect" id="node7" href="$class_keyboard_controller.html#a030f4309cbc40503f4e1586d92bb5126" title="KeyboardController\l::checkPressed" alt="" coords="230,70,362,111"/>
+<area shape="rect" id="node5" href="$class_super_level.html#a366228089b384e2a8041bbdffc98be31" title="SuperLevel::processEvents" alt="" coords="411,12,589,39"/>
+<area shape="rect" id="node9" href="$class_super_level.html#a55858702d59db30844e64fd699a29b42" title="SuperLevel::update" alt="" coords="434,77,566,104"/>
+</map>

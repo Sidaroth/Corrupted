@@ -75,6 +75,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li class="current"><a href="globals.html"><span>All</span></a></li>
       <li><a href="globals_func.html"><span>Functions</span></a></li>
       <li><a href="globals_vars.html"><span>Variables</span></a></li>
+      <li><a href="globals_defs.html"><span>Macros</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
@@ -97,7 +98,7 @@ $(document).ready(function(){initNavTree('globals.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -111,8 +112,36 @@ $(document).ready(function(){initNavTree('globals.html','');});
 <li>BASE_STAT
 : <a class="el" href="_character_8cpp.html#a9235cdfc6201157b4738ee190b0e64e6">Character.cpp</a>
 </li>
+<li>DIAGONAL_MOVEMENT_COST
+: <a class="el" href="_enemy_8cpp.html#a3dda5c20420f67f03d5b1e6db4eae808">Enemy.cpp</a>
+</li>
+<li>FOUND
+: <a class="el" href="_enemy_8h.html#a841b291dedf074d07299e089dc0722e6">Enemy.h</a>
+</li>
+<li>getParent
+: <a class="el" href="_enemy_8h.html#a224ac0788d8ab80e5f60988074d12cba">Enemy.h</a>
+</li>
 <li>main()
 : <a class="el" href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main.cpp</a>
+</li>
+<li>NONEXISTANT
+: <a class="el" href="_enemy_8h.html#af5ea4ed09314d49eef271808b97ddca7">Enemy.h</a>
+</li>
+<li>numberToString()
+: <a class="el" href="_ui_8h.html#a5116afea572c49cccf1bff6f51f66dbc">Ui.h</a>
+, <a class="el" href="_ui_8cpp.html#a5116afea572c49cccf1bff6f51f66dbc">Ui.cpp</a>
+</li>
+<li>OPEN_LIST_ELEMENTS
+: <a class="el" href="_enemy_8h.html#ac558c296dea098f2f6d0de67846d0496">Enemy.h</a>
+</li>
+<li>ORTHOGONAL_MOVEMENT_COST
+: <a class="el" href="_enemy_8cpp.html#a1ab42c8f7930d4df1abde73a9c7b7a9c">Enemy.cpp</a>
+</li>
+<li>TILESIZE
+: <a class="el" href="_enemy_8h.html#a07ae61ed7dc31e9cddbdf9da244567c7">Enemy.h</a>
+</li>
+<li>UNDETERMINED
+: <a class="el" href="_enemy_8h.html#a3fc1498b945720ffd4c71f53995d45f4">Enemy.h</a>
 </li>
 </ul>
 </div><!-- contents -->
@@ -120,7 +149,7 @@ $(document).ready(function(){initNavTree('globals.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Thu Oct 11 2012 16:42:00 for Corrupted by
+    <li class="footer">Generated on Mon Nov 26 2012 12:45:43 for Corrupted by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.2 </li>
   </ul>

@@ -1,0 +1,4 @@
+<map id="Player::draw" name="Player::draw">
+<area shape="rect" id="node3" href="$class_character.html#a45a63f9c964bc8286f691fa3eec7ad77" title="calculate the correct frame to be set in setFrame" alt="" coords="179,5,293,32"/>
+<area shape="rect" id="node5" href="$class_state_handler.html#a384475d0948afc0c4f06359fe7e56d0f" title="StateHandler::getInstance" alt="" coords="150,56,322,83"/>
+</map>

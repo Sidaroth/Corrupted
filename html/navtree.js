@@ -6,8 +6,8 @@ var NAVTREE =
       [ "Class Index", "classes.html", null ],
       [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
       [ "Class Members", "functions.html", [
-        [ "All", "functions.html", null ],
-        [ "Functions", "functions_func.html", null ],
+        [ "All", "functions.html", "functions_dup" ],
+        [ "Functions", "functions_func.html", "functions_func" ],
         [ "Variables", "functions_vars.html", null ],
         [ "Enumerations", "functions_enum.html", null ],
         [ "Enumerator", "functions_eval.html", null ]
@@ -18,7 +18,8 @@ var NAVTREE =
       [ "File Members", "globals.html", [
         [ "All", "globals.html", null ],
         [ "Functions", "globals_func.html", null ],
-        [ "Variables", "globals_vars.html", null ]
+        [ "Variables", "globals_vars.html", null ],
+        [ "Macros", "globals_defs.html", null ]
       ] ]
     ] ]
   ] ]
@@ -26,7 +27,9 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"_actor_8cpp.html"
+"_actor_8cpp.html",
+"class_game.html#a3d9b98f7c4a96ecf578f75b96c9f0e90",
+"functions_0x77.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
