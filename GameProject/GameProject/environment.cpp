@@ -139,6 +139,7 @@ void EnvironmentHandler::createLevel( )
 		m_sprites.push_back( sprite );
 	}
 }
+
 /// creates the subrect for the tile, depending on the RGB color on the pixel
 sf::IntRect EnvironmentHandler::colorChart( RGB rgb )
 {

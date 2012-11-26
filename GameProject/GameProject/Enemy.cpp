@@ -44,7 +44,8 @@ void Enemy::setCollisionMap(std::vector<bool>* collisionMap, int horizontalSize)
 
 short Enemy::findPath(int startX, int startY, int goalX, int goalY)
 {
-	m_Path.clear();
+	m_Path.erase(m_Path.begin(), m_Path.end()); // Remove the old stuff...
+
 	const short NUMBER_OF_TILES_TO_CHECK = 30;
 	m_Path.reserve(NUMBER_OF_TILES_TO_CHECK);
 
