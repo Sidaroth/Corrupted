@@ -37,6 +37,7 @@ private:
 
 public:
 	EnvironmentHandler( );
+	~EnvironmentHandler();
 	bool loadContent( );
 	void draw();
 	void bitmapToArray( );

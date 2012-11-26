@@ -105,7 +105,6 @@
     <ClInclude Include="Level1.h" />
     <ClInclude Include="Objects.h" />
     <ClInclude Include="Player.h" />
-    <ClInclude Include="Point.h" />
     <ClInclude Include="Projectile.h" />
     <ClInclude Include="Skeleton.h" />
     <ClInclude Include="SplashScreen.h" />
@@ -129,7 +128,6 @@
     <ClCompile Include="Level1.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Player.cpp" />
-    <ClCompile Include="Point.cpp" />
     <ClCompile Include="Projectile.cpp" />
     <ClCompile Include="Skeleton.cpp" />
     <ClCompile Include="SplashScreen.cpp" />

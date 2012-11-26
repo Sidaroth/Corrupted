@@ -126,7 +126,6 @@ void Game::run()
 
 void Game::deInitialize()
 {
-	StateHandler::getInstance().unloadContent();
 	delete m_BackgroundColor;
 }
 
