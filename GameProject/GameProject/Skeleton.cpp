@@ -1,29 +1,30 @@
 #include "Skeleton.h"
 #include "StateHandler.h"
 
-Skeleton::Skeleton()
+Skeleton::Skeleton(std::vector<sf::Texture>* textures)
 {
 	onClosedList = 10;
 	onOpenList = 1;
 	pathLength = UNDETERMINED;
+
+	m_TexturesActions["move"].imgTexture = textures -> at(MOVE);
+	m_TexturesActions["move"].size = textures -> at(MOVE).getSize().x;
+
+	m_TexturesActions["attack"].imgTexture = textures -> at(ATTACK);
+	m_TexturesActions["attack"].size = textures -> at(ATTACK).getSize().x;
+
+	m_TexturesActions["still"].imgTexture = textures -> at(STILL);
+	m_TexturesActions["still"].size = textures -> at(STILL).getSize().x;
 }
 
-void Skeleton::sayHello()
+Skeleton::~Skeleton()
 {
-	std::cout << "Hello!\n";
+
 }
 
 bool Skeleton::loadContent()
 {
-	sf::Image maskingImage;
-	if (!maskingImage.loadFromFile("../../Resources/skeleton.png"))
-	{
-		return EXIT_FAILURE;
-	}
-
-	maskingImage.createMaskFromColor(sf::Color (106, 76, 48), 0);
-	m_Texture.loadFromImage( maskingImage );
-	m_Sprite.setTexture(m_Texture);
+	m_Sprite.setTexture(m_TexturesActions["still"].imgTexture);
 	animation();
 
 	return EXIT_SUCCESS;	// Exit succesfully. 
@@ -36,7 +37,9 @@ void Skeleton::draw()
 
 void Skeleton::update(Vector2f* playerPos)
 {
+	animation();
 	// NOTE - BUG: Because the skeleton moves 3 and 3 pixels, it will spasm madly and potentially crash if the startX or startY is not a multiple of 3. 
+	// NOTE - BUG: Pathstep is erased to soon... Fix is relatively easy, but crash is more important. 
 
 	// If it has no path, or has walked a certain amount of steps on it's present path. Calculate new path. 
 	float xPos = m_Sprite.getPosition().x;

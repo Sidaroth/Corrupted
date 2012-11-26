@@ -33,25 +33,30 @@ bool Player::loadContent()
 	{
 		return EXIT_FAILURE;
 	}
+
 	maskingImage.createMaskFromColor(sf::Color (106, 76, 48), 0);
 	m_Texture.loadFromImage( maskingImage );
 	m_TexturesActions["move"].imgTexture=m_Texture;
 	m_TexturesActions["move"].size=m_Texture.getSize().x;
+
 	//Loading attack action
 	if (!maskingImage.loadFromFile("../../Resources/player_attack.png"))
 	{
 		return EXIT_FAILURE;
 	}
+
 	maskingImage.createMaskFromColor(sf::Color (106, 76, 48), 0);
 	m_Texture.loadFromImage( maskingImage );
 	m_TexturesActions["attack"].imgTexture=m_Texture;
 	m_TexturesActions["attack"].size=m_Texture.getSize().x;
 	//
+
 	//Loading standing action
 	if (!maskingImage.loadFromFile("../../Resources/player_still.png"))
 	{
 		return EXIT_FAILURE;
 	}
+
 	maskingImage.createMaskFromColor(sf::Color (106, 76, 48), 0);
 	m_Texture.loadFromImage( maskingImage );
 	m_TexturesActions["still"].imgTexture=m_Texture;
@@ -61,7 +66,7 @@ bool Player::loadContent()
 	m_Sprite.setTexture(m_TexturesActions["still"].imgTexture);
 	animation();
 
-	return 0;
+	return EXIT_SUCCESS;
 }
 
 void Player::update() 

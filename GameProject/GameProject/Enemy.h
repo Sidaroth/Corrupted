@@ -53,10 +53,10 @@ protected:
 	short openY[OPEN_LIST_ELEMENTS];
 	short parentX[OPEN_LIST_ELEMENTS][OPEN_LIST_ELEMENTS];
 	short parentY[OPEN_LIST_ELEMENTS][OPEN_LIST_ELEMENTS];
+	short whichList[OPEN_LIST_ELEMENTS][OPEN_LIST_ELEMENTS];
 
 public:
 	~Enemy();
-	virtual void sayHello() = 0;
 	virtual void draw() = 0;
 	virtual void update(Vector2f* playerPos) = 0;
 	virtual bool loadContent() = 0;

@@ -33,13 +33,6 @@ void Enemy::setCollisionMap(std::vector<bool>* collisionMap, int horizontalSize)
 	 Example2: if the position we want is (3, 0) we can find it in the array by doing 0 * 5 + 3 = 3 (For humans this would be 4, but as programmers we count from 0)
 	 Example3: if the position we want is (3, 4) we can find it in the array by doing 4 * 5 + 3 = 23 (For humans this would be 24, but as programmers we count from 0)
 
-
-	 Let n be the number of elements in the heap and i be an arbitrary valid index of the array storing the heap. If the tree root is at index 0, with valid indices 0 through n-1, then each element a[i] has
-	 children a[2i+1] and a[2i+2]
-	 parent   a[floor((i−1)/2)]			- Flooring is just getting the integer value of a number. 
-
-
-	 Brace yourself...
 	*/
 
 short Enemy::findPath(int startX, int startY, int goalX, int goalY)
@@ -66,7 +59,7 @@ short Enemy::findPath(int startX, int startY, int goalX, int goalY)
 	}
 
 	bool placeInHeapFound = false;
-	short whichList[OPEN_LIST_ELEMENTS][OPEN_LIST_ELEMENTS];
+	whichList[goalTileX][goalTileY] = 0;
 
 	short temp = 0;
 	short insertPosition = 0;
@@ -107,15 +100,20 @@ short Enemy::findPath(int startX, int startY, int goalX, int goalY)
 	tilesChecked = 0;
 	numberOfOpenListItems = 1;
 
-	
-
 	//initializePathFind();
 
-
-	
+	//for(int i = 0; i <= 11; i++)
+	//{
+	//	for(int j = 0; j <= 11; j++)
+	//	{
+	//		std::cout << whichList[i][j] << ", ";
+	//	}
+	//	std::cout << std::endl;
+	//}
 
 	while(path == UNDETERMINED && tilesChecked < NUMBER_OF_TILES_TO_CHECK)
 	{
+		//std::cout << tilesChecked << "\n";
 		if(numberOfOpenListItems != 0)
 		{
 			// Deleting & Selecting
@@ -127,9 +125,6 @@ short Enemy::findPath(int startX, int startY, int goalX, int goalY)
 
 			openList[1] = openList[numberOfOpenListItems];
 			numberOfOpenListItems--;
-
-			//std::cout << parentYval << ", " << parentXval << ", " << openList[1] << std::endl;
-			
 
 			//selectFromOpenList();
 			placeInHeapFound = false;
@@ -303,6 +298,7 @@ short Enemy::findPath(int startX, int startY, int goalX, int goalY)
 					}
 				}
 			}
+
 			++tilesChecked;
 		}
 		else
@@ -310,7 +306,7 @@ short Enemy::findPath(int startX, int startY, int goalX, int goalY)
 			path = NONEXISTANT;
 		}
 
-		if(whichList[goalTileX][goalTileY] == onOpenList)	// on closed list? hmmm
+		if(whichList[goalTileX][goalTileY] == onClosedList)	// on closed list
 		{
 			path = FOUND;
 		}

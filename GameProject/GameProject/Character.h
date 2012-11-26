@@ -8,9 +8,6 @@
 class Character : public Actor
 {
 private: 
-	
-	
-	
 	short m_shBitmapRow;		/// What frame of the animation from the spritesheet to display
 	short m_shBitmapCol;		/// What animation to display from the spritesheet
 	short m_shFrameCount;
@@ -18,8 +15,7 @@ private:
 	bool* m_bAbilities;
 	bool m_bDoingAction;
 
-protected:
-	
+protected:	
 	short m_shStrength;
 	short m_shIntelligence;
 	short m_shToughness;

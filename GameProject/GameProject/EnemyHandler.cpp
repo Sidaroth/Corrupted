@@ -1,7 +1,11 @@
 #include "EnemyHandler.h"
 #include "Vector2f.h"
 
-// Unloadcontent instead??
+EnemyHandler::EnemyHandler()
+{
+	m_EnemyFactory = new EnemyFactory();
+}
+
 EnemyHandler::~EnemyHandler()
 {
 	for( std::vector<Enemy*>::iterator it = m_EnemyVector.begin(); it != m_EnemyVector.end();)
@@ -14,10 +18,14 @@ EnemyHandler::~EnemyHandler()
 void EnemyHandler::loadContent(EnvironmentHandler* level)
 {
 	m_Level = level;
+	m_EnemyFactory -> loadContent();
+	m_EnemyVector.reserve(500);
 
-	for(int i = 0; i < 1; i++)
-	{
-		
+	int x = 96;
+	int y = 96;
+
+	for(int i = 0; i < 100; i++)
+	{	
 		m_EnemyVector.push_back(m_EnemyFactory -> createEnemy(m_EnemyFactory -> Skellie));
 
 		if(m_EnemyVector[i] != NULL)
@@ -31,11 +39,17 @@ void EnemyHandler::loadContent(EnvironmentHandler* level)
 			return;
 		}
 
+		x += i * 96;
+
+		if(x >= 5000)
+		{
+			y += 96;
+			x = 96;
+		}
 
 		m_EnemyVector[i] -> setEnvironmentLevel(m_Level);
+		m_EnemyVector[i] -> setPosition(Vector2f(x, y));
 	}
-
-	m_EnemyVector[0] -> setPosition(Vector2f(960, 99));
 }
 
 void EnemyHandler::unloadContent()

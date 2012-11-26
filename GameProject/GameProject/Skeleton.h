@@ -9,9 +9,8 @@ class Skeleton : public Enemy
 protected:
 
 public:
-	Skeleton();
+	Skeleton(std::vector<sf::Texture>* textures);
 	~Skeleton();
-	void sayHello();
 	void draw();
 	void update(Vector2f* playerPos);
 	bool loadContent();
