@@ -24,7 +24,7 @@ void EnemyHandler::loadContent(EnvironmentHandler* level)
 	int x = 96;
 	int y = 96;
 
-	for(int i = 0; i < 100; i++)
+	for(int i = 0; i < 800; i++)
 	{	
 		m_EnemyVector.push_back(m_EnemyFactory -> createEnemy(m_EnemyFactory -> Skellie));
 
@@ -37,14 +37,6 @@ void EnemyHandler::loadContent(EnvironmentHandler* level)
 		{
 			std::cout << "Something Broke in enemy creation..." << std::endl;
 			return;
-		}
-
-		x += i * 96;
-
-		if(x >= 5000)
-		{
-			y += 96;
-			x = 96;
 		}
 
 		m_EnemyVector[i] -> setEnvironmentLevel(m_Level);

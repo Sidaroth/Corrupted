@@ -17,7 +17,7 @@ protected:
 		int size;
 	};
 
-	std::map<std::string,actionTexture> m_TexturesActions;
+	std::vector<sf::Texture*> m_TextureTypes;
 
 
 	Vector2f m_Position;		// Hmm.. Sprite has a position, so is this needed? we'll see...

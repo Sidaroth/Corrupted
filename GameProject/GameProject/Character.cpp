@@ -38,7 +38,7 @@ void Character::attack(short row) ///0=N, 1=NE, 2=E, 3=SE, 4=S, 5=SW, 6=W, 7=NW
 	if(!m_bDoingAction){
 		
 		//This has to work totally different, if not, when the plaer holds the mouse button it is not working properly!
-		m_Sprite.setTexture(m_TexturesActions["attack"].imgTexture);
+		m_Sprite.setTexture(*m_TextureTypes[ATTACK]);
 		m_shBitmapCol = 0;
 		m_bDoingAction=true;
 	}
@@ -64,15 +64,15 @@ void Character::startAction(){
 }
 void Character::endAction(){
 	m_bDoingAction = false;
-	m_Sprite.setTexture(m_TexturesActions["still"].imgTexture);
+	m_Sprite.setTexture(*m_TextureTypes[STILL]);
 }
 void Character::changeAnimationToWalk(){
 	
-	m_Sprite.setTexture(m_TexturesActions["move"].imgTexture);
+	m_Sprite.setTexture(*m_TextureTypes[MOVE]);
 }
 void Character::changeAnimationToStand(){
 	m_shBitmapCol = 0;
-	m_Sprite.setTexture(m_TexturesActions["still"].imgTexture);
+	m_Sprite.setTexture(*m_TextureTypes[STILL]);
 }
 		
 bool Character::isDoingAction(){

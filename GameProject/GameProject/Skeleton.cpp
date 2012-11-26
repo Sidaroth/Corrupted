@@ -7,24 +7,23 @@ Skeleton::Skeleton(std::vector<sf::Texture>* textures)
 	onOpenList = 1;
 	pathLength = UNDETERMINED;
 
-	m_TexturesActions["move"].imgTexture = textures -> at(MOVE);
-	m_TexturesActions["move"].size = textures -> at(MOVE).getSize().x;
-
-	m_TexturesActions["attack"].imgTexture = textures -> at(ATTACK);
-	m_TexturesActions["attack"].size = textures -> at(ATTACK).getSize().x;
-
-	m_TexturesActions["still"].imgTexture = textures -> at(STILL);
-	m_TexturesActions["still"].size = textures -> at(STILL).getSize().x;
+	m_TextureTypes.push_back( &textures -> at(MOVE) );
+	m_TextureTypes.push_back( &textures -> at(ATTACK) );
+	m_TextureTypes.push_back( &textures -> at(STILL) );
 }
 
 Skeleton::~Skeleton()
 {
-
+	for(std::vector<sf::Texture*>::iterator it = m_TextureTypes.begin(); it != m_TextureTypes.end();)
+	{
+		delete * it;
+		it = m_TextureTypes.erase(it);
+	}
 }
 
 bool Skeleton::loadContent()
 {
-	m_Sprite.setTexture(m_TexturesActions["still"].imgTexture);
+	m_Sprite.setTexture(*m_TextureTypes[STILL]);
 	animation();
 
 	return EXIT_SUCCESS;	// Exit succesfully. 

@@ -5,6 +5,11 @@
 Player::~Player()
 {
 	delete m_EnemyVector;
+	for(std::vector<sf::Texture*>::iterator it = m_TextureTypes.begin(); it != m_TextureTypes.end();)
+	{
+		delete * it;
+		it = m_TextureTypes.erase(it);
+	}
 }
 
 Player::Player() : Character()
@@ -28,42 +33,36 @@ bool Player::loadContent()
 	Character::loadContent();
 
 	sf::Image maskingImage;
-		//Loading move action
+	//Loading move action
 	if (!maskingImage.loadFromFile("../../Resources/player.png"))
 	{
 		return EXIT_FAILURE;
 	}
-
 	maskingImage.createMaskFromColor(sf::Color (106, 76, 48), 0);
-	m_Texture.loadFromImage( maskingImage );
-	m_TexturesActions["move"].imgTexture=m_Texture;
-	m_TexturesActions["move"].size=m_Texture.getSize().x;
+	m_MoveTexture.loadFromImage( maskingImage );
+
+	m_TextureTypes.push_back( &m_MoveTexture );
 
 	//Loading attack action
 	if (!maskingImage.loadFromFile("../../Resources/player_attack.png"))
 	{
 		return EXIT_FAILURE;
 	}
-
 	maskingImage.createMaskFromColor(sf::Color (106, 76, 48), 0);
-	m_Texture.loadFromImage( maskingImage );
-	m_TexturesActions["attack"].imgTexture=m_Texture;
-	m_TexturesActions["attack"].size=m_Texture.getSize().x;
-	//
+	m_AttackTexture.loadFromImage( maskingImage );
+
+	m_TextureTypes.push_back( &m_AttackTexture );
 
 	//Loading standing action
 	if (!maskingImage.loadFromFile("../../Resources/player_still.png"))
 	{
 		return EXIT_FAILURE;
 	}
-
 	maskingImage.createMaskFromColor(sf::Color (106, 76, 48), 0);
-	m_Texture.loadFromImage( maskingImage );
-	m_TexturesActions["still"].imgTexture=m_Texture;
-	m_TexturesActions["still"].size=m_Texture.getSize().x;
-	//
+	m_StillTexture.loadFromImage( maskingImage );
 
-	m_Sprite.setTexture(m_TexturesActions["still"].imgTexture);
+	m_TextureTypes.push_back( &m_StillTexture );
+	m_Sprite.setTexture(*m_TextureTypes[STILL]);
 	animation();
 
 	return EXIT_SUCCESS;
