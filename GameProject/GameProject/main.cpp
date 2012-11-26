@@ -7,6 +7,6 @@ int main()
 	game = new Game();	
 	game -> start();
 	
-	delete game;
+	//delete game;
 	return EXIT_SUCCESS;
 }
