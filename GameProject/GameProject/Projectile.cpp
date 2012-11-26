@@ -27,7 +27,8 @@ void Projectile::initiate( short spell, short damage, Vector2f position, Vector2
 {
 	m_shSpell = spell;
 	m_shDamage = damage;
-	m_Position = position;
+	m_Position.x = position.x;
+	m_Position.y = position.y;
 	m_bExist = true;
 	m_shTraveled = 0;
 
@@ -36,10 +37,13 @@ void Projectile::initiate( short spell, short damage, Vector2f position, Vector2
 		m_Sprite.setTexture( m_vTextures[FIREBALL] );
 	}
 
-	float deltaY = mouseCoordinates.y - m_Position.y;
-	float deltaX = mouseCoordinates.x - m_Position.x;
+	position.x = StateHandler::getInstance().m_pWindow -> getSize().x / 2;
+	position.y = StateHandler::getInstance().m_pWindow -> getSize().y / 2;
 
-	m_fAngle = atan2( deltaY, deltaX ) * 180 / 3.1415;
+	float deltaY = position.y - mouseCoordinates.y;
+	float deltaX = position.x - mouseCoordinates.x;
+
+	m_fAngle = atan2( deltaY, deltaX );// * 180 / 3.1415;
 }
 
 bool Projectile::loadContent( )
@@ -60,15 +64,15 @@ bool Projectile::loadContent( )
 
 void Projectile::move( )
 {
-	float newX = m_Position.x + 10 * sin( m_fAngle );
-	float newY = m_Position.y + 10 * cos( m_fAngle );
+	float newX = m_Position.x + 10 * -cos( m_fAngle );
+	float newY = m_Position.y + 10 * -sin( m_fAngle );
 
 	m_Sprite.setPosition( newX, newY );
 
 	m_Position.x = newX;
 	m_Position.y = newY;
 
-	if( m_shTraveled < 2000 )
+	if( m_shTraveled < 500 )
 	{
 		m_shTraveled += 10 * sin( m_fAngle );
 		m_shTraveled +=	10 * cos( m_fAngle );
@@ -139,8 +143,7 @@ void Projectile::checkCollision( )
 	int x = ( ( m_Position.x ) / TILESIZE );
 	int y = ( ( m_Position.y ) / TILESIZE );
 	m_objects -> at( 1 );
-	float derp =( y * m_shHorizontalBitmapSize) + x;
-	std::cout << derp << std::endl;
+
 	//check top left corner
 	if( !m_objects -> at( ( ( y * m_shHorizontalBitmapSize) + x ) ) )
 	{
