@@ -13,6 +13,18 @@ EnvironmentHandler::EnvironmentHandler( )
 	TILESIZE = 96;
 }
 
+EnvironmentHandler::~EnvironmentHandler()
+{
+	for( std::vector<RGB*>::iterator it = m_floorArray.begin(); it != m_floorArray.end();)
+	{
+		delete * it;
+		it = m_floorArray.erase(it);
+	}
+
+	m_sprites.erase(m_sprites.begin(), m_sprites.end());	// erases all / calls deconstructor for the objects.
+	m_objects.erase(m_objects.begin(), m_objects.end());	// Erases all / calls deconstructor for the objects.
+}
+
 bool EnvironmentHandler::loadContent( )
 {
 	if( !m_bitmap.loadFromFile( "../../Resources/levelOne.png" ) )
@@ -99,6 +111,8 @@ void EnvironmentHandler::bitmapToArray()
 			m_floorArray.push_back(rgb);
 		}
 	}
+
+	delete rgb;
 }
 
 /// Creates the level out of the floorArray
@@ -126,6 +140,8 @@ void EnvironmentHandler::createLevel( )
 		sprite.setPosition( float(spriteX * TILESIZE) , float(( spriteY - 1 ) * TILESIZE) );
 		m_sprites.push_back( sprite );
 	}
+
+	delete rgb;
 }
 /// creates the subrect for the tile, depending on the RGB color on the pixel
 sf::IntRect EnvironmentHandler::colorChart( RGB rgb )

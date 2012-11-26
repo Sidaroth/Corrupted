@@ -1,26 +1,21 @@
 #include "EnemyHandler.h"
 #include "Vector2f.h"
 
+// Unloadcontent instead??
+EnemyHandler::~EnemyHandler()
+{
+	for( std::vector<Enemy*>::iterator it = m_EnemyVector.begin(); it != m_EnemyVector.end();)
+	{
+		delete * it;
+		it = m_EnemyVector.erase(it);
+	}
+}
+
 void EnemyHandler::loadContent(EnvironmentHandler* level)
 {
 	m_Level = level;
-	//m_EnemyVector.push_back(m_EnemyFactory -> createEnemy(m_EnemyFactory -> Skellie));
 
-	//if(m_EnemyVector[0] != NULL)
-	//{
-	//	std::cout << "Enemy created!\n";
-	//	m_EnemyVector[0] -> loadContent();
-	//}
-	//else
-	//{
-	//	std::cout << "Something Broke in enemy creation..." << std::endl;
-	//	return;
-	//}
-
-	//m_EnemyVector[0] -> setEnvironmentLevel(m_Level);
-	//m_EnemyVector[0] -> setPosition(Vector2f(960, 960));
-
-	for(int i = 0; i < 3; i++)
+	for(int i = 0; i < 1; i++)
 	{
 		
 		m_EnemyVector.push_back(m_EnemyFactory -> createEnemy(m_EnemyFactory -> Skellie));
@@ -40,16 +35,15 @@ void EnemyHandler::loadContent(EnvironmentHandler* level)
 		m_EnemyVector[i] -> setEnvironmentLevel(m_Level);
 	}
 
-	m_EnemyVector[0] -> setPosition(Vector2f(960, 960));
-	m_EnemyVector[1] -> setPosition(Vector2f(96, 960));
-	m_EnemyVector[2] -> setPosition(Vector2f(960, 96));
+	m_EnemyVector[0] -> setPosition(Vector2f(960, 99));
 }
 
 void EnemyHandler::unloadContent()
 {
-	for(unsigned short i = 0; i < m_EnemyVector.size(); i++)
+	for( std::vector<Enemy*>::iterator it = m_EnemyVector.begin(); it != m_EnemyVector.end();)
 	{
-		delete m_EnemyVector[i];
+		delete * it;
+		it = m_EnemyVector.erase(it);
 	}
 }
 
@@ -61,11 +55,11 @@ void EnemyHandler::draw()
 	}
 }
 
-void EnemyHandler::update()
+void EnemyHandler::update(Vector2f* playerPos)
 {
 	for(unsigned short i = 0; i < m_EnemyVector.size(); i++)
 	{
-		m_EnemyVector[i] -> update();
+		m_EnemyVector[i] -> update(playerPos);
 	}
 }
 

@@ -41,6 +41,7 @@ void Enemy::setCollisionMap(std::vector<bool>* collisionMap, int horizontalSize)
 
 	 Brace yourself...
 	*/
+
 short Enemy::findPath(int startX, int startY, int goalX, int goalY)
 {
 	m_Path.clear();
@@ -73,7 +74,6 @@ short Enemy::findPath(int startX, int startY, int goalX, int goalY)
 
 	bool goalReached = false;
 
-	Vector2f* pathStep;
 	short tempX;
 	short pathX;
 	short pathY;
@@ -337,6 +337,14 @@ short Enemy::findPath(int startX, int startY, int goalX, int goalY)
 	return path;
 }
 
+Enemy::~Enemy()
+{
+	for(std::vector<Vector2f*>::iterator it = m_Path.begin(); it != m_Path.end();)
+	{
+		delete * it;	// Erase calls the deconstructor, but because the pointers don't have deconstructors we need to call delete first.				
+		it = m_Path.erase(it);	// Erase returns a new iterator position, without it it would create holes 
+	}
+}
 
 std::vector<Projectile*>* Enemy::getProjectile( )
 {

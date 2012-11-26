@@ -12,6 +12,12 @@ Level1::Level1()
 	std::cout << "Level created!\n";
 }
 
+Level1::~Level1()
+{
+	delete m_Level;
+	delete m_EnemyHandler;
+}
+
 void Level1::loadContent(sf::RenderWindow* window)
 {
 	superLoadContent(window);
@@ -22,6 +28,12 @@ void Level1::loadContent(sf::RenderWindow* window)
 	text.setPosition(100, 50);
 	text.setString("Level 1");
 	text.setFont(font);
+}
+
+void Level1::draw()
+{
+	superDraw();
+	StateHandler::getInstance().m_pWindow->draw(text);
 }
 
 //void Level1::unloadContent()
@@ -35,10 +47,3 @@ void Level1::loadContent(sf::RenderWindow* window)
 //void Level1::update()
 //{
 //}
-
-void Level1::draw()
-{
-		superDraw();
-		StateHandler::getInstance().m_pWindow->draw(text);
-
-}

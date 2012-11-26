@@ -14,10 +14,11 @@ protected:
 	std::vector<Enemy*> m_EnemyVector;
 
 public:
+	~EnemyHandler();
 	void loadContent(EnvironmentHandler* level);
 	void unloadContent();
 	void setCollisionMap(std::vector<bool>* collisionMap, int horizontalSize);
 	void draw();
-	void update();
+	void update(Vector2f* playerPos);
 	std::vector<Enemy*>* getEnemyVector( );
 };

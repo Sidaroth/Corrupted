@@ -2,6 +2,11 @@
 
 
 
+KeyboardController::~KeyboardController()
+{
+	delete player;
+}
+
 KeyboardController::KeyboardController(Player* player_recieved,sf::RenderWindow* window_recieved){
 	
 

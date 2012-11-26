@@ -6,7 +6,6 @@ Enemy* EnemyFactory::createEnemy(Enemies enemyType)
 	{
 	case Skellie:
 		return new Skeleton();
-		break;
 	}
 
 	return NULL;

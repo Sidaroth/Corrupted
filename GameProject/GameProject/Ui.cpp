@@ -11,6 +11,11 @@ Ui::Ui()
 	
 }
 
+Ui::~Ui()
+{
+	delete m_player;
+}
+
 bool Ui::loadContent()
 {
 	sf::Image maskingImage;

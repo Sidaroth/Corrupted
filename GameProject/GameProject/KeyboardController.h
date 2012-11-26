@@ -41,6 +41,7 @@ private:
 	std::map<std::string,MyKeys> Keys;
 
 public:
+	~KeyboardController();
 	KeyboardController(Player* player,sf::RenderWindow* window);
 	void checkPressed();
 	void checkMouse(sf::Event event);

@@ -32,6 +32,7 @@ protected:
 	short m_shSpellDamage;
 	float m_fCriticalChance;	/// Given in percent
 
+	~Character();
 	Character();
 	EnvironmentHandler* m_environmentLevel;
 	std::vector<Projectile*> m_vProjectiles;

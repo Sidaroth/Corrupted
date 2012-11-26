@@ -13,7 +13,10 @@ StateHandler::StateHandler()
 
 StateHandler::~StateHandler()
 {
-
+	// delete all pointers. 
+	delete currentState;
+	delete newState;
+	delete m_pWindow;
 }
 
 void StateHandler::addScreen(GameState *state)

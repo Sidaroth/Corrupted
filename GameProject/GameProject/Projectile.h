@@ -25,6 +25,7 @@ private:
 
 public:
 	Projectile( );
+	~Projectile();
 	//Projectile( short spell, short damage, Vector2f position, Vector2f mouseCoordinates );
 	void initiate ( short spell, short damage, Vector2f position, Vector2f mouseCoordinates );
 	bool loadContent( );

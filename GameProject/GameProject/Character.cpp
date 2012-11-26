@@ -21,6 +21,16 @@ Character::Character() : Actor()
 	m_bAbilities = new bool[false, false, false];
 }
 
+Character::~Character()
+{
+	for( std::vector<Projectile*>::iterator it = m_vProjectiles.begin(); it != m_vProjectiles.end(); )
+	{
+		delete * it;
+		it = m_vProjectiles.erase(it);	// Erase calls the deconstructor, but because the pointers don't have deconstructors we need to call delete first.
+										// Erase returns a new iterator position, without it it would create holes 
+	}
+}
+
 void Character::attack(short row) ///0=N, 1=NE, 2=E, 3=SE, 4=S, 5=SW, 6=W, 7=NW
 {
 	setBitmapRow(row);
@@ -37,14 +47,15 @@ void Character::attack(short row) ///0=N, 1=NE, 2=E, 3=SE, 4=S, 5=SW, 6=W, 7=NW
 bool Character::loadContent()
 {
 	//create 5 temp projectiles on load for each enemy/player
-	//Projectile* projectile;
-	//for( int i = 0; i < 5; i++ )
-	//{
-	//	projectile = new Projectile( );
-	//	projectile -> loadContent( );
+	Projectile* projectile;
+	for( int i = 0; i < 5; i++ )
+	{
+		projectile = new Projectile( );
+		projectile -> loadContent( );
 		projectile -> setEnvironmentObjects( m_environmentLevel -> getObjectVector( ), m_environmentLevel -> getHorizontalBitmapSize( ) );
-	//	m_vProjectiles.push_back( projectile );
-	//}
+		m_vProjectiles.push_back( projectile );
+	}
+
 	return 0;
 }
 
@@ -144,7 +155,7 @@ void Character::animation()  ///calculate frame for animation
 	if(m_shFrameCount % ANIMATION_SPEED == 0)
 	{
 		
-		m_shBitmapCol += 1;C:\Program Files (x86)\KDiff3
+		m_shBitmapCol += 1;
 		if ( ( m_shBitmapCol * m_shSpriteSize ) >= m_Sprite.getTexture()->getSize().x - ( m_shSpriteSize ) )
 		{
 			endAction();
@@ -153,7 +164,7 @@ void Character::animation()  ///calculate frame for animation
 	}
 	setFrame();
 
-	for( int i = 0; i < m_vProjectiles.size( ); i++ )
+	for( unsigned int i = 0; i < m_vProjectiles.size( ); i++ )
 	{
 		if( m_vProjectiles[i]->exist( ) )
 		{
@@ -164,7 +175,7 @@ void Character::animation()  ///calculate frame for animation
 
 void Character::draw( )
 {
-	for( int i = 0; i < m_vProjectiles.size( ); i++ )
+	for( unsigned int i = 0; i < m_vProjectiles.size( ); i++ )
 	{
 		if( m_vProjectiles[i]->exist( ) )
 		{
@@ -175,7 +186,7 @@ void Character::draw( )
 
 void Character::update( )
 {
-	for( int i = 0; i < m_vProjectiles.size( ); i++ )
+	for( unsigned int i = 0; i < m_vProjectiles.size( ); i++ )
 	{
 		if( m_vProjectiles[i]->exist( ) )
 		{
@@ -307,11 +318,6 @@ void Character::move(short direction) // 0=N, 1=NE, 2=E, 3=SE, 4=S, 5=SW, 6=W, 7
 	}
 }
 
-//////////////////////
-void Character::showDamage() 
-{
-
-}
 
 void Character::showHealth()
 {
@@ -322,7 +328,7 @@ void Character::castSpell( Vector2f mouseCoordinates, short spell )
 {
 	if( m_bAbilities[spell] )
 	{
-		for( int i = 0; i < m_vProjectiles.size( ); i++ )
+		for( unsigned int i = 0; i < m_vProjectiles.size( ); i++ )
 		{
 			if( !m_vProjectiles[i]->exist( ) )
 			{
@@ -342,5 +348,6 @@ void Character::castSpell( Vector2f mouseCoordinates, short spell )
 
 void Character::takeDamage( short damage )
 {
+
 	m_shCurrentHealth -= damage;
 }

@@ -24,7 +24,8 @@ private:
 protected:
 
 public:
-	
+
+	~Player();
 	Player();
 	Player(std::string name);
 	bool loadContent();

@@ -9,10 +9,10 @@ class Skeleton : public Enemy
 protected:
 
 public:
-	short test;
 	Skeleton();
+	~Skeleton();
 	void sayHello();
 	void draw();
-	void update();
+	void update(Vector2f* playerPos);
 	bool loadContent();
 };

@@ -17,6 +17,12 @@ Projectile::Projectile( )
 	m_fAngle = 0;
 }
 
+Projectile::~Projectile()
+{
+	m_vTextures.erase(m_vTextures.begin(), m_vTextures.end());	// Clear it all / call deconstructor for all. 
+	delete m_objects;	// Delete pointer to collisionmap. 
+}
+
 void Projectile::initiate( short spell, short damage, Vector2f position, Vector2f mouseCoordinates )
 {
 	m_shSpell = spell;

@@ -1,6 +1,12 @@
 #include "Player.h"
 #include "StateHandler.h"
 
+
+Player::~Player()
+{
+	delete m_EnemyVector;
+}
+
 Player::Player() : Character()
 {
 	m_shTotalSouls = 0;
