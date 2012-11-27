@@ -23,7 +23,7 @@ private:
 	std::string moveRIghtKey;
 	std::string spaceKey;
 	sf::RenderWindow* window;
-	//AudioManager audio_manager;
+	AudioManager audio_manager;
 	enum InputType
 	{
 		KeyboardInput,

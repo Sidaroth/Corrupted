@@ -10,7 +10,7 @@ KeyboardController::~KeyboardController()
 KeyboardController::KeyboardController(Player* player_recieved,sf::RenderWindow* window_recieved){
 	
 
-		
+	
 	//KeyBinding (We will have to change it so instead of being hardcoded it will be read from a file.
 	window = window_recieved;
 	player = player_recieved;
@@ -53,6 +53,7 @@ KeyboardController::KeyboardController(Player* player_recieved,sf::RenderWindow*
 	//loadXML();
 	//audio_manager.loadAudio();
 }
+
 
 void KeyboardController::checkMouse(sf::Event event)
 {

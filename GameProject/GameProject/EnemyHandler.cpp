@@ -24,7 +24,7 @@ void EnemyHandler::loadContent(EnvironmentHandler* level)
 	int x = 96;
 	int y = 96;
 
-	for(int i = 0; i < 800; i++)
+	for(int i = 0; i < 1; i++)
 	{	
 		m_EnemyVector.push_back(m_EnemyFactory -> createEnemy(m_EnemyFactory -> Skellie));
 
