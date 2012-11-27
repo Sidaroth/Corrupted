@@ -1,7 +1,5 @@
 #include "Ui.h"
 
-
-
 Ui::Ui()
 {
 	m_shFrameCount = 0;
@@ -170,9 +168,16 @@ void Ui::draw()
 	StateHandler::getInstance().m_pWindow->draw(rightSideSecondaryText);
 	StateHandler::getInstance().m_pWindow->draw(rightSideSecondaryStats);
 	StateHandler::getInstance().m_pWindow->draw(healthText);
-	for (int i = 0; i <= 5; i++) {
+
+	for (int i = 0; i <= 5; i++) 
+	{
 		StateHandler::getInstance().m_pWindow->draw(increaseButtonSpriteArray[i]);
 	}
+}
+
+void Ui::addFloatingText()
+{
+
 }
 
 template <typename T>

@@ -39,6 +39,14 @@ void EnemyHandler::loadContent(EnvironmentHandler* level)
 			return;
 		}
 
+		x += 96;
+
+		if(i % 25 == 0)
+		{
+			x = 96;
+			y += 96;
+		}
+
 		m_EnemyVector[i] -> setEnvironmentLevel(m_Level);
 		m_EnemyVector[i] -> setPosition(Vector2f(x, y));
 	}
