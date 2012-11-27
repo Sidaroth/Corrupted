@@ -2,14 +2,19 @@
 
 
 
-AudioManager::AudioManager(){
+AudioManager::AudioManager()
+{
 	
 	loadMap();
 	std::cout << "AudioManager created successfully" << std::endl;
 
 }
 
-bool AudioManager::loadAudio(){ //This is going to be used to load big sounds like music background
+
+
+
+bool AudioManager::loadAudio()
+{ //This is going to be used to load big sounds like music background
 
 	if (!m_mMusic.openFromFile(mp_mBuffer["backing_track"]))
 	{
@@ -26,7 +31,8 @@ bool AudioManager::loadAudio(){ //This is going to be used to load big sounds li
 
 }
 
-void AudioManager::loadMap(){ //In the future, maybe using an XML??...
+void AudioManager::loadMap()
+{ //In the future, maybe using an XML??...
 
 	mp_mBuffer["atack_hit"]="../../Resources/sounds/atack_hit.wav";
 	mp_mBuffer["atack_miss"]="../../Resources/sounds/atack_miss.wav";
@@ -42,15 +48,38 @@ void AudioManager::loadMap(){ //In the future, maybe using an XML??...
 	std::cout << "AudioManager: Map with sources created" << std::endl;
 }
 
-bool AudioManager::playSound(std::string sound_id){
-
+bool AudioManager::playSound(std::string sound_id)
+{
+	s_mSound.resetBuffer();
 	if(!sb_mBuffer.loadFromFile(mp_mBuffer[sound_id])){
 		return false;
 	}
 	s_mSound.setBuffer(sb_mBuffer);
 	s_mSound.play();
-	std::cout << "AudioManager: Sound playing..." << std::endl;
+	
+	std::cout << "AudioManager: Sound "+sound_id+" playing" << std::endl;
 }
+
+//***
+
+
+void AudioManager::loadSoundFile(std::string filename, float Volume)
+{
+	/*
+   SoundFile Sound;
+   if (Sound.Buffer.loadFromFile(filename))
+   {
+      Sound.Name = filename;
+      Sound.Vol = Volume;
+      Sound.Sound.setBuffer(Sound.Buffer);
+      Sound.Sound.setVolume(Volume);
+
+	 
+      Soundtest.push_back(Sound);
+   }*/
+}
+
+//***
 
 
 

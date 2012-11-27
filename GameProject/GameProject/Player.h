@@ -31,6 +31,7 @@ public:
 	void update();
 	void draw();
 
+	bool checkAtackCollision(short direction);
 	short getTotalSouls();
 	short getCurrentSouls();
 	short getWeaponLevel();
@@ -38,7 +39,7 @@ public:
 
 	int getStatArray(int stat);
 	void increaseStat(int stat);
-
+	bool pointInsideRect(int pX,int pY,sf::FloatRect rectangle);
 	void modifySouls(short amount);
 
 	void setEnemyVector( std::vector<Enemy*>* enemyVector);

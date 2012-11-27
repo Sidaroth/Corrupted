@@ -46,7 +46,7 @@ KeyboardController::KeyboardController(Player* player_recieved,sf::RenderWindow*
 	
 	std::cout << "Keyboard controller created" << std::endl;
 	//loadXML();
-	audio_manager.loadAudio();
+	//audio_manager.loadAudio();
 }
 
 void KeyboardController::checkMouse(sf::Event event)
@@ -71,18 +71,18 @@ void KeyboardController::checkMouse(sf::Event event)
 			v_mouse_position.x = event.mouseButton.x;
 			v_mouse_position.y = event.mouseButton.y;
 	
-			std::cout << "Position X: " << v_mouse_position.x << " Position Y: " << v_mouse_position.y << std::endl;
+			//std::cout << "Position X: " << v_mouse_position.x << " Position Y: " << v_mouse_position.y << std::endl;
 			Vector2f* v2f_player_position;
 			v2f_player_position = player->getSpritePosition();
 			
-			v2f_player_position->x=window->getSize().x/2;
-			v2f_player_position->y=window->getSize().y/2;
+			v2f_player_position->x=(window->getSize().x/2)+46;
+			v2f_player_position->y=(window->getSize().y/2)+46;
 			//1366/2, 768/2
-			std::cout << " PLAYER Position X: " << v2f_player_position->x << "PLAYER  Position Y: " << v2f_player_position->y << std::endl;
+		//	std::cout << " PLAYER Position X: " << v2f_player_position->x << "PLAYER  Position Y: " << v2f_player_position->y << std::endl;
 			Vector2f* v2f_atack_direction = new Vector2f();
 			float angle = atan2((v2f_player_position->y-v_mouse_position.y),(v2f_player_position->x-v_mouse_position.x));
 
-			std::cout << "Angle: " << angle << std::endl;
+			//std::cout << "Angle: " << angle << std::endl;
 		
 			int i_atack_direction=0;
 		
@@ -120,8 +120,16 @@ void KeyboardController::checkMouse(sf::Event event)
 
 			//End calculate direction
 
-			player->attack(i_atack_direction); ///0=N, 1=NE, 2=E, 3=SE, 4=S, 5=SW, 6=W, 7=NW
-			audio_manager.playSound("atack_miss");
+			if(player->attack(i_atack_direction)) ///0=N, 1=NE, 2=E, 3=SE, 4=S, 5=SW, 6=W, 7=NW
+			{
+				if(player->checkAtackCollision(i_atack_direction)){
+					std::cout << "I HIT" << std::endl;
+					audio_manager.playSound("atack_hit");
+				}else{
+					std::cout << "I DIDN'T HIT" << std::endl;
+					audio_manager.playSound("atack_miss");
+				}
+			}
 		}
 	}
 
