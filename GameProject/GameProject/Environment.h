@@ -34,6 +34,7 @@ private:
 	std::vector<RGB*> m_floorArray;
 	std::vector<sf::Sprite> m_sprites;
 	std::vector<bool> m_objects;
+	std::vector<Vector2f> m_EnemySpawnPoints;
 
 public:
 	EnvironmentHandler( );
@@ -49,5 +50,6 @@ public:
 	Vector2f getPlayerPosition( );
 
 	std::vector<bool>* getObjectVector();
+	std::vector<Vector2f>* getEnemySpawnPoints();
 	int getHorizontalBitmapSize();
 };

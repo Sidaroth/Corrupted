@@ -352,6 +352,14 @@ void EnvironmentHandler::findObjects()
 				m_objects.push_back( true );
 				//std::cout << '\n' << "vectorpos:  " << ( j * m_iHorizontalBitmapSize ) + i;
 			}
+			else if( pixelColor.r == 0 && pixelColor.g == 255 && pixelColor.b == 0 )
+			{
+				m_objects.push_back( true );
+				Vector2f enemyCoordinate;
+				enemyCoordinate.x = i * TILESIZE;
+				enemyCoordinate.y = j * TILESIZE;
+				m_EnemySpawnPoints.push_back( enemyCoordinate );
+			}
 			else if( pixelColor.r == 255 && pixelColor.g == 0 && pixelColor.b == 255 )
 			{
 				m_playerPosition.x = float(i * TILESIZE);
@@ -414,4 +422,9 @@ std::vector<bool>* EnvironmentHandler::getObjectVector()
 int EnvironmentHandler::getHorizontalBitmapSize()
 {
 	return m_iHorizontalBitmapSize;
+}
+
+std::vector<Vector2f>* EnvironmentHandler::getEnemySpawnPoints()
+{
+	return &m_EnemySpawnPoints;
 }
