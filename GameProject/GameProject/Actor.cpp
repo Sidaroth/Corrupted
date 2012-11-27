@@ -36,9 +36,12 @@ Vector2f* Actor::getPosition()
 
 Vector2f* Actor::getSpritePosition(){
 	Vector2f* auxVector = new Vector2f();
+	sf::FloatRect actorBounds = m_Sprite.getGlobalBounds();
+	int actor_width = actorBounds.width;
+	int actor_height = actorBounds.height;
 	//sf::FloatRect bounds = m_Sprite.getLocalBounds();
-	auxVector ->x =m_Sprite.getPosition().x+48;
-	auxVector ->y = m_Sprite.getPosition().y+48;
+	auxVector ->x =m_Sprite.getPosition().x+(actor_width/2);
+	auxVector ->y = m_Sprite.getPosition().y+(actor_height/2);
 	return  auxVector;
 }
 

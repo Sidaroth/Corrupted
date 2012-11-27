@@ -157,6 +157,115 @@ void Player::setEnemyVector(std::vector<Enemy*>* enemyVector)
 	m_EnemyVector = enemyVector;
 }
 
+bool Player::checkAtackCollision(short direction){
+
+	Vector2f* enemyPosition;
+	Vector2f* projectilePosition;
+	int player_x = getSpritePosition()->x;
+	int player_y = getSpritePosition()->y;
+	int atackPoint_x=0;
+	int atackPoint_y=0;
+	int range=30;
+	for( int i = 0; i < m_EnemyVector->size( ); i++ )
+	{
+		enemyPosition =	m_EnemyVector -> at( i ) -> getSpritePosition( );
+		sf::FloatRect enemy_bounds = m_EnemyVector -> at( i )->getSprite().getGlobalBounds();
+		int enemy_width = enemy_bounds.width;
+		int enemy_height = enemy_bounds.height;
+		int enemy_x=enemyPosition->x;
+		int enemy_y=enemyPosition->x;
+		
+		std::cout << "ENEMY POSITION: (" << enemy_x << "," << enemy_y << ")"<< "ENEMY WIDTH AND HEIGHT: (" << enemy_width << "," << enemy_height << ")" << std::endl;
+		std::cout << "PLAYER POSITION: (" << player_x << "," <<player_y << ")" << std::endl;
+		
+		
+		switch (direction)
+		{	
+			case NORTH:
+				atackPoint_x = player_x;
+				atackPoint_y = player_y-range;
+			break;
+
+			case NORTH_EAST:
+				atackPoint_x = player_x+range;
+				atackPoint_y = player_y-range;
+			break;
+
+			case EAST:
+				atackPoint_x = player_x+range;
+				atackPoint_y = player_y;
+			break;
+
+			case SOUTH_EAST:
+				atackPoint_x = player_x+range;
+				atackPoint_y = player_y+range;
+				
+			break;
+
+			case SOUTH:
+				atackPoint_x = player_x;
+				atackPoint_y = player_y+range;
+				
+			break;
+
+			case SOUTH_WEST:
+				atackPoint_x = player_x-range;
+				atackPoint_y = player_y+range;
+				
+			break;
+
+			case WEST:
+				atackPoint_x = player_x-range;
+				atackPoint_y = player_y;
+			
+				break;
+
+			case NORTH_WEST:
+				atackPoint_x = player_x-range;
+				atackPoint_y = player_y-range;
+				
+			break;
+		}
+		std::cout << "ATACK POSITION: (" << atackPoint_x << "," <<atackPoint_y << ")" << std::endl;
+	
+		if((atackPoint_x>(enemy_x-enemy_width/2))&&(atackPoint_x<(enemy_x+(enemy_width/2)))){
+			if((atackPoint_y>(enemy_y-enemy_height/2))&&(atackPoint_y<(enemy_y+(enemy_height/2)))){
+				return true;
+			}
+		}
+		if((player_x>(enemy_x-enemy_width/2))&&(player_x<((enemy_x+enemy_width/2)))){
+			if((player_y>(enemy_y-(enemy_height/2)))&&(player_y<(enemy_y+(enemy_height/2)))){
+				return true;
+			}
+		}
+		//Create both triangles/rectangles and see if there is collision
+
+
+	}
+	
+	
+	return false;
+}
+
+bool Player::pointInsideRect(int pX,int pY,sf::FloatRect rectangle){
+		
+		int rect_width = rectangle.width;
+		int rect_height = rectangle.height;
+		int rect_x=rectangle.left;
+		int rect_y=rectangle.top;
+		std::cout << "Px: " << pX << " pY: " << pY << " rect_x: " << rect_x << "rect_y: "<< rect_y <<"width: "<< rect_width << std::endl;
+				
+		if((pX>rect_x)&&(pX<rect_x+rect_width))
+		{
+			if((pY>rect_y)&&(pY<rect_y+rect_height))
+			{
+				return true;
+			}
+		}
+
+	return false;
+}
+
 void Player::collisionCheck( )
 {
 	/////////Player Projectiles vs Enemy/////////////

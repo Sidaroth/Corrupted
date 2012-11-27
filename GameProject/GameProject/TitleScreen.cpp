@@ -43,7 +43,7 @@ void TitleScreen::loadContent(sf::RenderWindow* window)
 	m_menuBackgroundSprite.setPosition(0, 0);
 
 	m_startButtonSprite.setTexture(m_startButton);
-	m_startButtonSprite.setPosition(100, 100);
+	m_startButtonSprite.setPosition(100, 200);
 
 	m_exitButtonSprite.setTexture(m_exitButton);
 	m_exitButtonSprite.setPosition(100, 300);
@@ -63,8 +63,8 @@ void TitleScreen::update()
 
 void TitleScreen::processEvents(sf::Event event)
 {
-	if ((event.mouseMove.x >= 100 && event.mouseMove.x <= 350 && 
-			event.mouseMove.y >= 100 && event.mouseMove.y <= 175) || currentButton == 1) 
+	if ((event.mouseMove.x >= m_startButtonSprite.getPosition().x && event.mouseMove.x <= m_startButtonSprite.getPosition().x+270 && 
+			event.mouseMove.y >= m_startButtonSprite.getPosition().y && event.mouseMove.y <= m_startButtonSprite.getPosition().y+70) || currentButton == 1) 
 	{
 		currentButton = 1;
 		m_startButtonSprite.setTexture(m_startButtonMouseOver);	
@@ -74,15 +74,15 @@ void TitleScreen::processEvents(sf::Event event)
 		m_startButtonSprite.setTexture(m_startButton);
 	}
 
-	if(event.mouseButton.x >= 100 && event.mouseButton.x <= 350 && 
-			event.mouseButton.y >= 100 && event.mouseButton.y <= 175)
+	if(event.mouseButton.x >=  m_startButtonSprite.getPosition().x && event.mouseButton.x <=  m_startButtonSprite.getPosition().x+270 && 
+			event.mouseButton.y >=  m_startButtonSprite.getPosition().y && event.mouseButton.y <=  m_startButtonSprite.getPosition().y+70)
 	{
 		StateHandler::getInstance().addScreen(new Level1);
 	}
 	
 
-	if ((event.mouseMove.x >= 100 && event.mouseMove.x <= 350 && 
-			event.mouseMove.y >= 300 && event.mouseMove.y <= 375) || currentButton == 2) 
+	if ((event.mouseMove.x >=  m_exitButtonSprite.getPosition().x && event.mouseMove.x <=  m_exitButtonSprite.getPosition().x+270 && 
+			event.mouseMove.y >=  m_exitButtonSprite.getPosition().y && event.mouseMove.y <=  m_exitButtonSprite.getPosition().y+70) || currentButton == 2) 
 	{
 		currentButton = 2;
 		m_exitButtonSprite.setTexture(m_exitButtonMouseOver);	
@@ -92,8 +92,8 @@ void TitleScreen::processEvents(sf::Event event)
 		m_exitButtonSprite.setTexture(m_exitButton);
 	}
 
-	if(event.mouseButton.x >= 100 && event.mouseButton.x <= 350 && 
-			event.mouseButton.y >= 300 && event.mouseButton.y <= 375)
+	if(event.mouseButton.x >=  m_exitButtonSprite.getPosition().x && event.mouseButton.x <=  m_exitButtonSprite.getPosition().x+270 && 
+			event.mouseButton.y >=  m_exitButtonSprite.getPosition().y && event.mouseButton.y <=  m_exitButtonSprite.getPosition().y+70)
 	{
 		//Exit the game
 	}
