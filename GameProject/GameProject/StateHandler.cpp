@@ -1,8 +1,10 @@
 #include "StateHandler.h"
+#include <assert.h>
 
 StateHandler &StateHandler::getInstance()
 {
 	static StateHandler instance;
+	instance.safe = true;
 	return instance;
 }
 
@@ -13,16 +15,21 @@ StateHandler::StateHandler()
 
 StateHandler::~StateHandler()
 {
-
+	// delete all pointers. 
+	// delete currentState;
+	// delete newState;
+	// delete m_pWindow;
 }
 
 void StateHandler::addScreen(GameState *state)
 {
+	safe = false;
 	currentState -> unloadContent();
 	delete currentState;
 	
 	currentState = state;
 	currentState -> loadContent(m_pWindow);
+	safe = true;
 }
 
 void StateHandler::initalize()
@@ -43,6 +50,7 @@ void StateHandler::loadContent(sf::RenderWindow* window)
 
 void StateHandler::processEvents(sf::Event event)
 {
+	assert(safe);
 	currentState -> processEvents(event);
 }
 

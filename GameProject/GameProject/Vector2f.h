@@ -3,8 +3,8 @@
 //				in the dynamic array sense (as STL vector is)		  //
 //	Author:		Christian Holt										  //
 //	Created:	06/10/2012											  //
-//  Revised:	**/**/****											  //
-//																	  //
+//  Revised:	26/11/2012											  //
+//				**/**/****											  //
 //																	  //
 ////////////////////////////////////////////////////////////////////////
 
@@ -23,6 +23,7 @@ public:		// Hmm private??
 	// Constructors & Destructor
 	Vector2f();								// Default constructor that sets X and Y to 0. 
 	Vector2f(float x, float y);				// Constructor that creates a vector with the given (X, Y).
+	Vector2f(Vector2f const& copy_from_me);	// Copy constructor
 	~Vector2f();							// Destructor. 
 
 	// Vector Operators

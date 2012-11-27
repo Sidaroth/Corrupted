@@ -15,7 +15,6 @@ private:
 	short m_shFrameCount;
 	short m_shTraveled;
 	bool m_bExist;
-	Vector2f m_vPosition;
 	float m_fAngle;
 	std::vector<sf::Texture> m_vTextures;
 	enum m_abilities { FIREBALL, FROSTBOLT, LIGHTNINGBOLT };
@@ -26,6 +25,7 @@ private:
 
 public:
 	Projectile( );
+	~Projectile();
 	//Projectile( short spell, short damage, Vector2f position, Vector2f mouseCoordinates );
 	void initiate ( short spell, short damage, Vector2f position, Vector2f mouseCoordinates );
 	bool loadContent( );
@@ -35,5 +35,5 @@ public:
 	bool exist( );
 	void setFrame( );
 	void setInvisible( );
-	void setEnvironmentObjects(std::vector<bool>* objects);
+	void setEnvironmentObjects(std::vector<bool>* objects, short horizontalBitmapSize );
 };

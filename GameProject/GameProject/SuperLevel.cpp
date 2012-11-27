@@ -6,13 +6,17 @@
 
 SuperLevel::SuperLevel()
 {
-	/*m_Level = new EnvironmentHandler();
-	m_EnemyHandler = new EnemyHandler();*/
+
 }
 
 SuperLevel::~SuperLevel()
 {
-
+	// Delete all pointers.
+	delete m_Level;
+	delete player;
+	delete keyControl;
+	delete m_EnemyHandler;
+	delete ui;
 }
 
 void SuperLevel::superLoadContent(sf::RenderWindow* window)
@@ -26,14 +30,10 @@ void SuperLevel::superLoadContent(sf::RenderWindow* window)
 	m_Level -> loadContent();
 
 	player = new Player();
-	player -> loadContent();	
-	player -> setEnvironmentLevel(m_Level);
-	player -> setEnemyVector( m_EnemyHandler->getEnemyVector( ) );
+	player -> setEnvironmentLevel( m_Level );
+	player -> loadContent();
 
-	Vector2f derp;
-	derp.x = 500;
-	derp.y = 500;
-	player -> castSpell(derp, 0);
+	player -> setEnemyVector( m_EnemyHandler->getEnemyVector( ) );
 
 	ui = new Ui();
 	ui->loadContent();
@@ -94,7 +94,6 @@ void SuperLevel::processEvents(sf::Event event)
 				player->changeAnimationToStand();
 			 }
 		}
-
 }
 
 void SuperLevel::update()
@@ -103,7 +102,7 @@ void SuperLevel::update()
 	player -> update();
 	ui -> update(player);
 	keyControl->checkPressed();
-	m_EnemyHandler -> update();
+	m_EnemyHandler -> update(player -> getPosition());
 
 	m_Viewport.setCenter(player -> getXPosition(), player -> getYPosition());
 }
@@ -115,5 +114,4 @@ void SuperLevel::superDraw()
 	player -> draw();
 	ui->draw();
 	StateHandler::getInstance().m_pWindow->setView(m_Viewport);
-	
 }

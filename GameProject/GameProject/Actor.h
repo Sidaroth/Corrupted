@@ -10,13 +10,14 @@ class Actor
 {
 protected:
 	sf::Texture m_Texture;
+
 	struct actionTexture
 	{
 		sf::Texture imgTexture;
 		int size;
 	};
 
-	std::map<std::string,actionTexture> m_TexturesActions;
+	std::vector<sf::Texture*> m_TextureTypes;
 
 
 	Vector2f m_Position;		// Hmm.. Sprite has a position, so is this needed? we'll see...
@@ -28,6 +29,14 @@ protected:
 	virtual bool loadContent();
 
 public:
+	
+	enum TextureType
+	{
+		MOVE,
+		ATTACK,
+		STILL,
+		DIE
+	};
 
 	// Do we need all these constructors?
 	Vector2f* getSpritePosition();

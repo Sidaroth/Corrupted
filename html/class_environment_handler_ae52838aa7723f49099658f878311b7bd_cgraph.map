@@ -1,0 +1,7 @@
+<map id="EnvironmentHandler::loadContent" name="EnvironmentHandler::loadContent">
+<area shape="rect" id="node3" href="$class_environment_handler.html#a5f99b74fb8d309ae4de4fbfdf138932c" title="EnvironmentHandler\l::bitmapToArray" alt="" coords="193,5,330,46"/>
+<area shape="rect" id="node5" href="$class_environment_handler.html#afc8c07d4cb2ad6b7d6dd626fbb3c5f92" title="Creates the level out of the floorArray." alt="" coords="193,70,330,111"/>
+<area shape="rect" id="node9" href="$class_environment_handler.html#a5859e7bce6dd0d2f91af3ca649a5acf2" title="EnvironmentHandler\l::checkWalls" alt="" coords="193,135,330,177"/>
+<area shape="rect" id="node11" href="$class_environment_handler.html#ae284c3c072d0798658f60c93dd4e02d8" title="Check the bitmap if it is possible to walk there(true) or not(false)" alt="" coords="193,201,330,242"/>
+<area shape="rect" id="node7" href="$class_environment_handler.html#ad52e25c8102c3c472bf860f699877b8e" title="creates the subrect for the tile, depending on the RGB color on the pixel" alt="" coords="379,70,517,111"/>
+</map>

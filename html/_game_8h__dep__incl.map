@@ -1,4 +1,12 @@
 <map id="GameProject/GameProject/Game.h" name="GameProject/GameProject/Game.h">
-<area shape="rect" id="node3" href="$_game_8cpp.html" title="GameProject/GameProject\l/Game.cpp" alt="" coords="5,97,184,138"/>
-<area shape="rect" id="node5" href="$main_8cpp.html" title="GameProject/GameProject\l/main.cpp" alt="" coords="208,97,387,138"/>
+<area shape="rect" id="node3" href="$_game_8cpp.html" title="GameProject/GameProject\l/Game.cpp" alt="" coords="195,97,373,138"/>
+<area shape="rect" id="node5" href="$_ui_8h.html" title="GameProject/GameProject/Ui.h" alt="" coords="397,104,603,131"/>
+<area shape="rect" id="node21" href="$main_8cpp.html" title="GameProject/GameProject\l/main.cpp" alt="" coords="627,97,805,138"/>
+<area shape="rect" id="node7" href="$_super_level_8h.html" title="GameProject/GameProject\l/SuperLevel.h" alt="" coords="309,187,488,229"/>
+<area shape="rect" id="node19" href="$_ui_8cpp.html" title="GameProject/GameProject\l/Ui.cpp" alt="" coords="512,187,691,229"/>
+<area shape="rect" id="node9" href="$_level1_8h.html" title="GameProject/GameProject\l/Level1.h" alt="" coords="208,278,387,319"/>
+<area shape="rect" id="node17" href="$_super_level_8cpp.html" title="GameProject/GameProject\l/SuperLevel.cpp" alt="" coords="411,278,589,319"/>
+<area shape="rect" id="node11" href="$_level1_8cpp.html" title="GameProject/GameProject\l/Level1.cpp" alt="" coords="5,369,184,410"/>
+<area shape="rect" id="node13" href="$_splash_screen_8cpp.html" title="GameProject/GameProject\l/SplashScreen.cpp" alt="" coords="208,369,387,410"/>
+<area shape="rect" id="node15" href="$_title_screen_8cpp.html" title="GameProject/GameProject\l/TitleScreen.cpp" alt="" coords="411,369,589,410"/>
 </map>

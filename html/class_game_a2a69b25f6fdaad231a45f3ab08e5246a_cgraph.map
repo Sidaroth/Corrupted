@@ -1,0 +1,6 @@
+<map id="Game::initialize" name="Game::initialize">
+<area shape="rect" id="node3" href="$class_state_handler.html#a384475d0948afc0c4f06359fe7e56d0f" title="StateHandler::getInstance" alt="" coords="171,5,343,32"/>
+<area shape="rect" id="node5" href="$class_state_handler.html#ae9630860b3df424bc70e314b69bc3094" title="StateHandler::initalize" alt="" coords="183,56,332,83"/>
+<area shape="rect" id="node7" href="$class_state_handler.html#a5f2f2ac3bcfc4cbc7203af36956d046f" title="StateHandler::setStartState" alt="" coords="166,107,349,133"/>
+<area shape="rect" id="node9" href="$class_state_handler.html#a115856dd9a5227b41ad6d53243fbb363" title="StateHandler::loadContent" alt="" coords="170,157,345,184"/>
+</map>

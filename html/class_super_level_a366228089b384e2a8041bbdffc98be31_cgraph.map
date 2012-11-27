@@ -1,0 +1,12 @@
+<map id="SuperLevel::processEvents" name="SuperLevel::processEvents">
+<area shape="rect" id="node3" href="$class_keyboard_controller.html#a6ddf16975781cc1ca5409d4e6e45ee4c" title="KeyboardController\l::checkMouse" alt="" coords="259,23,391,65"/>
+<area shape="rect" id="node11" href="$class_state_handler.html#a384475d0948afc0c4f06359fe7e56d0f" title="StateHandler::getInstance" alt="" coords="239,89,411,116"/>
+<area shape="rect" id="node13" href="$class_state_handler.html#a90cb26dc423f26e37af27b7d3d7b57ff" title="StateHandler::addScreen" alt="" coords="242,140,409,167"/>
+<area shape="rect" id="node19" href="$class_character.html#ac3f7d99f9f64cc1afed7179293393454" title="Character::isDoingAction" alt="" coords="242,191,409,217"/>
+<area shape="rect" id="node21" href="$class_character.html#a8d721f82ba0712addf0a77dd582aecdb" title="Character::changeAnimation\lToStand" alt="" coords="232,242,419,283"/>
+<area shape="rect" id="node5" href="$class_actor.html#afd9c73ce9d765aa9d7429bd785a9b08c" title="Actor::getSpritePosition" alt="" coords="481,5,641,32"/>
+<area shape="rect" id="node7" href="$class_character.html#a1871d011acf4fcb210429d2a5b242577" title="0=N, 1=NE, 2=E, 3=SE, 4=S, 5=SW, 6=W, 7=NW" alt="" coords="500,56,623,83"/>
+<area shape="rect" id="node9" href="$class_character.html#af21de5517da4090712ac92f614187df6" title="set the correct frame in the animation" alt="" coords="704,56,875,83"/>
+<area shape="rect" id="node15" href="$class_state_handler.html#a105a3a4832759999f65d52f4804719ce" title="StateHandler::unloadContent" alt="" coords="467,124,655,151"/>
+<area shape="rect" id="node17" href="$class_state_handler.html#a115856dd9a5227b41ad6d53243fbb363" title="StateHandler::loadContent" alt="" coords="474,175,649,201"/>
+</map>

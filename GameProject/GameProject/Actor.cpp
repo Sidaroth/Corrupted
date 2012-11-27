@@ -68,7 +68,7 @@ bool Actor::loadContent()
 	}
 	
 	m_Sprite.setTexture(m_Texture);
-	
+	return !EXIT_FAILURE;
 }
 
 void Actor::setSpriteSize(short size)

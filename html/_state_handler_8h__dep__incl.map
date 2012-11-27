@@ -1,0 +1,18 @@
+<map id="GameProject/GameProject/StateHandler.h" name="GameProject/GameProject/StateHandler.h">
+<area shape="rect" id="node3" href="$environment_8cpp.html" title="GameProject/GameProject\l/environment.cpp" alt="" coords="5,97,184,138"/>
+<area shape="rect" id="node5" href="$_splash_screen_8h.html" title="GameProject/GameProject\l/SplashScreen.h" alt="" coords="309,278,488,319"/>
+<area shape="rect" id="node7" href="$_game_8cpp.html" title="GameProject/GameProject\l/Game.cpp" alt="" coords="95,369,273,410"/>
+<area shape="rect" id="node9" href="$_level1_8cpp.html" title="GameProject/GameProject\l/Level1.cpp" alt="" coords="297,369,476,410"/>
+<area shape="rect" id="node13" href="$_super_level_8cpp.html" title="GameProject/GameProject\l/SuperLevel.cpp" alt="" coords="905,369,1084,410"/>
+<area shape="rect" id="node18" href="$_super_level_8h.html" title="GameProject/GameProject\l/SuperLevel.h" alt="" coords="765,187,944,229"/>
+<area shape="rect" id="node26" href="$_ui_8h.html" title="GameProject/GameProject/Ui.h" alt="" coords="587,104,792,131"/>
+<area shape="rect" id="node31" href="$_title_screen_8h.html" title="GameProject/GameProject\l/TitleScreen.h" alt="" coords="715,278,893,319"/>
+<area shape="rect" id="node38" href="$_player_8cpp.html" title="GameProject/GameProject\l/Player.cpp" alt="" coords="917,97,1096,138"/>
+<area shape="rect" id="node40" href="$_projectile_8cpp.html" title="GameProject/GameProject\l/Projectile.cpp" alt="" coords="1120,97,1299,138"/>
+<area shape="rect" id="node42" href="$_skeleton_8cpp.html" title="GameProject/GameProject\l/Skeleton.cpp" alt="" coords="1323,97,1501,138"/>
+<area shape="rect" id="node44" href="$_state_handler_8cpp.html" title="GameProject/GameProject\l/StateHandler.cpp" alt="" coords="1525,97,1704,138"/>
+<area shape="rect" id="node11" href="$_splash_screen_8cpp.html" title="GameProject/GameProject\l/SplashScreen.cpp" alt="" coords="500,369,679,410"/>
+<area shape="rect" id="node15" href="$_title_screen_8cpp.html" title="GameProject/GameProject\l/TitleScreen.cpp" alt="" coords="703,369,881,410"/>
+<area shape="rect" id="node20" href="$_level1_8h.html" title="GameProject/GameProject\l/Level1.h" alt="" coords="512,278,691,319"/>
+<area shape="rect" id="node29" href="$_ui_8cpp.html" title="GameProject/GameProject\l/Ui.cpp" alt="" coords="563,187,741,229"/>
+</map>

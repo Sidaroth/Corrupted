@@ -1,0 +1,4 @@
+<map id="Game::processEvents" name="Game::processEvents">
+<area shape="rect" id="node3" href="$class_state_handler.html#a384475d0948afc0c4f06359fe7e56d0f" title="StateHandler::getInstance" alt="" coords="215,5,387,32"/>
+<area shape="rect" id="node5" href="$class_state_handler.html#afb1acc8b78669b0392fe9e5ffdeb7a2c" title="StateHandler::processEvents" alt="" coords="206,56,397,83"/>
+</map>

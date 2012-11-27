@@ -92,7 +92,7 @@ $(document).ready(function(){initNavTree('hierarchy.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -111,13 +111,57 @@ $(document).ready(function(){initNavTree('hierarchy.html','');});
 </div><table border="0" cellspacing="10" cellpadding="0">
 <tr><td><img src="inherit_graph_0.png" border="0" alt="" usemap="#_actor"/>
 <map name="_actor" id="_actor">
-<area shape="rect" id="node1" href="class_actor.html" title="Actor" alt="" coords="5,5,59,32"/><area shape="rect" id="node3" href="class_character.html" title="Character" alt="" coords="107,5,186,32"/><area shape="rect" id="node5" href="class_player.html" title="Player" alt="" coords="235,5,293,32"/></map>
+<area shape="rect" id="node1" href="class_actor.html" title="Actor" alt="" coords="5,56,59,83"/><area shape="rect" id="node3" href="class_character.html" title="Character" alt="" coords="107,31,186,57"/><area shape="rect" id="node11" href="class_projectile.html" title="Projectile" alt="" coords="109,81,185,108"/><area shape="rect" id="node5" href="class_enemy.html" title="The generic class for our enemies. All types of enemies will inherit from this class." alt="" coords="235,5,298,32"/><area shape="rect" id="node9" href="class_player.html" title="Player" alt="" coords="237,56,296,83"/><area shape="rect" id="node7" href="class_skeleton.html" title="Skeleton" alt="" coords="347,5,421,32"/></map>
 </td></tr>
-<tr><td><img src="inherit_graph_1.png" border="0" alt="" usemap="#_game"/>
+<tr><td><img src="inherit_graph_1.png" border="0" alt="" usemap="#_actor_1_1action_texture"/>
+<map name="_actor_1_1action_texture" id="_actor_1_1action_texture">
+<area shape="rect" id="node1" href="struct_actor_1_1action_texture.html" title="Actor::actionTexture" alt="" coords="5,5,144,32"/></map>
+</td></tr>
+<tr><td><img src="inherit_graph_2.png" border="0" alt="" usemap="#_audio_manager"/>
+<map name="_audio_manager" id="_audio_manager">
+<area shape="rect" id="node1" href="class_audio_manager.html" title="AudioManager" alt="" coords="6,5,111,32"/></map>
+</td></tr>
+<tr><td><img src="inherit_graph_3.png" border="0" alt="" usemap="#_enemy_factory"/>
+<map name="_enemy_factory" id="_enemy_factory">
+<area shape="rect" id="node1" href="class_enemy_factory.html" title="Factory handling the creation and deletion of all enemies." alt="" coords="5,5,112,32"/></map>
+</td></tr>
+<tr><td><img src="inherit_graph_4.png" border="0" alt="" usemap="#_enemy_handler"/>
+<map name="_enemy_handler" id="_enemy_handler">
+<area shape="rect" id="node1" href="class_enemy_handler.html" title="EnemyHandler" alt="" coords="5,5,112,32"/></map>
+</td></tr>
+<tr><td><img src="inherit_graph_5.png" border="0" alt="" usemap="#_environment_handler"/>
+<map name="_environment_handler" id="_environment_handler">
+<area shape="rect" id="node1" href="class_environment_handler.html" title="EnvironmentHandler" alt="" coords="6,5,143,32"/></map>
+</td></tr>
+<tr><td><img src="inherit_graph_6.png" border="0" alt="" usemap="#_environment_handler_1_1_r_g_b"/>
+<map name="_environment_handler_1_1_r_g_b" id="_environment_handler_1_1_r_g_b">
+<area shape="rect" id="node1" href="struct_environment_handler_1_1_r_g_b.html" title="EnvironmentHandler::RGB" alt="" coords="5,5,179,32"/></map>
+</td></tr>
+<tr><td><img src="inherit_graph_7.png" border="0" alt="" usemap="#_game"/>
 <map name="_game" id="_game">
 <area shape="rect" id="node1" href="class_game.html" title="Game" alt="" coords="6,5,63,32"/></map>
 </td></tr>
-<tr><td><img src="inherit_graph_2.png" border="0" alt="" usemap="#_vector2f"/>
+<tr><td><img src="inherit_graph_8.png" border="0" alt="" usemap="#_game_state"/>
+<map name="_game_state" id="_game_state">
+<area shape="rect" id="node1" href="class_game_state.html" title="GameState" alt="" coords="5,56,93,83"/><area shape="rect" id="node3" href="class_splash_screen.html" title="SplashScreen" alt="" coords="142,5,245,32"/><area shape="rect" id="node5" href="class_super_level.html" title="SuperLevel" alt="" coords="151,56,236,83"/><area shape="rect" id="node9" href="class_title_screen.html" title="TitleScreen" alt="" coords="150,107,237,133"/><area shape="rect" id="node7" href="class_level1.html" title="Level1" alt="" coords="293,56,352,83"/></map>
+</td></tr>
+<tr><td><img src="inherit_graph_9.png" border="0" alt="" usemap="#_keyboard_controller"/>
+<map name="_keyboard_controller" id="_keyboard_controller">
+<area shape="rect" id="node1" href="class_keyboard_controller.html" title="KeyboardController" alt="" coords="6,5,138,32"/></map>
+</td></tr>
+<tr><td><img src="inherit_graph_10.png" border="0" alt="" usemap="#_keyboard_controller_1_1_my_keys"/>
+<map name="_keyboard_controller_1_1_my_keys" id="_keyboard_controller_1_1_my_keys">
+<area shape="rect" id="node1" href="struct_keyboard_controller_1_1_my_keys.html" title="KeyboardController\l::MyKeys" alt="" coords="6,5,138,46"/></map>
+</td></tr>
+<tr><td><img src="inherit_graph_11.png" border="0" alt="" usemap="#_state_handler"/>
+<map name="_state_handler" id="_state_handler">
+<area shape="rect" id="node1" href="class_state_handler.html" title="StateHandler" alt="" coords="6,5,103,32"/></map>
+</td></tr>
+<tr><td><img src="inherit_graph_12.png" border="0" alt="" usemap="#_ui"/>
+<map name="_ui" id="_ui">
+<area shape="rect" id="node1" href="class_ui.html" title="Ui" alt="" coords="6,5,45,32"/></map>
+</td></tr>
+<tr><td><img src="inherit_graph_13.png" border="0" alt="" usemap="#_vector2f"/>
 <map name="_vector2f" id="_vector2f">
 <area shape="rect" id="node1" href="class_vector2f.html" title="Vector2f" alt="" coords="6,5,77,32"/></map>
 </td></tr>
@@ -127,7 +171,7 @@ $(document).ready(function(){initNavTree('hierarchy.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Thu Oct 11 2012 16:42:00 for Corrupted by
+    <li class="footer">Generated on Mon Nov 26 2012 12:45:43 for Corrupted by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.2 </li>
   </ul>

@@ -1,0 +1,5 @@
+<map id="StateHandler::update" name="StateHandler::update">
+<area shape="rect" id="node3" href="$class_game.html#a79df6376b332d63c9eca0dcee30305c3" title="Game::update" alt="" coords="197,5,301,32"/>
+<area shape="rect" id="node5" href="$class_game.html#a1ab78f5ed0d5ea879157357cf2fb2afa" title="Game::run" alt="" coords="349,5,432,32"/>
+<area shape="rect" id="node7" href="$class_game.html#a3d9b98f7c4a96ecf578f75b96c9f0e90" title="Game::start" alt="" coords="480,5,571,32"/>
+</map>

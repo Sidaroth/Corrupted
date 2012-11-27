@@ -8,7 +8,21 @@ class EnemyFactory
 {
 protected:
 
+	enum TextureType
+	{
+		MOVE,
+		ATTACK,
+		STILL,
+		DIE
+	};
+
 public:
+
+	EnemyFactory();
+	bool loadContent();
+
+	std::vector<sf::Texture> m_SkellieTextures;
+
 	enum Enemies
 	{
 		Skellie

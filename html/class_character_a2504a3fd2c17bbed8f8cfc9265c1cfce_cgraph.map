@@ -1,0 +1,4 @@
+<map id="Character::move" name="Character::move">
+<area shape="rect" id="node3" href="$class_character.html#a9d4ff57e9f740194d30d4ebbc13fbb1a" title="Character::changeAnimation\lToWalk" alt="" coords="171,5,357,46"/>
+<area shape="rect" id="node5" href="$class_character.html#af21de5517da4090712ac92f614187df6" title="set the correct frame in the animation" alt="" coords="179,71,349,97"/>
+</map>

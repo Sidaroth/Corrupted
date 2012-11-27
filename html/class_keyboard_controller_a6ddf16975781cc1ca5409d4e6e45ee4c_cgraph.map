@@ -1,0 +1,5 @@
+<map id="KeyboardController::checkMouse" name="KeyboardController::checkMouse">
+<area shape="rect" id="node3" href="$class_actor.html#afd9c73ce9d765aa9d7429bd785a9b08c" title="Actor::getSpritePosition" alt="" coords="187,5,347,32"/>
+<area shape="rect" id="node5" href="$class_character.html#a1871d011acf4fcb210429d2a5b242577" title="0=N, 1=NE, 2=E, 3=SE, 4=S, 5=SW, 6=W, 7=NW" alt="" coords="205,56,328,83"/>
+<area shape="rect" id="node7" href="$class_character.html#af21de5517da4090712ac92f614187df6" title="set the correct frame in the animation" alt="" coords="395,56,565,83"/>
+</map>

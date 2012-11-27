@@ -1,6 +1,11 @@
 <map id="GameProject/GameProject/Player.cpp" name="GameProject/GameProject/Player.cpp">
-<area shape="rect" id="node3" href="$_player_8h.html" title="Player.h" alt="" coords="77,96,147,123"/>
-<area shape="rect" id="node5" href="$_character_8h.html" title="Character.h" alt="" coords="67,171,156,197"/>
-<area shape="rect" id="node7" href="$_actor_8h.html" title="Actor.h" alt="" coords="80,245,144,272"/>
-<area shape="rect" id="node9" href="$_vector2f_8h.html" title="Vector2f.h" alt="" coords="5,320,85,347"/>
+<area shape="rect" id="node3" href="$_player_8h.html" title="Player.h" alt="" coords="331,96,401,123"/>
+<area shape="rect" id="node35" href="$_state_handler_8h.html" title="StateHandler.h" alt="" coords="477,320,584,347"/>
+<area shape="rect" id="node5" href="$_character_8h.html" title="Character.h" alt="" coords="231,245,320,272"/>
+<area shape="rect" id="node29" href="$_enemy_8h.html" title="Enemy.h" alt="" coords="329,171,404,197"/>
+<area shape="rect" id="node7" href="$_actor_8h.html" title="Actor.h" alt="" coords="228,395,292,421"/>
+<area shape="rect" id="node19" href="$_environment_8h.html" title="Environment.h" alt="" coords="93,395,197,421"/>
+<area shape="rect" id="node25" href="$_projectile_8h.html" title="Projectile.h" alt="" coords="101,320,187,347"/>
+<area shape="rect" id="node9" href="$_vector2f_8h.html" title="Vector2f.h" alt="" coords="5,469,85,496"/>
+<area shape="rect" id="node40" href="$_game_state_8h.html" title="GameState.h" alt="" coords="408,395,507,421"/>
 </map>

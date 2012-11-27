@@ -1,5 +1,9 @@
 <map id="Game::run" name="Game::run">
-<area shape="rect" id="node3" href="$class_game.html#adf1634a2d0c22f30f7c57e72fd2831bc" title="Game::tick" alt="" coords="169,5,255,32"/>
-<area shape="rect" id="node5" href="$class_game.html#a79f698dda206dd7a9bed28b3f88bdc38" title="Game::processEvents" alt="" coords="137,56,287,83"/>
-<area shape="rect" id="node7" href="$class_game.html#aa3fec20434abdc6d400a05662a0a5472" title="Game::render" alt="" coords="161,107,263,133"/>
+<area shape="rect" id="node3" href="$class_game.html#a79f698dda206dd7a9bed28b3f88bdc38" title="Game::processEvents" alt="" coords="137,81,287,108"/>
+<area shape="rect" id="node9" href="$class_game.html#a79df6376b332d63c9eca0dcee30305c3" title="Game::update" alt="" coords="160,31,264,57"/>
+<area shape="rect" id="node14" href="$class_game.html#a15ddd769261d923827a3cdf41499c843" title="Game::render" alt="" coords="161,132,263,159"/>
+<area shape="rect" id="node5" href="$class_state_handler.html#a384475d0948afc0c4f06359fe7e56d0f" title="StateHandler::getInstance" alt="" coords="346,56,518,83"/>
+<area shape="rect" id="node7" href="$class_state_handler.html#afb1acc8b78669b0392fe9e5ffdeb7a2c" title="StateHandler::processEvents" alt="" coords="337,107,527,133"/>
+<area shape="rect" id="node12" href="$class_state_handler.html#adbda8b1fd1d752c8171be4ecf6b91737" title="StateHandler::update" alt="" coords="360,5,504,32"/>
+<area shape="rect" id="node17" href="$class_state_handler.html#a30c95a1abf0db084d0bbc1cbf684aace" title="StateHandler::draw" alt="" coords="366,157,498,184"/>
 </map>

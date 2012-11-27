@@ -86,7 +86,6 @@ void Game::run()
 				_itoa_s(frames, fps, 10);
 				//std::cout << "fps: " << frames << std::endl;
 				frames_per_sec.setString(fps);
-				text.setString(fps);
 				frames = 0;
 			}
 		}
@@ -104,7 +103,7 @@ void Game::run()
 
 void Game::deInitialize()
 {
-	// uninitialize stuff
+	delete m_BackgroundColor;
 }
 
 void Game::update()

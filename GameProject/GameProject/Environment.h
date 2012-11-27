@@ -28,8 +28,8 @@ private:
 	sf::Texture m_tiles;
 	sf::Image m_objectBitmap;
 
-	int m_iHorizontalBitmapSize;
-	int m_iVerticalBitmapSize;
+	unsigned int m_iHorizontalBitmapSize;
+	unsigned int m_iVerticalBitmapSize;
 
 	std::vector<RGB*> m_floorArray;
 	std::vector<sf::Sprite> m_sprites;
@@ -37,6 +37,7 @@ private:
 
 public:
 	EnvironmentHandler( );
+	~EnvironmentHandler();
 	bool loadContent( );
 	void draw();
 	void bitmapToArray( );

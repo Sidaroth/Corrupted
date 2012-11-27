@@ -11,6 +11,11 @@ Ui::Ui()
 	
 }
 
+Ui::~Ui()
+{
+	delete m_player;
+}
+
 bool Ui::loadContent()
 {
 	sf::Image maskingImage;
@@ -85,6 +90,7 @@ bool Ui::loadContent()
 	healthText.setPosition(95, 710);
 	healthText.setScale(0.7, 0.7);
 	healthText.setFont(font);
+	return !EXIT_FAILURE;
 }
 
 void Ui::unloadContent()

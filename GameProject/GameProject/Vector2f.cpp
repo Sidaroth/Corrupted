@@ -16,6 +16,12 @@ Vector2f::Vector2f(float newX, float newY)
 	y = newY;
 }
 
+Vector2f::Vector2f(Vector2f const& copy_from_me)
+{
+	x = copy_from_me.x;
+	y = copy_from_me.y;
+}
+
 Vector2f::~Vector2f()
 {
 	// Nothing?
@@ -24,34 +30,34 @@ Vector2f::~Vector2f()
 ////////////////////// VECTOR OPERATORS ///////////////////////
 
 /// Returns the sum of the two vectors.
-Vector2f Vector2f::operator+ (Vector2f vector)
+Vector2f Vector2f::operator+ (Vector2f vect)
 {
-	return Vector2f(x + vector.x, y + vector.y);
+	return Vector2f(x + vect.x, y + vect.y);
 }
 
 /// Returns the difference between the two vectors.
-Vector2f Vector2f::operator- (Vector2f vector)
+Vector2f Vector2f::operator- (Vector2f vect)
 {
-	return Vector2f(x - vector.x, y - vector.y);
+	return Vector2f(x - vect.x, y - vect.y);
 }
 
 /// Returns the component-wise multiplication of the vectors
-Vector2f Vector2f::operator* (Vector2f vector)
+Vector2f Vector2f::operator* (Vector2f vect)
 {
-	return Vector2f(x * vector.x, y * vector.y);
+	return Vector2f(x * vect.x, y * vect.y);
 }
 
 /// Returns the component-wise division of the vectors
-Vector2f Vector2f::operator/ (Vector2f vector)
+Vector2f Vector2f::operator/ (Vector2f vect)
 {
-	return Vector2f(x / vector.x, y / vector.y);
+	return Vector2f(x / vect.x, y / vect.y);
 }
 
 /// Sets the vector equal to the parameter vector. 
-void Vector2f::operator= (Vector2f vector)
+void Vector2f::operator= (Vector2f vect)
 {
-	x = vector.x;
-	y = vector.y;
+	x = vect.x;
+	y = vect.y;
 }
 
 ////////////////////// SCALAR OPERATORS ///////////////////////
@@ -73,15 +79,15 @@ Vector2f Vector2f::operator/ (float scalar)
 ////////////////////// PRODUCTS ///////////////////////
 
 /// returns the DOT product between the the two vectors
-float Vector2f::dot (Vector2f vector)
+float Vector2f::dot (Vector2f vect)
 {
-	return (x * vector.x + y * vector.y);
+	return (x * vect.x + y * vect.y);
 }
 
 /// Returns the CROSS product between the two vectors
-float Vector2f::cross (Vector2f vector)
+float Vector2f::cross (Vector2f vect)
 {
-	return (x * vector.y + y * vector.x);
+	return (x * vect.y + y * vect.x);
 }
 
 

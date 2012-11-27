@@ -13,6 +13,18 @@ EnvironmentHandler::EnvironmentHandler( )
 	TILESIZE = 96;
 }
 
+EnvironmentHandler::~EnvironmentHandler()
+{
+	for( std::vector<RGB*>::iterator it = m_floorArray.begin(); it != m_floorArray.end();)
+	{
+		delete * it;
+		it = m_floorArray.erase(it);
+	}
+
+	m_sprites.erase(m_sprites.begin(), m_sprites.end());	// erases all / calls deconstructor for the objects.
+	m_objects.erase(m_objects.begin(), m_objects.end());	// Erases all / calls deconstructor for the objects.
+}
+
 bool EnvironmentHandler::loadContent( )
 {
 	if( !m_bitmap.loadFromFile( "../../Resources/levelOne.png" ) )
@@ -70,9 +82,9 @@ void EnvironmentHandler::draw()
 
 	//std::cout << "\nWindowX: " << windowX << "  WindowY: " << windowY;
 	//std::cout << "\nWindowXEnd: " << windowXEnd << "  WindowYEnd: " << windowYEnd << std::endl;
-	for( unsigned int j = windowY; j <= windowYEnd; j++ )
+	for( int j = windowY; j <= windowYEnd; j++ )
 	{
-		for( unsigned int i = windowX; i <= windowXEnd; i++ )
+		for( int i = windowX; i <= windowXEnd; i++ )
 		{
 			if( ( j * m_iHorizontalBitmapSize ) + ( i ) < m_sprites.size() )
 			{
@@ -86,13 +98,13 @@ void EnvironmentHandler::bitmapToArray()
 {
 	sf::Color pixelColor;			
 	RGB* rgb;
-	for( int j = 0; j < m_iVerticalBitmapSize; j++ )
+	for( unsigned int j = 0; j < m_iVerticalBitmapSize; j++ )
 	{
-		for( int i = 0; i < m_iHorizontalBitmapSize; i++ )
+		for( unsigned int i = 0; i < m_iHorizontalBitmapSize; i++ )
 		{
 		//	std::cout << "i: " << i << " j: " << j << std::endl;
 			pixelColor = m_bitmap.getPixel( i,j );
-			rgb = new RGB;
+			rgb = new RGB();
 			rgb->red = pixelColor.r;
 			rgb->green = pixelColor.g;
 			rgb->blue = pixelColor.b;
@@ -106,7 +118,7 @@ void EnvironmentHandler::createLevel( )
 {
 	sf::Sprite sprite;
 	sf::IntRect subRect;
-	RGB* rgb = new RGB;
+	RGB* rgb = new RGB();
 	int spriteX = 0;
 	int spriteY = 0;
 
@@ -127,6 +139,7 @@ void EnvironmentHandler::createLevel( )
 		m_sprites.push_back( sprite );
 	}
 }
+
 /// creates the subrect for the tile, depending on the RGB color on the pixel
 sf::IntRect EnvironmentHandler::colorChart( RGB rgb )
 {
@@ -248,44 +261,74 @@ void EnvironmentHandler::checkWalls( )
 			}
 			if( right && below && !above && !left )
 			{
-				subRect.top = ( TILESIZE * 11 );
+				subRect.top = ( TILESIZE * 9 );
 				m_sprites[i].setTextureRect( subRect );
 			}
 			else if( right && !below && above && !left )
 			{
-				subRect.top = ( TILESIZE * 12 );
+				subRect.top = ( TILESIZE * 7 );
 				m_sprites[i].setTextureRect( subRect );
 			}
 			else if( !right && !below && above && left )
 			{
-				subRect.top = ( TILESIZE * 13 );
+				subRect.top = ( TILESIZE * 10 );
 				m_sprites[i].setTextureRect(subRect);
 			}
 			else if( !right && below && !above && left )
 			{
-				subRect.top = (TILESIZE * 14);
+				subRect.top = ( TILESIZE * 8 );
 				m_sprites[i].setTextureRect(subRect);
 			}
 			else if( !right && below && above && !left )
 			{
-				if( i % m_iHorizontalBitmapSize == 0 )
-				{
-					subRect.top = ( TILESIZE * 9 );
-					m_sprites[i].setTextureRect( subRect );
-				}
-				else if( i % m_iHorizontalBitmapSize == ( m_iHorizontalBitmapSize - 1 ) )
-				{
-					subRect.top = ( TILESIZE * 10 );
-					m_sprites[i].setTextureRect( subRect );
-				}
-			}
-			else if( right && !below && !above && left )
-			{
-				if( i >= m_iHorizontalBitmapSize )
+				//if( i % m_iHorizontalBitmapSize == 0 )
 				{
 					subRect.top = ( TILESIZE * 8 );
 					m_sprites[i].setTextureRect( subRect );
 				}
+				//else if( i % m_iHorizontalBitmapSize == ( m_iHorizontalBitmapSize - 1 ) )
+				//{
+				//	subRect.top = ( TILESIZE * 10 );
+				//	m_sprites[i].setTextureRect( subRect );
+				//}
+			}
+			//else if( right && !below && !above && left )
+			//{
+			//	if( i >= m_iHorizontalBitmapSize )
+			//	{
+			//		subRect.top = ( TILESIZE * 8 );
+			//		m_sprites[i].setTextureRect( subRect );
+			//	}
+			//}
+			else if( right && above && below && !left )
+			{
+				subRect.top = ( TILESIZE * 11 );
+				m_sprites[i].setTextureRect(subRect);
+			}
+			else if( !right && above && below && left )
+			{
+				subRect.top = ( TILESIZE * 8 );
+				m_sprites[i].setTextureRect(subRect);
+			}
+			else if( right && !above && below && left )
+			{
+				subRect.top = ( TILESIZE * 11 );
+				m_sprites[i].setTextureRect(subRect);
+			}
+			else if( right && above && !below && left )
+			{
+				subRect.top = ( TILESIZE * 7 );
+				m_sprites[i].setTextureRect(subRect);
+			}
+			else if( right && above && below && left )
+			{
+				subRect.top = ( TILESIZE * 11 );
+				m_sprites[i].setTextureRect(subRect);
+			}
+			else if( ( !right && above && !below && !left ) || ( !right && !above && below && !left ) )
+			{
+				subRect.top = ( TILESIZE * 8 );
+				m_sprites[i].setTextureRect(subRect);
 			}
 		}
 	}
@@ -294,9 +337,9 @@ void EnvironmentHandler::checkWalls( )
 void EnvironmentHandler::findObjects()
 {
 	sf::Color pixelColor;
-	for( int j = 0; j < m_iVerticalBitmapSize; j++ )
+	for( unsigned int j = 0; j < m_iVerticalBitmapSize; j++ )
 	{
-		for( int i = 0; i < m_iHorizontalBitmapSize; i++ )
+		for( unsigned int i = 0; i < m_iHorizontalBitmapSize; i++ )
 		{
 			pixelColor = m_objectBitmap.getPixel( i, j );
 			if( pixelColor.r == 0 && pixelColor.g == 0 && pixelColor.b == 0 )
@@ -322,13 +365,8 @@ void EnvironmentHandler::findObjects()
 
 bool EnvironmentHandler::checkCollision( Vector2f playerPosition )
 {
-	int x = ( ( playerPosition.x + 35 ) / TILESIZE );
-	int y = ( ( playerPosition.y + 48 ) / TILESIZE );
-
-	//for(int i = 64*63; i <= 64*64; i++)
-	//{
-	//	std::cout << "\nObject Bool: " << (bool)m_objects[((y * m_iHorizontalBitmapSize) + x )];
-	//}
+	int x = int( ( playerPosition.x + 35 ) / TILESIZE );
+	int y = int( ( playerPosition.y + 48 ) / TILESIZE );
 	
 	//check top left corner
 	if(!m_objects[( ( y * m_iHorizontalBitmapSize) + x )] )
@@ -336,7 +374,7 @@ bool EnvironmentHandler::checkCollision( Vector2f playerPosition )
 		return false;
 	}
 	
-	x = ( ( playerPosition.x - 35 ) / TILESIZE );
+	x = int( ( playerPosition.x - 35 ) / TILESIZE );
 
 	//check top right corner
 	if(!m_objects[( ( y * m_iHorizontalBitmapSize) + ( x + 1 ) )] )
@@ -344,7 +382,7 @@ bool EnvironmentHandler::checkCollision( Vector2f playerPosition )
 		return false;
 	}		
 
-	y = ( ( playerPosition.y - 15 ) / TILESIZE );
+	y = int( ( playerPosition.y - 15 ) / TILESIZE );
 
 	//check bottom right corner
 	if(!m_objects[( ( ( y + 1 ) * m_iHorizontalBitmapSize) + ( x + 1 ) )] )
@@ -352,7 +390,7 @@ bool EnvironmentHandler::checkCollision( Vector2f playerPosition )
 		return false;
 	}
 
-	x = ( ( playerPosition.x + 35 ) / TILESIZE );
+	x = int( ( playerPosition.x + 35 ) / TILESIZE );
 
 	//check bottom left corner	
 	if(!m_objects[( ( ( y + 1 ) * m_iHorizontalBitmapSize) + x )] )

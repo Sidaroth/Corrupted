@@ -90,7 +90,7 @@ $(document).ready(function(){initNavTree('_player_8h_source.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -107,7 +107,7 @@ $(document).ready(function(){initNavTree('_player_8h_source.html','');});
 <a href="_player_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_character_8h.html">Character.h</a>&quot;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_enemy_8h.html">Enemy.h</a>&quot;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
 <div class="line"><a name="l00007"></a><span class="lineno"><a class="code" href="class_player.html">    7</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_player.html">Player</a> : <span class="keyword">public</span> <a class="code" href="class_character.html">Character</a></div>
@@ -117,23 +117,46 @@ $(document).ready(function(){initNavTree('_player_8h_source.html','');});
 <div class="line"><a name="l00011"></a><span class="lineno"><a class="code" href="class_player.html#a9ff033e2fbc16cd9eec507c0832cf1fa">   11</a></span>&#160;    <span class="keywordtype">short</span> <a class="code" href="class_player.html#a9ff033e2fbc16cd9eec507c0832cf1fa">m_shTotalSouls</a>;</div>
 <div class="line"><a name="l00012"></a><span class="lineno"><a class="code" href="class_player.html#ac15acaec6575cc6ef5681aa3f8a23555">   12</a></span>&#160;    <span class="keywordtype">short</span> <a class="code" href="class_player.html#ac15acaec6575cc6ef5681aa3f8a23555">m_shCurrentSouls</a>;</div>
 <div class="line"><a name="l00013"></a><span class="lineno"><a class="code" href="class_player.html#aa4a137aee416bc314036eb2ec51e125a">   13</a></span>&#160;    <span class="keywordtype">short</span> <a class="code" href="class_player.html#aa4a137aee416bc314036eb2ec51e125a">m_shWeaponLevel</a>;</div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="code" href="class_player.html#aa495c787dc9c8f3861775efe6ab4c082">   14</a></span>&#160;    <span class="keywordtype">short</span> <a class="code" href="class_player.html#aa495c787dc9c8f3861775efe6ab4c082">m_shArmorLevel</a>;</div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="code" href="class_player.html#aa495c787dc9c8f3861775efe6ab4c082">   14</a></span>&#160;    <span class="keywordtype">short</span> <a class="code" href="class_player.html#aa495c787dc9c8f3861775efe6ab4c082">m_shArmorLevel</a>; </div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="code" href="class_player.html#a55507be1f64e7ba369b502b8fd3a12dd">   16</a></span>&#160;    std::string <a class="code" href="class_player.html#a55507be1f64e7ba369b502b8fd3a12dd">m_sName</a>;</div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="code" href="class_player.html#a28b34759dd0798bc4a49d0274f7829c8">   16</a></span>&#160;    <span class="keywordtype">short</span> <a class="code" href="class_player.html#a28b34759dd0798bc4a49d0274f7829c8">m_saStatArray</a>[6];</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="code" href="class_player.html#a55507be1f64e7ba369b502b8fd3a12dd">   18</a></span>&#160;    std::string <a class="code" href="class_player.html#a55507be1f64e7ba369b502b8fd3a12dd">m_sName</a>;</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <a class="code" href="class_player.html#affe0cc3cb714f6deb4e62f0c0d3f1fd8">Player</a>();</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <a class="code" href="class_player.html#affe0cc3cb714f6deb4e62f0c0d3f1fd8">Player</a>(std::string name);</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;};</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="code" href="class_player.html#a2d5346addc296d502b930ebb684c3b22">   20</a></span>&#160;    std::vector&lt;Enemy*&gt;* <a class="code" href="class_player.html#a2d5346addc296d502b930ebb684c3b22">m_EnemyVector</a>;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_player.html#a2ea364bba69e21f05a35ec74195e208c">collisionCheck</a>( );</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <a class="code" href="class_player.html#a749d2c00e1fe0f5c2746f7505a58c062">~Player</a>();</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <a class="code" href="class_player.html#affe0cc3cb714f6deb4e62f0c0d3f1fd8">Player</a>();</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <a class="code" href="class_player.html#affe0cc3cb714f6deb4e62f0c0d3f1fd8">Player</a>(std::string name);</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_player.html#ac91ab2d2ed86fa2d5ff2f77c948a38f1" title="0=N, 1=NE, 2=E, 3=SE, 4=S, 5=SW, 6=W, 7=NW">loadContent</a>();</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_player.html#a82c3476f3e65a4e2ac6bcd040771bdd4">update</a>();</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_player.html#ac18c9d30d2997765321c62030a4b20b7" title="calculate the correct frame to be set in setFrame">draw</a>();</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">short</span> <a class="code" href="class_player.html#ae61772037d59e4a72a2dcf44e8059f14">getTotalSouls</a>();</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">short</span> <a class="code" href="class_player.html#a4c3e4a0c61f13187c7452acef74b8b81">getCurrentSouls</a>();</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">short</span> <a class="code" href="class_player.html#a350df62bef6c8c75bad1832e4eb486c9">getWeaponLevel</a>();</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">short</span> <a class="code" href="class_player.html#acd614db3f032c7067fa4bc74214c7001">getArmorLevel</a>();</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_player.html#a9a76f451a6bc69822971bf56dae944c3">getStatArray</a>(<span class="keywordtype">int</span> stat);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_player.html#ac732febd618b4e347bed644517d10fdc">increaseStat</a>(<span class="keywordtype">int</span> stat);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_player.html#af09f4deeb786c597805ad6e4ae4ed93a">modifySouls</a>(<span class="keywordtype">short</span> amount);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_player.html#a6e9f877b2baccec7472667af1a7898a5">setEnemyVector</a>( std::vector&lt;Enemy*&gt;* enemyVector);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_5e5f3a715e7f4bae10d417bd6733b721.html">GameProject</a></li><li class="navelem"><a class="el" href="dir_34cc078ae5f7d305ee8fab46b09a011f.html">GameProject</a></li><li class="navelem"><a class="el" href="_player_8h.html">Player.h</a></li>
-    <li class="footer">Generated on Thu Oct 11 2012 16:42:00 for Corrupted by
+    <li class="footer">Generated on Mon Nov 26 2012 12:45:41 for Corrupted by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.2 </li>
   </ul>

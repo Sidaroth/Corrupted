@@ -14,6 +14,7 @@ private:
 	void operator=(StateHandler const&); /// Assignment operator
 	
 	GameState *currentState, *newState;
+	bool safe;
 
 public:
 	~StateHandler();

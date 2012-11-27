@@ -1,0 +1,7 @@
+<map id="SuperLevel::update" name="SuperLevel::update">
+<area shape="rect" id="node3" href="$class_keyboard_controller.html#a030f4309cbc40503f4e1586d92bb5126" title="KeyboardController\l::checkPressed" alt="" coords="187,23,319,65"/>
+<area shape="rect" id="node5" href="$class_character.html#ac3f7d99f9f64cc1afed7179293393454" title="Character::isDoingAction" alt="" coords="369,5,535,32"/>
+<area shape="rect" id="node7" href="$class_character.html#a2504a3fd2c17bbed8f8cfc9265c1cfce" title="Character::move" alt="" coords="394,56,510,83"/>
+<area shape="rect" id="node9" href="$class_character.html#a9d4ff57e9f740194d30d4ebbc13fbb1a" title="Character::changeAnimation\lToWalk" alt="" coords="584,19,771,61"/>
+<area shape="rect" id="node11" href="$class_character.html#af21de5517da4090712ac92f614187df6" title="set the correct frame in the animation" alt="" coords="592,85,763,112"/>
+</map>

@@ -1,0 +1,4 @@
+<map id="Character::animation" name="Character::animation">
+<area shape="rect" id="node3" href="$class_player.html#ac91ab2d2ed86fa2d5ff2f77c948a38f1" title="0=N, 1=NE, 2=E, 3=SE, 4=S, 5=SW, 6=W, 7=NW" alt="" coords="205,5,341,32"/>
+<area shape="rect" id="node5" href="$class_skeleton.html#a123cfe0c7338ce9ee8c183b4358e3120" title="0=N, 1=NE, 2=E, 3=SE, 4=S, 5=SW, 6=W, 7=NW" alt="" coords="198,56,349,83"/>
+</map>

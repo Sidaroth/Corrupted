@@ -1,0 +1,5 @@
+<map id="Projectile::animation" name="Projectile::animation">
+<area shape="rect" id="node3" href="$class_projectile.html#af68f28126f067bba56fd28f667bd0085" title="set subRect" alt="" coords="209,5,348,32"/>
+<area shape="rect" id="node5" href="$class_projectile.html#abf215379b10912db404b967c1e028f9e" title="Projectile::checkCollision" alt="" coords="195,56,363,83"/>
+<area shape="rect" id="node7" href="$class_projectile.html#af83fb0f23280d074ed7a43854b9dec38" title="Projectile::setInvisible" alt="" coords="411,56,557,83"/>
+</map>

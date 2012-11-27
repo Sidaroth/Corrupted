@@ -19,12 +19,17 @@ private:
 
 	std::vector<Enemy*>* m_EnemyVector;
 
+	sf::Texture m_AttackTexture;
+	sf::Texture m_MoveTexture;
+	sf::Texture m_StillTexture;
+
 	void collisionCheck( );
 
 protected:
 
 public:
-	
+
+	~Player();
 	Player();
 	Player(std::string name);
 	bool loadContent();

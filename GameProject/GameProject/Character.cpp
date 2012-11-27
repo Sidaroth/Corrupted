@@ -21,13 +21,23 @@ Character::Character() : Actor()
 	m_bAbilities = new bool[false, false, false];
 }
 
-bool Character::attack(short row) ///0=N, 1=NE, 2=E, 3=SE, 4=S, 5=SW, 6=W, 7=NW
+Character::~Character()
+{
+	for( std::vector<Projectile*>::iterator it = m_vProjectiles.begin(); it != m_vProjectiles.end(); )
+	{
+		delete * it;
+		it = m_vProjectiles.erase(it);	// Erase calls the deconstructor, but because the pointers don't have deconstructors we need to call delete first.
+										// Erase returns a new iterator position, without it it would create holes 
+	}
+}
+
+void Character::attack(short row) ///0=N, 1=NE, 2=E, 3=SE, 4=S, 5=SW, 6=W, 7=NW
 {
 	
 	
 	if(!m_bDoingAction){
 		setBitmapRow(row);
-		m_Sprite.setTexture(m_TexturesActions["attack"].imgTexture);
+		m_Sprite.setTexture(*m_TextureTypes[ATTACK]);
 		m_shBitmapCol = 0;
 		m_bDoingAction=true;
 		return true;
@@ -43,9 +53,10 @@ bool Character::loadContent()
 	{
 		projectile = new Projectile( );
 		projectile -> loadContent( );
-		projectile -> setEnvironmentObjects( m_environmentLevel -> getObjectVector( ) );
+		projectile -> setEnvironmentObjects( m_environmentLevel -> getObjectVector( ), m_environmentLevel -> getHorizontalBitmapSize( ) );
 		m_vProjectiles.push_back( projectile );
 	}
+
 	return 0;
 }
 
@@ -54,15 +65,15 @@ void Character::startAction(){
 }
 void Character::endAction(){
 	m_bDoingAction = false;
-	m_Sprite.setTexture(m_TexturesActions["still"].imgTexture);
+	m_Sprite.setTexture(*m_TextureTypes[STILL]);
 }
 void Character::changeAnimationToWalk(){
 	
-	m_Sprite.setTexture(m_TexturesActions["move"].imgTexture);
+	m_Sprite.setTexture(*m_TextureTypes[MOVE]);
 }
 void Character::changeAnimationToStand(){
 	m_shBitmapCol = 0;
-	m_Sprite.setTexture(m_TexturesActions["still"].imgTexture);
+	m_Sprite.setTexture(*m_TextureTypes[STILL]);
 }
 		
 bool Character::isDoingAction(){
@@ -154,7 +165,7 @@ void Character::animation()  ///calculate frame for animation
 	}
 	setFrame();
 
-	for( int i = 0; i < m_vProjectiles.size( ); i++ )
+	for( unsigned int i = 0; i < m_vProjectiles.size( ); i++ )
 	{
 		if( m_vProjectiles[i]->exist( ) )
 		{
@@ -165,7 +176,7 @@ void Character::animation()  ///calculate frame for animation
 
 void Character::draw( )
 {
-	for( int i = 0; i < m_vProjectiles.size( ); i++ )
+	for( unsigned int i = 0; i < m_vProjectiles.size( ); i++ )
 	{
 		if( m_vProjectiles[i]->exist( ) )
 		{
@@ -176,7 +187,7 @@ void Character::draw( )
 
 void Character::update( )
 {
-	for( int i = 0; i < m_vProjectiles.size( ); i++ )
+	for( unsigned int i = 0; i < m_vProjectiles.size( ); i++ )
 	{
 		if( m_vProjectiles[i]->exist( ) )
 		{
@@ -209,19 +220,19 @@ void Character::move(short direction) // 0=N, 1=NE, 2=E, 3=SE, 4=S, 5=SW, 6=W, 7
 		break;
 
 		case NORTH_EAST:
-			newPosition.x += 2.1;
+			newPosition.x += 2.1f;
 			setBitmapRow( NORTH_EAST );
 			
 			if( m_environmentLevel -> checkCollision( newPosition ) )
 			{
-				m_Sprite.move(2.1, 0);
+				m_Sprite.move(2.1f, 0);
 			}
-			newPosition.x -= 2.1; //back to original x position
-			newPosition.y -= 2.1;
+			newPosition.x -= 2.1f; //back to original x position
+			newPosition.y -= 2.1f;
 			
 			if( m_environmentLevel -> checkCollision( newPosition ) )
 			{
-				m_Sprite.move(0,-2.1);
+				m_Sprite.move(0,-2.1f);
 			}
 		break;
 
@@ -236,19 +247,19 @@ void Character::move(short direction) // 0=N, 1=NE, 2=E, 3=SE, 4=S, 5=SW, 6=W, 7
 		break;
 
 		case SOUTH_EAST:
-			newPosition.x += 2.1;
+			newPosition.x += 2.1f;
 			setBitmapRow( SOUTH_EAST );
 
 			if( m_environmentLevel -> checkCollision( newPosition ) )
 			{
-				m_Sprite.move(2.1,0);
+				m_Sprite.move(2.1f,0);
 			}
-			newPosition.x -= 2.1; //back to original x position
-			newPosition.y += 2.1;
+			newPosition.x -= 2.1f; //back to original x position
+			newPosition.y += 2.1f;
 			
 			if( m_environmentLevel -> checkCollision( newPosition ) )
 			{
-				m_Sprite.move(0,2.1);
+				m_Sprite.move(0,2.1f);
 			}
 		break;
 
@@ -258,61 +269,56 @@ void Character::move(short direction) // 0=N, 1=NE, 2=E, 3=SE, 4=S, 5=SW, 6=W, 7
 		
 			if( m_environmentLevel -> checkCollision( newPosition ) )
 			{
-				m_Sprite.move(0,3);
+				m_Sprite.move(0, 3);
 			}
 		break;
 
 		case SOUTH_WEST:
-			newPosition.x -= 2.1;
+			newPosition.x -= 2.1f;
 			setBitmapRow( SOUTH_WEST );
 		
 			if( m_environmentLevel -> checkCollision( newPosition ) )
 			{
-				m_Sprite.move(-2.1,0);
+				m_Sprite.move(-2.1f, 0);
 			}
-			newPosition.x += 2.1; //back to original x position
-			newPosition.y += 2.1;
+			newPosition.x += 2.1f; //back to original x position
+			newPosition.y += 2.1f;
 			
 			if( m_environmentLevel -> checkCollision( newPosition ) )
 			{
-				m_Sprite.move(0,2.1);
+				m_Sprite.move(0, 2.1f);
 			}
 		break;
 
 		case WEST:
-			newPosition.x -= 3;
+			newPosition.x -= 3.0f;
 			setBitmapRow( WEST );
 		
 			if( m_environmentLevel -> checkCollision( newPosition ) )
 			{
-				m_Sprite.move(-3,0);
+				m_Sprite.move(-3, 0);
 			}
 			break;
 
 		case NORTH_WEST:
-			newPosition.x -= 2.1;
+			newPosition.x -= 2.1f;
 			setBitmapRow( NORTH_WEST );
 
 			if( m_environmentLevel -> checkCollision( newPosition ) )
 			{
-				m_Sprite.move(-2.1,0);
+				m_Sprite.move(-2.1f, 0);
 			}
-			newPosition.x += 2.1; //back to original x position
-			newPosition.y -= 2.1;
+			newPosition.x += 2.1f; //back to original x position
+			newPosition.y -= 2.1f;
 			
 			if( m_environmentLevel -> checkCollision( newPosition ) )
 			{
-				m_Sprite.move(0,-2.1);
+				m_Sprite.move(0, -2.1f);
 			}
 		break;
 	}
 }
 
-//////////////////////
-void Character::showDamage() 
-{
-
-}
 
 void Character::showHealth()
 {
@@ -323,17 +329,18 @@ void Character::castSpell( Vector2f mouseCoordinates, short spell )
 {
 	if( m_bAbilities[spell] )
 	{
-		for( int i = 0; i < m_vProjectiles.size( ); i++ )
+		for( unsigned int i = 0; i < m_vProjectiles.size( ); i++ )
 		{
 			if( !m_vProjectiles[i]->exist( ) )
 			{
 				m_vProjectiles[i]->initiate( spell, m_shSpellDamage, m_Position, mouseCoordinates );
 				i = m_vProjectiles.size( ) + 1;
 			}
-			else if ( i == m_vProjectiles.size( ) )
+			else if ( i == m_vProjectiles.size( ) - 1 )
 			{
 				Projectile* projectile = new Projectile;
-				projectile -> loadContent();
+				projectile -> loadContent( );
+				projectile -> setEnvironmentObjects( m_environmentLevel -> getObjectVector( ), m_environmentLevel -> getHorizontalBitmapSize( ) );
 				m_vProjectiles.push_back( projectile );
 			}
 		}
@@ -342,5 +349,6 @@ void Character::castSpell( Vector2f mouseCoordinates, short spell )
 
 void Character::takeDamage( short damage )
 {
+
 	m_shCurrentHealth -= damage;
 }

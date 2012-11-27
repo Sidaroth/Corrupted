@@ -1,0 +1,4 @@
+<map id="EnemyHandler::getEnemyVector" name="EnemyHandler::getEnemyVector">
+<area shape="rect" id="node3" href="$class_super_level.html#af5bd74f27610cb25f7c63b1410f3871e" title="SuperLevel::superLoadContent" alt="" coords="267,5,466,32"/>
+<area shape="rect" id="node5" href="$class_level1.html#a648ee18c6e94ee0d9268a9a55b027d39" title="Level1::loadContent" alt="" coords="515,5,650,32"/>
+</map>

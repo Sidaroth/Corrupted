@@ -9,15 +9,17 @@ class EnemyHandler
 protected:
 	EnemyFactory* m_EnemyFactory;
 	EnvironmentHandler* m_Level;
-	short m_HorizontalSize;				// --- 
-	std::vector<bool>* collisionMap;	// Are these 2 really needed? 
+	short m_HorizontalSize;	
+	std::vector<bool>* collisionMap;
 	std::vector<Enemy*> m_EnemyVector;
 
 public:
+	EnemyHandler();
+	~EnemyHandler();
 	void loadContent(EnvironmentHandler* level);
 	void unloadContent();
 	void setCollisionMap(std::vector<bool>* collisionMap, int horizontalSize);
 	void draw();
-	void update();
+	void update(Vector2f* playerPos);
 	std::vector<Enemy*>* getEnemyVector( );
 };

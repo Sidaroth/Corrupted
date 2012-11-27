@@ -1,0 +1,7 @@
+<map id="Skeleton" name="Skeleton">
+<area shape="rect" id="node2" href="$class_enemy.html" title="The generic class for our enemies. All types of enemies will inherit from this class." alt="" coords="10,264,72,291"/>
+<area shape="rect" id="node4" href="$class_character.html" title="Character" alt="" coords="53,187,131,213"/>
+<area shape="rect" id="node6" href="$class_actor.html" title="Actor" alt="" coords="52,96,105,123"/>
+<area shape="rect" id="node8" href="$class_vector2f.html" title="Vector2f" alt="" coords="43,5,113,32"/>
+<area shape="rect" id="node10" href="$class_environment_handler.html" title="EnvironmentHandler" alt="" coords="130,96,267,123"/>
+</map>

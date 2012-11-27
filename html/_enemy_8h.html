@@ -90,7 +90,7 @@ $(document).ready(function(){initNavTree('_enemy_8h.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -100,19 +100,138 @@ $(document).ready(function(){initNavTree('_enemy_8h.html','');});
 </div>
 
 <div class="header">
+  <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#define-members">Macros</a>  </div>
   <div class="headertitle">
 <div class="title">Enemy.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
+<div class="textblock"><code>#include &quot;SFML/Graphics.hpp&quot;</code><br/>
+<code>#include &quot;<a class="el" href="_character_8h_source.html">Character.h</a>&quot;</code><br/>
+<code>#include &quot;Math.h&quot;</code><br/>
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for Enemy.h:</div>
+<div class="dyncontent">
+<div class="center"><img src="_enemy_8h__incl.png" border="0" usemap="#_game_project_2_game_project_2_enemy_8h" alt=""/></div>
+<map name="_game_project_2_game_project_2_enemy_8h" id="_game_project_2_game_project_2_enemy_8h">
+<area shape="rect" id="node5" href="_character_8h.html" title="Character.h" alt="" coords="191,96,280,123"/><area shape="rect" id="node7" href="_actor_8h.html" title="Actor.h" alt="" coords="325,245,389,272"/><area shape="rect" id="node18" href="_environment_8h.html" title="Environment.h" alt="" coords="144,245,248,272"/><area shape="rect" id="node24" href="_projectile_8h.html" title="Projectile.h" alt="" coords="234,171,320,197"/><area shape="rect" id="node9" href="_vector2f_8h.html" title="Vector2f.h" alt="" coords="249,320,329,347"/></map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><img src="_enemy_8h__dep__incl.png" border="0" usemap="#_game_project_2_game_project_2_enemy_8hdep" alt=""/></div>
+<map name="_game_project_2_game_project_2_enemy_8hdep" id="_game_project_2_game_project_2_enemy_8hdep">
+<area shape="rect" id="node3" href="_enemy_8cpp.html" title="GameProject/GameProject\l/Enemy.cpp" alt="" coords="5,97,184,138"/><area shape="rect" id="node5" href="_enemy_factory_8h.html" title="GameProject/GameProject\l/EnemyFactory.h" alt="" coords="271,187,449,229"/><area shape="rect" id="node25" href="_skeleton_8h.html" title="GameProject/GameProject\l/Skeleton.h" alt="" coords="208,97,387,138"/><area shape="rect" id="node30" href="_player_8h.html" title="GameProject/GameProject\l/Player.h" alt="" coords="701,97,880,138"/><area shape="rect" id="node7" href="_enemy_factory_8cpp.html" title="GameProject/GameProject\l/EnemyFactory.cpp" alt="" coords="68,278,247,319"/><area shape="rect" id="node9" href="_enemy_handler_8h.html" title="GameProject/GameProject\l/EnemyHandler.h" alt="" coords="271,278,449,319"/><area shape="rect" id="node11" href="_enemy_handler_8cpp.html" title="GameProject/GameProject\l/EnemyHandler.cpp" alt="" coords="220,369,399,410"/><area shape="rect" id="node13" href="_super_level_8h.html" title="GameProject/GameProject\l/SuperLevel.h" alt="" coords="524,459,703,501"/><area shape="rect" id="node15" href="_level1_8h.html" title="GameProject/GameProject\l/Level1.h" alt="" coords="423,550,601,591"/><area shape="rect" id="node23" href="_super_level_8cpp.html" title="GameProject/GameProject\l/SuperLevel.cpp" alt="" coords="625,550,804,591"/><area shape="rect" id="node17" href="_level1_8cpp.html" title="GameProject/GameProject\l/Level1.cpp" alt="" coords="220,641,399,682"/><area shape="rect" id="node19" href="_splash_screen_8cpp.html" title="GameProject/GameProject\l/SplashScreen.cpp" alt="" coords="423,641,601,682"/><area shape="rect" id="node21" href="_title_screen_8cpp.html" title="GameProject/GameProject\l/TitleScreen.cpp" alt="" coords="625,641,804,682"/><area shape="rect" id="node28" href="_skeleton_8cpp.html" title="GameProject/GameProject\l/Skeleton.cpp" alt="" coords="68,187,247,229"/><area shape="rect" id="node32" href="_game_8h.html" title="GameProject/GameProject\l/Game.h" alt="" coords="904,278,1083,319"/><area shape="rect" id="node34" href="_game_8cpp.html" title="GameProject/GameProject\l/Game.cpp" alt="" coords="524,369,703,410"/><area shape="rect" id="node36" href="_ui_8h.html" title="GameProject/GameProject/Ui.h" alt="" coords="999,376,1204,403"/><area shape="rect" id="node43" href="_keyboard_controller_8h.html" title="GameProject/GameProject\l/KeyboardController.h" alt="" coords="701,187,880,229"/><area shape="rect" id="node52" href="_player_8cpp.html" title="GameProject/GameProject\l/Player.cpp" alt="" coords="1157,187,1336,229"/><area shape="rect" id="node41" href="main_8cpp.html" title="GameProject/GameProject\l/main.cpp" alt="" coords="796,369,975,410"/><area shape="rect" id="node39" href="_ui_8cpp.html" title="GameProject/GameProject\l/Ui.cpp" alt="" coords="1012,459,1191,501"/><area shape="rect" id="node46" href="_keyboard_controller_8cpp.html" title="GameProject/GameProject\l/KeyboardController.cpp" alt="" coords="701,278,880,319"/></map>
+</div>
+</div>
 <p><a href="_enemy_8h_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_enemy.html">Enemy</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The generic class for our enemies. All types of enemies will inherit from this class.  <a href="class_enemy.html#details">More...</a><br/></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a3fc1498b945720ffd4c71f53995d45f4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_enemy_8h.html#a3fc1498b945720ffd4c71f53995d45f4">UNDETERMINED</a>&#160;&#160;&#160;0</td></tr>
+<tr class="separator:a3fc1498b945720ffd4c71f53995d45f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a841b291dedf074d07299e089dc0722e6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_enemy_8h.html#a841b291dedf074d07299e089dc0722e6">FOUND</a>&#160;&#160;&#160;1</td></tr>
+<tr class="separator:a841b291dedf074d07299e089dc0722e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5ea4ed09314d49eef271808b97ddca7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_enemy_8h.html#af5ea4ed09314d49eef271808b97ddca7">NONEXISTANT</a>&#160;&#160;&#160;2</td></tr>
+<tr class="separator:af5ea4ed09314d49eef271808b97ddca7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07ae61ed7dc31e9cddbdf9da244567c7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_enemy_8h.html#a07ae61ed7dc31e9cddbdf9da244567c7">TILESIZE</a>&#160;&#160;&#160;96</td></tr>
+<tr class="separator:a07ae61ed7dc31e9cddbdf9da244567c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac558c296dea098f2f6d0de67846d0496"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_enemy_8h.html#ac558c296dea098f2f6d0de67846d0496">OPEN_LIST_ELEMENTS</a>&#160;&#160;&#160;500</td></tr>
+<tr class="separator:ac558c296dea098f2f6d0de67846d0496"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a224ac0788d8ab80e5f60988074d12cba"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_enemy_8h.html#a224ac0788d8ab80e5f60988074d12cba">getParent</a>(m)&#160;&#160;&#160;(m - 1) / 2</td></tr>
+<tr class="separator:a224ac0788d8ab80e5f60988074d12cba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a class="anchor" id="a841b291dedf074d07299e089dc0722e6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define FOUND&#160;&#160;&#160;1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a224ac0788d8ab80e5f60988074d12cba"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define getParent</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">m</td><td>)</td>
+          <td>&#160;&#160;&#160;(m - 1) / 2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="af5ea4ed09314d49eef271808b97ddca7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define NONEXISTANT&#160;&#160;&#160;2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ac558c296dea098f2f6d0de67846d0496"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define OPEN_LIST_ELEMENTS&#160;&#160;&#160;500</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a07ae61ed7dc31e9cddbdf9da244567c7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TILESIZE&#160;&#160;&#160;96</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a3fc1498b945720ffd4c71f53995d45f4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UNDETERMINED&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_5e5f3a715e7f4bae10d417bd6733b721.html">GameProject</a></li><li class="navelem"><a class="el" href="dir_34cc078ae5f7d305ee8fab46b09a011f.html">GameProject</a></li><li class="navelem"><a class="el" href="_enemy_8h.html">Enemy.h</a></li>
-    <li class="footer">Generated on Thu Oct 11 2012 16:42:00 for Corrupted by
+    <li class="footer">Generated on Mon Nov 26 2012 12:45:41 for Corrupted by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.2 </li>
   </ul>
