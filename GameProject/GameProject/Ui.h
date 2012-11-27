@@ -43,6 +43,7 @@ public:
 	Ui();
 	~Ui();
 
+	void addFloatingText();
 	bool loadContent();
 	void unloadContent();
 	void update(Player* player);

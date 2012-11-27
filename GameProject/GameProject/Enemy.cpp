@@ -39,6 +39,7 @@ short Enemy::findPath(int startX, int startY, int goalX, int goalY)
 {
 	m_Path.erase(m_Path.begin(), m_Path.end()); // Remove the old stuff...
 
+	//std::cout << "recalculating...\n";
 	const short NUMBER_OF_TILES_TO_CHECK = 30;
 	m_Path.reserve(NUMBER_OF_TILES_TO_CHECK);
 
@@ -49,12 +50,15 @@ short Enemy::findPath(int startX, int startY, int goalX, int goalY)
 	startX = startX / TILESIZE;
 	startY = startY / TILESIZE;
 
+	//std::cout << "PlayerPos: " << goalTileX << ", " << goalTileY << "\n";
+
 
 	parentXval = 0;
 	parentYval = 0;
 
 	if(goalTileX == startX && goalTileY == startY)
 	{
+		//std::cout << "path already...\n";
 		path = FOUND;
 	}
 
@@ -102,16 +106,7 @@ short Enemy::findPath(int startX, int startY, int goalX, int goalY)
 
 	//initializePathFind();
 
-	//for(int i = 0; i <= 11; i++)
-	//{
-	//	for(int j = 0; j <= 11; j++)
-	//	{
-	//		std::cout << whichList[i][j] << ", ";
-	//	}
-	//	std::cout << std::endl;
-	//}
-
-	while(path == UNDETERMINED && tilesChecked < NUMBER_OF_TILES_TO_CHECK)
+	while(path == UNDETERMINED /*&& tilesChecked < NUMBER_OF_TILES_TO_CHECK*/)
 	{
 		//std::cout << tilesChecked << "\n";
 		if(numberOfOpenListItems != 0)
@@ -120,7 +115,6 @@ short Enemy::findPath(int startX, int startY, int goalX, int goalY)
 			parentXval = openX[openList[1]];
 			parentYval = openY[openList[1]];
 		
-
 			whichList[parentXval][parentYval] = onClosedList;
 
 			openList[1] = openList[numberOfOpenListItems];
@@ -306,7 +300,7 @@ short Enemy::findPath(int startX, int startY, int goalX, int goalY)
 			path = NONEXISTANT;
 		}
 
-		if(whichList[goalTileX][goalTileY] == onClosedList)	// on closed list
+		if(whichList[goalTileX][goalTileY] == onOpenList)	// on closed list
 		{
 			path = FOUND;
 		}

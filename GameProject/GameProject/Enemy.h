@@ -19,6 +19,9 @@
 class Enemy : public Character
 {
 protected:
+	bool xStepGoalReached;
+	bool yStepGoalReached;
+
 	short m_shSoulsToDrop;
 	std::vector<bool>* collisionMap;
 	short m_HorizontalBitmapSize;

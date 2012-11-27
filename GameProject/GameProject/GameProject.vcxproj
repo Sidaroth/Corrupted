@@ -100,6 +100,7 @@
     <ClInclude Include="EnemyFactory.h" />
     <ClInclude Include="EnemyHandler.h" />
     <ClInclude Include="Environment.h" />
+    <ClInclude Include="FloatingText.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="KeyboardController.h" />
     <ClInclude Include="Level1.h" />
@@ -123,6 +124,7 @@
     <ClCompile Include="EnemyFactory.cpp" />
     <ClCompile Include="EnemyHandler.cpp" />
     <ClCompile Include="environment.cpp" />
+    <ClCompile Include="FloatingText.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="KeyboardController.cpp" />
     <ClCompile Include="Level1.cpp" />
