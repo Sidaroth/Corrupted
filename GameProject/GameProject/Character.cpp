@@ -354,6 +354,14 @@ void Character::castSpell( Vector2f mouseCoordinates, short spell )
 
 void Character::takeDamage( short damage )
 {
-
 	m_shCurrentHealth -= damage;
+
+	if( m_shCurrentHealth < 0)
+	{
+		m_shCurrentHealth = 0;
+	}
+	else if (m_shCurrentHealth > m_shMaxHealth)
+	{
+		m_shCurrentHealth = m_shMaxHealth;
+	}
 }

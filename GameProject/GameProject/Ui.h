@@ -15,17 +15,22 @@ private:
 	sf::Texture m_healthDiamond;
 	sf::Sprite m_healthDiamondSprite;
 
+	sf::Texture m_iconFireball;
+	sf::Sprite m_iconFireballSprite;
+
+	sf::Texture m_iconEmpty;
+	sf::Sprite m_iconEmptySpriteArray[5];
+
 	sf::Texture m_increaseButtonGray;
 	sf::Texture m_increaseButtonRed;
 
 	sf::Sprite increaseButtonSpriteArray[6];
 	bool increasable[6];
 	
-	std::vector<FLoatingText> m_ftFloatingTextEntities;
+	//std::vector<FLoatingText> m_ftFloatingTextEntities;
 	std::vector<short *> m_shvPlayerStats;
 	float* m_fCriticalChance;
 
-	//Player* m_player;
 	sf::Font font;
 
 	sf::Text rightSideText;
@@ -35,6 +40,8 @@ private:
 	sf::Text rightSideSecondaryStats;
 
 	sf::Text healthText;
+
+	sf::Text iconText;
 
 	float healthRotation;
 	short m_shFrameCount;
@@ -52,6 +59,6 @@ public:
 	void initialize(short* strength, short* intellect, short* toughness, short* speed,
 				    short* currentSouls, short* weaponLevel, short* armorLevel, short* currHp,
 					short* maxHealth, short* meleeDamage, short* spellDamage, float* critChance);
-};
 
-template <typename T> std::string numberToString ( T Number );
+	template <typename T> std::string numberToString ( T Number );
+};
