@@ -1,12 +1,8 @@
 #pragma once
 
 #include "StateHandler.h"
-#include "GameState.h"
-#include "Game.h"
-#include "Player.h"
+#include "FloatingText.h"
 #include <sstream>
-
-
 
 class Ui {
 
@@ -24,8 +20,12 @@ private:
 
 	sf::Sprite increaseButtonSpriteArray[6];
 	bool increasable[6];
+	
+	std::vector<FLoatingText> m_ftFloatingTextEntities;
+	std::vector<short *> m_shvPlayerStats;
+	float* m_fCriticalChance;
 
-	Player* m_player;
+	//Player* m_player;
 	sf::Font font;
 
 	sf::Text rightSideText;
@@ -46,8 +46,12 @@ public:
 	void addFloatingText();
 	bool loadContent();
 	void unloadContent();
-	void update(Player* player);
+	void update();
+	void processEvents(sf::Event event);
 	void draw();	
+	void initialize(short* strength, short* intellect, short* toughness, short* speed,
+				    short* currentSouls, short* weaponLevel, short* armorLevel, short* currHp,
+					short* maxHealth, short* meleeDamage, short* spellDamage, float* critChance);
 };
 
 template <typename T> std::string numberToString ( T Number );

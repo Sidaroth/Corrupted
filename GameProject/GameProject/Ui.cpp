@@ -11,7 +11,7 @@ Ui::Ui()
 
 Ui::~Ui()
 {
-	delete m_player;
+	
 }
 
 bool Ui::loadContent()
@@ -88,6 +88,7 @@ bool Ui::loadContent()
 	healthText.setPosition(95, 710);
 	healthText.setScale(0.7, 0.7);
 	healthText.setFont(font);
+
 	return !EXIT_FAILURE;
 }
 
@@ -96,25 +97,44 @@ void Ui::unloadContent()
 
 }
 
-void Ui::update(Player* player)
+void Ui::initialize(short* strength, short* intelligence, short* toughness, short* speed,
+				    short* currentSouls, short* weaponLevel, short* armorLevel, short* currHp,
+					short* maxHealth, short* meleeDamage, short* spellDamage, float* critChance)
 {
-	m_player = player;
+	m_shvPlayerStats.reserve(12);
 
-	rightSideStats.setString(numberToString(m_player->getStrength())+"\n"+
-								numberToString(m_player->getIntelligence())+"\n"+
-								numberToString(m_player->getToughness())+"\n"+
-								numberToString(m_player->getSpeed())+"\n\n\t\t"+
-								numberToString(m_player->getMeleeDamage())+"\n\t\t"+
-								numberToString(m_player->getSpellDamage())+"\n\t\t"+
-								numberToString(m_player->getCriticalChance())+"%");
+	m_shvPlayerStats.push_back(strength);		// 0
+	m_shvPlayerStats.push_back(intelligence);	// 1
+	m_shvPlayerStats.push_back(toughness);		// 2
+	m_shvPlayerStats.push_back(speed);			// 3
+	m_shvPlayerStats.push_back(weaponLevel);	// 4
+	m_shvPlayerStats.push_back(armorLevel);		// 5
+	m_shvPlayerStats.push_back(currentSouls);	// 6
+	m_shvPlayerStats.push_back(currHp);			// 7
+	m_shvPlayerStats.push_back(maxHealth);		// 8
+	m_shvPlayerStats.push_back(meleeDamage);	// 9
+	m_shvPlayerStats.push_back(spellDamage);	// 10
 
-	rightSideSecondaryStats.setString(numberToString(m_player->getCurrentSouls())+"\n\n"+
-										numberToString(m_player->getWeaponLevel())+"\n"+
-										numberToString(m_player->getArmorLevel()));
+	m_fCriticalChance = critChance;
+}
+
+void Ui::update()
+{
+	rightSideStats.setString(numberToString((*m_shvPlayerStats[0]))+"\n"+
+								numberToString((*m_shvPlayerStats[1]))+"\n"+
+								numberToString((*m_shvPlayerStats[2]))+"\n"+
+								numberToString((*m_shvPlayerStats[3]))+"\n\n\t\t"+
+								numberToString((*m_shvPlayerStats[9]))+"\n\t\t"+
+								numberToString((*m_shvPlayerStats[10]))+"\n\t\t"+
+								numberToString((*m_fCriticalChance))+"%");
+
+	rightSideSecondaryStats.setString(numberToString((*m_shvPlayerStats[6]))+"\n\n"+
+										numberToString((*m_shvPlayerStats[4]))+"\n"+
+										numberToString((*m_shvPlayerStats[5])));
 
 	for (int i = 0; i <= 5; i++)
 	{
-		if (m_player->getCurrentSouls() >= m_player->getStatArray(i)*10) 
+		if ((*m_shvPlayerStats[6]) >= (*m_shvPlayerStats[i]) * 10) 
 		{
 			increaseButtonSpriteArray[i].setTexture(m_increaseButtonRed);
 			increasable[i] = true;
@@ -126,28 +146,10 @@ void Ui::update(Player* player)
 		}
 	}
 
-	sf::Event event;
-	while (StateHandler::getInstance().m_pWindow->pollEvent(event)) 
-	{
-		for (int i = 0; i <= 5; i++) 
-		{
-			if (event.mouseButton.x >= increaseButtonSpriteArray[i].getPosition().x &&
-				event.mouseButton.x <= increaseButtonSpriteArray[i].getPosition().x + 15 &&
-				event.mouseButton.y >= increaseButtonSpriteArray[i].getPosition().y &&
-				event.mouseButton.y <= increaseButtonSpriteArray[i].getPosition().y + 15 &&
-				increasable[i] == true) 
-			{
-				m_player->increaseStat(i);
-				m_player->modifySouls(m_player->getStatArray(i)*-10);
-			}	
-		}
-	}
+	healthText.setString(numberToString((*m_shvPlayerStats[7]))+" / " +
+							numberToString(((*m_shvPlayerStats[8])))); 
 
-	healthText.setString(numberToString(m_player->getCurrentHealth())+" / " +
-							numberToString(m_player->getMaxHealth())); 
-
-
-	healthRotation = ((105 - (m_player->getCurrentHealth()/m_player->getMaxHealth()*100))/5);
+	healthRotation = ((105.f - ((float(*m_shvPlayerStats[7]) / float(*m_shvPlayerStats[8])) * 100.f)) / 3.f);
 	m_shFrameCount += 1;
 
 	if(m_shFrameCount % 4 == 0)
@@ -155,6 +157,22 @@ void Ui::update(Player* player)
 		m_healthDiamondSprite.rotate(healthRotation);
 	}
 	
+}
+
+void Ui::processEvents(sf::Event event)
+{
+	for (int i = 0; i <= 5; i++) 
+	{
+		if (event.mouseButton.x >= increaseButtonSpriteArray[i].getPosition().x &&
+			event.mouseButton.x <= increaseButtonSpriteArray[i].getPosition().x + 15 &&
+			event.mouseButton.y >= increaseButtonSpriteArray[i].getPosition().y &&
+			event.mouseButton.y <= increaseButtonSpriteArray[i].getPosition().y + 15 &&
+			increasable[i] == true) 
+		{
+			(*m_shvPlayerStats[i])++;
+			(*m_shvPlayerStats[6]) = ((*m_shvPlayerStats[6]) + ((*m_shvPlayerStats[i]) * -10));
+		}	
+	}
 }
 
 void Ui::draw()

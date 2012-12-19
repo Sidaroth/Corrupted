@@ -3,6 +3,7 @@
 #include "Actor.h"
 #include "Environment.h"
 #include "Projectile.h"
+#include "Ui.h"
 
 
 class Character : public Actor
@@ -28,6 +29,8 @@ protected:
 	short m_shSpellDamage;
 	float m_fCriticalChance;	/// Given in percent
 
+	Ui* userInterface;
+
 	~Character();
 	Character();
 	EnvironmentHandler* m_environmentLevel;
@@ -36,6 +39,7 @@ protected:
 public:
 	bool attack(short row); ///0=N, 1=NE, 2=E, 3=SE, 4=S, 5=SW, 6=W, 7=NW
 	virtual bool loadContent();
+	virtual void setUserInterface(Ui* ui);
 
 	///////GET FUNCTIONS///////
 	short getMaxHealth();

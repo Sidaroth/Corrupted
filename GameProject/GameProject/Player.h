@@ -33,6 +33,7 @@ public:
 	Player();
 	Player(std::string name);
 	bool loadContent();
+	void setUserInterface(Ui* ui);
 	void update();
 	void draw();
 

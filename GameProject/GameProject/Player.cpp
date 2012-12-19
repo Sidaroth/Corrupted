@@ -27,6 +27,11 @@ Player::Player() : Character()
 	m_sName = "Ronald McDonald";
 }
 
+void Player::setUserInterface(Ui* ui)
+{
+	userInterface = ui;
+}
+
 bool Player::loadContent()
 {
 	//load projectiles in character
@@ -65,6 +70,9 @@ bool Player::loadContent()
 	m_Sprite.setTexture(*m_TextureTypes[STILL]);
 	animation();
 
+	userInterface -> initialize(&m_shStrength, &m_shIntelligence, &m_shToughness, &m_shSpeed,
+							    &m_shCurrentSouls, &m_shWeaponLevel, &m_shArmorLevel, &m_shCurrentHealth,
+								&m_shMaxHealth, &m_shMeleeDamage, &m_shSpellDamage, &m_fCriticalChance);
 	return EXIT_SUCCESS;
 }
 
@@ -72,17 +80,10 @@ void Player::update()
 {
 	Character::update();
 
-	m_shMaxHealth = m_shToughness*m_shToughness*2;
-	m_shMeleeDamage = m_shStrength*m_shStrength;
-	m_shSpellDamage = m_shIntelligence*m_shIntelligence;
-	m_fCriticalChance = m_shStrength/5 + m_shSpeed/2;
-
-	m_saStatArray[0] = m_shStrength;
-	m_saStatArray[1] = m_shIntelligence;
-	m_saStatArray[2] = m_shToughness;
-	m_saStatArray[3] = m_shSpeed;
-	m_saStatArray[4] = m_shWeaponLevel;
-	m_saStatArray[5] = m_shArmorLevel;
+	m_shMaxHealth     = m_shToughness    * m_shToughness * 2;
+	m_shMeleeDamage   = m_shStrength     * m_shStrength;
+	m_shSpellDamage   = m_shIntelligence * m_shIntelligence;
+	m_fCriticalChance = m_shStrength / 5 + m_shSpeed / 2;
 
 	collisionCheck( );
 }

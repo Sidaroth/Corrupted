@@ -29,15 +29,15 @@ void SuperLevel::superLoadContent(sf::RenderWindow* window)
 
 	m_Level -> loadContent();
 
-	player = new Player();
-	player -> setEnvironmentLevel( m_Level );
-	player -> loadContent();
-
-	player -> setEnemyVector( m_EnemyHandler->getEnemyVector( ) );
-
 	ui = new Ui();
 	ui->loadContent();
 
+	player = new Player();
+	player -> setEnvironmentLevel( m_Level );
+	player -> setUserInterface(ui);
+	player -> loadContent();
+
+	player -> setEnemyVector( m_EnemyHandler->getEnemyVector( ) );
 	player -> setPosition(m_Level -> getPlayerPosition());
 	
 	keyControl = new KeyboardController(player,StateHandler::getInstance().m_pWindow);
@@ -56,6 +56,8 @@ void SuperLevel::unloadContent()
 void SuperLevel::processEvents(sf::Event event)
 {
 		keyControl->checkMouse(event);
+
+		ui -> processEvents(event);
 
 		if(sf::Keyboard::isKeyPressed(sf::Keyboard::T))
 		{
@@ -100,7 +102,7 @@ void SuperLevel::update()
 {
 	player -> animation();
 	player -> update();
-	ui -> update(player);
+	ui -> update();
 	keyControl->checkPressed();
 	m_EnemyHandler -> update(player -> getPosition());
 
