@@ -21,11 +21,10 @@ private:
 	sf::Sprite increaseButtonSpriteArray[6];
 	bool increasable[6];
 	
-	std::vector<FLoatingText> m_ftFloatingTextEntities;
+	std::vector<FloatingText *> m_ftFloatingTextEntities;
 	std::vector<short *> m_shvPlayerStats;
 	float* m_fCriticalChance;
 
-	//Player* m_player;
 	sf::Font font;
 
 	sf::Text rightSideText;
@@ -43,7 +42,8 @@ public:
 	Ui();
 	~Ui();
 
-	void addFloatingText();
+	void addFloatingText(std::string message, Vector2f position, sf::Color color);
+	void addSouls(short amount, Vector2f position);
 	bool loadContent();
 	void unloadContent();
 	void update();

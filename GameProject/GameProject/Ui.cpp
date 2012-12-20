@@ -120,16 +120,16 @@ void Ui::initialize(short* strength, short* intelligence, short* toughness, shor
 
 void Ui::update()
 {
-	rightSideStats.setString(numberToString((*m_shvPlayerStats[0]))+"\n"+
-								numberToString((*m_shvPlayerStats[1]))+"\n"+
-								numberToString((*m_shvPlayerStats[2]))+"\n"+
-								numberToString((*m_shvPlayerStats[3]))+"\n\n\t\t"+
-								numberToString((*m_shvPlayerStats[9]))+"\n\t\t"+
-								numberToString((*m_shvPlayerStats[10]))+"\n\t\t"+
+	rightSideStats.setString(numberToString((*m_shvPlayerStats[0]))+"\n" +
+								numberToString((*m_shvPlayerStats[1]))+"\n" +
+								numberToString((*m_shvPlayerStats[2]))+"\n" +
+								numberToString((*m_shvPlayerStats[3]))+"\n\n\t\t" +
+								numberToString((*m_shvPlayerStats[9]))+"\n\t\t" +
+								numberToString((*m_shvPlayerStats[10]))+"\n\t\t" +
 								numberToString((*m_fCriticalChance))+"%");
 
-	rightSideSecondaryStats.setString(numberToString((*m_shvPlayerStats[6]))+"\n\n"+
-										numberToString((*m_shvPlayerStats[4]))+"\n"+
+	rightSideSecondaryStats.setString(numberToString((*m_shvPlayerStats[6]))+"\n\n" +
+										numberToString((*m_shvPlayerStats[4]))+"\n" +
 										numberToString((*m_shvPlayerStats[5])));
 
 	for (int i = 0; i <= 5; i++)
@@ -156,7 +156,22 @@ void Ui::update()
 	{
 		m_healthDiamondSprite.rotate(healthRotation);
 	}
-	
+
+	FloatingText* temp;
+	for(std::vector<FloatingText*>::iterator it = m_ftFloatingTextEntities.begin(); it != m_ftFloatingTextEntities.end();)
+	{
+		temp = (*it);
+		temp -> update();
+
+		if(temp -> isDead())
+		{
+			it = m_ftFloatingTextEntities.erase(it);	// Remove if dead
+		}
+		else											// if not, go to next. 
+		{
+			++it;
+		}
+	}
 }
 
 void Ui::processEvents(sf::Event event)
@@ -191,11 +206,24 @@ void Ui::draw()
 	{
 		StateHandler::getInstance().m_pWindow->draw(increaseButtonSpriteArray[i]);
 	}
+
+	// Loop through and draw each of the floating text objects. 
+	for(std::vector<FloatingText*>::iterator it = m_ftFloatingTextEntities.begin(); it != m_ftFloatingTextEntities.end(); ++it)
+	{
+		(*it) -> draw(); 
+	}
 }
 
-void Ui::addFloatingText()
+void Ui::addFloatingText(std::string message, Vector2f position, sf::Color color)
 {
+	m_ftFloatingTextEntities.push_back(new FloatingText(message, position, &font, color)); 
+}
 
+void Ui::addSouls(short amount, Vector2f position)
+{
+	(*m_shvPlayerStats[6]) += amount;
+	sf::Color color(sf::Color::Blue);
+	addFloatingText("+" + numberToString(amount) + " Souls", position, color);
 }
 
 template <typename T>
