@@ -1,0 +1,26 @@
+[
+    {
+        "name" : "Garlov",
+        "score" : "50000"
+    },
+    {
+        "name" : "Garlov",
+        "score" : "40000"
+    },
+    {
+        "name" : "Garlov",
+        "score" : "30000"
+    },
+    {
+        "name" : "Garlov",
+        "score" : "20000"
+    },
+    {
+        "name" : "Garlov",
+        "score" : "10000"
+    },
+    {
+        "name" : "Garlov",
+        "score" : "5000"
+    }
+]

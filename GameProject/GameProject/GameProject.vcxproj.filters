@@ -64,6 +64,9 @@
     <ClCompile Include="FloatingText.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Highscore.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Actor.h">
@@ -130,6 +133,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="FloatingText.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Highscore.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
