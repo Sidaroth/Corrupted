@@ -18,8 +18,11 @@ private:
 	sf::Texture m_iconFireball;
 	sf::Sprite m_iconFireballSprite;
 
+	sf::Texture m_iconSword;
+	sf::Sprite m_iconSwordSprite;
+
 	sf::Texture m_iconEmpty;
-	sf::Sprite m_iconEmptySpriteArray[5];
+	sf::Sprite m_iconEmptySpriteArray[4];
 
 	sf::Texture m_increaseButtonGray;
 	sf::Texture m_increaseButtonRed;
@@ -41,7 +44,7 @@ private:
 
 	sf::Text healthText;
 
-	sf::Text iconText;
+	sf::Text iconText[5];
 
 	float healthRotation;
 	short m_shFrameCount;
