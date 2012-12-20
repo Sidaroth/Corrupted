@@ -6,28 +6,103 @@
 
 Highscore::Highscore( )
 {
-	m_sUsername = "";
+	m_bNothingTyped = true;
+	m_sUsername = "Type in your name";
+	m_iScrollPos = 10;
+	m_iMaxScrollPos = 100;
+	m_iMinScrollPos = 10;
 }
 
 void Highscore::loadContent( sf::RenderWindow* window )
 {
-	
+	decodeJson( );
 
-	if(!m_impactFont.loadFromFile("../../Resources/impact.ttf"))				//Load font 
+	if( !m_font.loadFromFile( "../../Resources/SourceCodePro-Black.ttf" ) ) //Load font 
 	{
 		std::cout << "Could not load font" << std::endl;
 	}
 	else
 	{
-		std::cout << "stringstart";
-		m_usernameText.setString(m_sUsername);
-		m_usernameText.setPosition(1085, 583);
-		m_usernameText.setScale(0.6, 0.6);
-		m_usernameText.setFont(m_impactFont);
-		std::cout << "stringend";
+		m_usernameText.setString( m_sUsername );
+		m_usernameText.setPosition( 300, 625 );
+		m_usernameText.setFont( m_font );
+
+		reloadLeaderboard( );
 	}
 
-decodeJson( );
+	if( !m_backgroundTexture.loadFromFile("../../Resources/highscores_background.PNG" ) )
+	{
+		std::cout << "Could not load highscores_background.PNG" << std::endl;
+	}
+	else
+	{
+		m_backgroundSprite.setTexture( m_backgroundTexture );
+		m_backgroundSprite.setPosition( 0, 0 );
+	}
+
+	if( !m_mainMenuTexture.loadFromFile("../../Resources/main_menu_button.PNG" ) )
+	{
+		std::cout << "Could not load main_menu_button.PNG" << std::endl;
+	}
+	else
+	{
+		m_mainMenuSprite.setTexture( m_mainMenuTexture );
+		m_mainMenuSprite.setPosition( 950, 25 );
+	}
+
+	if( !m_mainMenuPressTexture.loadFromFile("../../Resources/main_menu_button_pressed.PNG" ) )
+	{
+		std::cout << "Could not load main_menu_button_pressed.PNG" << std::endl;
+	}
+
+	if( !m_submitTexture.loadFromFile("../../Resources/submit_button.PNG" ) )
+	{
+		std::cout << "Could not load submit_button.PNG" << std::endl;
+	}
+	else
+	{
+		m_submitSprite.setTexture( m_submitTexture );
+		m_submitSprite.setPosition( 700, 600 );
+	}
+
+	if( !m_submitPressTexture.loadFromFile("../../Resources/submit_button_pressed.PNG" ) )
+	{
+		std::cout << "Could not load submit_button_pressed.PNG" << std::endl;
+	}
+
+	if( !m_textFieldTexture.loadFromFile("../../Resources/submit_field.PNG" ) )
+	{
+		std::cout << "Could not load submit_field.PNG" << std::endl;
+	}
+	else
+	{
+		m_textFieldSprite.setTexture( m_textFieldTexture );
+		m_textFieldSprite.setPosition( 275, 600 );
+	}
+}
+
+
+void Highscore::reloadLeaderboard( )
+{
+	std::string leaderboardText = "";
+
+	for( int i = m_iScrollPos - m_iMinScrollPos; ( i < leaderboard.size( ) ) && ( i < m_iScrollPos ); i++ )
+	{
+		std::ostringstream tempString;
+		std::string number = std::to_string( ( long long ) i + 1 );
+		number += ".";
+		tempString	<< std::left
+					<< std::setw(5)	 			<< number
+					<< std::setw(15)			<< leaderboard[i].name		
+					<< std::setw(10)			<< leaderboard[i].score		
+					<< '\n';
+		leaderboardText += tempString.str();
+	}
+
+	m_leaderboardText.setString( leaderboardText );
+	m_leaderboardText.setPosition( 350, 160 );
+	m_leaderboardText.setCharacterSize( 35 );
+	m_leaderboardText.setFont( m_font );
 }
 
 void Highscore::unloadContent( )
@@ -46,20 +121,73 @@ void Highscore::processEvents( sf::Event event )
 	{
 		if ( event.text.unicode )
 		{
+			if ( m_bNothingTyped )
+			{
+				m_sUsername.resize ( m_sUsername.size( ) - m_sUsername.size( ) );
+				m_bNothingTyped = false;
+			}
+
 			m_sUsername += ( event.text.unicode );
 			m_usernameText.setString( m_sUsername );
 		}
 	}
+
 	if( sf::Keyboard::isKeyPressed( sf::Keyboard::Back ) )
 	{
-		if ( m_sUsername.size ( ) > 0 )  m_sUsername.resize ( m_sUsername.size ( ) - 1 );
+		if ( m_bNothingTyped )
+		{
+			m_sUsername.resize ( m_sUsername.size( ) - m_sUsername.size( ) );
+			m_bNothingTyped = false;
+		}
+
+		if ( m_sUsername.size( ) > 0 ) 
+		{
+			m_sUsername.resize ( m_sUsername.size( ) - 1 );
+			
+		}
+		m_usernameText.setString( m_sUsername );
+	}
+
+	if ( event.type == sf::Event::MouseWheelMoved  )
+	{
+		if( event.mouseWheel.delta == 1)
+		{
+			 m_iScrollPos--;
+		}
+		else if( event.mouseWheel.delta == -1)
+		{
+			m_iScrollPos++;
+		}
+
+		if( m_iScrollPos < m_iMinScrollPos )
+		{
+			m_iScrollPos = m_iMinScrollPos;
+		}
+
+		if( m_iScrollPos > leaderboard.size() )
+		{
+			m_iScrollPos = leaderboard.size();
+		}
+
+		if( m_iScrollPos > m_iMaxScrollPos )
+		{
+			m_iScrollPos = m_iMaxScrollPos;
+		}
+
+		reloadLeaderboard( );
 	}
 }
 
 void Highscore::draw( )
 {
-	m_pWindow->draw( m_backgroundSprite );
-	StateHandler::getInstance().m_pWindow->draw(m_usernameText);
+	m_window = StateHandler::getInstance().m_pWindow;
+
+	m_window->draw( m_backgroundSprite );
+	m_window->draw( m_mainMenuSprite );
+	m_window->draw( m_submitSprite );
+	m_window->draw( m_textFieldSprite );
+	m_window->draw(m_usernameText);
+	m_window->draw(m_leaderboardText);
 }
 
 void Highscore::decodeJson( )
@@ -87,7 +215,7 @@ void Highscore::decodeJson( )
 		fs.close( );
 	}
 
-	leaderboard = read_entries( file_name );
+	leaderboard = read_entries( file_name );		
 }
 
 std::string Highscore::httpGet( std::string host, std::string path )

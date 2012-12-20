@@ -10,6 +10,7 @@
 
 #include <fstream>
 #include <iostream>
+#include <iomanip>
 
 #ifndef JSON_SPIRIT_MVALUE_ENABLED
 #error Please define JSON_SPIRIT_MVALUE_ENABLED for the mValue type to be enabled 
@@ -20,14 +21,35 @@ using namespace json_spirit;
 class Highscore : public GameState
 {
 private:
+	sf::RenderWindow* m_window;
 
 	sf::Texture m_backgroundTexture;
 	sf::Sprite m_backgroundSprite;
+
+	sf::Texture m_mainMenuTexture;
+	sf::Texture m_mainMenuPressTexture;
+	sf::Sprite m_mainMenuSprite;
+
+	sf::Texture m_submitTexture;
+	sf::Texture m_submitPressTexture;
+	sf::Sprite m_submitSprite;
+
+	sf::Texture m_textFieldTexture;
+	sf::Sprite m_textFieldSprite;
+
 	sf::Text m_usernameText;
-	sf::Font m_impactFont;
+	sf::Text m_leaderboardText;
+
+	sf::Font m_font;
 
 	std::string m_sJson;
 	std::string m_sUsername;
+
+	bool m_bNothingTyped;
+
+	int m_iScrollPos;
+	int m_iMaxScrollPos;
+	int m_iMinScrollPos;
 
 	struct User
 	{
@@ -48,7 +70,7 @@ public:
 
 	std::string httpGet(std::string host, std::string path);
 
-	void drawLeaderboard();
+	void reloadLeaderboard();
 
 	void decodeJson();
 	
