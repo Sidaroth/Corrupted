@@ -88,6 +88,25 @@ void SuperLevel::processEvents(sf::Event event)
 			player -> modifySouls(-5);
 		}
 
+		if(sf::Keyboard::isKeyPressed(sf::Keyboard::F))
+		{
+			sf::View tempView = StateHandler::getInstance().m_pWindow -> getView();
+
+			int windowX = tempView.getCenter( ).x - ( tempView.getSize( ).x / 2 );
+			int windowY = tempView.getCenter( ).y - ( tempView.getSize( ).y / 2 );
+
+			Vector2f derp((*player->getPosition()).x - windowX, (*player -> getPosition()).y - windowY);
+
+			std::cout << "View: " << windowX << ", " << windowY << std::endl;
+			std::cout << "Player: " << (*player -> getPosition()).x << ", " << (*player -> getPosition()).y << std::endl;
+			std::cout << "UI: " << derp.x << ", " << derp.y << std::endl;
+			std::cout << "scaling\n";
+			derp.x /= 1.5;
+			derp.y /= 1.5;
+			std::cout << "UI: " << derp.x << ", " << derp.y << std::endl;
+			ui -> addSouls(123, (derp));
+		}
+
 		if (event.type == sf::Event::KeyReleased)
 		{
 			 if(!player->isDoingAction())

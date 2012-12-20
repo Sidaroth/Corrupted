@@ -32,21 +32,25 @@ public:
 	~Player();
 	Player();
 	Player(std::string name);
+	
 	bool loadContent();
 	void setUserInterface(Ui* ui);
 	void update();
 	void draw();
 
-	bool checkAtackCollision(short direction);
 	short getTotalSouls();
 	short getCurrentSouls();
 	short getWeaponLevel();
 	short getArmorLevel();
-
 	int getStatArray(int stat);
+
 	void increaseStat(int stat);
-	bool pointInsideRect(int pX,int pY,sf::FloatRect rectangle);
 	void modifySouls(short amount);
+
+
+	bool checkAtackCollision(short direction);
+	bool pointInsideRect(int pX,int pY,sf::FloatRect rectangle);
+
 
 	void setEnemyVector( std::vector<Enemy*>* enemyVector);
 };

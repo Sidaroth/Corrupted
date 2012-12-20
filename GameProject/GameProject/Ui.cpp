@@ -4,7 +4,8 @@ Ui::Ui()
 {
 	m_shFrameCount = 0;
 
-	for (int i = 0; i <= 5; i++) {
+	for (int i = 0; i <= 5; i++)
+	{
 		increasable[i] = false;
 	}
 	
@@ -18,8 +19,6 @@ Ui::~Ui()
 bool Ui::loadContent()
 {
 	sf::Image healthDiamondMaskingImage;
-	sf::Image iconFireballMaskingImage;
-	sf::Image iconEmptyMaskingImage;
 	
 
 	if(!m_uiBackground.loadFromFile("../../Resources/GUI.PNG"))				//Load images
@@ -32,12 +31,17 @@ bool Ui::loadContent()
 		return EXIT_FAILURE;
 	}
 
-	if(!iconFireballMaskingImage.loadFromFile("../../Resources/fireball_icon.PNG"))
+	if(!m_iconFireball.loadFromFile("../../Resources/fireball_icon.PNG"))
 	{
 		return EXIT_FAILURE;
 	}
 
-	if(!iconEmptyMaskingImage.loadFromFile("../../Resources/empty_icon.PNG"))
+	if(!m_iconSword.loadFromFile("../../Resources/sword_icon.PNG"))
+	{
+		return EXIT_FAILURE;
+	}
+
+	if(!m_iconEmpty.loadFromFile("../../Resources/empty_icon.PNG"))
 	{
 		return EXIT_FAILURE;
 	}
@@ -55,11 +59,6 @@ bool Ui::loadContent()
 	healthDiamondMaskingImage.createMaskFromColor(sf::Color(0, 0, 0), 0);			//Remove black backgrounds
 	m_healthDiamond.loadFromImage(healthDiamondMaskingImage);
 
-	iconFireballMaskingImage.createMaskFromColor(sf::Color(0, 0, 0), 0);			
-	m_iconFireball.loadFromImage(iconFireballMaskingImage);
-
-	iconEmptyMaskingImage.createMaskFromColor(sf::Color(0, 0, 0), 0);
-	m_iconEmpty.loadFromImage(iconEmptyMaskingImage);
 
 	if(!font.loadFromFile("../../Resources/impact.ttf"))				//Load font 
 	{
@@ -79,21 +78,27 @@ bool Ui::loadContent()
 	m_iconFireballSprite.setScale(0.55, 0.55);
 	m_iconFireballSprite.setPosition(860, 680);
 
-	for (int i = 0; i <= 4; i++) {
+	m_iconSwordSprite.setTexture(m_iconSword);
+	m_iconSwordSprite.setScale(0.55, 0.55);
+	m_iconSwordSprite.setPosition(779, 680);
+
+	for (int i = 0; i <= 3; i++)
+	{
 		m_iconEmptySpriteArray[i].setTexture(m_iconEmpty);
 		m_iconEmptySpriteArray[i].setScale(0.55, 0.55);
 		m_iconEmptySpriteArray[i].setPosition(455 + i*81, 680);
 	}
 
-	for (int i = 0; i <= 5; i++) {
+	for (int i = 0; i <= 5; i++)
+	{
 		increaseButtonSpriteArray[i].setTexture(m_increaseButtonGray);
 	}
-	increaseButtonSpriteArray[0].setPosition(1200, 586);
-	increaseButtonSpriteArray[1].setPosition(1200, 608);
-	increaseButtonSpriteArray[2].setPosition(1200, 631);
-	increaseButtonSpriteArray[3].setPosition(1200, 652);
-	increaseButtonSpriteArray[4].setPosition(1345, 631);
-	increaseButtonSpriteArray[5].setPosition(1345, 652);
+	increaseButtonSpriteArray[0].setPosition(1201, 586);
+	increaseButtonSpriteArray[1].setPosition(1201, 608);
+	increaseButtonSpriteArray[2].setPosition(1201, 631);
+	increaseButtonSpriteArray[3].setPosition(1201, 652);
+	increaseButtonSpriteArray[4].setPosition(1349, 631);
+	increaseButtonSpriteArray[5].setPosition(1349, 652);
 
 																		//Set string, position, scale and font to all texts
 	rightSideText.setPosition(1085, 583);
@@ -106,11 +111,11 @@ bool Ui::loadContent()
 	rightSideSecondaryText.setScale(0.6, 0.6);
 	rightSideSecondaryText.setFont(font);
 
-	rightSideStats.setPosition(1185, 583);
+	rightSideStats.setPosition(1183, 583);
 	rightSideStats.setScale(0.6, 0.6);
 	rightSideStats.setFont(font);
 
-	rightSideSecondaryStats.setPosition(1333, 583);
+	rightSideSecondaryStats.setPosition(1331, 583);
 	rightSideSecondaryStats.setScale(0.6, 0.6);
 	rightSideSecondaryStats.setFont(font);
 
@@ -118,10 +123,23 @@ bool Ui::loadContent()
 	healthText.setScale(0.7, 0.7);
 	healthText.setFont(font);
 
-	iconText.setPosition(478, 740);
-	iconText.setString("1\t\t\t\t\t\t\t\t\t\t2\t\t\t\t\t\t\t\t\t3\t\t\t\t\t\t\t\t\t\t4\t\t\t\t\t\t\t\t\t\t\t\tMouse");
-	iconText.setScale(0.4, 0.4);
-	iconText.setFont(font);
+	for (int i = 0; i <= 4; i++) 
+	{
+		iconText[i].setScale(0.4, 0.4);
+		iconText[i].setFont(font);
+	}
+
+	iconText[0].setString("1");
+	iconText[0].setPosition(480, 740);			
+	iconText[1].setString("2");
+	iconText[1].setPosition(561, 740);
+	iconText[2].setString("3");
+	iconText[2].setPosition(644, 740);
+	iconText[3].setString("4");
+	iconText[3].setPosition(725, 740);
+	iconText[4].setString("Mouse");
+	iconText[4].setPosition(830, 740);
+	
 
 	return !EXIT_FAILURE;
 }
@@ -154,16 +172,16 @@ void Ui::initialize(short* strength, short* intelligence, short* toughness, shor
 
 void Ui::update()
 {
-	rightSideStats.setString(numberToString((*m_shvPlayerStats[0]))+"\n"+				//Update strings for various stats to display
-								numberToString((*m_shvPlayerStats[1]))+"\n"+
-								numberToString((*m_shvPlayerStats[2]))+"\n"+
-								numberToString((*m_shvPlayerStats[3]))+"\n\n\t\t"+
-								numberToString((*m_shvPlayerStats[9]))+"\n\t\t"+
-								numberToString((*m_shvPlayerStats[10]))+"\n\t\t"+
+	rightSideStats.setString(numberToString((*m_shvPlayerStats[0]))+"\n" +
+								numberToString((*m_shvPlayerStats[1]))+"\n" +
+								numberToString((*m_shvPlayerStats[2]))+"\n" +
+								numberToString((*m_shvPlayerStats[3]))+"\n\n\t\t" +
+								numberToString((*m_shvPlayerStats[9]))+"\n\t\t" +
+								numberToString((*m_shvPlayerStats[10]))+"\n\t\t" +
 								numberToString((*m_fCriticalChance))+"%");
 
-	rightSideSecondaryStats.setString(numberToString((*m_shvPlayerStats[6]))+"\n\n"+
-										numberToString((*m_shvPlayerStats[4]))+"\n"+
+	rightSideSecondaryStats.setString(numberToString((*m_shvPlayerStats[6]))+"\n\n" +
+										numberToString((*m_shvPlayerStats[4]))+"\n" +
 										numberToString((*m_shvPlayerStats[5])));
 
 	for (int i = 0; i <= 5; i++)											
@@ -190,7 +208,22 @@ void Ui::update()
 		healthRotation = ((105.f - ((float(*m_shvPlayerStats[7]) / float(*m_shvPlayerStats[8])) * 100.f)) / 3.f);	//Calculate the angle to rotate the health diamond
 		m_healthDiamondSprite.rotate(healthRotation);																// 105 - 'current hp in percent' / 3
 	}
-	
+
+	FloatingText* temp;
+	for(std::vector<FloatingText*>::iterator it = m_ftFloatingTextEntities.begin(); it != m_ftFloatingTextEntities.end();)
+	{
+		temp = (*it);
+		temp -> update();
+
+		if(temp -> isDead())
+		{
+			it = m_ftFloatingTextEntities.erase(it);	// Remove if dead
+		}
+		else											// if not, go to next. 
+		{
+			++it;
+		}
+	}
 }
 
 void Ui::processEvents(sf::Event event)
@@ -217,27 +250,46 @@ void Ui::draw()
 	StateHandler::getInstance().m_pWindow->draw(m_uiBackgroundSprite);
 	StateHandler::getInstance().m_pWindow->draw(m_healthDiamondSprite);
 	StateHandler::getInstance().m_pWindow->draw(m_iconFireballSprite);
+	StateHandler::getInstance().m_pWindow->draw(m_iconSwordSprite);
 	StateHandler::getInstance().m_pWindow->draw(rightSideText);
 	StateHandler::getInstance().m_pWindow->draw(rightSideStats);
 	StateHandler::getInstance().m_pWindow->draw(rightSideSecondaryText);
 	StateHandler::getInstance().m_pWindow->draw(rightSideSecondaryStats);
 	StateHandler::getInstance().m_pWindow->draw(healthText);
-	StateHandler::getInstance().m_pWindow->draw(iconText);
 	
-	for (int i = 0; i <= 4; i++) 
+	for (int i = 0; i <= 3; i++) 
 	{
 		StateHandler::getInstance().m_pWindow->draw(m_iconEmptySpriteArray[i]);
+		StateHandler::getInstance().m_pWindow->draw(iconText[i]);
+	}
+
+	for (int i = 0; i <= 4; i++) 
+	{
+		StateHandler::getInstance().m_pWindow->draw(iconText[i]);
 	}
 
 	for (int i = 0; i <= 5; i++) 
 	{
 		StateHandler::getInstance().m_pWindow->draw(increaseButtonSpriteArray[i]);
 	}
+
+	// Loop through and draw each of the floating text objects. 
+	for(std::vector<FloatingText*>::iterator it = m_ftFloatingTextEntities.begin(); it != m_ftFloatingTextEntities.end(); ++it)
+	{
+		(*it) -> draw(); 
+	}
 }
 
-void Ui::addFloatingText()
+void Ui::addFloatingText(std::string message, Vector2f position, sf::Color color)
 {
+	m_ftFloatingTextEntities.push_back(new FloatingText(message, position, &font, color)); 
+}
 
+void Ui::addSouls(short amount, Vector2f position)
+{
+	(*m_shvPlayerStats[6]) += amount;
+	sf::Color color(sf::Color::Blue);
+	addFloatingText("+" + numberToString(amount) + " Souls", position, color);
 }
 
 template <typename T>  std::string Ui::numberToString ( T Number )				//conversion from number to string
