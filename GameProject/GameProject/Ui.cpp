@@ -196,11 +196,12 @@ void Ui::update()
 void Ui::processEvents(sf::Event event)
 {
 	for (int i = 0; i <= 5; i++)																	//Loop through upgradable stats
-	{
+	{		
 		if (event.mouseButton.x >= increaseButtonSpriteArray[i].getPosition().x &&					//check any of the increase buttons are pressed
 			event.mouseButton.x <= increaseButtonSpriteArray[i].getPosition().x + 15 &&
 			event.mouseButton.y >= increaseButtonSpriteArray[i].getPosition().y &&
 			event.mouseButton.y <= increaseButtonSpriteArray[i].getPosition().y + 15 &&
+			event.type == sf::Event::MouseButtonPressed &&
 			increasable[i] == true)																	//and if the player has enough souls
 		{
 			(*m_shvPlayerStats[i])++;																//Increase stat by one
