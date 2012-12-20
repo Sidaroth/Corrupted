@@ -380,29 +380,32 @@ void Character::takeDamage( short damage )
 
 	if(damage > 0)
 	{
-		message += "+ ";
-		color.Red;
+		message += "- ";
+		color = sf::Color::Red;
 	}
 	else
 	{
-		message += "- ";
-		color.Green;
+		message += "+ ";
+		damage *= -1;
+		color = sf::Color::Green;
 	}
 
-	//std::cout << message << std::endl;
-	//std::cout << "character ui: " << userInterface << std::endl;
-	
-	userInterface -> addFloatingText("hei", uiPosition, color);
+	message += std::to_string ((long long) damage) + " Health";
 
-	//userInterface -> addFloatingText(message, m_Position, color);
+	userInterface -> addFloatingText(message, uiPosition, color);
 
 	if( m_shCurrentHealth < 0)
 	{
 		m_shCurrentHealth = 0;
-		// die();
+		die();
 	}
 	else if (m_shCurrentHealth > m_shMaxHealth)
 	{
 		m_shCurrentHealth = m_shMaxHealth;
 	}
+}
+
+void Character::die()
+{
+
 }

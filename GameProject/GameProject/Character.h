@@ -77,4 +77,5 @@ public:
 	bool isDoingAction();
 	void castSpell( Vector2f mouseCoordinates, short spell );
 	void takeDamage( short damage );
+	void die();
 };

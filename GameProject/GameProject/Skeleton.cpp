@@ -40,9 +40,7 @@ void Skeleton::draw()
 void Skeleton::update(Vector2f* playerPos)
 {
 	animation();
-	// NOTE - BUG: Because the skeleton moves 3 and 3 pixels, it will spasm madly and potentially crash if the startX or startY is not a multiple of 3. 
 
-	// If it has no path, or has walked a certain amount of steps on it's present path. Calculate new path. 
 	float xPos = m_Sprite.getPosition().x;
 	float yPos = m_Sprite.getPosition().y;
 

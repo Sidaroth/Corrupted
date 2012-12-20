@@ -226,7 +226,7 @@ bool Player::checkAttackCollision(short direction)
 			{
 				if((attackPoint_y > (enemy_y - enemy_height / 2)) && (attackPoint_y < (enemy_y + (enemy_height / 2))))
 				{
-					m_EnemyVector -> at( i ) -> takeDamage(m_shMeleeDamage);
+					m_EnemyVector -> at( i ) -> takeDamage( m_shMeleeDamage);
 					return true;
 				}
 			}
@@ -235,7 +235,7 @@ bool Player::checkAttackCollision(short direction)
 			{
 				if((player_y > (enemy_y - (enemy_height / 2))) && (player_y < (enemy_y + (enemy_height / 2))))
 				{
-					m_EnemyVector -> at( i ) -> takeDamage(m_shMeleeDamage);
+					m_EnemyVector -> at( i ) -> takeDamage( m_shMeleeDamage);
 					return true;
 				}
 			}

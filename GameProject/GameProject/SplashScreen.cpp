@@ -47,5 +47,5 @@ void SplashScreen::processEvents(sf::Event event)
 
 void SplashScreen::draw()
 {
-	m_pWindow->draw(m_splashScreenSprite);
+	StateHandler::getInstance().m_pWindow -> draw(m_splashScreenSprite);
 }
