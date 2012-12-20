@@ -32,6 +32,9 @@ void SuperLevel::superLoadContent(sf::RenderWindow* window)
 	ui = new Ui();
 	ui->loadContent();
 
+	//std::cout << ui << std::endl;
+	m_EnemyHandler -> setUserInterface(ui);
+
 	player = new Player();
 	player -> setEnvironmentLevel( m_Level );
 	player -> setUserInterface(ui);
@@ -96,16 +99,13 @@ void SuperLevel::processEvents(sf::Event event)
 			int windowX = tempView.getCenter( ).x - ( tempView.getSize( ).x / 2 );
 			int windowY = tempView.getCenter( ).y - ( tempView.getSize( ).y / 2 );
 
-			Vector2f derp((*player->getPosition()).x - windowX, (*player -> getPosition()).y - windowY);
+			Vector2f uiPosition((*player -> getPosition()).x, (*player -> getPosition()).y);
+			uiPosition.x -= windowX;
+			uiPosition.y -= windowY;
+			uiPosition.x /= 1.5;
+			uiPosition.y /= 1.5;
 
-			std::cout << "View: " << windowX << ", " << windowY << std::endl;
-			std::cout << "Player: " << (*player -> getPosition()).x << ", " << (*player -> getPosition()).y << std::endl;
-			std::cout << "UI: " << derp.x << ", " << derp.y << std::endl;
-			std::cout << "scaling\n";
-			derp.x /= 1.5;
-			derp.y /= 1.5;
-			std::cout << "UI: " << derp.x << ", " << derp.y << std::endl;
-			ui -> addSouls(123, (derp));
+			ui -> addSouls(123, uiPosition);
 		}
 
 		if (event.type == sf::Event::KeyReleased)

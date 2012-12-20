@@ -48,7 +48,7 @@ public:
 	void modifySouls(short amount);
 
 
-	bool checkAtackCollision(short direction);
+	bool checkAttackCollision(short direction);
 	bool pointInsideRect(int pX,int pY,sf::FloatRect rectangle);
 
 

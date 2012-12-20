@@ -283,11 +283,16 @@ void Ui::draw()
 void Ui::addFloatingText(std::string message, Vector2f position, sf::Color color)
 {
 	m_ftFloatingTextEntities.push_back(new FloatingText(message, position, &font, color)); 
+	
+	std::cout << &font << std::endl;
+	//m_ftFloatingTextEntities.back() -> setFont(&font);
+
 }
 
 void Ui::addSouls(short amount, Vector2f position)
 {
 	(*m_shvPlayerStats[6]) += amount;
+
 	sf::Color color(sf::Color::Blue);
 	addFloatingText("+" + numberToString(amount) + " Souls", position, color);
 }

@@ -6,6 +6,12 @@ EnemyHandler::EnemyHandler()
 	m_EnemyFactory = new EnemyFactory();
 }
 
+EnemyHandler::EnemyHandler(Ui* ui)
+{
+	m_EnemyFactory = new EnemyFactory();
+	m_pUserInterface = ui;
+}
+
 EnemyHandler::~EnemyHandler()
 {
 	for( std::vector<Enemy*>::iterator it = m_EnemyVector.begin(); it != m_EnemyVector.end();)
@@ -48,9 +54,16 @@ void EnemyHandler::loadContent(EnvironmentHandler* level)
 		}
 
 		m_EnemyVector[i] -> setEnvironmentLevel(m_Level);
+		m_EnemyVector[i] -> setUserInterface(m_pUserInterface);
 		m_EnemyVector[i] -> setPosition(Vector2f(x, y));
 	}
 }
+
+void EnemyHandler::setUserInterface(Ui* ui)
+{
+	m_pUserInterface = ui;
+}
+
 
 void EnemyHandler::unloadContent()
 {

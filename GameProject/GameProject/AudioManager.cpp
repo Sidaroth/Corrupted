@@ -34,8 +34,8 @@ bool AudioManager::loadAudio()
 void AudioManager::loadMap()
 { //In the future, maybe using an XML??...
 
-	mp_mBuffer["atack_hit"]="../../Resources/sounds/atack_hit.wav";
-	mp_mBuffer["atack_miss"]="../../Resources/sounds/atack_miss.wav";
+	mp_mBuffer["attack_hit"]="../../Resources/sounds/attack_hit.wav";
+	mp_mBuffer["attack_miss"]="../../Resources/sounds/attack_miss.wav";
 	mp_mBuffer["fireball"]="../../Resources/sounds/fireball.wav";
 	mp_mBuffer["fireball_hit"]="../../Resources/sounds/fireball_hit.wav";
 	mp_mBuffer["player_gets_hit"]="../../Resources/sounds/get_hit.wav";

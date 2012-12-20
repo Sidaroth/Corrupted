@@ -33,15 +33,15 @@ Character::~Character()
 
 bool Character::attack(short row) ///0=N, 1=NE, 2=E, 3=SE, 4=S, 5=SW, 6=W, 7=NW
 {
-	
-	
-	if(!m_bDoingAction){
+	if(!m_bDoingAction)
+	{
 		setBitmapRow(row);
 		m_Sprite.setTexture(*m_TextureTypes[ATTACK]);
 		m_shBitmapCol = 0;
 		m_bDoingAction=true;
 		return true;
 	}
+
 	return false;
 }
 
@@ -60,23 +60,31 @@ bool Character::loadContent()
 	return 0;
 }
 
-void Character::startAction(){
+void Character::startAction()
+{
 	m_bDoingAction = true;
 }
-void Character::endAction(){
+
+void Character::endAction()
+{
 	m_bDoingAction = false;
 	m_Sprite.setTexture(*m_TextureTypes[STILL]);
 }
-void Character::changeAnimationToWalk(){
+
+void Character::changeAnimationToWalk()
+{
 	
 	m_Sprite.setTexture(*m_TextureTypes[MOVE]);
 }
-void Character::changeAnimationToStand(){
+
+void Character::changeAnimationToStand()
+{
 	m_shBitmapCol = 0;
 	m_Sprite.setTexture(*m_TextureTypes[STILL]);
 }
 		
-bool Character::isDoingAction(){
+bool Character::isDoingAction()
+{
 	return m_bDoingAction;
 }
 
@@ -356,9 +364,42 @@ void Character::takeDamage( short damage )
 {
 	m_shCurrentHealth -= damage;
 
+	sf::View tempView = StateHandler::getInstance().m_pWindow -> getView();
+
+	int windowX = tempView.getCenter( ).x - ( tempView.getSize( ).x / 2 );
+	int windowY = tempView.getCenter( ).y - ( tempView.getSize( ).y / 2 );
+
+	Vector2f uiPosition(m_Position.x, m_Position.y);
+	uiPosition.x -= windowX;
+	uiPosition.y -= windowY;
+	uiPosition.x /= 1.5;
+	uiPosition.y /= 1.5;
+
+	std::string message;
+	sf::Color color;
+
+	if(damage > 0)
+	{
+		message += "+ ";
+		color.Red;
+	}
+	else
+	{
+		message += "- ";
+		color.Green;
+	}
+
+	//std::cout << message << std::endl;
+	//std::cout << "character ui: " << userInterface << std::endl;
+	
+	userInterface -> addFloatingText("hei", uiPosition, color);
+
+	//userInterface -> addFloatingText(message, m_Position, color);
+
 	if( m_shCurrentHealth < 0)
 	{
 		m_shCurrentHealth = 0;
+		// die();
 	}
 	else if (m_shCurrentHealth > m_shMaxHealth)
 	{

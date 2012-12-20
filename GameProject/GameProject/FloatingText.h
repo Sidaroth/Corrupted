@@ -17,6 +17,7 @@ protected:
 
 public:
 	FloatingText();
+	FloatingText(std::string message, Vector2f position, sf::Color color);
 	FloatingText(std::string message, Vector2f position, sf::Font* font, sf::Color color);
 	void update();
 	void draw();
