@@ -9,9 +9,8 @@ SplashScreen::SplashScreen()
 	// NATH'N!
 }
 
-void SplashScreen::loadContent(sf::RenderWindow* window)
+void SplashScreen::loadContent()
 {
-	m_pWindow = window;
 
 	if(!m_splashScreen.loadFromFile("../../Resources/splashScreen.PNG"))
 	{
@@ -37,12 +36,12 @@ void SplashScreen::processEvents(sf::Event event)
 {
 	if(sf::Keyboard::isKeyPressed(sf::Keyboard::U))
 	{
-		StateHandler::getInstance().addScreen(new Level1);
+		StateHandler::getInstance().addScreen(new Level1());
 	}
 
 	else if(event.type == sf::Event::KeyPressed)
 	{
-		StateHandler::getInstance().addScreen(new TitleScreen);
+		StateHandler::getInstance().addScreen(new TitleScreen());
 	}
 }
 

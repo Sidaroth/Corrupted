@@ -28,7 +28,7 @@ void Game::initialize(const char* title, short width, short height, short bitPP,
 	m_bRunning = true;
 
 	StateHandler::getInstance().initalize();
-	StateHandler::getInstance().setStartState(new Highscore());//!!!!!!!SET BACK TO SPASHSCREEN!!!!!!!!
+	StateHandler::getInstance().setStartState(new SplashScreen());
 	StateHandler::getInstance().loadContent(&m_Window);
 
 	std::cout << "Game initialized" << std::endl;

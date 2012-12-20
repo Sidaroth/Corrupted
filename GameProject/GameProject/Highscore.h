@@ -12,6 +12,8 @@
 #include <iostream>
 #include <iomanip>
 
+#include "TitleScreen.h"
+
 #ifndef JSON_SPIRIT_MVALUE_ENABLED
 #error Please define JSON_SPIRIT_MVALUE_ENABLED for the mValue type to be enabled 
 #endif
@@ -39,6 +41,7 @@ private:
 
 	sf::Text m_usernameText;
 	sf::Text m_leaderboardText;
+	sf::Text m_submitErrorText;
 
 	sf::Font m_font;
 
@@ -46,10 +49,13 @@ private:
 	std::string m_sUsername;
 
 	bool m_bNothingTyped;
+	bool m_bSubmitted;
 
 	int m_iScrollPos;
 	int m_iMaxScrollPos;
 	int m_iMinScrollPos;
+
+	int m_iScore;
 
 	struct User
 	{
@@ -62,7 +68,7 @@ public:
 	Highscore();
 	~Highscore();
 
-	void loadContent(sf::RenderWindow* window);
+	void loadContent();
 	void unloadContent();
 	void processEvents(sf::Event event);
 	void update();
@@ -78,6 +84,9 @@ public:
 	const mValue& find_value( const mObject& obj, const std::string& name  );
 	std::vector< Highscore::User > read_entries( const char* file_name );
 	void write_user( mArray& a, const Highscore::User& user );
+
+	bool isalnumch(char ch);
+	bool isalnumstr(std::string str);
 
 	friend bool operator== ( const User& a1, const User& a2 )
 	{

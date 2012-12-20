@@ -18,9 +18,9 @@ Level1::~Level1()
 	delete m_EnemyHandler;
 }
 
-void Level1::loadContent(sf::RenderWindow* window)
+void Level1::loadContent()
 {
-	superLoadContent(window);
+	superLoadContent();
 
 	m_EnemyHandler -> loadContent(m_Level);
 	m_EnemyHandler -> setCollisionMap(m_Level -> getObjectVector(), m_Level -> getHorizontalBitmapSize());

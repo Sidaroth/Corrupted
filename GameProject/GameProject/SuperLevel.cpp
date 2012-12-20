@@ -19,9 +19,8 @@ SuperLevel::~SuperLevel()
 	delete ui;
 }
 
-void SuperLevel::superLoadContent(sf::RenderWindow* window)
+void SuperLevel::superLoadContent()
 {
-	m_pWindow = window;
 	if(!font.loadFromFile("../../Resources/impact.ttf"))
 	{
 		std::cout << "Could not load font" << std::endl;

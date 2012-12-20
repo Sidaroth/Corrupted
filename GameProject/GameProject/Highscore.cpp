@@ -7,13 +7,15 @@
 Highscore::Highscore( )
 {
 	m_bNothingTyped = true;
-	m_sUsername = "Type in your name";
+	m_sUsername = "Type in username";
 	m_iScrollPos = 10;
 	m_iMaxScrollPos = 100;
 	m_iMinScrollPos = 10;
+	m_iScore = 10000;
+	m_bSubmitted = false;
 }
 
-void Highscore::loadContent( sf::RenderWindow* window )
+void Highscore::loadContent( )
 {
 	decodeJson( );
 
@@ -26,6 +28,10 @@ void Highscore::loadContent( sf::RenderWindow* window )
 		m_usernameText.setString( m_sUsername );
 		m_usernameText.setPosition( 300, 625 );
 		m_usernameText.setFont( m_font );
+
+		m_submitErrorText.setString( "" );
+		m_submitErrorText.setPosition( 300, 700 );
+		m_submitErrorText.setFont( m_font );
 
 		reloadLeaderboard( );
 	}
@@ -126,8 +132,10 @@ void Highscore::processEvents( sf::Event event )
 				m_sUsername.resize ( m_sUsername.size( ) - m_sUsername.size( ) );
 				m_bNothingTyped = false;
 			}
-
-			m_sUsername += ( event.text.unicode );
+			if ( m_sUsername.size() < 15 )
+			{
+				m_sUsername += ( event.text.unicode );
+			}
 			m_usernameText.setString( m_sUsername );
 		}
 	}
@@ -176,6 +184,55 @@ void Highscore::processEvents( sf::Event event )
 
 		reloadLeaderboard( );
 	}
+
+	if ((event.mouseMove.x >= m_mainMenuSprite.getPosition().x && event.mouseMove.x <= m_mainMenuSprite.getPosition().x+400 && 
+			event.mouseMove.y >= m_mainMenuSprite.getPosition().y && event.mouseMove.y <= m_mainMenuSprite.getPosition().y+100)) 
+	{
+		m_mainMenuSprite.setTexture(m_mainMenuPressTexture);
+	}
+	else
+	{
+		m_mainMenuSprite.setTexture(m_mainMenuTexture);
+	}
+
+	if(event.mouseButton.x >=  m_mainMenuSprite.getPosition().x && event.mouseButton.x <=  m_mainMenuSprite.getPosition().x+270 && 
+			event.mouseButton.y >=  m_mainMenuSprite.getPosition().y && event.mouseButton.y <=  m_mainMenuSprite.getPosition().y+70)
+	{
+		StateHandler::getInstance().addScreen(new TitleScreen());
+	}
+
+	if ((event.mouseMove.x >= m_submitSprite.getPosition().x && event.mouseMove.x <= m_submitSprite.getPosition().x+400 && 
+			event.mouseMove.y >= m_submitSprite.getPosition().y && event.mouseMove.y <= m_submitSprite.getPosition().y+100)) 
+	{
+		m_submitSprite.setTexture(m_submitPressTexture);	
+	}
+	else
+	{
+		m_submitSprite.setTexture(m_submitTexture);
+	}
+
+	if(event.mouseButton.x >=  m_submitSprite.getPosition().x && event.mouseButton.x <=  m_submitSprite.getPosition().x+270 && 
+			event.mouseButton.y >=  m_submitSprite.getPosition().y && event.mouseButton.y <=  m_submitSprite.getPosition().y+70)
+	{
+		if(isalnumstr(m_sUsername) && m_sUsername != "Type in username" && m_bSubmitted == false && m_iScore > 0)
+		{
+			if(m_sUsername.size() > 0)
+			{
+				m_submitErrorText.setString("Submitting score...please wait");
+				std::string score = std::to_string((long long)m_iScore);
+				std::string path = "/corrupted/insertscore.php?name=" + m_sUsername + "&score=" + score;
+				httpGet("www.game-details.com", path );
+				m_submitErrorText.setString("Success!");
+				m_bSubmitted = true;
+				decodeJson();
+				reloadLeaderboard( );
+			}
+		}
+		else
+		{
+			m_submitErrorText.setString("Please enter a username before submitting");
+		}
+	}
 }
 
 void Highscore::draw( )
@@ -188,6 +245,7 @@ void Highscore::draw( )
 	m_window->draw( m_textFieldSprite );
 	m_window->draw(m_usernameText);
 	m_window->draw(m_leaderboardText);
+	m_window->draw(m_submitErrorText);
 }
 
 void Highscore::decodeJson( )
@@ -292,4 +350,22 @@ void Highscore::write_user( mArray& a, const Highscore::User& user )
 	user_obj[ "score" ] = user.score;
 
 	a.push_back( user_obj );
+}
+
+bool Highscore::isalnumch(char ch) {
+	return ( (	(ch >= 'a' && ch <= 'z')	|| 
+				(ch >= 'A' && ch <= 'Z'))	||
+				(ch >= '0' && ch <= '9') );
+}
+
+bool Highscore::isalnumstr(std::string str) 
+{
+	for (std::string::iterator it = str.begin(); it != str.end(); it++) 
+	{
+		if (!isalnumch((char)*it))
+		{
+			return 0;
+		}
+	}       
+	return 1;
 }

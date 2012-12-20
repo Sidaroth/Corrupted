@@ -12,7 +12,7 @@ TitleScreen::TitleScreen()
 	currentButton = 0;
 }
 
-void TitleScreen::loadContent(sf::RenderWindow* window)
+void TitleScreen::loadContent()
 {
 	if(!m_menuBackground.loadFromFile("../../Resources/menuBackground.PNG"))
 	{
@@ -47,8 +47,6 @@ void TitleScreen::loadContent(sf::RenderWindow* window)
 
 	m_exitButtonSprite.setTexture(m_exitButton);
 	m_exitButtonSprite.setPosition(100, 300);
-
-	m_pWindow = window;
 }
 
 void TitleScreen::unloadContent()
@@ -77,7 +75,7 @@ void TitleScreen::processEvents(sf::Event event)
 	if(event.mouseButton.x >=  m_startButtonSprite.getPosition().x && event.mouseButton.x <=  m_startButtonSprite.getPosition().x+270 && 
 			event.mouseButton.y >=  m_startButtonSprite.getPosition().y && event.mouseButton.y <=  m_startButtonSprite.getPosition().y+70)
 	{
-		StateHandler::getInstance().addScreen(new Level1);
+		StateHandler::getInstance().addScreen(new Level1());
 	}
 	
 
@@ -118,7 +116,7 @@ void TitleScreen::processEvents(sf::Event event)
 	{
 		if (currentButton == 1) 
 		{
-			StateHandler::getInstance().addScreen(new Level1);
+			StateHandler::getInstance().addScreen(new Level1());
 		}
 
 		if (currentButton == 2) 
@@ -129,18 +127,18 @@ void TitleScreen::processEvents(sf::Event event)
 
 	if(sf::Keyboard::isKeyPressed(sf::Keyboard::U))
 	{
-		StateHandler::getInstance().addScreen(new Level1);
+		StateHandler::getInstance().addScreen(new Level1());
 	}
 
 	if(sf::Keyboard::isKeyPressed(sf::Keyboard::Y))
 	{
-		StateHandler::getInstance().addScreen(new SplashScreen);
+		StateHandler::getInstance().addScreen(new SplashScreen());
 	}
 }
 
 void TitleScreen::draw()
 {
-	m_pWindow->draw(m_menuBackgroundSprite);
-	m_pWindow->draw(m_startButtonSprite);
-	m_pWindow->draw(m_exitButtonSprite);
+	StateHandler::getInstance().m_pWindow->draw(m_menuBackgroundSprite);
+	StateHandler::getInstance().m_pWindow->draw(m_startButtonSprite);
+	StateHandler::getInstance().m_pWindow->draw(m_exitButtonSprite);
 }
