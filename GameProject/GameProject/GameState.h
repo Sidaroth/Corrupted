@@ -7,7 +7,7 @@
 class GameState
 {
 public:
-	virtual void loadContent(sf::RenderWindow* window) = 0;
+	virtual void loadContent() = 0;
 	virtual void unloadContent() = 0;
 	virtual void processEvents(sf::Event event) = 0;
 	virtual void update() = 0;

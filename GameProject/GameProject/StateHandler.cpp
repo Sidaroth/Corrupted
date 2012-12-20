@@ -25,10 +25,10 @@ void StateHandler::addScreen(GameState *state)
 {
 	safe = false;
 	currentState -> unloadContent();
-	delete currentState;
+	//delete currentState;
 	
 	currentState = state;
-	currentState -> loadContent(m_pWindow);
+	currentState -> loadContent();
 	safe = true;
 }
 
@@ -45,7 +45,7 @@ void StateHandler::setStartState(GameState* state)
 void StateHandler::loadContent(sf::RenderWindow* window)
 {	
 	m_pWindow = window;
-	currentState -> loadContent(window);
+	currentState -> loadContent();
 }
 
 void StateHandler::processEvents(sf::Event event)

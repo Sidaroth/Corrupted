@@ -1,6 +1,7 @@
 #include "Game.h"
 #include "Player.h"
 #include "SplashScreen.h"
+#include "Highscore.h"
 #include "StateHandler.h"
 
 
@@ -18,8 +19,6 @@ Game::Game()
 
 void Game::initialize(const char* title, short width, short height, short bitPP, bool fullscreen)
 {
-
-
 	m_sTitle = title;
 	m_shScreenWidth = width;
 	m_shScreenHeight = height;
@@ -32,9 +31,7 @@ void Game::initialize(const char* title, short width, short height, short bitPP,
 	StateHandler::getInstance().setStartState(new SplashScreen());
 	StateHandler::getInstance().loadContent(&m_Window);
 
-
 	std::cout << "Game initialized" << std::endl;
-
 }
 
 void Game::start()
