@@ -24,6 +24,8 @@ private:
 	std::string spaceKey;
 	sf::RenderWindow* window;
 	AudioManager audio_manager;
+
+
 	enum InputType
 	{
 		KeyboardInput,
@@ -57,4 +59,6 @@ public:
 	void getMoveRightKey(char key);
 	//bool loadXML();
 	KeyboardController(Player* player);
+
+	bool mouseNotInUi(sf::Event event);
 };
