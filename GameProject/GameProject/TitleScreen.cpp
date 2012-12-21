@@ -14,27 +14,27 @@ TitleScreen::TitleScreen()
 
 void TitleScreen::loadContent()
 {
-	if(!m_menuBackground.loadFromFile("../../Resources/menuBackground.PNG"))
+	if(!m_menuBackground.loadFromFile("../../Resources/menu.PNG"))
 	{
 		std::cout << "Could not load background" << std::endl;
 	}
 
-	if(!m_startButton.loadFromFile("../../Resources/startButton.PNG"))
+	if(!m_startButton.loadFromFile("../../Resources/start.PNG"))
 	{
 		std::cout << "Could not load startbutton" << std::endl;
 	}
 
-	if(!m_startButtonMouseOver.loadFromFile("../../Resources/startButtonMouseOver.PNG"))
+	if(!m_startButtonMouseOver.loadFromFile("../../Resources/start_pressed.PNG"))
 	{
 		std::cout << "Could not load highlighted startbutton" << std::endl;
 	}
 
-	if(!m_exitButton.loadFromFile("../../Resources/exitButton.PNG"))
+	if(!m_exitButton.loadFromFile("../../Resources/exit.PNG"))
 	{
 		std::cout << "Could not load exit button" << std::endl;
 	}
 
-	if(!m_exitButtonMouseOver.loadFromFile("../../Resources/exitButtonMouseOver.PNG"))
+	if(!m_exitButtonMouseOver.loadFromFile("../../Resources/exit_pressed.PNG"))
 	{
 		std::cout << "Could not load highlighted exit button" << std::endl;
 	}
@@ -43,10 +43,10 @@ void TitleScreen::loadContent()
 	m_menuBackgroundSprite.setPosition(0, 0);
 
 	m_startButtonSprite.setTexture(m_startButton);
-	m_startButtonSprite.setPosition(100, 200);
+	m_startButtonSprite.setPosition(540, 200);
 
 	m_exitButtonSprite.setTexture(m_exitButton);
-	m_exitButtonSprite.setPosition(100, 300);
+	m_exitButtonSprite.setPosition(540, 300);
 }
 
 void TitleScreen::unloadContent()
