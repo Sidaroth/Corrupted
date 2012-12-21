@@ -69,7 +69,7 @@ public:
 	
 
 	short findPath(int startX, int startY, int goalX, int goalY);
-
+	bool isDead();
 	void insertIntoOpenList(short column, short row);
 	void selectFromOpenList();
 	void initializePathFind();

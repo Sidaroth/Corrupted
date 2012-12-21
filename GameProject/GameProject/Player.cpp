@@ -36,13 +36,14 @@ bool Player::loadContent()
 	Character::loadContent();
 
 	sf::Image maskingImage;
+
 	//Loading move action
 	if (!maskingImage.loadFromFile("../../Resources/player.png"))
 	{
 		return EXIT_FAILURE;
 	}
 
-	maskingImage.createMaskFromColor(sf::Color (106, 76, 48), 0);
+	maskingImage.createMaskFromColor(bgColor, 0);
 	m_MoveTexture.loadFromImage( maskingImage );
 
 	m_TextureTypes.push_back( &m_MoveTexture );
@@ -53,7 +54,7 @@ bool Player::loadContent()
 		return EXIT_FAILURE;
 	}
 
-	maskingImage.createMaskFromColor(sf::Color (106, 76, 48), 0);
+	maskingImage.createMaskFromColor(bgColor, 0);
 	m_AttackTexture.loadFromImage( maskingImage );
 
 	m_TextureTypes.push_back( &m_AttackTexture );
@@ -64,10 +65,22 @@ bool Player::loadContent()
 		return EXIT_FAILURE;
 	}
 
-	maskingImage.createMaskFromColor(sf::Color (106, 76, 48), 0);
+	maskingImage.createMaskFromColor(bgColor, 0);
 	m_StillTexture.loadFromImage( maskingImage );
 
 	m_TextureTypes.push_back( &m_StillTexture );
+
+	if(!maskingImage.loadFromFile("../../Resources/player_die.png"))
+	{
+		return EXIT_FAILURE;
+	}
+
+	maskingImage.createMaskFromColor(bgColor, 0);
+	m_DeathTexture.loadFromImage( maskingImage );
+
+	m_TextureTypes.push_back( &m_DeathTexture );
+
+
 	m_Sprite.setTexture(*m_TextureTypes[STILL]);
 	animation();
 
@@ -220,7 +233,7 @@ bool Player::checkAttackCollision(short direction)
 				if((*it) -> takeDamage( m_shMeleeDamage ))
 				{
 					modifySouls((*it) -> kill());		// kill and erase.
-					it = m_EnemyVector -> erase(it);	// If we want to bodies to stay on the ground.. do not erase.
+					//it = m_EnemyVector -> erase(it);	// If we want to bodies to stay on the ground.. do not erase.
 				}
 				
 				return true;
@@ -309,8 +322,8 @@ void Player::collisionCheck( )
 					if ((*it) -> takeDamage( m_shSpellDamage ))	//damage to enemy
 					{
 							modifySouls((*it) -> kill());
-							it = m_EnemyVector -> erase(it);
-							doIncrement = false;
+							//it = m_EnemyVector -> erase(it);
+							//doIncrement = false;
 					}
 
 					m_vProjectiles[j] -> setInvisible( );   //put the projectile back to be unused
@@ -388,6 +401,9 @@ void Player::collisionCheck( )
 
 void Player::die()
 {
-	// play death animation and sad music.
+	m_bDead = true;
+	m_Sprite.setTexture((*m_TextureTypes[DIE]));
+	userInterface -> fadeOut();
+
 	// fade out into highscore screen. 
 }

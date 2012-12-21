@@ -20,6 +20,7 @@ private:
 	sf::Texture m_AttackTexture;
 	sf::Texture m_MoveTexture;
 	sf::Texture m_StillTexture;
+	sf::Texture m_DeathTexture;
 
 	void collisionCheck( );
 

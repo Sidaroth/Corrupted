@@ -19,6 +19,7 @@ Character::Character() : Actor()
 	m_shCurrentHealth = m_shMaxHealth;
 
 	m_bDead = false;
+	stopAnimation = false;
 
 	m_bAbilities = new bool[false, false, false];
 }
@@ -75,7 +76,6 @@ void Character::endAction()
 
 void Character::changeAnimationToWalk()
 {
-	
 	m_Sprite.setTexture(*m_TextureTypes[MOVE]);
 }
 
@@ -163,6 +163,7 @@ void Character::animation()  ///calculate frame for animation
 	m_shFrameCount += 1;
 
 	m_Sprite.getTexture();
+
 	if(m_shFrameCount % ANIMATION_SPEED == 0)
 	{
 		
@@ -170,10 +171,20 @@ void Character::animation()  ///calculate frame for animation
 		if ( ( m_shBitmapCol * m_shSpriteSize ) >= m_Sprite.getTexture()->getSize().x - ( m_shSpriteSize ) )
 		{
 			endAction();
-			m_shBitmapCol = 0;
+
+			if(!m_bDead)
+			{
+				m_shBitmapCol = 0;
+			}
+			else
+			{
+				stopAnimation = true;
+			}
 		}
 	}
+
 	setFrame();
+	
 
 	for( unsigned int i = 0; i < m_vProjectiles.size( ); i++ )
 	{

@@ -36,7 +36,7 @@ void EnemyHandler::loadContent(EnvironmentHandler* level)
 	numberOfSpawnPoints = m_EnemySpawnPoints->size();
 	srand(time(NULL));											//Initialize random seed
 	
-	createEnemy(20);
+	//createEnemy(10);
 }
 
 void EnemyHandler::setUserInterface(Ui* ui)
@@ -49,8 +49,10 @@ void EnemyHandler::unloadContent()
 {
 	for( std::vector<Enemy*>::iterator it = m_EnemyVector.begin(); it != m_EnemyVector.end();)
 	{
-		delete * it;
-		it = m_EnemyVector.erase(it);
+		// Call enemies unloadContent here?
+
+		/*delete * it;
+		it = m_EnemyVector.erase(it);*/
 	}
 }
 
@@ -64,9 +66,17 @@ void EnemyHandler::draw()
 
 void EnemyHandler::update(Vector2f* playerPos)
 {
-	for(unsigned short i = 0; i < m_EnemyVector.size(); i++)
+	for(std::vector<Enemy*>::iterator enemy = m_EnemyVector.begin(); enemy != m_EnemyVector.end();)
 	{
-		m_EnemyVector[i] -> update(playerPos);
+		if((*enemy) -> isDead())
+		{
+			enemy = m_EnemyVector.erase(enemy);
+		}
+		else
+		{
+			(*enemy) -> update(playerPos);
+			++enemy;
+		}
 	}
 
 	if ( (int)spawnTimer.getElapsedTime().asSeconds() % m_waveNumber == 0)
@@ -94,29 +104,33 @@ std::vector<Enemy*>* EnemyHandler::getEnemyVector( )
 
 void EnemyHandler::createEnemy(int toBeCreated)
 {
+	std::vector<Enemy*>::iterator it;
+
 	for(int i = 0; i < toBeCreated; i++)
 	{	
 		m_EnemyVector.push_back(m_EnemyFactory -> createEnemy(m_EnemyFactory -> Skellie));
+		it = m_EnemyVector.end() - 1;
 
-		if(m_EnemyVector[i] != NULL)
+		std::cout << m_EnemyVector.size();
+		std::cout << ", " << i << std::endl;
+
+		if((*it) != NULL)
 		{
 			std::cout << "Enemy created!\n";		
-			m_EnemyVector[i] -> loadContent();
+			(*it) -> loadContent();
 		}
 		else
 		{
-			std::cout << "Something went wrong when creating enemy" << std::endl;
+			std::cout << "Something went wrong when creating an enemy" << std::endl;
 			return;
 		}
 
 		randomSpawnPoint = m_EnemySpawnPoints->at(rand() % numberOfSpawnPoints);
 
-
-		m_EnemyVector[i] -> setEnvironmentLevel(m_Level);
-		m_EnemyVector[i] -> setUserInterface(m_pUserInterface);
-		m_EnemyVector[i] -> setPosition(randomSpawnPoint);
-		
-		
+		(*it) -> setEnvironmentLevel(m_Level);
+		(*it) -> setUserInterface(m_pUserInterface);
+		(*it) -> setPosition(randomSpawnPoint);
+		(*it) -> setCollisionMap(collisionMap, m_HorizontalSize);
 	}
 }
 

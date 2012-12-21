@@ -90,6 +90,11 @@ void SuperLevel::processEvents(sf::Event event)
 			player -> modifySouls(-5);
 		}
 
+		if(sf::Keyboard::isKeyPressed(sf::Keyboard::F))
+		{
+			m_EnemyHandler -> createEnemy(3);
+		}
+
 		if (event.type == sf::Event::KeyReleased)
 		{
 			 if(!player->isDoingAction())
