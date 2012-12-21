@@ -45,10 +45,7 @@ void Skeleton::update(Vector2f* playerPos)
 	float xPos = m_Sprite.getPosition().x;
 	float yPos = m_Sprite.getPosition().y;
 
-
 	pathLocation = m_Path.size() - 1;
-
-	//std::cout << "loc: " << pathLocation << ", length: " << pathLength << "\n"; 
 
 	if(pathLocation >= 0) // If there are any pathsteps. 
 	{

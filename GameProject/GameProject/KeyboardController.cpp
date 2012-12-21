@@ -85,91 +85,76 @@ void KeyboardController::checkMouse(sf::Event event)
 		
 				//Calculate direction of the attack
 
-				sf::Vector2i v_mouse_position;
+				sf::Vector2i mouse_position;
 		
-				//sf::Window = &window;
-				v_mouse_position.x = event.mouseButton.x;
-				v_mouse_position.y = event.mouseButton.y;
+				mouse_position.x = event.mouseButton.x;
+				mouse_position.y = event.mouseButton.y;
 	
-				//std::cout << "Position X: " << v_mouse_position.x << " Position Y: " << v_mouse_position.y << std::endl;
 				Vector2f* v2f_player_position;
-				v2f_player_position = player->getSpritePosition();
+				v2f_player_position = player -> getSpritePosition();
 			
-				v2f_player_position->x=(window->getSize().x/2)+46;
-				v2f_player_position->y=(window->getSize().y/2)+46;
+				v2f_player_position -> x = (window->getSize().x / 2) + 46;
+				v2f_player_position -> y = (window->getSize().y / 2) + 46;
 				//1366/2, 768/2
-			//	std::cout << " PLAYER Position X: " << v2f_player_position->x << "PLAYER  Position Y: " << v2f_player_position->y << std::endl;
 	
 				Vector2f* v2f_attack_direction = new Vector2f();
-				float angle = atan2( ( v2f_player_position->y - v_mouse_position.y ), ( v2f_player_position->x - v_mouse_position.x ) );
-
-				//std::cout << "Angle: " << angle << std::endl;
+				float angle = atan2( ( v2f_player_position->y - mouse_position.y ), ( v2f_player_position->x - mouse_position.x ) );
 		
 				int i_attack_direction = 0;
 		
 				// isn't there a better way to do this marti?
-				if((angle > 0) && (angle <= 0.3925))
+				if ((angle > 0) && (angle <= 0.3925))
 				{
-					std::cout << "ATTACKING WEST" << std::endl;
 					i_attack_direction = 6;
 				}
-				else if((angle > 0.3925) && (angle <= 1.1775))
+				else if ((angle > 0.3925) && (angle <= 1.1775))
 				{
 					i_attack_direction = 7;
-					std::cout << "ATTACKING NORTH-WEST" << std::endl;
 				}
-				else if((angle > 1.1775) && (angle <= 1.9625)){
+				else if ((angle > 1.1775) && (angle <= 1.9625))
+				{
 					i_attack_direction = 0;
-					std::cout << "ATTACKING NORTH" << std::endl;
 				}
-				else if((angle > 1.9625) && (angle <= 2.7475))
+				else if ((angle > 1.9625) && (angle <= 2.7475))
 				{
 					i_attack_direction = 1;
-					std::cout << "ATTACKING NORTH-EAST" << std::endl;
 				}
-				else if((angle > 2.7475) && (angle <= 3.14))
+				else if ((angle > 2.7475) && (angle <= 3.14))
 				{
 					i_attack_direction = 2;
-					std::cout << "ATTACKING EAST" << std::endl;
 				}
-				else if((angle <= 0) && (angle > -0.3925))
+				else if ((angle <= 0) && (angle > -0.3925))
 				{
-					std::cout << "ATTACKING WEST" << std::endl;
 					i_attack_direction = 6;
 				}
-				else if((angle <= -0.3925) && (angle > -1.1775))
+				else if ((angle <= -0.3925) && (angle > -1.1775))
 				{
 					i_attack_direction = 5;
-					std::cout << "ATTACKING SOUTH-WEST" << std::endl;
 				}
-				else if((angle <= -1.1775) && (angle > -1.9625))
+				else if ((angle <= -1.1775) && (angle > -1.9625))
 				{
 					i_attack_direction = 4;
-					std::cout << "ATTACKING SOUTH" << std::endl;
 				}
-				else if((angle <= -1.9625) && (angle > -2.7475))
+				else if ((angle <= -1.9625) && (angle > -2.7475))
 				{
 					i_attack_direction = 3;
-					std::cout << "ATTACKING SOUTH-EAST" << std::endl;
 				}
-				else if((angle <= -2.7475) && (angle > -3.14))
+				else if ((angle <= -2.7475) && (angle > -3.14))
 				{
 					i_attack_direction = 2;
-					std::cout << "ATTACKING EAST" << std::endl;
 				}
 
 				//End calculate direction
 
-				if(player -> attack(i_attack_direction)) ///0=N, 1=NE, 2=E, 3=SE, 4=S, 5=SW, 6=W, 7=NW
+				if (player -> attack(i_attack_direction)) ///0=N, 1=NE, 2=E, 3=SE, 4=S, 5=SW, 6=W, 7=NW
 				{
-					if(player -> checkAttackCollision(i_attack_direction))
+					if (player -> checkAttackCollision(i_attack_direction))
 					{
-						std::cout << "I HIT" << std::endl;
 						audio_manager.playSound("attack_hit");
 					}
+
 					else
 					{
-						std::cout << "I DIDN'T HIT" << std::endl;
 						audio_manager.playSound("attack_miss");
 					}
 				}
@@ -221,96 +206,6 @@ void KeyboardController::checkPressed()
 		}
 	}
 	
-	
-	//OTHER ACTIONS
-	if (sf::Keyboard::isKeyPressed(Keys["skill_1"].myKeyCode))
-	{
-		std::cout << "Space pressed" << std::endl;
-		
-	}
-	if(sf::Mouse::isButtonPressed(Keys["shoot" ].myMouseButton)){
-		
-		
-		/*
-		std::cout << "Mouse left pressed" << std::endl;
-		
-		//Calculate direction of the attack
-
-		sf::Vector2i v_mouse_position;
-		
-		//sf::Window = &window;
-		v_mouse_position = sf::Mouse::getPosition();
-	
-		std::cout << "Position X: " << v_mouse_position.x << " Position Y: " << v_mouse_position.y << std::endl;
-		Vector2f* v2f_player_position;
-		v2f_player_position = player->getSpritePosition();
-
-		v2f_player_position->x=1366/2;
-		v2f_player_position->y=768/2;
-		//1366/2, 768/2
-		std::cout << " PLAYER Position X: " << v2f_player_position->x << "PLAYER  Position Y: " << v2f_player_position->y << std::endl;
-		Vector2f* v2f_attack_direction = new Vector2f();
-		float angle = atan2((v2f_player_position->y-v_mouse_position.y),(v2f_player_position->x-v_mouse_position.x));
-		/*v2f_attack_direction->x = (v2f_player_position->x - v_mouse_position.x);
-		v2f_attack_direction->y = (v2f_player_position->y - v_mouse_position.y);
-
-		
-
-		std::cout << "Angle: " << angle << std::endl;
-		
-		int i_attack_direction=0;
-		
-		if((angle>0)&&(angle<=0.3925)){
-			std::cout << "attacking WEAST" << std::endl;
-			i_attack_direction=6;
-		}else if((angle>0.3925)&&(angle<=1.1775)){
-			i_attack_direction=7;
-			std::cout << "attackING NORTH-WEAST" << std::endl;
-		}else if((angle>1.1775)&&(angle<=1.9625)){
-			i_attack_direction=0;
-			std::cout << "attackING NORTH" << std::endl;
-		}else if((angle>1.9625)&&(angle<=2.7475)){
-			i_attack_direction=1;
-			std::cout << "attackING NORTH-EAST" << std::endl;
-		}else if((angle>2.7475)&&(angle<=3.14)){
-			i_attack_direction=2;
-			std::cout << "attackING EAST" << std::endl;
-		}else if((angle<=0)&&(angle>-0.3925)){
-			std::cout << "attacking WEAST" << std::endl;
-			i_attack_direction=6;
-		}else if((angle<=-0.3925)&&(angle>-1.1775)){
-			i_attack_direction=5;
-			std::cout << "attackING SOUTH-WEAST" << std::endl;
-		}else if((angle<=-1.1775)&&(angle>-1.9625)){
-			i_attack_direction=4;
-			std::cout << "attackING SOUTH" << std::endl;
-		}else if((angle<=-1.9625)&&(angle>-2.7475)){
-			i_attack_direction=3;
-			std::cout << "attackING SOUTH-EAST" << std::endl;
-		}else if((angle<=-2.7475)&&(angle>-3.14)){
-			i_attack_direction=2;
-			std::cout << "attackING EAST" << std::endl;
-		}
-
-		//End calculate direction
-
-		player->attack(i_attack_direction); ///0=N, 1=NE, 2=E, 3=SE, 4=S, 5=SW, 6=W, 7=NW
-
-		*/
-	}
-	if(sf::Mouse::isButtonPressed(sf::Mouse::Right)){
-		
-		//audio_manager.playSound("lvl_up");
-		
-		std::cout << "Mouse Right pressed" << std::endl;
-		
-		
-		//	system( "pause" );  
-	
-			
-		
-	}
-
 	}
 }
 
@@ -333,33 +228,3 @@ bool KeyboardController::mouseNotInUi(sf::Event event)
 
 	return true;
 }
-	
-
-
-/*bool KeyboardController::loadXML(){
-
-	tinyxml2::XMLDocument doc;
-
-		bool loadOkay=doc.LoadFile( "../KeyActions.xml");
-		
-		if (loadOkay)
-		{
-			std::cout << "I loaded the file!" << std::endl;
-			
-			tinyxml2::XMLElement* titleElement = doc.FirstChildElement( "PLAY" )->FirstChildElement( "TITLE" );
-			const char* title = titleElement->GetText();
-			printf( "First element: %s\n", title );
-
-			/*tinyxml2::XMLText* textNode = titleElement->FirstChild()->ToText();
-			title = textNode->Value();
-			printf( "Name of play (2): %s\n", title );
-			//dump_to_stdout( &doc ); // defined later in the tutorial*/
-	/*	}
-		else
-		{
-			std::cout << "I don't know how to read files?...!" << std::endl;
-		}
-
-	return true;
-}
-*/

@@ -1,8 +1,6 @@
 #include "Level1.h"
 
 // TEMPORARY!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-#include "TitleScreen.h"
-#include "SplashScreen.h"
 #include "StateHandler.h"
 
 Level1::Level1()

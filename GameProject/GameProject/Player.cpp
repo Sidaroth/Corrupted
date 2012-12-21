@@ -83,11 +83,6 @@ void Player::update()
 {
 	Character::update();
 
-	m_shMaxHealth     = m_shToughness    * m_shToughness * 2;
-	m_shMeleeDamage   = m_shStrength     * m_shStrength;
-	m_shSpellDamage   = m_shIntelligence * m_shIntelligence;
-	m_fCriticalChance = m_shStrength / 5 + m_shSpeed / 2;
-
 	collisionCheck( );
 }
 
