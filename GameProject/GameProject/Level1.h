@@ -1,11 +1,12 @@
 #pragma once
 
+#include "StateHandler.h"
 #include "SuperLevel.h"
 
 class Level1 : public SuperLevel
 {
 private:
-	sf::Text text;
+	
 
 public:
 	Level1();

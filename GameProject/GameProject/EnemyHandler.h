@@ -1,5 +1,9 @@
 #pragma once
 
+#include <time.h>
+#include <cstdlib>
+#include "Vector2f.h"
+
 #include "EnemyFactory.h"
 #include "SFML/Graphics.hpp"
 #include "Environment.h"
@@ -15,6 +19,13 @@ protected:
 	std::vector<bool>* collisionMap;
 	std::vector<Enemy*> m_EnemyVector;
 
+	std::vector<Vector2f>* m_EnemySpawnPoints;
+	Vector2f randomSpawnPoint;
+	short numberOfSpawnPoints; 
+	int m_waveNumber;
+
+	sf::Clock spawnTimer;
+
 public:
 	EnemyHandler();
 	EnemyHandler(Ui* ui);
@@ -27,4 +38,5 @@ public:
 	void draw();
 	void update(Vector2f* playerPos);
 	std::vector<Enemy*>* getEnemyVector( );
+	void newWave();
 };
