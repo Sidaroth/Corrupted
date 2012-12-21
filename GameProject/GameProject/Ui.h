@@ -54,7 +54,6 @@ public:
 	~Ui();
 
 	void addFloatingText(std::string message, Vector2f position, sf::Color color);
-	void addSouls(short amount, Vector2f position);
 	bool loadContent();
 	void unloadContent();
 	void update();

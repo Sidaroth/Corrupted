@@ -3,6 +3,7 @@
 
 Skeleton::Skeleton(std::vector<sf::Texture>* textures)
 {
+	m_shSoulsToDrop = 10;
 	onClosedList = 10;
 	onOpenList = 1;
 	pathLength = UNDETERMINED;

@@ -18,6 +18,8 @@ Character::Character() : Actor()
 	
 	m_shCurrentHealth = m_shMaxHealth;
 
+	m_bDead = false;
+
 	m_bAbilities = new bool[false, false, false];
 }
 
@@ -360,10 +362,12 @@ void Character::castSpell( Vector2f mouseCoordinates, short spell )
 	}
 }
 
-void Character::takeDamage( short damage )
+/// Can both heal and damage players and enemies, if it kills the target, it returns true.
+bool Character::takeDamage( short damage )
 {
 	m_shCurrentHealth -= damage;
 
+	// Calculate the position on the UI, not the world coords.
 	sf::View tempView = StateHandler::getInstance().m_pWindow -> getView();
 
 	int windowX = tempView.getCenter( ).x - ( tempView.getSize( ).x / 2 );
@@ -397,15 +401,12 @@ void Character::takeDamage( short damage )
 	if( m_shCurrentHealth < 0)
 	{
 		m_shCurrentHealth = 0;
-		die();
+		return true;
 	}
 	else if (m_shCurrentHealth > m_shMaxHealth)
 	{
 		m_shCurrentHealth = m_shMaxHealth;
 	}
-}
 
-void Character::die()
-{
-
+	return false;
 }

@@ -91,22 +91,6 @@ void SuperLevel::processEvents(sf::Event event)
 			player -> modifySouls(-5);
 		}
 
-		if(sf::Keyboard::isKeyPressed(sf::Keyboard::F))
-		{
-			sf::View tempView = StateHandler::getInstance().m_pWindow -> getView();
-
-			int windowX = tempView.getCenter( ).x - ( tempView.getSize( ).x / 2 );
-			int windowY = tempView.getCenter( ).y - ( tempView.getSize( ).y / 2 );
-
-			Vector2f uiPosition((*player -> getPosition()).x, (*player -> getPosition()).y);
-			uiPosition.x -= windowX;
-			uiPosition.y -= windowY;
-			uiPosition.x /= 1.5;
-			uiPosition.y /= 1.5;
-
-			ui -> addSouls(123, uiPosition);
-		}
-
 		if (event.type == sf::Event::KeyReleased)
 		{
 			 if(!player->isDoingAction())

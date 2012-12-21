@@ -73,4 +73,6 @@ public:
 	void insertIntoOpenList(short column, short row);
 	void selectFromOpenList();
 	void initializePathFind();
+
+	short kill();
 };

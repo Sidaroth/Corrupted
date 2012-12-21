@@ -289,14 +289,6 @@ void Ui::addFloatingText(std::string message, Vector2f position, sf::Color color
 
 }
 
-void Ui::addSouls(short amount, Vector2f position)
-{
-	(*m_shvPlayerStats[6]) += amount;
-
-	sf::Color color(sf::Color::Blue);
-	addFloatingText("+" + numberToString(amount) + " Souls", position, color);
-}
-
 template <typename T>  std::string Ui::numberToString ( T Number )				//conversion from number to string
 {
 	 std::ostringstream ss;

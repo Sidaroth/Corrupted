@@ -332,12 +332,19 @@ Enemy::~Enemy()
 {
 	for(std::vector<Vector2f*>::iterator it = m_Path.begin(); it != m_Path.end();)
 	{
-		delete * it;	// Erase calls the deconstructor, but because the pointers don't have deconstructors we need to call delete first.				
-		it = m_Path.erase(it);	// Erase returns a new iterator position, without it it would create holes 
+		delete * it;	// Erase calls the deconstructor, but we need to call delete first.				
+		it = m_Path.erase(it);	// Erase returns a new iterator position, without it - it would create holes 
 	}
 }
 
 std::vector<Projectile*>* Enemy::getProjectile( )
 {
 	return &m_vProjectiles;
+}
+
+short Enemy::kill()
+{
+	m_bDead = true;
+	// Play death animation.
+	return m_shSoulsToDrop;
 }

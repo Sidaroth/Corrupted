@@ -126,6 +126,24 @@ void Player::modifySouls(short amount)
 {
 	m_shCurrentSouls += amount;
 
+	// Build up the message to be shown. 
+	sf::Color color(sf::Color::Blue);
+	std::string message = "+ ";
+	message += std::to_string((long long) amount);
+	message += " Souls";
+
+	// Calculate the position on the UI, not the world coords.
+	sf::View tempView = StateHandler::getInstance().m_pWindow -> getView();
+
+	int windowX = tempView.getCenter().x - ( tempView.getSize().x / 2 );
+	int windowY = tempView.getCenter().y - ( tempView.getSize().y / 2 );
+
+	Vector2f uiPosition(m_Position.x - windowX, m_Position.y - windowY);
+	uiPosition.x /= 1.5;
+	uiPosition.y /= 1.5;
+
+	userInterface -> addFloatingText(message, uiPosition, color);
+
 	if (amount > 0)
 	{
 		m_shTotalSouls += amount;
@@ -137,9 +155,10 @@ void Player::setEnemyVector(std::vector<Enemy*>* enemyVector)
 	m_EnemyVector = enemyVector;
 }
 
+/// Checks to see if you've hit something when trying to do a melee attack. 
+// I changed this to use iterators instead of just standard for loop.  - Chris.
 bool Player::checkAttackCollision(short direction)
 {
-	std::cout << "player ui: " << userInterface << std::endl;
 	Vector2f* enemyPosition;
 	Vector2f* projectilePosition;
 
@@ -150,28 +169,23 @@ bool Player::checkAttackCollision(short direction)
 	int attackPoint_y = 0;
 	int range = 30;
 
-	for( int i = 0; i < m_EnemyVector -> size( ); i++ )
-	{
+	bool doDamage;
 
-		enemyPosition =	m_EnemyVector -> at( i ) -> getSpritePosition( );
+	for(std::vector<Enemy*>::iterator it = m_EnemyVector -> begin(); it != m_EnemyVector -> end(); ++it)
+	{
+		doDamage = false;
+		enemyPosition = (*it) -> getSpritePosition();
 		
 		if((enemyPosition -> x < player_x + 300) 
 			&& (enemyPosition -> x > player_x - 300) 
 			&& (enemyPosition -> y < player_y + 300) 
 			&& (enemyPosition -> y > player_y - 300))
 		{
-		//std::cout << "Enemy X (" << enemyPosition->x << ", Enemy Y" <<enemyPosition->y << ")" << std::endl;
-		//std::cout << "Player X (" << player_x << ", Player Y" <<player_y << ")" << std::endl;
-	
-			sf::FloatRect enemy_bounds = m_EnemyVector -> at( i ) -> getSprite().getGlobalBounds();
+			sf::FloatRect enemy_bounds = (*it) -> getSprite().getGlobalBounds();
 			int enemy_width = enemy_bounds.width;
 			int enemy_height = enemy_bounds.height;
 			int enemy_x = enemyPosition -> x;
 			int enemy_y = enemyPosition -> y;
-		
-		//	std::cout << "ENEMY POSITION: (" << enemy_x << "," << enemy_y << ")"<< "ENEMY WIDTH AND HEIGHT: (" << enemy_width << "," << enemy_height << ")" << std::endl;
-		//	std::cout << "PLAYER POSITION: (" << player_x << "," <<player_y << ")" << std::endl;
-		
 		
 			switch (direction)
 			{	
@@ -193,41 +207,36 @@ bool Player::checkAttackCollision(short direction)
 				case SOUTH_EAST:
 					attackPoint_x = player_x+range;
 					attackPoint_y = player_y+range;
-				
 				break;
 
 				case SOUTH:
 					attackPoint_x = player_x;
 					attackPoint_y = player_y+range;
-				
 				break;
 
 				case SOUTH_WEST:
 					attackPoint_x = player_x-range;
 					attackPoint_y = player_y+range;
-				
 				break;
 
 				case WEST:
 					attackPoint_x = player_x-range;
 					attackPoint_y = player_y;
-			
 					break;
 
 				case NORTH_WEST:
 					attackPoint_x = player_x-range;
 					attackPoint_y = player_y-range;
-				
 				break;
 			}
-			std::cout << "attack POSITION: (" << attackPoint_x << "," <<attackPoint_y << ")" << std::endl;
-	
+			
+			//std::cout << "attack POSITION: (" << attackPoint_x << "," <<attackPoint_y << ")" << std::endl;
+
 			if((attackPoint_x > (enemy_x - enemy_width / 2)) && (attackPoint_x < (enemy_x + (enemy_width / 2))))
 			{
 				if((attackPoint_y > (enemy_y - enemy_height / 2)) && (attackPoint_y < (enemy_y + (enemy_height / 2))))
 				{
-					m_EnemyVector -> at( i ) -> takeDamage( m_shMeleeDamage);
-					return true;
+					doDamage = true;
 				}
 			}
 
@@ -235,12 +244,21 @@ bool Player::checkAttackCollision(short direction)
 			{
 				if((player_y > (enemy_y - (enemy_height / 2))) && (player_y < (enemy_y + (enemy_height / 2))))
 				{
-					m_EnemyVector -> at( i ) -> takeDamage( m_shMeleeDamage);
-					return true;
+					doDamage = true;
 				}
 			}
-		}
 
+			if(doDamage)
+			{
+				if((*it) -> takeDamage( m_shMeleeDamage ))
+				{
+					modifySouls((*it) -> kill());		// kill and erase.
+					it = m_EnemyVector -> erase(it);	// If we want to bodies to stay on the ground.. do not erase.
+				}
+				
+				return true;
+			}
+		}
 	}
 
 	return false;
@@ -273,21 +291,26 @@ void Player::collisionCheck( )
 	const short PROJECTILE_SIZE = 48;
 	Vector2f* enemyPosition;
 	Vector2f* projectilePosition;
+	bool doDamage;
+	bool doIncrement;
 
-	for( int i = 0; i < m_EnemyVector->size( ); i++ )
+	for(std::vector<Enemy*>::iterator it = m_EnemyVector -> begin(); it != m_EnemyVector -> end();)
 	{
-		enemyPosition =	m_EnemyVector -> at( i ) -> getPosition( );
+		doIncrement = true;
+		enemyPosition =	(*it) -> getPosition( );
+
 		for( int j = 0; j < m_vProjectiles.size( ); j++ )
 		{
 			if( m_vProjectiles[j] -> exist( ) )
 			{
+				doDamage = false;
+
 				projectilePosition =  m_vProjectiles[j] -> getPosition( );
 				if( ( projectilePosition -> x > enemyPosition -> x ) && ( projectilePosition -> x < enemyPosition -> x + TILESIZE ) )  //if top left corner of projectile is in enemy x and x + TILESIZE
 				{
 					if( ( projectilePosition -> y > enemyPosition -> y ) && ( projectilePosition -> y < enemyPosition -> y + TILESIZE )  ) //and in enemy y and y + TILESIZE
 					{
-						m_EnemyVector -> at( i ) -> takeDamage( m_shSpellDamage );		//damage to enemy
-						m_vProjectiles[j] -> setInvisible( );							//put the projectile back to be unused
+						doDamage = true;
 					}
 				}
 
@@ -295,8 +318,7 @@ void Player::collisionCheck( )
 				{
 					if( ( projectilePosition -> y > enemyPosition -> y ) && ( projectilePosition -> y < enemyPosition -> y + TILESIZE )  ) //and in enemy y and y + TILESIZE
 					{
-						m_EnemyVector -> at( i ) -> takeDamage( m_shSpellDamage );		//damage to enemy
-						m_vProjectiles[j] -> setInvisible( );							//put the projectile back to be unused
+						doDamage = true;
 					}
 				}
 
@@ -304,8 +326,7 @@ void Player::collisionCheck( )
 				{
 					if( ( projectilePosition -> y + PROJECTILE_SIZE > enemyPosition -> y ) && ( projectilePosition -> y + PROJECTILE_SIZE < enemyPosition -> y + TILESIZE )  ) //and in enemy y and y + TILESIZE
 					{
-						m_EnemyVector -> at( i ) -> takeDamage( m_shSpellDamage );		//damage to enemy
-						m_vProjectiles[j] -> setInvisible( );							//put the projectile back to be unused
+						doDamage = true;
 					}
 				}
 
@@ -313,11 +334,28 @@ void Player::collisionCheck( )
 				{
 					if( ( projectilePosition -> y + PROJECTILE_SIZE > enemyPosition -> y ) && ( projectilePosition -> y + PROJECTILE_SIZE < enemyPosition -> y + TILESIZE )  ) //and in enemy y and y + TILESIZE
 					{
-						m_EnemyVector -> at( i ) -> takeDamage( m_shSpellDamage );		//damage to enemy
-						m_vProjectiles[j] -> setInvisible( );							//put the projectile back to be unused
+						doDamage = true;
 					}
 				}
+
+
+				if(doDamage)
+				{
+					if((*it) -> takeDamage( m_shSpellDamage ))	//damage to enemy
+					{
+							modifySouls((*it) -> kill());
+							it = m_EnemyVector -> erase(it);
+							doIncrement = false;
+					}
+
+					m_vProjectiles[j] -> setInvisible( );   //put the projectile back to be unused
+				}
 			}
+		}
+
+		if(doIncrement)
+		{
+			++it;
 		}
 	}
 
@@ -326,21 +364,22 @@ void Player::collisionCheck( )
 
 	std::vector<Projectile*>* enemyProjectiles;
 
-	for( int i = 0; i < m_EnemyVector -> size( ); i++ )
+	for(std::vector<Enemy*>::iterator it = m_EnemyVector -> begin(); it != m_EnemyVector -> end(); ++it)
 	{
-		enemyProjectiles =	m_EnemyVector -> at( i ) -> getProjectile( );
-
-		for( int j = 0; j < enemyProjectiles -> size( ); j++ )
+		enemyProjectiles =	(*it) -> getProjectile( );
+		for( std::vector<Projectile*>::iterator currProjectile = enemyProjectiles -> begin(); currProjectile != enemyProjectiles -> end(); ++currProjectile)
 		{
-			if( enemyProjectiles -> at( j ) -> exist( ) )
+			doDamage = false;
+
+			if( (*currProjectile) -> exist( ) )
 			{
-				projectilePosition =  enemyProjectiles -> at( j ) -> getPosition( );
+				projectilePosition =  (*currProjectile) -> getPosition( );
+
 				if( ( projectilePosition -> x > m_Position.x ) && ( projectilePosition -> x < m_Position.x + TILESIZE ) )  //if top left corner of projectile is in player x and x + TILESIZE
 				{
 					if( ( projectilePosition -> y > m_Position.y ) && ( projectilePosition -> y < m_Position.y + TILESIZE )  ) //and in player y and y + TILESIZE
 					{
-						takeDamage( m_shSpellDamage );											//damage to player
-						enemyProjectiles -> at( j ) -> setInvisible( );							//put the enemy projectile back to be unused
+						doDamage = true;
 					}
 				}
 
@@ -348,8 +387,7 @@ void Player::collisionCheck( )
 				{
 					if( ( projectilePosition -> y > m_Position.y ) && ( projectilePosition -> y < m_Position.y + TILESIZE )  ) //and in player y and y + TILESIZE
 					{
-						takeDamage( m_shSpellDamage );											//damage to player
-						enemyProjectiles -> at( j ) -> setInvisible( );							//put the enemy projectile back to be unused
+						doDamage = true;
 					}
 				}
 
@@ -357,8 +395,7 @@ void Player::collisionCheck( )
 				{
 					if( ( projectilePosition -> y + TILESIZE > m_Position.y ) && ( projectilePosition -> y + TILESIZE < m_Position.y + TILESIZE )  ) //and in player y and y + TILESIZE
 					{
-						takeDamage( m_shSpellDamage );											//damage to player
-						enemyProjectiles -> at( j ) -> setInvisible( );							//put the enemy projectile back to be unused
+						doDamage = true;
 					}
 				}
 
@@ -366,11 +403,26 @@ void Player::collisionCheck( )
 				{
 					if( ( projectilePosition -> y + TILESIZE > m_Position.y ) && ( projectilePosition -> y + TILESIZE < m_Position.y + TILESIZE )  ) //and in player y and y + TILESIZE
 					{
-						takeDamage( m_shSpellDamage );											//damage to player
-						enemyProjectiles -> at( j ) -> setInvisible( );							//put the enemy projectile back to be unused
+						doDamage = true;
 					}
+				}
+
+				if(doDamage)
+				{
+					if(takeDamage( (*it)->getSpellDamage() )) // if damage to player is enough to kill. 
+					{
+						die();
+					}
+
+					(*currProjectile) -> setInvisible( );	//put the enemy projectile back to be unused
 				}
 			}
 		}
 	}
+}
+
+void Player::die()
+{
+	// play death animation and sad music.
+	// fade out into highscore screen. 
 }

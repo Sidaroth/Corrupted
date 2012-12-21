@@ -29,6 +29,8 @@ protected:
 	short m_shSpellDamage;
 	float m_fCriticalChance;	/// Given in percent
 
+	bool m_bDead;
+
 	Ui* userInterface;
 
 	~Character();
@@ -76,6 +78,5 @@ public:
 	void endAction();
 	bool isDoingAction();
 	void castSpell( Vector2f mouseCoordinates, short spell );
-	void takeDamage( short damage );
-	void die();
+	bool takeDamage( short damage );
 };

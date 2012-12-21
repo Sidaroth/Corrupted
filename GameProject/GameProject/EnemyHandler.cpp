@@ -25,12 +25,12 @@ void EnemyHandler::loadContent(EnvironmentHandler* level)
 {
 	m_Level = level;
 	m_EnemyFactory -> loadContent();
-	m_EnemyVector.reserve(500);
+	m_EnemyVector.reserve(25);
 
 	int x = 96;
 	int y = 96;
 
-	for(int i = 0; i < 1; i++)
+	for(int i = 0; i < 20; i++)
 	{	
 		m_EnemyVector.push_back(m_EnemyFactory -> createEnemy(m_EnemyFactory -> Skellie));
 
