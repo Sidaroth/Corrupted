@@ -51,6 +51,5 @@ public:
 	bool pointInsideRect(int pX,int pY,sf::FloatRect rectangle);
 	void die();
 
-
 	void setEnemyVector( std::vector<Enemy*>* enemyVector);
 };

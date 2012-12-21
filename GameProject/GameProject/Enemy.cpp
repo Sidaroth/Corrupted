@@ -345,6 +345,6 @@ std::vector<Projectile*>* Enemy::getProjectile( )
 short Enemy::kill()
 {
 	m_bDead = true;
-	// Play death animation.
+	// Play death animation. 
 	return m_shSoulsToDrop;
 }
