@@ -185,7 +185,7 @@ void Highscore::processEvents( sf::Event event )
 		reloadLeaderboard( );
 	}
 
-	if ((event.mouseMove.x >= m_mainMenuSprite.getPosition().x && event.mouseMove.x <= m_mainMenuSprite.getPosition().x+400 && 
+	if ((	event.mouseMove.x >= m_mainMenuSprite.getPosition().x && event.mouseMove.x <= m_mainMenuSprite.getPosition().x+400 && 
 			event.mouseMove.y >= m_mainMenuSprite.getPosition().y && event.mouseMove.y <= m_mainMenuSprite.getPosition().y+100)) 
 	{
 		m_mainMenuSprite.setTexture(m_mainMenuPressTexture);
@@ -195,13 +195,13 @@ void Highscore::processEvents( sf::Event event )
 		m_mainMenuSprite.setTexture(m_mainMenuTexture);
 	}
 
-	if(event.mouseButton.x >=  m_mainMenuSprite.getPosition().x && event.mouseButton.x <=  m_mainMenuSprite.getPosition().x+270 && 
+	if(		event.mouseButton.x >=  m_mainMenuSprite.getPosition().x && event.mouseButton.x <=  (m_mainMenuSprite.getPosition().x+270) && 
 			event.mouseButton.y >=  m_mainMenuSprite.getPosition().y && event.mouseButton.y <=  m_mainMenuSprite.getPosition().y+70)
 	{
 		StateHandler::getInstance().addScreen(new TitleScreen());
 	}
 
-	if ((event.mouseMove.x >= m_submitSprite.getPosition().x && event.mouseMove.x <= m_submitSprite.getPosition().x+400 && 
+	if ((	event.mouseMove.x >= m_submitSprite.getPosition().x && event.mouseMove.x <= m_submitSprite.getPosition().x+400 && 
 			event.mouseMove.y >= m_submitSprite.getPosition().y && event.mouseMove.y <= m_submitSprite.getPosition().y+100)) 
 	{
 		m_submitSprite.setTexture(m_submitPressTexture);	
@@ -211,7 +211,7 @@ void Highscore::processEvents( sf::Event event )
 		m_submitSprite.setTexture(m_submitTexture);
 	}
 
-	if(event.mouseButton.x >=  m_submitSprite.getPosition().x && event.mouseButton.x <=  m_submitSprite.getPosition().x+270 && 
+	if(		event.mouseButton.x >=  m_submitSprite.getPosition().x && event.mouseButton.x <=  m_submitSprite.getPosition().x+270 && 
 			event.mouseButton.y >=  m_submitSprite.getPosition().y && event.mouseButton.y <=  m_submitSprite.getPosition().y+70)
 	{
 		if(isalnumstr(m_sUsername) && m_sUsername != "Type in username" && m_bSubmitted == false && m_iScore > 0)

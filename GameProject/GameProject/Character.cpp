@@ -40,7 +40,7 @@ bool Character::attack(short row) ///0=N, 1=NE, 2=E, 3=SE, 4=S, 5=SW, 6=W, 7=NW
 		setBitmapRow(row);
 		m_Sprite.setTexture(*m_TextureTypes[ATTACK]);
 		m_shBitmapCol = 0;
-		m_bDoingAction=true;
+		m_bDoingAction = true;
 		return true;
 	}
 
@@ -197,6 +197,12 @@ void Character::draw( )
 
 void Character::update( )
 {
+
+	m_shMaxHealth     = m_shToughness    * m_shToughness * 2;
+	m_shMeleeDamage   = m_shStrength     * m_shStrength;
+	m_shSpellDamage   = m_shIntelligence * m_shIntelligence;
+	m_fCriticalChance = m_shStrength / 5 + m_shSpeed / 2;
+
 	for( unsigned int i = 0; i < m_vProjectiles.size( ); i++ )
 	{
 		if( m_vProjectiles[i]->exist( ) )

@@ -23,8 +23,6 @@ Player::Player() : Character()
 	{
 		m_saStatArray[i] = 0;
 	}
-
-	m_sName = "Ronald McDonald";
 }
 
 void Player::setUserInterface(Ui* ui)
@@ -83,11 +81,6 @@ void Player::update()
 {
 	Character::update();
 
-	m_shMaxHealth     = m_shToughness    * m_shToughness * 2;
-	m_shMeleeDamage   = m_shStrength     * m_shStrength;
-	m_shSpellDamage   = m_shIntelligence * m_shIntelligence;
-	m_fCriticalChance = m_shStrength / 5 + m_shSpeed / 2;
-
 	collisionCheck( );
 }
 
@@ -97,30 +90,6 @@ void Player::draw()
 	StateHandler::getInstance().m_pWindow->draw(m_Sprite);
 }
 
-short Player::getTotalSouls()
-{
-	return m_shTotalSouls;
-}
-
-short Player::getCurrentSouls()
-{
-	return m_shCurrentSouls;
-}
-
-short Player::getWeaponLevel()
-{
-	return m_shWeaponLevel;
-}
-
-short Player::getArmorLevel()
-{
-	return m_shArmorLevel;
-}
-
-int Player::getStatArray(int stat) 
-{
-	return m_saStatArray[stat];
-}
 
 void Player::modifySouls(short amount) 
 {
@@ -230,25 +199,23 @@ bool Player::checkAttackCollision(short direction)
 				break;
 			}
 			
-			//std::cout << "attack POSITION: (" << attackPoint_x << "," <<attackPoint_y << ")" << std::endl;
-
-			if((attackPoint_x > (enemy_x - enemy_width / 2)) && (attackPoint_x < (enemy_x + (enemy_width / 2))))
+			if ((attackPoint_x > (enemy_x - enemy_width / 2)) && (attackPoint_x < (enemy_x + (enemy_width / 2))))
 			{
-				if((attackPoint_y > (enemy_y - enemy_height / 2)) && (attackPoint_y < (enemy_y + (enemy_height / 2))))
+				if ((attackPoint_y > (enemy_y - enemy_height / 2)) && (attackPoint_y < (enemy_y + (enemy_height / 2))))
 				{
 					doDamage = true;
 				}
 			}
 
-			if((player_x > (enemy_x - enemy_width / 2)) && (player_x < ((enemy_x + enemy_width / 2))))
+			if ((player_x > (enemy_x - enemy_width / 2)) && (player_x < ((enemy_x + enemy_width / 2))))
 			{
-				if((player_y > (enemy_y - (enemy_height / 2))) && (player_y < (enemy_y + (enemy_height / 2))))
+				if ((player_y > (enemy_y - (enemy_height / 2))) && (player_y < (enemy_y + (enemy_height / 2))))
 				{
 					doDamage = true;
 				}
 			}
 
-			if(doDamage)
+			if (doDamage)
 			{
 				if((*it) -> takeDamage( m_shMeleeDamage ))
 				{
@@ -270,10 +237,8 @@ bool Player::pointInsideRect(int pX,int pY,sf::FloatRect rectangle)
 		int rect_height = rectangle.height;
 		int rect_x = rectangle.left;
 		int rect_y = rectangle.top;
-
-		std::cout << "Px: " << pX << " pY: " << pY << " rect_x: " << rect_x << "rect_y: "<< rect_y <<"width: "<< rect_width << std::endl;
-				
-		if((pX > rect_x) && (pX < rect_x + rect_width))
+		
+		if ((pX > rect_x) && (pX < rect_x + rect_width))
 		{
 			if((pY > rect_y) && (pY < rect_y + rect_height))
 			{
@@ -294,54 +259,54 @@ void Player::collisionCheck( )
 	bool doDamage;
 	bool doIncrement;
 
-	for(std::vector<Enemy*>::iterator it = m_EnemyVector -> begin(); it != m_EnemyVector -> end();)
+	for (std::vector<Enemy*>::iterator it = m_EnemyVector -> begin(); it != m_EnemyVector -> end();)
 	{
 		doIncrement = true;
 		enemyPosition =	(*it) -> getPosition( );
 
-		for( int j = 0; j < m_vProjectiles.size( ); j++ )
+		for ( int j = 0; j < m_vProjectiles.size( ); j++ )
 		{
-			if( m_vProjectiles[j] -> exist( ) )
+			if ( m_vProjectiles[j] -> exist( ) )
 			{
 				doDamage = false;
 
 				projectilePosition =  m_vProjectiles[j] -> getPosition( );
-				if( ( projectilePosition -> x > enemyPosition -> x ) && ( projectilePosition -> x < enemyPosition -> x + TILESIZE ) )  //if top left corner of projectile is in enemy x and x + TILESIZE
+				if ( ( projectilePosition -> x > enemyPosition -> x ) && ( projectilePosition -> x < enemyPosition -> x + TILESIZE ) )  //if top left corner of projectile is in enemy x and x + TILESIZE
 				{
-					if( ( projectilePosition -> y > enemyPosition -> y ) && ( projectilePosition -> y < enemyPosition -> y + TILESIZE )  ) //and in enemy y and y + TILESIZE
+					if ( ( projectilePosition -> y > enemyPosition -> y ) && ( projectilePosition -> y < enemyPosition -> y + TILESIZE )  ) //and in enemy y and y + TILESIZE
 					{
 						doDamage = true;
 					}
 				}
 
-				else if( ( projectilePosition -> x + PROJECTILE_SIZE > enemyPosition -> x ) && ( projectilePosition -> x + PROJECTILE_SIZE < enemyPosition -> x + TILESIZE ) )  //if top right corner of projectile is in enemy x and x + TILESIZE
+				else if ( ( projectilePosition -> x + PROJECTILE_SIZE > enemyPosition -> x ) && ( projectilePosition -> x + PROJECTILE_SIZE < enemyPosition -> x + TILESIZE ) )  //if top right corner of projectile is in enemy x and x + TILESIZE
 				{
-					if( ( projectilePosition -> y > enemyPosition -> y ) && ( projectilePosition -> y < enemyPosition -> y + TILESIZE )  ) //and in enemy y and y + TILESIZE
+					if ( ( projectilePosition -> y > enemyPosition -> y ) && ( projectilePosition -> y < enemyPosition -> y + TILESIZE )  ) //and in enemy y and y + TILESIZE
 					{
 						doDamage = true;
 					}
 				}
 
-				else if( ( projectilePosition -> x > enemyPosition -> x ) && ( projectilePosition -> x < enemyPosition -> x + TILESIZE ) )  //if bottom left corner of projectile is in enemy x and x + TILESIZE
+				else if ( ( projectilePosition -> x > enemyPosition -> x ) && ( projectilePosition -> x < enemyPosition -> x + TILESIZE ) )  //if bottom left corner of projectile is in enemy x and x + TILESIZE
 				{
-					if( ( projectilePosition -> y + PROJECTILE_SIZE > enemyPosition -> y ) && ( projectilePosition -> y + PROJECTILE_SIZE < enemyPosition -> y + TILESIZE )  ) //and in enemy y and y + TILESIZE
+					if ( ( projectilePosition -> y + PROJECTILE_SIZE > enemyPosition -> y ) && ( projectilePosition -> y + PROJECTILE_SIZE < enemyPosition -> y + TILESIZE )  ) //and in enemy y and y + TILESIZE
 					{
 						doDamage = true;
 					}
 				}
 
-				else if( ( projectilePosition -> x + PROJECTILE_SIZE > enemyPosition -> x ) && ( projectilePosition -> x + PROJECTILE_SIZE < enemyPosition -> x + TILESIZE ) )  //if bottom right corner of projectile is in enemy x and x + TILESIZE
+				else if ( ( projectilePosition -> x + PROJECTILE_SIZE > enemyPosition -> x ) && ( projectilePosition -> x + PROJECTILE_SIZE < enemyPosition -> x + TILESIZE ) )  //if bottom right corner of projectile is in enemy x and x + TILESIZE
 				{
-					if( ( projectilePosition -> y + PROJECTILE_SIZE > enemyPosition -> y ) && ( projectilePosition -> y + PROJECTILE_SIZE < enemyPosition -> y + TILESIZE )  ) //and in enemy y and y + TILESIZE
+					if ( ( projectilePosition -> y + PROJECTILE_SIZE > enemyPosition -> y ) && ( projectilePosition -> y + PROJECTILE_SIZE < enemyPosition -> y + TILESIZE )  ) //and in enemy y and y + TILESIZE
 					{
 						doDamage = true;
 					}
 				}
 
 
-				if(doDamage)
+				if (doDamage)
 				{
-					if((*it) -> takeDamage( m_shSpellDamage ))	//damage to enemy
+					if ((*it) -> takeDamage( m_shSpellDamage ))	//damage to enemy
 					{
 							modifySouls((*it) -> kill());
 							it = m_EnemyVector -> erase(it);
@@ -353,7 +318,7 @@ void Player::collisionCheck( )
 			}
 		}
 
-		if(doIncrement)
+		if (doIncrement)
 		{
 			++it;
 		}
@@ -364,52 +329,52 @@ void Player::collisionCheck( )
 
 	std::vector<Projectile*>* enemyProjectiles;
 
-	for(std::vector<Enemy*>::iterator it = m_EnemyVector -> begin(); it != m_EnemyVector -> end(); ++it)
+	for (std::vector<Enemy*>::iterator it = m_EnemyVector -> begin(); it != m_EnemyVector -> end(); ++it)
 	{
 		enemyProjectiles =	(*it) -> getProjectile( );
-		for( std::vector<Projectile*>::iterator currProjectile = enemyProjectiles -> begin(); currProjectile != enemyProjectiles -> end(); ++currProjectile)
+		for ( std::vector<Projectile*>::iterator currProjectile = enemyProjectiles -> begin(); currProjectile != enemyProjectiles -> end(); ++currProjectile)
 		{
 			doDamage = false;
 
-			if( (*currProjectile) -> exist( ) )
+			if ( (*currProjectile) -> exist( ) )
 			{
 				projectilePosition =  (*currProjectile) -> getPosition( );
 
-				if( ( projectilePosition -> x > m_Position.x ) && ( projectilePosition -> x < m_Position.x + TILESIZE ) )  //if top left corner of projectile is in player x and x + TILESIZE
+				if ( ( projectilePosition -> x > m_Position.x ) && ( projectilePosition -> x < m_Position.x + TILESIZE ) )  //if top left corner of projectile is in player x and x + TILESIZE
 				{
-					if( ( projectilePosition -> y > m_Position.y ) && ( projectilePosition -> y < m_Position.y + TILESIZE )  ) //and in player y and y + TILESIZE
+					if ( ( projectilePosition -> y > m_Position.y ) && ( projectilePosition -> y < m_Position.y + TILESIZE )  ) //and in player y and y + TILESIZE
 					{
 						doDamage = true;
 					}
 				}
 
-				else if( ( projectilePosition -> x + TILESIZE > m_Position.x ) && ( projectilePosition -> x + TILESIZE < m_Position.x + TILESIZE ) )  //if top right corner of projectile is in player x and x + TILESIZE
+				else if ( ( projectilePosition -> x + TILESIZE > m_Position.x ) && ( projectilePosition -> x + TILESIZE < m_Position.x + TILESIZE ) )  //if top right corner of projectile is in player x and x + TILESIZE
 				{
-					if( ( projectilePosition -> y > m_Position.y ) && ( projectilePosition -> y < m_Position.y + TILESIZE )  ) //and in player y and y + TILESIZE
+					if ( ( projectilePosition -> y > m_Position.y ) && ( projectilePosition -> y < m_Position.y + TILESIZE )  ) //and in player y and y + TILESIZE
 					{
 						doDamage = true;
 					}
 				}
 
-				else if( ( projectilePosition -> x > m_Position.x ) && ( projectilePosition -> x < m_Position.x + TILESIZE ) )  //if bottom left corner of projectile is in player x and x + TILESIZE
+				else if ( ( projectilePosition -> x > m_Position.x ) && ( projectilePosition -> x < m_Position.x + TILESIZE ) )  //if bottom left corner of projectile is in player x and x + TILESIZE
 				{
-					if( ( projectilePosition -> y + TILESIZE > m_Position.y ) && ( projectilePosition -> y + TILESIZE < m_Position.y + TILESIZE )  ) //and in player y and y + TILESIZE
+					if ( ( projectilePosition -> y + TILESIZE > m_Position.y ) && ( projectilePosition -> y + TILESIZE < m_Position.y + TILESIZE )  ) //and in player y and y + TILESIZE
 					{
 						doDamage = true;
 					}
 				}
 
-				else if( ( projectilePosition -> x + TILESIZE > m_Position.x ) && ( projectilePosition -> x + TILESIZE < m_Position.x + TILESIZE ) )  //if bottom right corner of projectile is in player x and x + TILESIZE
+				else if ( ( projectilePosition -> x + TILESIZE > m_Position.x ) && ( projectilePosition -> x + TILESIZE < m_Position.x + TILESIZE ) )  //if bottom right corner of projectile is in player x and x + TILESIZE
 				{
-					if( ( projectilePosition -> y + TILESIZE > m_Position.y ) && ( projectilePosition -> y + TILESIZE < m_Position.y + TILESIZE )  ) //and in player y and y + TILESIZE
+					if ( ( projectilePosition -> y + TILESIZE > m_Position.y ) && ( projectilePosition -> y + TILESIZE < m_Position.y + TILESIZE )  ) //and in player y and y + TILESIZE
 					{
 						doDamage = true;
 					}
 				}
 
-				if(doDamage)
+				if (doDamage)
 				{
-					if(takeDamage( (*it)->getSpellDamage() )) // if damage to player is enough to kill. 
+					if (takeDamage( (*it)->getSpellDamage() )) // if damage to player is enough to kill. 
 					{
 						die();
 					}

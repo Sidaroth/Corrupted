@@ -27,8 +27,8 @@ void Projectile::initiate( short spell, short damage, Vector2f position, Vector2
 {
 	m_shSpell = spell;
 	m_shDamage = damage;
-	m_Position.x = position.x;
-	m_Position.y = position.y;
+	m_Position.x = (position.x + (48));
+	m_Position.y = (position.y + (48));
 	m_bExist = true;
 	m_shTraveled = 0;
 
@@ -37,11 +37,17 @@ void Projectile::initiate( short spell, short damage, Vector2f position, Vector2
 		m_Sprite.setTexture( m_vTextures[FIREBALL] );
 	}
 
-	position.x = StateHandler::getInstance().m_pWindow -> getSize().x / 2;
-	position.y = StateHandler::getInstance().m_pWindow -> getSize().y / 2;
+	sf::View tempView = StateHandler::getInstance().m_pWindow -> getView();
 
-	float deltaY = position.y - mouseCoordinates.y;
-	float deltaX = position.x - mouseCoordinates.x;
+	int windowX = tempView.getCenter().x - ( tempView.getSize().x / 2 );
+	int windowY = tempView.getCenter().y - ( tempView.getSize().y / 2 );
+
+	Vector2f uiPosition(position.x - windowX, position.y - windowY);
+	uiPosition.x /= 1.5;
+	uiPosition.y /= 1.5;
+
+	float deltaY = uiPosition.y - mouseCoordinates.y;
+	float deltaX = uiPosition.x - mouseCoordinates.x;
 
 	m_fAngle = atan2( deltaY, deltaX );// * 180 / 3.1415;
 }
@@ -67,6 +73,8 @@ void Projectile::move( )
 	float newX = m_Position.x + 10 * -cos( m_fAngle );
 	float newY = m_Position.y + 10 * -sin( m_fAngle );
 
+	//std::cout << m_fAngle*180 << std::endl;
+	m_Sprite.setRotation((m_fAngle * 180 / 3.1415) -180);
 	m_Sprite.setPosition( newX, newY );
 
 	m_Position.x = newX;
