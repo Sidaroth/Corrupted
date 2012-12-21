@@ -42,6 +42,7 @@ private:
 	sf::Text m_usernameText;
 	sf::Text m_leaderboardText;
 	sf::Text m_submitErrorText;
+	sf::Text m_userScore;
 
 	sf::Font m_font;
 
@@ -66,6 +67,7 @@ private:
 	std::vector< User > leaderboard;
 public:
 	Highscore();
+	Highscore( short score );
 	~Highscore();
 
 	void loadContent();

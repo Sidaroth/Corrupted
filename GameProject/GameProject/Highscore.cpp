@@ -1,6 +1,6 @@
 #include "Highscore.h"
 
-// TEMPORARY!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// TEMPORARY!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 #include "TitleScreen.h"
 #include "Level1.h"
 
@@ -15,8 +15,23 @@ Highscore::Highscore( )
 	m_bSubmitted = false;
 }
 
+Highscore::Highscore( short score )
+{
+	m_bNothingTyped = true;
+	m_sUsername = "Type in username";
+	m_iScrollPos = 10;
+	m_iMaxScrollPos = 100;
+	m_iMinScrollPos = 10;
+	m_iScore = score;
+	m_bSubmitted = false;
+}
+
 void Highscore::loadContent( )
 {
+	sf::View tempView = StateHandler::getInstance().m_pWindow -> getDefaultView();
+
+	StateHandler::getInstance().m_pWindow -> setView(tempView);
+
 	decodeJson( );
 
 	if( !m_font.loadFromFile( "../../Resources/SourceCodePro-Black.ttf" ) ) //Load font 
@@ -32,6 +47,9 @@ void Highscore::loadContent( )
 		m_submitErrorText.setString( "" );
 		m_submitErrorText.setPosition( 300, 700 );
 		m_submitErrorText.setFont( m_font );
+
+		m_userScore.setString("Your score: " + std::to_string((long long) m_iScore));
+		m_userScore.setPosition(300, 300); 
 
 		reloadLeaderboard( );
 	}
@@ -243,9 +261,10 @@ void Highscore::draw( )
 	m_window->draw( m_mainMenuSprite );
 	m_window->draw( m_submitSprite );
 	m_window->draw( m_textFieldSprite );
-	m_window->draw(m_usernameText);
-	m_window->draw(m_leaderboardText);
-	m_window->draw(m_submitErrorText);
+	m_window->draw( m_usernameText );
+	m_window->draw( m_leaderboardText );
+	m_window->draw( m_submitErrorText );
+	m_window -> draw( m_userScore );
 }
 
 void Highscore::decodeJson( )

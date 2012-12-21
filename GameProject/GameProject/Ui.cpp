@@ -3,6 +3,8 @@
 Ui::Ui()
 {
 	m_shFrameCount = 0;
+	m_bFading = false;
+	m_bHasFaded = false;
 
 	for (int i = 0; i <= 5; i++)
 	{
@@ -16,10 +18,14 @@ Ui::~Ui()
 	
 }
 
+bool Ui::hasFaded()
+{
+	return m_bHasFaded;
+}
+
 bool Ui::loadContent()
 {
 	sf::Image healthDiamondMaskingImage;
-	
 
 	if(!m_uiBackground.loadFromFile("../../Resources/GUI.PNG"))				//Load images
 	{
@@ -172,6 +178,19 @@ void Ui::initialize(short* strength, short* intelligence, short* toughness, shor
 
 void Ui::update()
 {
+	if(m_bFading)
+	{
+		if(color.a < 250)
+		{
+			color.a += 2;
+			fadeRect.setFillColor(color);
+		}
+		else
+		{
+			m_bHasFaded = true;
+		}
+	}
+
 	rightSideStats.setString(numberToString((*m_shvPlayerStats[0]))+"\n" +
 								numberToString((*m_shvPlayerStats[1]))+"\n" +
 								numberToString((*m_shvPlayerStats[2]))+"\n" +
@@ -278,20 +297,26 @@ void Ui::draw()
 	{
 		(*it) -> draw(); 
 	}
+
+	if(m_bFading)
+	{
+		StateHandler::getInstance().m_pWindow -> draw(fadeRect);
+	}
 }
 
 void Ui::addFloatingText(std::string message, Vector2f position, sf::Color color)
 {
-	m_ftFloatingTextEntities.push_back(new FloatingText(message, position, &font, color)); 
-	
-	std::cout << &font << std::endl;
-	//m_ftFloatingTextEntities.back() -> setFont(&font);
-
+	m_ftFloatingTextEntities.push_back(new FloatingText(message, position, &font, color));
 }
 
 void Ui::fadeOut()
 {
+	color = sf::Color::Black;
+	color.a = 0;
 
+	m_bFading = true;
+	fadeRect.setSize(sf::Vector2f(1920, 1080));
+	fadeRect.setFillColor(color);
 }
 
 template <typename T>  std::string Ui::numberToString ( T Number )				//conversion from number to string

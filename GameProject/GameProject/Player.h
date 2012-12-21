@@ -42,6 +42,7 @@ public:
 	
 	bool takeDamage( short damage );
 
+	short getTotalSouls();
 	bool checkAttackCollision(short direction);
 	bool pointInsideRect(int pX,int pY,sf::FloatRect rectangle);
 	void die();

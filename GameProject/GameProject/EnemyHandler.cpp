@@ -104,20 +104,20 @@ std::vector<Enemy*>* EnemyHandler::getEnemyVector( )
 
 void EnemyHandler::createEnemy(int toBeCreated)
 {
-	std::vector<Enemy*>::iterator it;
+	std::vector<Enemy*>::iterator newlyCreatedEnemy;
 
 	for(int i = 0; i < toBeCreated; i++)
 	{	
 		m_EnemyVector.push_back(m_EnemyFactory -> createEnemy(m_EnemyFactory -> Skellie));
-		it = m_EnemyVector.end() - 1;
+		newlyCreatedEnemy = m_EnemyVector.end() - 1;
 
 		std::cout << m_EnemyVector.size();
 		std::cout << ", " << i << std::endl;
 
-		if((*it) != NULL)
+		if((*newlyCreatedEnemy) != NULL)
 		{
 			std::cout << "Enemy created!\n";		
-			(*it) -> loadContent();
+			(*newlyCreatedEnemy) -> loadContent();
 		}
 		else
 		{
@@ -127,10 +127,10 @@ void EnemyHandler::createEnemy(int toBeCreated)
 
 		randomSpawnPoint = m_EnemySpawnPoints->at(rand() % numberOfSpawnPoints);
 
-		(*it) -> setEnvironmentLevel(m_Level);
-		(*it) -> setUserInterface(m_pUserInterface);
-		(*it) -> setPosition(randomSpawnPoint);
-		(*it) -> setCollisionMap(collisionMap, m_HorizontalSize);
+		(*newlyCreatedEnemy) -> setEnvironmentLevel(m_Level);
+		(*newlyCreatedEnemy) -> setUserInterface(m_pUserInterface);
+		(*newlyCreatedEnemy) -> setPosition(randomSpawnPoint);
+		(*newlyCreatedEnemy) -> setCollisionMap(collisionMap, m_HorizontalSize);
 	}
 }
 

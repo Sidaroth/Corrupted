@@ -3,6 +3,7 @@
 // TEMPORARY!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 #include "TitleScreen.h"
 #include "SplashScreen.h"
+#include "Highscore.h"
 
 SuperLevel::SuperLevel()
 {
@@ -62,22 +63,22 @@ void SuperLevel::processEvents(sf::Event event)
 
 		if(sf::Keyboard::isKeyPressed(sf::Keyboard::T))
 		{
-			StateHandler::getInstance().addScreen(new TitleScreen);
+			StateHandler::getInstance().addScreen(new TitleScreen());
 		}
 
 		if(sf::Keyboard::isKeyPressed(sf::Keyboard::Y))
 		{
-			StateHandler::getInstance().addScreen(new SplashScreen);
+			StateHandler::getInstance().addScreen(new SplashScreen());
 		}
 
 		if(sf::Keyboard::isKeyPressed(sf::Keyboard::O))
 		{
-			player -> takeDamage(1);
+			player -> takeDamage(5);
 		}
 		
 		if(sf::Keyboard::isKeyPressed(sf::Keyboard::P))
 		{
-			player -> takeDamage(-1);
+			player -> takeDamage(-5);
 		}
 
 		if(sf::Keyboard::isKeyPressed(sf::Keyboard::K))
@@ -109,6 +110,12 @@ void SuperLevel::update()
 	player -> animation();
 	player -> update();
 	ui -> update();
+
+	if(ui -> hasFaded())
+	{
+		StateHandler::getInstance().addScreen(new Highscore(player -> getTotalSouls()));
+	}
+
 	keyControl->keyboardInput();
 
 	m_EnemyHandler -> update(player -> getPosition());

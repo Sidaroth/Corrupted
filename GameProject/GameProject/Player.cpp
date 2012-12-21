@@ -25,6 +25,11 @@ Player::Player() : Character()
 	}
 }
 
+short Player::getTotalSouls()
+{
+	return m_shTotalSouls;
+}
+
 void Player::setUserInterface(Ui* ui)
 {
 	userInterface = ui;
@@ -94,6 +99,11 @@ bool Player::loadContent()
 void Player::update() 
 {
 	Character::update();
+
+	if(m_shCurrentHealth <= 0)
+	{
+		die();
+	}
 
 	collisionCheck( );
 }
@@ -417,6 +427,7 @@ void Player::die()
 	// fade out into highscore screen. 
 }
 
+///reduces damage taken by 1% per ArmorLevel
 bool Player::takeDamage( short damage )
 {
 	return Character::takeDamage( damage *= ( m_shArmorLevel / 100 ) );
