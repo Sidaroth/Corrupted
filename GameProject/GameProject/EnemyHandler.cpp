@@ -36,34 +36,7 @@ void EnemyHandler::loadContent(EnvironmentHandler* level)
 	numberOfSpawnPoints = m_EnemySpawnPoints->size();
 	srand(time(NULL));											//Initialize random seed
 	
-	for(int i = 0; i < 20; i++)
-	{	
-		m_EnemyVector.push_back(m_EnemyFactory -> createEnemy(m_EnemyFactory -> Skellie));
-
-		if(m_EnemyVector[i] != NULL)
-		{
-			std::cout << "Enemy created!\n";		
-			m_EnemyVector[i] -> loadContent();
-		}
-		else
-		{
-			std::cout << "Something went wrong when creating enemy" << std::endl;
-			return;
-		}
-
-		randomSpawnPoint = m_EnemySpawnPoints->at(rand() % numberOfSpawnPoints);
-
-
-		m_EnemyVector[i] -> setEnvironmentLevel(m_Level);
-		m_EnemyVector[i] -> setUserInterface(m_pUserInterface);
-		m_EnemyVector[i] -> setPosition(randomSpawnPoint);
-		
-	}
-
-	
-
-
-	
+	createEnemy(20);
 }
 
 void EnemyHandler::setUserInterface(Ui* ui)
@@ -99,7 +72,7 @@ void EnemyHandler::update(Vector2f* playerPos)
 	if ( (int)spawnTimer.getElapsedTime().asSeconds() % m_waveNumber == 0)
 	{
 		//newWave();
-		//++m_waveNumber;
+		++m_waveNumber;
 	}
 }
 
@@ -119,9 +92,9 @@ std::vector<Enemy*>* EnemyHandler::getEnemyVector( )
 	return &m_EnemyVector;
 }
 
-void EnemyHandler::newWave()
+void EnemyHandler::createEnemy(int toBeCreated)
 {
-	for(int i = 0; i < 2; i++)
+	for(int i = 0; i < toBeCreated; i++)
 	{	
 		m_EnemyVector.push_back(m_EnemyFactory -> createEnemy(m_EnemyFactory -> Skellie));
 
@@ -132,9 +105,10 @@ void EnemyHandler::newWave()
 		}
 		else
 		{
-			
+			std::cout << "Something went wrong when creating enemy" << std::endl;
 			return;
 		}
+
 		randomSpawnPoint = m_EnemySpawnPoints->at(rand() % numberOfSpawnPoints);
 
 
@@ -142,7 +116,11 @@ void EnemyHandler::newWave()
 		m_EnemyVector[i] -> setUserInterface(m_pUserInterface);
 		m_EnemyVector[i] -> setPosition(randomSpawnPoint);
 		
+		
 	}
+}
 
-	std::cout << "At the end of newWave" << std::endl;
+void EnemyHandler::newWave()
+{
+	
 }

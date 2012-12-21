@@ -15,8 +15,6 @@ private:
 
 	short m_saStatArray[6];
 
-	std::string m_sName;
-
 	std::vector<Enemy*>* m_EnemyVector;
 
 	sf::Texture m_AttackTexture;
@@ -37,12 +35,6 @@ public:
 	void setUserInterface(Ui* ui);
 	void update();
 	void draw();
-
-	short getTotalSouls();
-	short getCurrentSouls();
-	short getWeaponLevel();
-	short getArmorLevel();
-	int getStatArray(int stat);
 
 	void increaseStat(int stat);
 	void modifySouls(short amount);

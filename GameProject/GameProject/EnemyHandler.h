@@ -38,5 +38,7 @@ public:
 	void draw();
 	void update(Vector2f* playerPos);
 	std::vector<Enemy*>* getEnemyVector( );
+
+	void createEnemy(int toBeCreated);
 	void newWave();
 };
