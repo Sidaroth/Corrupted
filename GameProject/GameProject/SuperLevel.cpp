@@ -31,7 +31,6 @@ void SuperLevel::superLoadContent()
 	ui = new Ui();
 	ui->loadContent();
 
-	//std::cout << ui << std::endl;
 	m_EnemyHandler -> setUserInterface(ui);
 
 	player = new Player();
@@ -57,7 +56,7 @@ void SuperLevel::unloadContent()
 
 void SuperLevel::processEvents(sf::Event event)
 {
-		keyControl->checkMouse(event);
+		keyControl->mouseInput(event);
 
 		ui -> processEvents(event);
 
@@ -91,6 +90,11 @@ void SuperLevel::processEvents(sf::Event event)
 			player -> modifySouls(-5);
 		}
 
+		if(sf::Keyboard::isKeyPressed(sf::Keyboard::F))
+		{
+			m_EnemyHandler -> createEnemy(3);
+		}
+
 		if (event.type == sf::Event::KeyReleased)
 		{
 			 if(!player->isDoingAction())
@@ -105,9 +109,10 @@ void SuperLevel::update()
 	player -> animation();
 	player -> update();
 	ui -> update();
-	keyControl->checkPressed();
-	m_EnemyHandler -> update(player -> getPosition());
+	keyControl->keyboardInput();
 
+	m_EnemyHandler -> update(player -> getPosition());
+	
 	m_Viewport.setCenter(player -> getXPosition(), player -> getYPosition());
 }
 

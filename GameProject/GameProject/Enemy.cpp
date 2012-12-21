@@ -8,6 +8,12 @@ void Enemy::setCollisionMap(std::vector<bool>* collisionMap, int horizontalSize)
 	this -> collisionMap = collisionMap;
 }
 
+/// Checks to see if the enemy is dead, and has finished it's death animation.
+bool Enemy::isDead()
+{
+	return(m_bDead && stopAnimation);
+}
+
 /// adds 10 for orthogonal movement, 14 for diagonal. Precalculating this avoids any 
 /// decimal and square root calculations during runtime. The pythagorean theorem states that 
 /// c^2 = b^2 + a^2, giving c = sqroot(1^2 + 1^2) = sqroot(2) as the answer.
@@ -166,133 +172,141 @@ short Enemy::findPath(int startX, int startY, int goalX, int goalY)
 
 			// Find and add neighbours to openList. 
 
-			for(int row = parentYval - 1; row <= parentYval + 1; ++row)
+			if(parentYval > 0 && parentYval < m_VerticalBitmapSize)
 			{
-				for(int column = parentXval - 1; column <= parentXval + 1; ++column)
+				for(int row = parentYval - 1; row <= parentYval + 1; ++row)
 				{
-					if( !(column == 0 && row == 0))	// If not self. 
+					if(parentXval > 0 && parentXval < m_HorizontalBitmapSize)
 					{
-						if(whichList[column][row] != onClosedList)
+						for(int column = parentXval - 1; column <= parentXval + 1; ++column)
 						{
-							currentPos = (row * m_HorizontalBitmapSize) + column;
-
-							if( (*collisionMap)[currentPos] )	// If walkable
+							if( !(column == 0 && row == 0))	// If not self. 
 							{
-								if(whichList[column][row] != onOpenList)	// If it hasn't been checked before. 
+								if(whichList[column][row] != onClosedList)
 								{
-									//insertIntoOpenList(column, row);
-									temp = 0;
-									insertPosition = 0;
-	
-									++squaresChecked;
-									insertPosition = numberOfOpenListItems + 1;
-									openList[insertPosition] = squaresChecked;
-									openX[squaresChecked] = column;
-									openY[squaresChecked] = row;
+									currentPos = (row * m_HorizontalBitmapSize) + column;
 
+									/*std::cout << "Parent: " << parentXval << ", " << parentYval << std::endl;
+									std::cout << "column, row: " << column << ", " << row << std::endl;
+									std::cout << "collisionPos: " << currentPos << std::endl;*/
 
-									// Figure ut Gcost
-															// If diagonal move
-									if(abs(column - parentXval) == 1 && abs(row - parentYval) == 1)
+									if( (*collisionMap)[currentPos] )	// If walkable
 									{
-										temp = DIAGONAL_MOVEMENT_COST; 
-									}
-									else	// Orthogonal
-									{
-										temp = ORTHOGONAL_MOVEMENT_COST;
-									}
-
-									gCost[column][row] = gCost[parentXval][parentYval] + temp;
-
-									// HCost & FCost
-									fCost[openList[insertPosition]] = gCost[column][row] + (abs(column + goalTileX) + abs(row + goalTileY)) * ORTHOGONAL_MOVEMENT_COST;
-
-									parentX[column][row] = parentXval;
-									parentY[column][row] = parentYval;
-	
-									while(insertPosition > 1)		// While the new insert Has not reached the top. 
-									{
-										// Check if child is <= parent, if so, swap.
-										if(fCost[openList[ insertPosition ]] <= fCost[openList[ insertPosition / 2 ]])
+										if(whichList[column][row] != onOpenList)	// If it hasn't been checked before. 
 										{
-											temp = openList[ insertPosition / 2 ];
-											openList[ insertPosition / 2 ] = openList[ insertPosition ];
-											openList[insertPosition] = temp;
-				
-											insertPosition = insertPosition / 2;
-										}
-										else
-										{
+											//insertIntoOpenList(column, row);
+											temp = 0;
 											insertPosition = 0;
-										}
-									}
+	
+											++squaresChecked;
+											insertPosition = numberOfOpenListItems + 1;
+											openList[insertPosition] = squaresChecked;
+											openX[squaresChecked] = column;
+											openY[squaresChecked] = row;
 
-									++numberOfOpenListItems;
-									// Change whichlist to show that the new item is on the openList. 
-									whichList[column][row] = onOpenList;
-								}
-								else	// If it is already on the openList.
-								{
-									// Figure ut Gcost
-									// If diagonal move
-									if(abs(column - parentXval) == 1 && abs(row - parentYval) == 1)
-									{
-										temp = DIAGONAL_MOVEMENT_COST; 
-									}
-									else	// Orthogonal
-									{
-										temp = ORTHOGONAL_MOVEMENT_COST;
-									}
 
-									temp = gCost[parentXval][parentYval] + temp;
-
-									if(temp < gCost[column][row])	// If it has found a shorter path. 
-									{
-										parentX[column][row] = parentXval;
-										parentY[column][row] = parentYval;
-										gCost[column][row] = temp;
-
-										// We have to change it's position in the heap, meaning we have to find it, then recalculate it's fCost, then move it to it's appropriate
-										// position in the heap. This may stay the same, or it may change. 
-										for(int i = 1; i <= numberOfOpenListItems; i++)
-										{
-											// Item found. 
-											if(openX[openList[i]] == column && openY[openList[i]] == row)
+											// Figure ut Gcost
+																	// If diagonal move
+											if(abs(column - parentXval) == 1 && abs(row - parentYval) == 1)
 											{
-												// Recalculate
-												fCost[openList[i]] = gCost[column][row] + (abs(openX[openList[i]] + goalTileX) + abs(openY[openList[i]] + goalTileY)) * ORTHOGONAL_MOVEMENT_COST;
+												temp = DIAGONAL_MOVEMENT_COST; 
+											}
+											else	// Orthogonal
+											{
+												temp = ORTHOGONAL_MOVEMENT_COST;
+											}
 
-												insertPosition = i;
+											gCost[column][row] = gCost[parentXval][parentYval] + temp;
 
-												while(insertPosition > 1)
+											// HCost & FCost
+											fCost[openList[insertPosition]] = gCost[column][row] + (abs(column + goalTileX) + abs(row + goalTileY)) * ORTHOGONAL_MOVEMENT_COST;
+
+											parentX[column][row] = parentXval;
+											parentY[column][row] = parentYval;
+	
+											while(insertPosition > 1)		// While the new insert Has not reached the top. 
+											{
+												// Check if child is <= parent, if so, swap.
+												if(fCost[openList[ insertPosition ]] <= fCost[openList[ insertPosition / 2 ]])
 												{
-													// Check if child is < parent. If so swap. 
-													if(fCost[openList[ insertPosition ]] < fCost[openList[ insertPosition / 2 ]])
+													temp = openList[ insertPosition / 2 ];
+													openList[ insertPosition / 2 ] = openList[ insertPosition ];
+													openList[insertPosition] = temp;
+				
+													insertPosition = insertPosition / 2;
+												}
+												else
+												{
+													insertPosition = 0;
+												}
+											}
+
+											++numberOfOpenListItems;
+											// Change whichlist to show that the new item is on the openList. 
+											whichList[column][row] = onOpenList;
+										}
+										else	// If it is already on the openList.
+										{
+											// Figure ut Gcost
+											// If diagonal move
+											if(abs(column - parentXval) == 1 && abs(row - parentYval) == 1)
+											{
+												temp = DIAGONAL_MOVEMENT_COST; 
+											}
+											else	// Orthogonal
+											{
+												temp = ORTHOGONAL_MOVEMENT_COST;
+											}
+
+											temp = gCost[parentXval][parentYval] + temp;
+
+											if(temp < gCost[column][row])	// If it has found a shorter path. 
+											{
+												parentX[column][row] = parentXval;
+												parentY[column][row] = parentYval;
+												gCost[column][row] = temp;
+
+												// We have to change it's position in the heap, meaning we have to find it, then recalculate it's fCost, then move it to it's appropriate
+												// position in the heap. This may stay the same, or it may change. 
+												for(int i = 1; i <= numberOfOpenListItems; i++)
+												{
+													// Item found. 
+													if(openX[openList[i]] == column && openY[openList[i]] == row)
 													{
-														temp = openList[insertPosition / 2];
-														openList[insertPosition / 2] = openList[insertPosition];
-														openList[insertPosition] = temp;
+														// Recalculate
+														fCost[openList[i]] = gCost[column][row] + (abs(openX[openList[i]] + goalTileX) + abs(openY[openList[i]] + goalTileY)) * ORTHOGONAL_MOVEMENT_COST;
+
+														insertPosition = i;
+
+														while(insertPosition > 1)
+														{
+															// Check if child is < parent. If so swap. 
+															if(fCost[openList[ insertPosition ]] < fCost[openList[ insertPosition / 2 ]])
+															{
+																temp = openList[insertPosition / 2];
+																openList[insertPosition / 2] = openList[insertPosition];
+																openList[insertPosition] = temp;
 														
-														insertPosition = insertPosition / 2;		// Going further up the heap. 
-													}
-													else
-													{
-														insertPosition = 0;	// step out of while. 
+																insertPosition = insertPosition / 2;		// Going further up the heap. 
+															}
+															else
+															{
+																insertPosition = 0;	// step out of while. 
+															}
+														}
+
+														i = numberOfOpenListItems + 2;	// break out of for. 
 													}
 												}
-
-												i = numberOfOpenListItems + 2;	// break out of for. 
 											}
 										}
 									}
 								}
 							}
-						}
-			
+						}	
 					}
 				}
 			}
-
 			++tilesChecked;
 		}
 		else
@@ -337,14 +351,17 @@ Enemy::~Enemy()
 	}
 }
 
+/// Returns a pointer to the vector containing the projectiles "shot" by the enemy. 
 std::vector<Projectile*>* Enemy::getProjectile( )
 {
 	return &m_vProjectiles;
 }
 
+/// Kills the enemy, plays the death animation, and returns the amount of souls (xp) to be given for the kill. 
 short Enemy::kill()
 {
 	m_bDead = true;
-	// Play death animation.
+	m_Sprite.setTexture( (*m_TextureTypes[DIE]));
+
 	return m_shSoulsToDrop;
 }

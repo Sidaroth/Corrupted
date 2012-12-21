@@ -15,13 +15,12 @@ private:
 
 	short m_saStatArray[6];
 
-	std::string m_sName;
-
 	std::vector<Enemy*>* m_EnemyVector;
 
 	sf::Texture m_AttackTexture;
 	sf::Texture m_MoveTexture;
 	sf::Texture m_StillTexture;
+	sf::Texture m_DeathTexture;
 
 	void collisionCheck( );
 
@@ -38,19 +37,12 @@ public:
 	void update();
 	void draw();
 
-	short getTotalSouls();
-	short getCurrentSouls();
-	short getWeaponLevel();
-	short getArmorLevel();
-	int getStatArray(int stat);
-
 	void increaseStat(int stat);
 	void modifySouls(short amount);
 
 	bool checkAttackCollision(short direction);
 	bool pointInsideRect(int pX,int pY,sf::FloatRect rectangle);
 	void die();
-
 
 	void setEnemyVector( std::vector<Enemy*>* enemyVector);
 };

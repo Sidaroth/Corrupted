@@ -5,6 +5,7 @@
 #include "Projectile.h"
 #include "Ui.h"
 
+#define bgColor sf::Color(106, 76, 48)
 
 class Character : public Actor
 {
@@ -17,6 +18,7 @@ private:
 	bool m_bDoingAction;
 
 protected:	
+	bool stopAnimation;
 	short m_shStrength;
 	short m_shIntelligence;
 	short m_shToughness;

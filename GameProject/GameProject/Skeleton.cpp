@@ -14,6 +14,7 @@ Skeleton::Skeleton(std::vector<sf::Texture>* textures)
 	m_TextureTypes.push_back( &textures -> at(MOVE) );
 	m_TextureTypes.push_back( &textures -> at(ATTACK) );
 	m_TextureTypes.push_back( &textures -> at(STILL) );
+	m_TextureTypes.push_back( &textures -> at(DIE) );
 }
 
 Skeleton::~Skeleton()
@@ -42,52 +43,59 @@ void Skeleton::update(Vector2f* playerPos)
 {
 	animation();
 
-	float xPos = m_Sprite.getPosition().x;
-	float yPos = m_Sprite.getPosition().y;
-
-	pathLocation = m_Path.size() - 1;
-
-	if(pathLocation >= 0) // If there are any pathsteps. 
+	if(!m_bDead)
 	{
-		pathStep = m_Path[pathLocation];
+		float xPos = m_Sprite.getPosition().x;
+		float yPos = m_Sprite.getPosition().y;
 
-		if(pathStep -> y > yPos)
-		{
-			move(SOUTH);
-		}
-		else if(pathStep -> y < yPos)
-		{
-			move(NORTH);
-		}
+		pathLocation = m_Path.size() - 1;
 
-		if(abs(pathStep -> y - m_Sprite.getPosition().y < 10))
+		if(pathLocation >= 0) // If there are any pathsteps. 
 		{
-			yStepGoalReached = true;
-		}
+			pathStep = m_Path[pathLocation];
 
-		if(pathStep -> x > xPos)
-		{
-			move(EAST);
-		}
-		else if(pathStep -> x < xPos)
-		{
-			move(WEST);
-		}
+			if(pathStep -> y > yPos)
+			{
+				move(SOUTH);
+			}
+			else if(pathStep -> y < yPos)
+			{
+				move(NORTH);
+			}
 
-		if(abs(pathStep -> x - m_Sprite.getPosition().x < 10))
-		{
-			xStepGoalReached = true;
-		}
+			if(abs(pathStep -> y - m_Sprite.getPosition().y < 10))
+			{
+				yStepGoalReached = true;
+			}
 
-		if(xStepGoalReached && yStepGoalReached)
+			if(pathStep -> x > xPos)
+			{
+				move(EAST);
+			}
+			else if(pathStep -> x < xPos)
+			{
+				move(WEST);
+			}
+
+			if(abs(pathStep -> x - m_Sprite.getPosition().x < 10))
+			{
+				xStepGoalReached = true;
+			}
+
+			if(xStepGoalReached && yStepGoalReached)
+			{
+				m_Path.erase(m_Path.end() - 1);
+				xStepGoalReached = false;
+				yStepGoalReached = false;
+			}
+		}
+		else
 		{
-			m_Path.erase(m_Path.end() - 1);
-			xStepGoalReached = false;
-			yStepGoalReached = false;
+			findPath(xPos, yPos, playerPos -> x, playerPos -> y);
 		}
 	}
 	else
 	{
-		findPath(xPos, yPos, playerPos -> x, playerPos -> y);
+
 	}
 }

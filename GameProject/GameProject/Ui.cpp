@@ -289,6 +289,11 @@ void Ui::addFloatingText(std::string message, Vector2f position, sf::Color color
 
 }
 
+void Ui::fadeOut()
+{
+
+}
+
 template <typename T>  std::string Ui::numberToString ( T Number )				//conversion from number to string
 {
 	 std::ostringstream ss;

@@ -16,7 +16,7 @@ bool EnemyFactory::loadContent()
 		return EXIT_FAILURE;
 	}
 
-	maskingImage.createMaskFromColor( sf::Color (106, 76, 48), 0);
+	maskingImage.createMaskFromColor( bgColor, 0);
 	tempTexture.loadFromImage( maskingImage );
 	m_SkellieTextures.push_back(tempTexture);
 
@@ -25,7 +25,7 @@ bool EnemyFactory::loadContent()
 		return EXIT_FAILURE;
 	}
 	
-	maskingImage.createMaskFromColor( sf::Color (106, 76, 48), 0);
+	maskingImage.createMaskFromColor( bgColor, 0);
 	tempTexture.loadFromImage( maskingImage );
 	m_SkellieTextures.push_back(tempTexture);
 
@@ -34,12 +34,18 @@ bool EnemyFactory::loadContent()
 		return EXIT_FAILURE;
 	}
 
-	maskingImage.createMaskFromColor( sf::Color (106, 76, 48), 0);
+	maskingImage.createMaskFromColor( bgColor, 0);
 	tempTexture.loadFromImage( maskingImage );
 	m_SkellieTextures.push_back(tempTexture);
 
-	
-	std::cout << "DONE!\n";
+	if( !maskingImage.loadFromFile("../../Resources/SkeletonDie.png"))
+	{
+		return EXIT_FAILURE;
+	}
+
+	maskingImage.createMaskFromColor( bgColor, 0);
+	tempTexture.loadFromImage( maskingImage );
+	m_SkellieTextures.push_back(tempTexture);
 
 	return EXIT_SUCCESS;
 }
@@ -49,6 +55,7 @@ Enemy* EnemyFactory::createEnemy(Enemies enemyType)
 	switch(enemyType)
 	{
 	case Skellie:
+		std::cout << "Texture location: " << &m_SkellieTextures << std::endl;
 		return new Skeleton(&m_SkellieTextures);
 	}
 

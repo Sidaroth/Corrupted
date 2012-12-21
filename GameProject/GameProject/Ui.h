@@ -59,6 +59,8 @@ public:
 	void update();
 	void processEvents(sf::Event event);
 	void draw();	
+	void fadeOut();
+
 	void initialize(short* strength, short* intellect, short* toughness, short* speed,
 				    short* currentSouls, short* weaponLevel, short* armorLevel, short* currHp,
 					short* maxHealth, short* meleeDamage, short* spellDamage, float* critChance);
