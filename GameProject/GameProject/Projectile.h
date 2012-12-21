@@ -36,4 +36,5 @@ public:
 	void setFrame( );
 	void setInvisible( );
 	void setEnvironmentObjects(std::vector<bool>* objects, short horizontalBitmapSize );
+	short getDamage();
 };

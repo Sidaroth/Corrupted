@@ -50,6 +50,7 @@ bool Character::attack(short row) ///0=N, 1=NE, 2=E, 3=SE, 4=S, 5=SW, 6=W, 7=NW
 
 bool Character::loadContent()
 {
+	srand(time(NULL));
 	//create 5 temp projectiles on load for each enemy/player
 	Projectile* projectile;
 	for( int i = 0; i < 5; i++ )
@@ -212,7 +213,7 @@ void Character::update( )
 	m_shMaxHealth     = m_shToughness    * m_shToughness * 2;
 	m_shMeleeDamage   = m_shStrength     * m_shStrength;
 	m_shSpellDamage   = m_shIntelligence * m_shIntelligence;
-	m_fCriticalChance = m_shStrength / 5 + m_shSpeed / 2;
+	m_fCriticalChance = m_shStrength / 2 + m_shSpeed / 2 + m_shIntelligence / 2;
 
 	for( unsigned int i = 0; i < m_vProjectiles.size( ); i++ )
 	{
@@ -365,7 +366,17 @@ void Character::castSpell( Vector2f mouseCoordinates, short spell )
 		{
 			if( !m_vProjectiles[i]->exist( ) )
 			{
-				m_vProjectiles[i]->initiate( spell, m_shSpellDamage, m_Position, mouseCoordinates );
+				short spellDamage;
+				if(rand() % 100 < m_fCriticalChance)
+				{
+					spellDamage = m_shSpellDamage * 2;
+				}
+				else
+				{
+					spellDamage = m_shSpellDamage;
+				}
+
+				m_vProjectiles[i]->initiate( spell, spellDamage, m_Position, mouseCoordinates );
 				i = m_vProjectiles.size( ) + 1;
 			}
 			else if ( i == m_vProjectiles.size( ) - 1 )

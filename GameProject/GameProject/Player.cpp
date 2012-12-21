@@ -37,6 +37,7 @@ void Player::setUserInterface(Ui* ui)
 
 bool Player::loadContent()
 {
+	srand(time(NULL));
 	//load projectiles in character
 	Character::loadContent();
 
@@ -240,7 +241,16 @@ bool Player::checkAttackCollision(short direction)
 
 			if (doDamage)
 			{
-				if((*it) -> takeDamage( m_shMeleeDamage ))
+				short damage;
+				if(rand() % 100 < m_fCriticalChance)
+				{
+					damage = m_shMeleeDamage * 2;
+				}
+				else
+				{
+					damage = m_shMeleeDamage;
+				}
+				if((*it) -> takeDamage( damage ))
 				{
 					modifySouls((*it) -> kill());		// kill and erase.
 					//it = m_EnemyVector -> erase(it);	// If we want to bodies to stay on the ground.. do not erase.
@@ -329,7 +339,7 @@ void Player::collisionCheck( )
 
 				if (doDamage)
 				{
-					if ((*it) -> takeDamage( m_shSpellDamage ))	//damage to enemy
+					if((*it) -> takeDamage( (m_vProjectiles[j]) -> getDamage()))	//damage to enemy
 					{
 							modifySouls((*it) -> kill());
 							//it = m_EnemyVector -> erase(it);
@@ -397,7 +407,7 @@ void Player::collisionCheck( )
 
 				if (doDamage)
 				{
-					if (takeDamage( (*it)->getSpellDamage() )) // if damage to player is enough to kill. 
+					if(takeDamage( (*currProjectile)->getDamage() )) // if damage to player is enough to kill. 
 					{
 						die();
 					}

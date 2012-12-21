@@ -182,3 +182,8 @@ void Projectile::checkCollision( )
 		setInvisible();
 	}
 }
+
+short Projectile::getDamage()
+{
+	return m_shDamage;
+}
