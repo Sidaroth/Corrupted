@@ -25,6 +25,11 @@ Player::Player() : Character()
 	}
 }
 
+short Player::getTotalSouls()
+{
+	return m_shTotalSouls;
+}
+
 void Player::setUserInterface(Ui* ui)
 {
 	userInterface = ui;
@@ -93,6 +98,11 @@ bool Player::loadContent()
 void Player::update() 
 {
 	Character::update();
+
+	if(m_shCurrentHealth <= 0)
+	{
+		die();
+	}
 
 	collisionCheck( );
 }
@@ -401,9 +411,10 @@ void Player::collisionCheck( )
 
 void Player::die()
 {
-	m_bDead = true;
-	m_Sprite.setTexture((*m_TextureTypes[DIE]));
-	userInterface -> fadeOut();
-
-	// fade out into highscore screen. 
+	if(!m_bDead)
+	{
+		m_bDead = true;
+		m_Sprite.setTexture((*m_TextureTypes[DIE]));
+		userInterface -> fadeOut();
+	}
 }

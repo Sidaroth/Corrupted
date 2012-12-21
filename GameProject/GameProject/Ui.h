@@ -29,6 +29,8 @@ private:
 
 	sf::Sprite increaseButtonSpriteArray[6];
 	bool increasable[6];
+	bool m_bFading;
+	bool m_bHasFaded;
 	
 	std::vector<FloatingText *> m_ftFloatingTextEntities;
 	std::vector<short *> m_shvPlayerStats;
@@ -46,6 +48,9 @@ private:
 
 	sf::Text iconText[5];
 
+	sf::RectangleShape fadeRect;
+	sf::Color color;
+
 	float healthRotation;
 	short m_shFrameCount;
 
@@ -60,6 +65,7 @@ public:
 	void processEvents(sf::Event event);
 	void draw();	
 	void fadeOut();
+	bool hasFaded();
 
 	void initialize(short* strength, short* intellect, short* toughness, short* speed,
 				    short* currentSouls, short* weaponLevel, short* armorLevel, short* currHp,

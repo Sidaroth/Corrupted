@@ -40,6 +40,7 @@ public:
 	void increaseStat(int stat);
 	void modifySouls(short amount);
 
+	short getTotalSouls();
 	bool checkAttackCollision(short direction);
 	bool pointInsideRect(int pX,int pY,sf::FloatRect rectangle);
 	void die();
