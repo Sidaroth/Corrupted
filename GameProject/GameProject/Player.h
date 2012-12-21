@@ -39,6 +39,8 @@ public:
 
 	void increaseStat(int stat);
 	void modifySouls(short amount);
+	
+	bool takeDamage( short damage );
 
 	bool checkAttackCollision(short direction);
 	bool pointInsideRect(int pX,int pY,sf::FloatRect rectangle);

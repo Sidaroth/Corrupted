@@ -394,7 +394,6 @@ void Player::collisionCheck( )
 						doDamage = true;
 					}
 				}
-
 				if (doDamage)
 				{
 					if(takeDamage( (*currProjectile)->getDamage() )) // if damage to player is enough to kill. 
@@ -416,4 +415,9 @@ void Player::die()
 	userInterface -> fadeOut();
 
 	// fade out into highscore screen. 
+}
+
+bool Player::takeDamage( short damage )
+{
+	return Character::takeDamage( damage *= ( m_shArmorLevel / 100 ) );
 }

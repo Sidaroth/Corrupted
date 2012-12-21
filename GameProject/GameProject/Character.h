@@ -80,5 +80,5 @@ public:
 	void endAction();
 	bool isDoingAction();
 	void castSpell( Vector2f mouseCoordinates, short spell );
-	bool takeDamage( short damage );
+	virtual bool takeDamage( short damage );
 };

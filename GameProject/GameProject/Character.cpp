@@ -235,113 +235,115 @@ void Character::move(short direction) // 0=N, 1=NE, 2=E, 3=SE, 4=S, 5=SW, 6=W, 7
 	Vector2f newPosition;
 	newPosition.x = m_Sprite.getPosition().x;
 	newPosition.y = m_Sprite.getPosition().y;
+	float diagonalSpeed = (float)(m_shSpeed * (2.f / 3.f ));
+	float orthogonalSpeed = (float)(m_shSpeed * (3.f / 4.f ));
 	switch (direction)
 	{	
 		case NORTH:
-			newPosition.y -= 3;
+			newPosition.y -= orthogonalSpeed;
 			setBitmapRow( NORTH );
 			
 			if( m_environmentLevel -> checkCollision( newPosition ) )
 			{
-				m_Sprite.move(0,-3);
+				m_Sprite.move(0,-orthogonalSpeed);
 			}
 		break;
 
 		case NORTH_EAST:
-			newPosition.x += 2.1f;
+			newPosition.x += diagonalSpeed;
 			setBitmapRow( NORTH_EAST );
 			
 			if( m_environmentLevel -> checkCollision( newPosition ) )
 			{
-				m_Sprite.move(2.1f, 0);
+				m_Sprite.move(diagonalSpeed, 0);
 			}
 			newPosition.x -= 2.1f; //back to original x position
-			newPosition.y -= 2.1f;
+			newPosition.y -= diagonalSpeed;
 			
 			if( m_environmentLevel -> checkCollision( newPosition ) )
 			{
-				m_Sprite.move(0,-2.1f);
+				m_Sprite.move(0,-diagonalSpeed);
 			}
 		break;
 
 		case EAST:
-			newPosition.x += 3;
+			newPosition.x += orthogonalSpeed;
 			setBitmapRow( EAST );
 
 			if( m_environmentLevel -> checkCollision( newPosition ) )
 			{
-				m_Sprite.move(3,0);
+				m_Sprite.move(orthogonalSpeed,0);
 			}
 		break;
 
 		case SOUTH_EAST:
-			newPosition.x += 2.1f;
+			newPosition.x += (float)(m_shSpeed * (2.f / 3.f));
 			setBitmapRow( SOUTH_EAST );
 
 			if( m_environmentLevel -> checkCollision( newPosition ) )
 			{
-				m_Sprite.move(2.1f,0);
+				m_Sprite.move(diagonalSpeed,0);
 			}
-			newPosition.x -= 2.1f; //back to original x position
-			newPosition.y += 2.1f;
+			newPosition.x -= diagonalSpeed; //back to original x position
+			newPosition.y += diagonalSpeed;
 			
 			if( m_environmentLevel -> checkCollision( newPosition ) )
 			{
-				m_Sprite.move(0,2.1f);
+				m_Sprite.move(0, diagonalSpeed);
 			}
 		break;
 
 		case SOUTH:
-			newPosition.y += 3;
+			newPosition.y += orthogonalSpeed;
 			setBitmapRow( SOUTH );
 		
 			if( m_environmentLevel -> checkCollision( newPosition ) )
 			{
-				m_Sprite.move(0, 3);
+				m_Sprite.move(0, orthogonalSpeed);
 			}
 		break;
 
 		case SOUTH_WEST:
-			newPosition.x -= 2.1f;
+			newPosition.x -= diagonalSpeed;
 			setBitmapRow( SOUTH_WEST );
 		
 			if( m_environmentLevel -> checkCollision( newPosition ) )
 			{
-				m_Sprite.move(-2.1f, 0);
+				m_Sprite.move(-diagonalSpeed, 0);
 			}
-			newPosition.x += 2.1f; //back to original x position
-			newPosition.y += 2.1f;
+			newPosition.x += diagonalSpeed; //back to original x position
+			newPosition.y += diagonalSpeed;
 			
 			if( m_environmentLevel -> checkCollision( newPosition ) )
 			{
-				m_Sprite.move(0, 2.1f);
+				m_Sprite.move(0, diagonalSpeed);
 			}
 		break;
 
 		case WEST:
-			newPosition.x -= 3.0f;
+			newPosition.x -= orthogonalSpeed;
 			setBitmapRow( WEST );
 		
 			if( m_environmentLevel -> checkCollision( newPosition ) )
 			{
-				m_Sprite.move(-3, 0);
+				m_Sprite.move(-orthogonalSpeed, 0);
 			}
 			break;
 
 		case NORTH_WEST:
-			newPosition.x -= 2.1f;
+			newPosition.x -= diagonalSpeed;
 			setBitmapRow( NORTH_WEST );
 
 			if( m_environmentLevel -> checkCollision( newPosition ) )
 			{
-				m_Sprite.move(-2.1f, 0);
+				m_Sprite.move(-diagonalSpeed, 0);
 			}
-			newPosition.x += 2.1f; //back to original x position
-			newPosition.y -= 2.1f;
+			newPosition.x += diagonalSpeed; //back to original x position
+			newPosition.y -= diagonalSpeed;
 			
 			if( m_environmentLevel -> checkCollision( newPosition ) )
 			{
-				m_Sprite.move(0, -2.1f);
+				m_Sprite.move(0, -diagonalSpeed);
 			}
 		break;
 	}
@@ -393,7 +395,7 @@ void Character::castSpell( Vector2f mouseCoordinates, short spell )
 /// Can both heal and damage players and enemies, if it kills the target, it returns true.
 bool Character::takeDamage( short damage )
 {
-	m_shCurrentHealth -= damage;
+	m_shCurrentHealth -= (damage);
 
 	// Calculate the position on the UI, not the world coords.
 	sf::View tempView = StateHandler::getInstance().m_pWindow -> getView();
