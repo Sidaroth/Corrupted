@@ -80,11 +80,11 @@ void EnemyHandler::update()
 
 	timeInSeconds = (int)spawnTimer.getElapsedTime().asSeconds();
 
-	if ( timeInSeconds > 0 && timeInSeconds % m_waveNumber == 0)
+	if ( timeInSeconds > 0 && timeInSeconds % 15 == 0)
 	{
 		std::cout << "Timer: " << timeInSeconds << " seconds" << std::endl;
 		std::cout << "Creating " << m_waveNumber << " enemies" << std::endl;
-		createEnemy(m_waveNumber);
+		createEnemy(5 + m_waveNumber);
 		++m_waveNumber;
 		spawnTimer.restart();
 	}
@@ -132,9 +132,4 @@ void EnemyHandler::createEnemy(int toBeCreated)
 		(*newlyCreatedEnemy) -> setPosition(randomSpawnPoint);
 		(*newlyCreatedEnemy) -> setCollisionMap(collisionMap, m_HorizontalSize);
 	}
-}
-
-void EnemyHandler::newWave()
-{
-	
 }
