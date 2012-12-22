@@ -3,7 +3,7 @@
 
 Skeleton::Skeleton(std::vector<sf::Texture>* textures, short level)
 {
-	m_shStrength = level;
+	m_shStrength = level/2;
 	m_shIntelligence = level;
 	m_shToughness = level;
 	m_shSpeed = BASE_STAT + level / 5;

@@ -42,5 +42,4 @@ public:
 	std::vector<Enemy*>* getEnemyVector( );
 
 	void createEnemy(int toBeCreated);
-	void newWave();
 };
