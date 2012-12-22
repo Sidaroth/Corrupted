@@ -1,0 +1,7 @@
+<map id="Player::takeDamage" name="Player::takeDamage">
+<area shape="rect" id="node3" href="$class_player.html#a54c8f781cc3cca022d2d524dfc4b0989" title="Checks to see if you&#39;ve hit something when trying to do a melee attack." alt="" coords="195,15,384,41"/>
+<area shape="rect" id="node9" href="$class_player.html#a2ea364bba69e21f05a35ec74195e208c" title="Player::collisionCheck" alt="" coords="214,67,365,93"/>
+<area shape="rect" id="node5" href="$class_keyboard_controller.html#a6a34d386b9ee4cf2b3d7a780f44ac572" title="KeyboardController\l::mouseInput" alt="" coords="433,5,565,46"/>
+<area shape="rect" id="node7" href="$class_super_level.html#a366228089b384e2a8041bbdffc98be31" title="SuperLevel::processEvents" alt="" coords="613,12,792,39"/>
+<area shape="rect" id="node11" href="$class_player.html#a82c3476f3e65a4e2ac6bcd040771bdd4" title="Player::update" alt="" coords="445,71,552,97"/>
+</map>

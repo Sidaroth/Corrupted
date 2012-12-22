@@ -1,0 +1,7 @@
+<map id="GameProject/GameProject/FloatingText.h" name="GameProject/GameProject/FloatingText.h">
+<area shape="rect" id="node5" href="$_vector2f_8h.html" title="Vector2f.h" alt="" coords="321,96,401,123"/>
+<area shape="rect" id="node9" href="$_state_handler_8h.html" title="StateHandler.h" alt="" coords="105,96,212,123"/>
+<area shape="rect" id="node15" href="$_game_state_8h.html" title="GameState.h" alt="" coords="47,245,145,272"/>
+<area shape="rect" id="node19" href="$_title_screen_8h.html" title="TitleScreen.h" alt="" coords="68,171,167,197"/>
+<area shape="rect" id="node23" href="$_audio_manager_8h.html" title="AudioManager.h" alt="" coords="254,245,369,272"/>
+</map>

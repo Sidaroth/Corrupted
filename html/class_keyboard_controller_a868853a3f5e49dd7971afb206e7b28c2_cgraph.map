@@ -1,0 +1,11 @@
+<map id="KeyboardController::keyboardInput" name="KeyboardController::keyboardInput">
+<area shape="rect" id="node3" href="$class_character.html#ac3f7d99f9f64cc1afed7179293393454" title="Character::isDoingAction" alt="" coords="187,59,354,85"/>
+<area shape="rect" id="node5" href="$class_character.html#a2504a3fd2c17bbed8f8cfc9265c1cfce" title="Character::move" alt="" coords="213,109,329,136"/>
+<area shape="rect" id="node13" href="$class_character.html#a3871907535bb9cf3a042822e2dd1ec5c" title="Character::heal" alt="" coords="215,185,326,212"/>
+<area shape="rect" id="node7" href="$class_character.html#a9d4ff57e9f740194d30d4ebbc13fbb1a" title="Character::changeAnimation\lToWalk" alt="" coords="403,5,589,46"/>
+<area shape="rect" id="node9" href="$class_character.html#af21de5517da4090712ac92f614187df6" title="set the correct frame in the animation" alt="" coords="411,71,581,97"/>
+<area shape="rect" id="node11" href="$class_actor.html#a51b6f8a17ba31cf4a826976c441cab70" title="Moves the position of the actor by the amount specified." alt="" coords="427,121,565,148"/>
+<area shape="rect" id="node15" href="$class_state_handler.html#a384475d0948afc0c4f06359fe7e56d0f" title="StateHandler::getInstance" alt="" coords="638,223,810,249"/>
+<area shape="rect" id="node17" href="$class_audio_manager.html#a150694e7f4cd72188af34478383bed20" title="AudioManager::playSound" alt="" coords="409,223,583,249"/>
+<area shape="rect" id="node19" href="$class_character.html#a629aea79014404c2b05f26cbe2ae0ffe" title="Can both heal and damage players and enemies, if it kills the target, it returns true." alt="" coords="417,273,575,300"/>
+</map>

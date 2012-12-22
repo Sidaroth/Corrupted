@@ -1,0 +1,5 @@
+<map id="Highscore::decodeJson" name="Highscore::decodeJson">
+<area shape="rect" id="node3" href="$class_highscore.html#aa92f8cba7bc06187a17390b50aa99136" title="Highscore::loadContent" alt="" coords="211,5,368,32"/>
+<area shape="rect" id="node5" href="$class_highscore.html#a1415825a036b4fe994665f7c6872d8ea" title="Highscore::checkInput" alt="" coords="214,56,365,83"/>
+<area shape="rect" id="node7" href="$class_highscore.html#aaf06526bc70323ebf1a26f6ef35bed61" title="Highscore::processEvents" alt="" coords="416,56,589,83"/>
+</map>

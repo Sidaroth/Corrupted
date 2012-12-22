@@ -1,0 +1,6 @@
+<map id="Highscore::httpGet" name="Highscore::httpGet">
+<area shape="rect" id="node3" href="$class_highscore.html#a581dabd703d632658268d5be6f1666ca" title="Highscore::decodeJson" alt="" coords="184,5,341,32"/>
+<area shape="rect" id="node7" href="$class_highscore.html#a1415825a036b4fe994665f7c6872d8ea" title="Highscore::checkInput" alt="" coords="393,56,543,83"/>
+<area shape="rect" id="node5" href="$class_highscore.html#aa92f8cba7bc06187a17390b50aa99136" title="Highscore::loadContent" alt="" coords="389,5,547,32"/>
+<area shape="rect" id="node9" href="$class_highscore.html#aaf06526bc70323ebf1a26f6ef35bed61" title="Highscore::processEvents" alt="" coords="595,56,768,83"/>
+</map>

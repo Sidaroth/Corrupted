@@ -1,0 +1,8 @@
+<map id="Highscore::find_value" name="Highscore::find_value">
+<area shape="rect" id="node3" href="$class_highscore.html#a2e308cfe4f480cc13407a040d7a8d858" title="Highscore::read_user" alt="" coords="198,31,343,57"/>
+<area shape="rect" id="node5" href="$class_highscore.html#a839c53be15d7dae6712a0787a3af8fb8" title="Highscore::read_entries" alt="" coords="393,31,551,57"/>
+<area shape="rect" id="node7" href="$class_highscore.html#a581dabd703d632658268d5be6f1666ca" title="Highscore::decodeJson" alt="" coords="600,31,757,57"/>
+<area shape="rect" id="node9" href="$class_highscore.html#aa92f8cba7bc06187a17390b50aa99136" title="Highscore::loadContent" alt="" coords="805,5,963,32"/>
+<area shape="rect" id="node11" href="$class_highscore.html#a1415825a036b4fe994665f7c6872d8ea" title="Highscore::checkInput" alt="" coords="809,56,959,83"/>
+<area shape="rect" id="node13" href="$class_highscore.html#aaf06526bc70323ebf1a26f6ef35bed61" title="Highscore::processEvents" alt="" coords="1011,56,1184,83"/>
+</map>

@@ -1,0 +1,9 @@
+<map id="Highscore::loadContent" name="Highscore::loadContent">
+<area shape="rect" id="node3" href="$class_state_handler.html#a384475d0948afc0c4f06359fe7e56d0f" title="StateHandler::getInstance" alt="" coords="222,5,394,32"/>
+<area shape="rect" id="node5" href="$class_highscore.html#a581dabd703d632658268d5be6f1666ca" title="Highscore::decodeJson" alt="" coords="229,56,387,83"/>
+<area shape="rect" id="node15" href="$class_highscore.html#a571f1aea68f14655790a36e3e255bc0d" title="Highscore::reloadLeaderboard" alt="" coords="211,107,405,133"/>
+<area shape="rect" id="node7" href="$class_highscore.html#a28f564a414b0ef1b87bb6e3b0da02053" title="Highscore::httpGet" alt="" coords="468,31,599,57"/>
+<area shape="rect" id="node9" href="$class_highscore.html#a839c53be15d7dae6712a0787a3af8fb8" title="Highscore::read_entries" alt="" coords="454,81,613,108"/>
+<area shape="rect" id="node11" href="$class_highscore.html#a2e308cfe4f480cc13407a040d7a8d858" title="Highscore::read_user" alt="" coords="662,81,807,108"/>
+<area shape="rect" id="node13" href="$class_highscore.html#affaa49ecea02da62261279c8c75b24b7" title="Highscore::find_value" alt="" coords="856,81,1000,108"/>
+</map>

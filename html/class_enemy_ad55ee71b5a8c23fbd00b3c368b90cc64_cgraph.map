@@ -1,0 +1,11 @@
+<map id="Enemy::update" name="Enemy::update">
+<area shape="rect" id="node3" href="$class_character.html#ab9168412ef9b2c8726b0de4dfb63e604" title="Character::update" alt="" coords="175,9,300,36"/>
+<area shape="rect" id="node5" href="$class_character.html#ae549397cedf43714722ba91e890d4844" title="calculate frame for animation" alt="" coords="166,60,309,87"/>
+<area shape="rect" id="node11" href="$class_character.html#a2504a3fd2c17bbed8f8cfc9265c1cfce" title="Character::move" alt="" coords="179,115,295,141"/>
+<area shape="rect" id="node19" href="$class_enemy.html#a24fa3261d953eee2ddfce873e6ec8cc5" title="Enemy::findPath" alt="" coords="178,165,297,192"/>
+<area shape="rect" id="node7" href="$class_character.html#a3eadb3f3e0b582bc5ab1dc8df0fcdc63" title="Character::endAction" alt="" coords="379,5,523,32"/>
+<area shape="rect" id="node9" href="$class_character.html#a665c27e81de5af3e7929cb558ace0576" title="set subRect" alt="" coords="380,56,521,83"/>
+<area shape="rect" id="node13" href="$class_character.html#a9d4ff57e9f740194d30d4ebbc13fbb1a" title="Character::changeAnimation\lToWalk" alt="" coords="357,107,544,149"/>
+<area shape="rect" id="node15" href="$class_character.html#af21de5517da4090712ac92f614187df6" title="set the correct frame in the animation" alt="" coords="365,173,536,200"/>
+<area shape="rect" id="node17" href="$class_actor.html#a51b6f8a17ba31cf4a826976c441cab70" title="Moves the position of the actor by the amount specified." alt="" coords="381,224,520,251"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="Character::heal" name="Character::heal">
+<area shape="rect" id="node3" href="$class_state_handler.html#a384475d0948afc0c4f06359fe7e56d0f" title="StateHandler::getInstance" alt="" coords="390,24,562,51"/>
+<area shape="rect" id="node5" href="$class_audio_manager.html#a150694e7f4cd72188af34478383bed20" title="AudioManager::playSound" alt="" coords="166,24,341,51"/>
+<area shape="rect" id="node7" href="$class_character.html#a629aea79014404c2b05f26cbe2ae0ffe" title="Can both heal and damage players and enemies, if it kills the target, it returns true." alt="" coords="174,75,333,101"/>
+</map>

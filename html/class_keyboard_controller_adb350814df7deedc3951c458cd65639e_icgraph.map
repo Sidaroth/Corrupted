@@ -1,0 +1,4 @@
+<map id="KeyboardController::mouseNotInUi" name="KeyboardController::mouseNotInUi">
+<area shape="rect" id="node3" href="$class_keyboard_controller.html#a6a34d386b9ee4cf2b3d7a780f44ac572" title="KeyboardController\l::mouseInput" alt="" coords="187,5,319,46"/>
+<area shape="rect" id="node5" href="$class_super_level.html#a366228089b384e2a8041bbdffc98be31" title="SuperLevel::processEvents" alt="" coords="368,12,547,39"/>
+</map>

@@ -1,0 +1,14 @@
+<map id="Highscore::processEvents" name="Highscore::processEvents">
+<area shape="rect" id="node3" href="$class_highscore.html#a571f1aea68f14655790a36e3e255bc0d" title="Highscore::reloadLeaderboard" alt="" coords="475,39,669,66"/>
+<area shape="rect" id="node5" href="$class_state_handler.html#a384475d0948afc0c4f06359fe7e56d0f" title="StateHandler::getInstance" alt="" coords="241,31,413,58"/>
+<area shape="rect" id="node7" href="$class_audio_manager.html#a9d8330b51b9919e48c467a22d88f7255" title="AudioManager::stopOrResume\lMusic" alt="" coords="227,82,427,124"/>
+<area shape="rect" id="node9" href="$class_state_handler.html#a9859de148ad38ff30150e3e05badc9e9" title="StateHandler::setMenuShield" alt="" coords="231,148,422,175"/>
+<area shape="rect" id="node11" href="$class_highscore.html#a1415825a036b4fe994665f7c6872d8ea" title="Highscore::checkInput" alt="" coords="251,199,402,226"/>
+<area shape="rect" id="node13" href="$class_highscore.html#a302c84504785558380ca4c6b2e789775" title="Highscore::isalnumstr" alt="" coords="498,148,646,175"/>
+<area shape="rect" id="node17" href="$class_highscore.html#a28f564a414b0ef1b87bb6e3b0da02053" title="Highscore::httpGet" alt="" coords="732,199,863,226"/>
+<area shape="rect" id="node19" href="$class_highscore.html#a581dabd703d632658268d5be6f1666ca" title="Highscore::decodeJson" alt="" coords="493,250,651,276"/>
+<area shape="rect" id="node15" href="$class_highscore.html#aaedfbb2dab28ed0490d43ccf5cbd5dc8" title="Highscore::isalnumch" alt="" coords="724,148,871,175"/>
+<area shape="rect" id="node22" href="$class_highscore.html#a839c53be15d7dae6712a0787a3af8fb8" title="Highscore::read_entries" alt="" coords="718,250,877,276"/>
+<area shape="rect" id="node24" href="$class_highscore.html#a2e308cfe4f480cc13407a040d7a8d858" title="Highscore::read_user" alt="" coords="926,250,1071,276"/>
+<area shape="rect" id="node26" href="$class_highscore.html#affaa49ecea02da62261279c8c75b24b7" title="Highscore::find_value" alt="" coords="1120,250,1264,276"/>
+</map>

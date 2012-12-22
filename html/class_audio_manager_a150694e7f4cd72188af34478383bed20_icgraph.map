@@ -1,0 +1,17 @@
+<map id="AudioManager::playSound" name="AudioManager::playSound">
+<area shape="rect" id="node3" href="$class_character.html#ac018016f0d50e8bcc4addd293c00b366" title="Character::castSpell" alt="" coords="250,5,390,32"/>
+<area shape="rect" id="node5" href="$class_character.html#a3871907535bb9cf3a042822e2dd1ec5c" title="Character::heal" alt="" coords="265,56,375,83"/>
+<area shape="rect" id="node11" href="$class_keyboard_controller.html#a6a34d386b9ee4cf2b3d7a780f44ac572" title="KeyboardController\l::mouseInput" alt="" coords="701,121,833,162"/>
+<area shape="rect" id="node15" href="$class_player.html#a2ea364bba69e21f05a35ec74195e208c" title="Player::collisionCheck" alt="" coords="478,208,629,235"/>
+<area shape="rect" id="node19" href="$class_player.html#a50ee1c1ac2253e0110d54852d5e83569" title="reduces damage taken by 1% per ArmorLevel" alt="" coords="250,157,390,184"/>
+<area shape="rect" id="node25" href="$class_projectile.html#af83fb0f23280d074ed7a43854b9dec38" title="Projectile::setInvisible" alt="" coords="247,259,393,285"/>
+<area shape="rect" id="node31" href="$class_title_screen.html#ad82b865ef2757efedea1cf1da67bcf05" title="TitleScreen::processEvents" alt="" coords="230,309,410,336"/>
+<area shape="rect" id="node33" href="$class_ui.html#a07f92e0d044a034b9972d9b96d549070" title="Ui::processEvents" alt="" coords="257,360,383,387"/>
+<area shape="rect" id="node7" href="$class_keyboard_controller.html#a868853a3f5e49dd7971afb206e7b28c2" title="KeyboardController\l::keyboardInput" alt="" coords="487,41,619,82"/>
+<area shape="rect" id="node9" href="$class_super_level.html#a55858702d59db30844e64fd699a29b42" title="SuperLevel::update" alt="" coords="701,48,833,75"/>
+<area shape="rect" id="node13" href="$class_super_level.html#a366228089b384e2a8041bbdffc98be31" title="SuperLevel::processEvents" alt="" coords="885,128,1064,155"/>
+<area shape="rect" id="node17" href="$class_player.html#a82c3476f3e65a4e2ac6bcd040771bdd4" title="Player::update" alt="" coords="713,208,820,235"/>
+<area shape="rect" id="node21" href="$class_player.html#a54c8f781cc3cca022d2d524dfc4b0989" title="Checks to see if you&#39;ve hit something when trying to do a melee attack." alt="" coords="459,157,648,184"/>
+<area shape="rect" id="node27" href="$class_projectile.html#abf215379b10912db404b967c1e028f9e" title="Projectile::checkCollision" alt="" coords="469,259,637,285"/>
+<area shape="rect" id="node29" href="$class_projectile.html#a95800773aeed7046ff6b2c618a751b74" title="Projectile::animation" alt="" coords="697,259,837,285"/>
+</map>

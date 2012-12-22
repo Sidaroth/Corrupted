@@ -1,0 +1,13 @@
+<map id="KeyboardController::mouseInput" name="KeyboardController::mouseInput">
+<area shape="rect" id="node3" href="$class_keyboard_controller.html#adb350814df7deedc3951c458cd65639e" title="KeyboardController\l::mouseNotInUi" alt="" coords="215,5,347,46"/>
+<area shape="rect" id="node5" href="$class_character.html#a94a832a863c36cc84609ad52b1b7a4d5" title="0=N, 1=NE, 2=E, 3=SE, 4=S, 5=SW, 6=W, 7=NW" alt="" coords="220,71,343,97"/>
+<area shape="rect" id="node9" href="$class_player.html#a54c8f781cc3cca022d2d524dfc4b0989" title="Checks to see if you&#39;ve hit something when trying to do a melee attack." alt="" coords="187,223,376,249"/>
+<area shape="rect" id="node17" href="$class_state_handler.html#a384475d0948afc0c4f06359fe7e56d0f" title="StateHandler::getInstance" alt="" coords="867,197,1039,224"/>
+<area shape="rect" id="node19" href="$class_audio_manager.html#a150694e7f4cd72188af34478383bed20" title="AudioManager::playSound" alt="" coords="643,349,818,376"/>
+<area shape="rect" id="node7" href="$class_character.html#af21de5517da4090712ac92f614187df6" title="set the correct frame in the animation" alt="" coords="424,71,595,97"/>
+<area shape="rect" id="node11" href="$class_actor.html#afd9c73ce9d765aa9d7429bd785a9b08c" title="Actor::getSpritePosition" alt="" coords="429,223,589,249"/>
+<area shape="rect" id="node13" href="$class_actor.html#a82fd7289a67df3580548360b6614b9c9" title="Actor::getSprite" alt="" coords="453,324,566,351"/>
+<area shape="rect" id="node15" href="$class_player.html#a50ee1c1ac2253e0110d54852d5e83569" title="reduces damage taken by 1% per ArmorLevel" alt="" coords="439,273,579,300"/>
+<area shape="rect" id="node24" href="$class_player.html#af09f4deeb786c597805ad6e4ae4ed93a" title="Player::modifySouls" alt="" coords="661,172,800,199"/>
+<area shape="rect" id="node21" href="$class_character.html#a629aea79014404c2b05f26cbe2ae0ffe" title="Can both heal and damage players and enemies, if it kills the target, it returns true." alt="" coords="651,273,810,300"/>
+</map>

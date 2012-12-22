@@ -1,0 +1,8 @@
+<map id="AudioManager::stopOrResumeMusic" name="AudioManager::stopOrResumeMusic">
+<area shape="rect" id="node3" href="$class_highscore.html#aaf06526bc70323ebf1a26f6ef35bed61" title="Highscore::processEvents" alt="" coords="263,5,436,32"/>
+<area shape="rect" id="node5" href="$class_state_handler.html#afb1acc8b78669b0392fe9e5ffdeb7a2c" title="StateHandler::processEvents" alt="" coords="254,56,445,83"/>
+<area shape="rect" id="node13" href="$class_super_level.html#a366228089b384e2a8041bbdffc98be31" title="SuperLevel::processEvents" alt="" coords="260,107,439,133"/>
+<area shape="rect" id="node7" href="$class_game.html#a79f698dda206dd7a9bed28b3f88bdc38" title="Game::processEvents" alt="" coords="494,56,645,83"/>
+<area shape="rect" id="node9" href="$class_game.html#a1ab78f5ed0d5ea879157357cf2fb2afa" title="Game::run" alt="" coords="693,56,776,83"/>
+<area shape="rect" id="node11" href="$class_game.html#a3d9b98f7c4a96ecf578f75b96c9f0e90" title="Game::start" alt="" coords="824,56,915,83"/>
+</map>

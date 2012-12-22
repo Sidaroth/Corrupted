@@ -1,0 +1,5 @@
+<map id="Actor::getSprite" name="Actor::getSprite">
+<area shape="rect" id="node3" href="$class_player.html#a54c8f781cc3cca022d2d524dfc4b0989" title="Checks to see if you&#39;ve hit something when trying to do a melee attack." alt="" coords="168,12,357,39"/>
+<area shape="rect" id="node5" href="$class_keyboard_controller.html#a6a34d386b9ee4cf2b3d7a780f44ac572" title="KeyboardController\l::mouseInput" alt="" coords="406,5,538,46"/>
+<area shape="rect" id="node7" href="$class_super_level.html#a366228089b384e2a8041bbdffc98be31" title="SuperLevel::processEvents" alt="" coords="587,12,765,39"/>
+</map>

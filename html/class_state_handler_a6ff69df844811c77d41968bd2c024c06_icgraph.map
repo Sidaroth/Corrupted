@@ -1,0 +1,7 @@
+<map id="StateHandler::stopRunning" name="StateHandler::stopRunning">
+<area shape="rect" id="node3" href="$class_game.html#a17fbb36fd4a2085f9ff4f1fa93d7d08b" title="Game::stop" alt="" coords="283,5,373,32"/>
+<area shape="rect" id="node5" href="$class_state_handler.html#afb1acc8b78669b0392fe9e5ffdeb7a2c" title="StateHandler::processEvents" alt="" coords="233,56,423,83"/>
+<area shape="rect" id="node7" href="$class_game.html#a79f698dda206dd7a9bed28b3f88bdc38" title="Game::processEvents" alt="" coords="473,56,623,83"/>
+<area shape="rect" id="node9" href="$class_game.html#a1ab78f5ed0d5ea879157357cf2fb2afa" title="Game::run" alt="" coords="672,56,755,83"/>
+<area shape="rect" id="node11" href="$class_game.html#a3d9b98f7c4a96ecf578f75b96c9f0e90" title="Game::start" alt="" coords="803,56,893,83"/>
+</map>

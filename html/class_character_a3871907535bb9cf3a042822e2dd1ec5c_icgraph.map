@@ -1,0 +1,4 @@
+<map id="Character::heal" name="Character::heal">
+<area shape="rect" id="node3" href="$class_keyboard_controller.html#a868853a3f5e49dd7971afb206e7b28c2" title="KeyboardController\l::keyboardInput" alt="" coords="166,5,298,46"/>
+<area shape="rect" id="node5" href="$class_super_level.html#a55858702d59db30844e64fd699a29b42" title="SuperLevel::update" alt="" coords="347,12,479,39"/>
+</map>

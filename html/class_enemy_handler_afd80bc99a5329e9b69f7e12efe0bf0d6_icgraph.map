@@ -1,0 +1,4 @@
+<map id="EnemyHandler::setCollisionMap" name="EnemyHandler::setCollisionMap">
+<area shape="rect" id="node3" href="$class_enemy_handler.html#abc2d44420732b21cc4abf67dfb2cdf81" title="EnemyHandler::createEnemy" alt="" coords="261,5,453,32"/>
+<area shape="rect" id="node5" href="$class_enemy_handler.html#af1d749b2e8e9db18185fffbb2732846a" title="EnemyHandler::update" alt="" coords="501,5,656,32"/>
+</map>

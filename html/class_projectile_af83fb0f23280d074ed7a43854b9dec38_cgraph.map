@@ -1,0 +1,4 @@
+<map id="Projectile::setInvisible" name="Projectile::setInvisible">
+<area shape="rect" id="node3" href="$class_state_handler.html#a384475d0948afc0c4f06359fe7e56d0f" title="StateHandler::getInstance" alt="" coords="202,5,374,32"/>
+<area shape="rect" id="node5" href="$class_audio_manager.html#a150694e7f4cd72188af34478383bed20" title="AudioManager::playSound" alt="" coords="201,56,375,83"/>
+</map>

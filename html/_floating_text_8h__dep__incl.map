@@ -1,0 +1,29 @@
+<map id="GameProject/GameProject/FloatingText.h" name="GameProject/GameProject/FloatingText.h">
+<area shape="rect" id="node3" href="$_ui_8h.html" title="GameProject/GameProject/Ui.h" alt="" coords="56,104,261,131"/>
+<area shape="rect" id="node62" href="$_floating_text_8cpp.html" title="GameProject/GameProject\l/FloatingText.cpp" alt="" coords="285,97,464,138"/>
+<area shape="rect" id="node5" href="$_character_8h.html" title="GameProject/GameProject\l/Character.h" alt="" coords="69,187,248,229"/>
+<area shape="rect" id="node21" href="$_super_level_8h.html" title="GameProject/GameProject\l/SuperLevel.h" alt="" coords="411,641,589,682"/>
+<area shape="rect" id="node60" href="$_ui_8cpp.html" title="GameProject/GameProject\l/Ui.cpp" alt="" coords="272,187,451,229"/>
+<area shape="rect" id="node7" href="$_character_8cpp.html" title="GameProject/GameProject\l/Character.cpp" alt="" coords="69,278,248,319"/>
+<area shape="rect" id="node9" href="$_enemy_8h.html" title="GameProject/GameProject\l/Enemy.h" alt="" coords="272,278,451,319"/>
+<area shape="rect" id="node40" href="$_player_8h.html" title="GameProject/GameProject\l/Player.h" alt="" coords="601,369,780,410"/>
+<area shape="rect" id="node11" href="$_enemy_8cpp.html" title="GameProject/GameProject\l/Enemy.cpp" alt="" coords="44,369,223,410"/>
+<area shape="rect" id="node13" href="$_enemy_factory_8h.html" title="GameProject/GameProject\l/EnemyFactory.h" alt="" coords="69,459,248,501"/>
+<area shape="rect" id="node35" href="$_skeleton_8h.html" title="GameProject/GameProject\l/Skeleton.h" alt="" coords="297,369,476,410"/>
+<area shape="rect" id="node15" href="$_enemy_factory_8cpp.html" title="GameProject/GameProject\l/EnemyFactory.cpp" alt="" coords="272,550,451,591"/>
+<area shape="rect" id="node17" href="$_enemy_handler_8h.html" title="GameProject/GameProject\l/EnemyHandler.h" alt="" coords="69,550,248,591"/>
+<area shape="rect" id="node19" href="$_enemy_handler_8cpp.html" title="GameProject/GameProject\l/EnemyHandler.cpp" alt="" coords="69,641,248,682"/>
+<area shape="rect" id="node23" href="$_level1_8h.html" title="GameProject/GameProject\l/Level1.h" alt="" coords="309,731,488,773"/>
+<area shape="rect" id="node33" href="$_super_level_8cpp.html" title="GameProject/GameProject\l/SuperLevel.cpp" alt="" coords="512,731,691,773"/>
+<area shape="rect" id="node25" href="$_highscore_8cpp.html" title="GameProject/GameProject\l/Highscore.cpp" alt="" coords="5,822,184,863"/>
+<area shape="rect" id="node27" href="$_level1_8cpp.html" title="GameProject/GameProject\l/Level1.cpp" alt="" coords="208,822,387,863"/>
+<area shape="rect" id="node29" href="$_splash_screen_8cpp.html" title="GameProject/GameProject\l/SplashScreen.cpp" alt="" coords="411,822,589,863"/>
+<area shape="rect" id="node31" href="$_title_screen_8cpp.html" title="GameProject/GameProject\l/TitleScreen.cpp" alt="" coords="613,822,792,863"/>
+<area shape="rect" id="node38" href="$_skeleton_8cpp.html" title="GameProject/GameProject\l/Skeleton.cpp" alt="" coords="272,459,451,501"/>
+<area shape="rect" id="node42" href="$_game_8h.html" title="GameProject/GameProject\l/Game.h" alt="" coords="931,550,1109,591"/>
+<area shape="rect" id="node44" href="$_game_8cpp.html" title="GameProject/GameProject\l/Game.cpp" alt="" coords="1057,641,1236,682"/>
+<area shape="rect" id="node48" href="$_keyboard_controller_8h.html" title="GameProject/GameProject\l/KeyboardController.h" alt="" coords="728,459,907,501"/>
+<area shape="rect" id="node56" href="$_player_8cpp.html" title="GameProject/GameProject\l/Player.cpp" alt="" coords="475,459,653,501"/>
+<area shape="rect" id="node46" href="$main_8cpp.html" title="GameProject/GameProject\l/main.cpp" alt="" coords="855,641,1033,682"/>
+<area shape="rect" id="node52" href="$_keyboard_controller_8cpp.html" title="GameProject/GameProject\l/KeyboardController.cpp" alt="" coords="728,550,907,591"/>
+</map>

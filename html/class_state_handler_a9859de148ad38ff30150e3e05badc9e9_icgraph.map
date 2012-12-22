@@ -1,0 +1,4 @@
+<map id="StateHandler::setMenuShield" name="StateHandler::setMenuShield">
+<area shape="rect" id="node3" href="$class_highscore.html#aaf06526bc70323ebf1a26f6ef35bed61" title="Highscore::processEvents" alt="" coords="248,5,421,32"/>
+<area shape="rect" id="node5" href="$class_super_level.html#a366228089b384e2a8041bbdffc98be31" title="SuperLevel::processEvents" alt="" coords="245,56,424,83"/>
+</map>

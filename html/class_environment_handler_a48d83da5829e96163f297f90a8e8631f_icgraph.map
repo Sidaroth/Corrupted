@@ -1,0 +1,5 @@
+<map id="EnvironmentHandler::getEnemySpawnPoints" name="EnvironmentHandler::getEnemySpawnPoints">
+<area shape="rect" id="node3" href="$class_enemy_handler.html#a5589be0f3d38483bff16de6efa5f0398" title="EnemyHandler::loadContent" alt="" coords="219,12,403,39"/>
+<area shape="rect" id="node5" href="$class_enemy_handler.html#abc2d44420732b21cc4abf67dfb2cdf81" title="EnemyHandler::createEnemy" alt="" coords="451,12,643,39"/>
+<area shape="rect" id="node7" href="$class_enemy_handler.html#af1d749b2e8e9db18185fffbb2732846a" title="EnemyHandler::update" alt="" coords="691,12,845,39"/>
+</map>

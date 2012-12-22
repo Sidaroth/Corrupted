@@ -1,0 +1,4 @@
+<map id="Game::stop" name="Game::stop">
+<area shape="rect" id="node3" href="$class_state_handler.html#a384475d0948afc0c4f06359fe7e56d0f" title="StateHandler::getInstance" alt="" coords="147,5,319,32"/>
+<area shape="rect" id="node5" href="$class_state_handler.html#a6ff69df844811c77d41968bd2c024c06" title="StateHandler::stopRunning" alt="" coords="145,56,322,83"/>
+</map>

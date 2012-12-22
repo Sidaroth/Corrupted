@@ -1,0 +1,6 @@
+<map id="Actor::movePosition" name="Actor::movePosition">
+<area shape="rect" id="node3" href="$class_character.html#a2504a3fd2c17bbed8f8cfc9265c1cfce" title="Character::move" alt="" coords="193,35,309,61"/>
+<area shape="rect" id="node5" href="$class_enemy.html#ad55ee71b5a8c23fbd00b3c368b90cc64" title="Enemy::update" alt="" coords="369,5,479,32"/>
+<area shape="rect" id="node7" href="$class_keyboard_controller.html#a868853a3f5e49dd7971afb206e7b28c2" title="KeyboardController\l::keyboardInput" alt="" coords="358,57,490,98"/>
+<area shape="rect" id="node9" href="$class_super_level.html#a55858702d59db30844e64fd699a29b42" title="SuperLevel::update" alt="" coords="539,64,671,91"/>
+</map>
