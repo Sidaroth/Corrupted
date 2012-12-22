@@ -3,7 +3,6 @@
 #include "SplashScreen.h"
 #include "StateHandler.h"
 
-
 Game::Game()
 {
 	m_sTitle = "Corrupted";
@@ -12,7 +11,6 @@ Game::Game()
 	m_shScreenBitColor = 32;
 	m_BackgroundColor = new sf::Color(0, 0, 0, 255);
 	m_Window.create(sf::VideoMode(m_shScreenWidth, m_shScreenHeight, m_shScreenBitColor), m_sTitle);
-	
 }
 
 void Game::initialize(const char* title, short width, short height, short bitPP, bool fullscreen)
@@ -23,6 +21,17 @@ void Game::initialize(const char* title, short width, short height, short bitPP,
 	m_shScreenBitColor = bitPP;
 
 	m_Window.create(sf::VideoMode(m_shScreenWidth, m_shScreenHeight, m_shScreenBitColor), m_sTitle);
+
+	sf::Image icon;
+
+	if(!icon.loadFromFile("../../Resources/fireball_icon.png"))
+	{
+		return; // Game broke :<
+	}
+
+	icon.createMaskFromColor(sf::Color(0, 0, 0));
+
+	m_Window.setIcon(96, 96, icon.getPixelsPtr());
 
 	StateHandler::getInstance().initalize();
 	StateHandler::getInstance().setStartState(new TitleScreen());

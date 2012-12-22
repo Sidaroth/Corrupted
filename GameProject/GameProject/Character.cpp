@@ -167,7 +167,8 @@ void Character::animation()  ///calculate frame for animation
 
 	m_Sprite.getTexture();
 
-	if(m_shFrameCount % ANIMATION_SPEED == 0)
+	short speed = BASE_STAT - ( ( ( m_shSpeed - BASE_STAT) * ( BASE_STAT - 1 ) ) / (20 - BASE_STAT));
+	if(m_shFrameCount % speed == 0)
 	{
 		
 		m_shBitmapCol += 1;
