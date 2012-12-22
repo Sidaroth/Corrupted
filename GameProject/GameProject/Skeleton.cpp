@@ -6,10 +6,9 @@ Skeleton::Skeleton(std::vector<sf::Texture>* textures, short level)
 	m_shStrength = level;
 	m_shIntelligence = level;
 	m_shToughness = level;
-	m_shSpeed = + level / 5;
+	m_shSpeed = BASE_STAT + level / 5;
 
 	frameCount = 0;
-
 
 	m_shSoulsToDrop = 10;
 	onClosedList = 10;
