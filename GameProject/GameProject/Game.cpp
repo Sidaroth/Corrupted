@@ -24,7 +24,7 @@ void Game::initialize(const char* title, short width, short height, short bitPP,
 
 	sf::Image icon;
 
-	if(!icon.loadFromFile("../../Resources/fireball_icon.png"))
+	if(!icon.loadFromFile("../../Resources/game_icon.png"))
 	{
 		return; // Game broke :<
 	}
@@ -133,7 +133,11 @@ void Game::render()
 {
 	m_Window.clear(*m_BackgroundColor);
 	StateHandler::getInstance().draw();
-	m_Window.draw(frames_per_sec);
+
+	sf::View gameView = StateHandler::getInstance().m_pWindow->getView();
+	StateHandler::getInstance().m_pWindow->setView(StateHandler::getInstance().m_pWindow->getDefaultView());
+	StateHandler::getInstance().m_pWindow->draw(frames_per_sec);
+	StateHandler::getInstance().m_pWindow->setView(gameView);
 
 	m_Window.display();
 }
