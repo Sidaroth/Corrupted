@@ -1,134 +1,30 @@
 [
     {
-        "name" : "Garlov",
-        "score" : "50000"
+        "name" : "Zimdon",
+        "score" : "380"
     },
     {
-        "name" : "Garlov",
-        "score" : "40000"
-    },
-    {
-        "name" : "Garlov",
-        "score" : "30000"
-    },
-    {
-        "name" : "Garlov",
-        "score" : "20000"
-    },
-    {
-        "name" : "Garlov",
-        "score" : "10000"
-    },
-    {
-        "name" : "1",
-        "score" : "10000"
-    },
-    {
-        "name" : "1",
-        "score" : "10000"
-    },
-    {
-        "name" : "Herp",
-        "score" : "10000"
-    },
-    {
-        "name" : "Herp",
-        "score" : "10000"
-    },
-    {
-        "name" : "2",
-        "score" : "10000"
-    },
-    {
-        "name" : "3",
-        "score" : "10000"
-    },
-    {
-        "name" : "derp",
-        "score" : "10000"
-    },
-    {
-        "name" : "ff",
-        "score" : "10000"
-    },
-    {
-        "name" : "asda",
-        "score" : "10000"
-    },
-    {
-        "name" : "14",
-        "score" : "10000"
-    },
-    {
-        "name" : "Derp",
-        "score" : "10000"
-    },
-    {
-        "name" : "Derp",
-        "score" : "10000"
-    },
-    {
-        "name" : "Garlov",
-        "score" : "5000"
-    },
-    {
-        "name" : "Garlov",
-        "score" : "5000"
-    },
-    {
-        "name" : "Garlov",
-        "score" : "4000"
-    },
-    {
-        "name" : "Garlov",
-        "score" : "3000"
-    },
-    {
-        "name" : "Garlov",
-        "score" : "2000"
-    },
-    {
-        "name" : "Garlov",
-        "score" : "1000"
-    },
-    {
-        "name" : "Garlov",
-        "score" : "900"
-    },
-    {
-        "name" : "1234567890",
-        "score" : "880"
-    },
-    {
-        "name" : "Garlov",
-        "score" : "800"
-    },
-    {
-        "name" : "Garlov",
-        "score" : "700"
-    },
-    {
-        "name" : "Garlov",
-        "score" : "600"
+        "name" : "Charlie",
+        "score" : "180"
     },
     {
         "name" : "Garlov",
         "score" : "100"
     },
     {
-        "name" : "Hahahaha",
+        "name" : "Gunnar",
         "score" : "80"
     },
     {
-        "name" : "Dead",
+        "name" : "Ronald McDo",
         "score" : "40"
     },
     {
-        "name" : "dsaadsadwas",
+        "name" : "Bjorn",
         "score" : "20"
     },
     {
-        "name" : "adadad",
+        "name" : "Ferdinan",
         "score" : "10"
     }
 ]

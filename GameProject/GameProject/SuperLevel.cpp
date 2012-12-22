@@ -112,6 +112,7 @@ void SuperLevel::processEvents(sf::Event event)
 	{
 		if(!StateHandler::getInstance().getMenuShield())
 		{
+			StateHandler::getInstance().m_AudioManager.stopOrResumeMusic();
 			StateHandler::getInstance().setMenuShield(true);
 		}
 	}

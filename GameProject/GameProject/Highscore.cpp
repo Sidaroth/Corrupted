@@ -217,6 +217,7 @@ void Highscore::processEvents( sf::Event event )
 	if(		event.mouseButton.x >=  m_mainMenuSprite.getPosition().x && event.mouseButton.x <=  (m_mainMenuSprite.getPosition().x+270) && 
 			event.mouseButton.y >=  m_mainMenuSprite.getPosition().y && event.mouseButton.y <=  m_mainMenuSprite.getPosition().y+70)
 	{
+		StateHandler::getInstance().m_AudioManager.stopOrResumeMusic();
 		StateHandler::getInstance().setMenuShield(true);
 	}
 

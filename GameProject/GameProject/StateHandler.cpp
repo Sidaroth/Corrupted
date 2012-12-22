@@ -130,6 +130,7 @@ void StateHandler::processEvents(sf::Event event)
 		if(		event.mouseButton.x >=  m_ShieldNoSprite.getPosition().x && event.mouseButton.x <=  m_ShieldNoSprite.getPosition().x + 275 && 
 				event.mouseButton.y >=  m_ShieldNoSprite.getPosition().y && event.mouseButton.y <=  m_ShieldNoSprite.getPosition().y + 100 )
 		{
+			m_AudioManager.stopOrResumeMusic();
 			m_bMenuShield = false;
 			m_bQuitShield = false;
 		}

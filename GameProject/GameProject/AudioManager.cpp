@@ -89,7 +89,7 @@ void AudioManager::stopOrResumeMusic()
 
 	else if (m_music.getStatus() == sf::Music::Status::Paused)
 	{
-		m_music.pause();
+		m_music.play();
 	}
 }
 
