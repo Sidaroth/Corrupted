@@ -30,6 +30,8 @@ void Game::initialize(const char* title, short width, short height, short bitPP,
 		return; // Game broke :<
 	}
 
+	icon.createMaskFromColor(sf::Color(0, 0, 0));
+
 	m_Window.setIcon(96, 96, icon.getPixelsPtr());
 
 	StateHandler::getInstance().initalize();
