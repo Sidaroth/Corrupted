@@ -50,13 +50,12 @@ bool EnemyFactory::loadContent()
 	return EXIT_SUCCESS;
 }
 
-Enemy* EnemyFactory::createEnemy(Enemies enemyType)
+Enemy* EnemyFactory::createEnemy(Enemies enemyType, short level)
 {
 	switch(enemyType)
 	{
 	case Skellie:
-		std::cout << "Texture location: " << &m_SkellieTextures << std::endl;
-		return new Skeleton(&m_SkellieTextures);
+		return new Skeleton(&m_SkellieTextures, level);
 	}
 
 	return NULL;
