@@ -49,7 +49,8 @@ void Highscore::loadContent( )
 		m_submitErrorText.setFont( m_font );
 
 		m_userScore.setString("Your score: " + std::to_string((long long) m_iScore));
-		m_userScore.setPosition(300, 300); 
+		m_userScore.setPosition(250, 100); 
+		m_userScore.setFont( m_font );
 
 		reloadLeaderboard( );
 	}

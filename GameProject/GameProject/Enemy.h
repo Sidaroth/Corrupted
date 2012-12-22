@@ -21,6 +21,10 @@ class Enemy : public Character
 protected:
 	bool xStepGoalReached;
 	bool yStepGoalReached;
+	bool m_bTryAttack;
+	bool m_bAttacked;
+
+	float m_fAttackRange;
 
 	short m_shSoulsToDrop;
 	std::vector<bool>* collisionMap;
@@ -67,7 +71,6 @@ public:
 	
 	std::vector<Projectile*>* getProjectile( );
 	
-
 	short findPath(int startX, int startY, int goalX, int goalY);
 	bool isDead();
 	void insertIntoOpenList(short column, short row);

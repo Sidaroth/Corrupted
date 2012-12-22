@@ -423,8 +423,6 @@ void Player::die()
 	m_bDead = true;
 	m_Sprite.setTexture((*m_TextureTypes[DIE]));
 	userInterface -> fadeOut();
-
-	// fade out into highscore screen. 
 }
 
 ///reduces damage taken by 1% per ArmorLevel

@@ -58,6 +58,8 @@ bool AudioManager::playSound(std::string sound_id)
 	s_mSound.play();
 	
 	std::cout << "AudioManager: Sound "+sound_id+" playing" << std::endl;
+
+	return true;
 }
 
 //***

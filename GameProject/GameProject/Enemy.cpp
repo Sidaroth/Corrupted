@@ -56,9 +56,6 @@ short Enemy::findPath(int startX, int startY, int goalX, int goalY)
 	startX = startX / TILESIZE;
 	startY = startY / TILESIZE;
 
-	//std::cout << "PlayerPos: " << goalTileX << ", " << goalTileY << "\n";
-
-
 	parentXval = 0;
 	parentYval = 0;
 
@@ -346,7 +343,7 @@ Enemy::~Enemy()
 {
 	for(std::vector<Vector2f*>::iterator it = m_Path.begin(); it != m_Path.end();)
 	{
-		delete * it;	// Erase calls the deconstructor, but we need to call delete first.				
+		delete * it;			
 		it = m_Path.erase(it);	// Erase returns a new iterator position, without it - it would create holes 
 	}
 }

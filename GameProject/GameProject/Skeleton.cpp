@@ -8,6 +8,8 @@ Skeleton::Skeleton(std::vector<sf::Texture>* textures)
 	onOpenList = 1;
 	pathLength = UNDETERMINED;
 
+	m_fAttackRange = 48;
+
 	xStepGoalReached = false;
 	yStepGoalReached = false;
 
@@ -49,35 +51,63 @@ void Skeleton::update(Vector2f* playerPos)
 		float yPos = m_Sprite.getPosition().y;
 
 		pathLocation = m_Path.size() - 1;
+		short direction = -1;
 
 		if(pathLocation >= 0) // If there are any pathsteps. 
 		{
 			pathStep = m_Path[pathLocation];
 
-			if(pathStep -> y > yPos)
+			if((yPos) < pathStep -> y )
 			{
-				move(SOUTH);
+				direction = 4;		// south
 			}
-			else if(pathStep -> y < yPos)
+			else if((yPos - 48) > pathStep -> y )
 			{
-				move(NORTH);
+				direction = 0;		// north
 			}
 
-			if(abs(pathStep -> y - m_Sprite.getPosition().y < 10))
+			if(abs(pathStep -> y - m_Sprite.getPosition().y) < m_fAttackRange)
 			{
 				yStepGoalReached = true;
 			}
 
-			if(pathStep -> x > xPos)
+			if((xPos + 48) < pathStep -> x )
 			{
-				move(EAST);
+				if(direction == 4)
+				{
+					direction--;	// south-east
+				}
+				else if(direction == 0)
+				{
+					direction++;	// north-east
+				}
+				else
+				{
+					direction = 2;	// east
+				}
 			}
-			else if(pathStep -> x < xPos)
+			else if((xPos - 48) < pathStep -> x)
 			{
-				move(WEST);
+				if(direction == 4)
+				{
+					direction++;	// south-west
+				}
+				else if(direction == 0)
+				{
+					direction = 7;	// north-west
+				}
+				else
+				{
+					direction = 6;	// west
+				}
 			}
 
-			if(abs(pathStep -> x - m_Sprite.getPosition().x < 10))
+			if(direction != -1)
+			{
+				move(direction);
+			}
+
+			if(abs(pathStep -> x - m_Sprite.getPosition().x < m_fAttackRange))
 			{
 				xStepGoalReached = true;
 			}
@@ -91,7 +121,17 @@ void Skeleton::update(Vector2f* playerPos)
 		}
 		else
 		{
-			findPath(xPos, yPos, playerPos -> x, playerPos -> y);
+			if(abs(playerPos -> x - xPos) < m_fAttackRange &&
+			   abs(playerPos -> y - yPos) < m_fAttackRange)
+			{
+				m_bTryAttack = true;
+				m_Sprite.setTexture((*m_TextureTypes[ATTACK]));
+			}
+			else
+			{
+				m_bTryAttack = false;
+				findPath(xPos, yPos, playerPos -> x, playerPos -> y);
+			}
 		}
 	}
 	else
