@@ -24,6 +24,7 @@ void Level1::loadContent()
 	m_EnemyHandler -> loadContent(m_Level, player -> getPosition());
 	m_EnemyHandler -> setCollisionMap(m_Level -> getObjectVector(), m_Level -> getHorizontalBitmapSize());
 	
+	StateHandler::getInstance().m_AudioManager.playMusic("gameMusic");
 }
 
 void Level1::draw()

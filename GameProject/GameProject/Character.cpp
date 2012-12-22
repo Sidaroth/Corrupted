@@ -212,7 +212,6 @@ void Character::draw( )
 
 void Character::update( )
 {
-
 	m_shMaxHealth     = m_shToughness    * m_shToughness * 2;
 	m_shMeleeDamage   = m_shStrength     * m_shStrength;
 	m_shSpellDamage   = m_shIntelligence * m_shIntelligence;
@@ -379,7 +378,7 @@ void Character::castSpell( Vector2f mouseCoordinates, short spell )
 			if(spell == FIREBALL)
 			{
 				m_fFireballCoolDown = m_iCoolDown.getElapsedTime().asSeconds() + 1.f;
-
+				StateHandler::getInstance().m_AudioManager.playSound("cast_fireball");
 			}
 			for( unsigned int i = 0; i < m_vProjectiles.size( ); i++ )
 			{
@@ -464,6 +463,7 @@ void Character::heal()
 	if(m_iCoolDown.getElapsedTime().asSeconds() >= m_fHealCoolDown)
 	{
 		m_fHealCoolDown = m_iCoolDown.getElapsedTime().asSeconds() + 5.f;
+		StateHandler::getInstance().m_AudioManager.playSound("heal");
 		takeDamage(-m_shSpellDamage);
 	}
 }

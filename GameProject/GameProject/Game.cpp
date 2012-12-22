@@ -1,7 +1,6 @@
 #include "Game.h"
 #include "Player.h"
 #include "SplashScreen.h"
-#include "Highscore.h"
 #include "StateHandler.h"
 
 Game::Game()

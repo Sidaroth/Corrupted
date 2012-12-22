@@ -404,6 +404,6 @@ void Highscore::checkInput()
 	}
 	else
 	{
-		m_submitErrorText.setString("Please enter a username before submitting");
+		m_submitErrorText.setString("Please enter a valid username before submitting");
 	}
 }

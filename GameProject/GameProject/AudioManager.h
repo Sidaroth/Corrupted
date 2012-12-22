@@ -8,31 +8,34 @@
 class AudioManager 
 {
 
-	struct SoundFile
-	{
-	   SoundFile(const SoundFile& copy) : Name(copy.Name), Vol(copy.Vol), Buffer(copy.Buffer), Sound(copy.Sound)
-	   {
-		  Sound.setBuffer(Buffer);
-	   }
-
-	   std::string Name;
-	   float Vol;
-	   sf::SoundBuffer Buffer;
-	   sf::Sound Sound;
-	};
-
 private:
 	
-	sf::SoundBuffer sb_mBuffer;
-	sf::Music m_mMusic;
-	sf::Sound s_mSound;
-	std::map<std::string,std::string> mp_mBuffer;
+	sf::Sound m_sound;
+	sf::Music m_music;
+
+	std::map<std::string, sf::SoundBuffer> m_soundMap;
+	std::map<std::string, std::string> m_musicMap;
+
+
+	sf::SoundBuffer m_attackHitSound;
+	sf::SoundBuffer m_attackMissSound;
+	sf::SoundBuffer m_castFireballSound;
+	sf::SoundBuffer m_fireballHitSound;
+	sf::SoundBuffer m_playerHitSound;
+	sf::SoundBuffer m_menuSelectSound;
+	sf::SoundBuffer m_statUpgrade;
+	sf::SoundBuffer m_heal;
+
 
 public:
 
 	AudioManager();
-	bool loadAudio();
-	bool playSound(std::string sound_id);
-	void loadMap();
-	void loadSoundFile(std::string filename, float Volume);
+	~AudioManager();
+
+	bool loadContent();
+
+	bool playMusic(std::string music);
+	void stopOrResumeMusic();
+
+	void playSound(std::string sound);
 };
