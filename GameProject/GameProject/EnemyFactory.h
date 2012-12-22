@@ -29,5 +29,5 @@ public:
 		// More soon (tm)..
 	};
 
-	Enemy* createEnemy(Enemies enemyType);
+	Enemy* createEnemy(Enemies enemyType, short level);
 };

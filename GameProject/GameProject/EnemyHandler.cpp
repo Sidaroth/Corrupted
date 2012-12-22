@@ -36,7 +36,6 @@ void EnemyHandler::loadContent(EnvironmentHandler* level)
 	numberOfSpawnPoints = m_EnemySpawnPoints->size();
 	srand(time(NULL));											//Initialize random seed
 	
-	//createEnemy(10);
 }
 
 void EnemyHandler::setUserInterface(Ui* ui)
@@ -79,10 +78,15 @@ void EnemyHandler::update(Vector2f* playerPos)
 		}
 	}
 
-	if ( (int)spawnTimer.getElapsedTime().asSeconds() % m_waveNumber == 0)
+	timeInSeconds = (int)spawnTimer.getElapsedTime().asSeconds();
+
+	if ( timeInSeconds > 0 && timeInSeconds % m_waveNumber == 0)
 	{
-		//newWave();
+		std::cout << "Timer: " << timeInSeconds << " seconds" << std::endl;
+		std::cout << "Creating " << m_waveNumber << " enemies" << std::endl;
+		createEnemy(m_waveNumber);
 		++m_waveNumber;
+		spawnTimer.restart();
 	}
 }
 
@@ -108,15 +112,11 @@ void EnemyHandler::createEnemy(int toBeCreated)
 
 	for(int i = 0; i < toBeCreated; i++)
 	{	
-		m_EnemyVector.push_back(m_EnemyFactory -> createEnemy(m_EnemyFactory -> Skellie));
+		m_EnemyVector.push_back(m_EnemyFactory -> createEnemy(m_EnemyFactory -> Skellie, m_waveNumber));
 		newlyCreatedEnemy = m_EnemyVector.end() - 1;
 
-		std::cout << m_EnemyVector.size();
-		std::cout << ", " << i << std::endl;
-
 		if((*newlyCreatedEnemy) != NULL)
-		{
-			std::cout << "Enemy created!\n";		
+		{		
 			(*newlyCreatedEnemy) -> loadContent();
 		}
 		else

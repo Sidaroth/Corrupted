@@ -25,6 +25,7 @@ protected:
 	int m_waveNumber;
 
 	sf::Clock spawnTimer;
+	int timeInSeconds;
 
 public:
 	EnemyHandler();
