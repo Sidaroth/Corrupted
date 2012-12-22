@@ -19,22 +19,10 @@ private:
 	sf::Text frames_per_sec;
 	sf::RenderWindow m_Window;
 
-	sf::Sprite m_ShieldSprite;
-	sf::Sprite m_ShieldYesSprite;
-	sf::Sprite m_ShieldNoSprite;
-
-	sf::Texture m_ShieldTexture;
-	sf::Texture m_ShieldYesTexture;
-	sf::Texture m_ShieldYesPressedTexture;
-	sf::Texture m_ShieldNoTexture;
-	sf::Texture m_ShieldNoPressedTexture;
-
 	std::string m_sTitle;
 	short m_shScreenWidth;
 	short m_shScreenHeight;
 	short m_shScreenBitColor;
-	bool m_bRunning;
-	bool m_bShield;
 	sf::Color* m_BackgroundColor;
 
 public:

@@ -217,7 +217,7 @@ void Highscore::processEvents( sf::Event event )
 	if(		event.mouseButton.x >=  m_mainMenuSprite.getPosition().x && event.mouseButton.x <=  (m_mainMenuSprite.getPosition().x+270) && 
 			event.mouseButton.y >=  m_mainMenuSprite.getPosition().y && event.mouseButton.y <=  m_mainMenuSprite.getPosition().y+70)
 	{
-		StateHandler::getInstance().addScreen(new TitleScreen());
+		StateHandler::getInstance().setMenuShield(true);
 	}
 
 	if ((	event.mouseMove.x >= m_submitSprite.getPosition().x && event.mouseMove.x <= m_submitSprite.getPosition().x+400 && 
@@ -233,23 +233,19 @@ void Highscore::processEvents( sf::Event event )
 	if(		event.mouseButton.x >=  m_submitSprite.getPosition().x && event.mouseButton.x <=  m_submitSprite.getPosition().x+270 && 
 			event.mouseButton.y >=  m_submitSprite.getPosition().y && event.mouseButton.y <=  m_submitSprite.getPosition().y+70)
 	{
-		if(isalnumstr(m_sUsername) && m_sUsername != "Type in username" && m_bSubmitted == false && m_iScore > 0)
+		checkInput();
+	}
+
+	if( sf::Keyboard::isKeyPressed(sf::Keyboard::Return))
+	{
+		checkInput();
+	}
+
+	if( sf::Keyboard::isKeyPressed(sf::Keyboard::Escape ))
+	{
+		if(!StateHandler::getInstance().getMenuShield())
 		{
-			if(m_sUsername.size() > 0)
-			{
-				m_submitErrorText.setString("Submitting score...please wait");
-				std::string score = std::to_string((long long)m_iScore);
-				std::string path = "/corrupted/insertscore.php?name=" + m_sUsername + "&score=" + score;
-				httpGet("www.game-details.com", path );
-				m_submitErrorText.setString("Success!");
-				m_bSubmitted = true;
-				decodeJson();
-				reloadLeaderboard( );
-			}
-		}
-		else
-		{
-			m_submitErrorText.setString("Please enter a username before submitting");
+			StateHandler::getInstance().setMenuShield(true);
 		}
 	}
 }
@@ -388,4 +384,26 @@ bool Highscore::isalnumstr(std::string str)
 		}
 	}       
 	return 1;
+}
+
+void Highscore::checkInput()
+{
+	if(isalnumstr(m_sUsername) && m_sUsername != "Type in username" && m_bSubmitted == false && m_iScore > 0)
+	{
+		if(m_sUsername.size() > 0)
+		{
+			m_submitErrorText.setString("Submitting score...please wait");
+			std::string score = std::to_string((long long)m_iScore);
+			std::string path = "/corrupted/insertscore.php?name=" + m_sUsername + "&score=" + score;
+			httpGet("www.game-details.com", path );
+			m_submitErrorText.setString("Success!");
+			m_bSubmitted = true;
+			decodeJson();
+			reloadLeaderboard( );
+		}
+	}
+	else
+	{
+		m_submitErrorText.setString("Please enter a username before submitting");
+	}
 }

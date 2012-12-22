@@ -57,52 +57,60 @@ void SuperLevel::unloadContent()
 
 void SuperLevel::processEvents(sf::Event event)
 {
-		keyControl->mouseInput(event);
+	keyControl->mouseInput(event);
 
-		ui -> processEvents(event);
+	ui -> processEvents(event);
 
-		if(sf::Keyboard::isKeyPressed(sf::Keyboard::T))
-		{
-			StateHandler::getInstance().addScreen(new TitleScreen());
-		}
+	if(sf::Keyboard::isKeyPressed(sf::Keyboard::T))
+	{
+		StateHandler::getInstance().addScreen(new TitleScreen());
+	}
 
-		if(sf::Keyboard::isKeyPressed(sf::Keyboard::Y))
-		{
-			StateHandler::getInstance().addScreen(new SplashScreen());
-		}
+	if(sf::Keyboard::isKeyPressed(sf::Keyboard::Y))
+	{
+		StateHandler::getInstance().addScreen(new SplashScreen());
+	}
 
-		if(sf::Keyboard::isKeyPressed(sf::Keyboard::O))
-		{
-			player -> takeDamage(5);
-		}
+	if(sf::Keyboard::isKeyPressed(sf::Keyboard::O))
+	{
+		player -> takeDamage(5);
+	}
 		
-		if(sf::Keyboard::isKeyPressed(sf::Keyboard::P))
-		{
-			player -> takeDamage(-5);
-		}
+	if(sf::Keyboard::isKeyPressed(sf::Keyboard::P))
+	{
+		player -> takeDamage(-5);
+	}
 
-		if(sf::Keyboard::isKeyPressed(sf::Keyboard::K))
-		{
-			player -> modifySouls(5);
-		}
+	if(sf::Keyboard::isKeyPressed(sf::Keyboard::K))
+	{
+		player -> modifySouls(5);
+	}
 
-		if(sf::Keyboard::isKeyPressed(sf::Keyboard::L))
-		{
-			player -> modifySouls(-5);
-		}
+	if(sf::Keyboard::isKeyPressed(sf::Keyboard::L))
+	{
+		player -> modifySouls(-5);
+	}
 
-		if(sf::Keyboard::isKeyPressed(sf::Keyboard::F))
-		{
-			m_EnemyHandler -> createEnemy(3);
-		}
+	if(sf::Keyboard::isKeyPressed(sf::Keyboard::F))
+	{
+		m_EnemyHandler -> createEnemy(3);
+	}
 
-		if (event.type == sf::Event::KeyReleased)
+	if (event.type == sf::Event::KeyReleased)
+	{
+			if(!player->isDoingAction())
+			{
+			player->changeAnimationToStand();
+			}
+	}
+
+	if( sf::Keyboard::isKeyPressed(sf::Keyboard::Escape ))
+	{
+		if(!StateHandler::getInstance().getMenuShield())
 		{
-			 if(!player->isDoingAction())
-			 {
-				player->changeAnimationToStand();
-			 }
+			StateHandler::getInstance().setMenuShield(true);
 		}
+	}
 }
 
 void SuperLevel::update()

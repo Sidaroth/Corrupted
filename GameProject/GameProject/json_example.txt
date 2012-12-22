@@ -24,19 +24,15 @@
         "score" : "10000"
     },
     {
-        "name" : "Herp",
-        "score" : "10000"
-    },
-    {
-        "name" : "Herp",
-        "score" : "10000"
-    },
-    {
-        "name" : "Derp",
-        "score" : "10000"
-    },
-    {
         "name" : "1",
+        "score" : "10000"
+    },
+    {
+        "name" : "Herp",
+        "score" : "10000"
+    },
+    {
+        "name" : "Herp",
         "score" : "10000"
     },
     {
@@ -61,6 +57,10 @@
     },
     {
         "name" : "14",
+        "score" : "10000"
+    },
+    {
+        "name" : "Derp",
         "score" : "10000"
     },
     {
@@ -114,5 +114,13 @@
     {
         "name" : "Hahahaha",
         "score" : "80"
+    },
+    {
+        "name" : "dsaadsadwas",
+        "score" : "20"
+    },
+    {
+        "name" : "adadad",
+        "score" : "10"
     }
 ]

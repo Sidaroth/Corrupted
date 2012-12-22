@@ -79,13 +79,14 @@ public:
 	std::string httpGet(std::string host, std::string path);
 
 	void reloadLeaderboard();
-
 	void decodeJson();
 	
 	User read_user( const mObject& obj );
 	const mValue& find_value( const mObject& obj, const std::string& name  );
 	std::vector< Highscore::User > read_entries( const char* file_name );
 	void write_user( mArray& a, const Highscore::User& user );
+
+	void checkInput();
 
 	bool isalnumch(char ch);
 	bool isalnumstr(std::string str);

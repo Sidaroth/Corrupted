@@ -93,7 +93,10 @@ void TitleScreen::processEvents(sf::Event event)
 	if(event.mouseButton.x >=  m_exitButtonSprite.getPosition().x && event.mouseButton.x <=  m_exitButtonSprite.getPosition().x+270 && 
 			event.mouseButton.y >=  m_exitButtonSprite.getPosition().y && event.mouseButton.y <=  m_exitButtonSprite.getPosition().y+70)
 	{
-		//Exit the game
+		if (!StateHandler::getInstance().getQuitShield())
+		{
+			StateHandler::getInstance().setQuitShield(true);
+		}
 	}
 
 	if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
@@ -121,7 +124,10 @@ void TitleScreen::processEvents(sf::Event event)
 
 		if (currentButton == 2) 
 		{
-			//Exit game
+			if (!StateHandler::getInstance().getQuitShield())
+			{
+				StateHandler::getInstance().setQuitShield(true);
+			}
 		}
 	}
 
