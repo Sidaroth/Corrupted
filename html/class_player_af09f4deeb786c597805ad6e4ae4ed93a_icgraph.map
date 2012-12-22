@@ -1,3 +1,7 @@
 <map id="Player::modifySouls" name="Player::modifySouls">
-<area shape="rect" id="node3" href="$class_ui.html#ab52b73941643ec0fc7d40ea6ff022471" title="Ui::update" alt="" coords="193,5,274,32"/>
+<area shape="rect" id="node3" href="$class_player.html#a54c8f781cc3cca022d2d524dfc4b0989" title="Checks to see if you&#39;ve hit something when trying to do a melee attack." alt="" coords="192,15,381,41"/>
+<area shape="rect" id="node9" href="$class_player.html#a2ea364bba69e21f05a35ec74195e208c" title="Player::collisionCheck" alt="" coords="211,67,362,93"/>
+<area shape="rect" id="node5" href="$class_keyboard_controller.html#a6a34d386b9ee4cf2b3d7a780f44ac572" title="KeyboardController\l::mouseInput" alt="" coords="430,5,562,46"/>
+<area shape="rect" id="node7" href="$class_super_level.html#a366228089b384e2a8041bbdffc98be31" title="SuperLevel::processEvents" alt="" coords="611,12,789,39"/>
+<area shape="rect" id="node11" href="$class_player.html#a82c3476f3e65a4e2ac6bcd040771bdd4" title="Player::update" alt="" coords="443,71,549,97"/>
 </map>

@@ -90,7 +90,7 @@ $(document).ready(function(){initNavTree('_keyboard_controller_8h_source.html','
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -106,70 +106,35 @@ $(document).ready(function(){initNavTree('_keyboard_controller_8h_source.html','
 <div class="contents">
 <a href="_keyboard_controller_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;SFML/Graphics.hpp&gt;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;SFML/Window.hpp&gt;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;fstream&gt;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_player_8h.html">Player.h</a>&quot;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;math.h&gt;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_audio_manager_8h.html">AudioManager.h</a>&quot;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="code" href="class_keyboard_controller.html">   14</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_keyboard_controller.html">KeyboardController</a> </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    </div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="code" href="class_keyboard_controller.html#a784377a8a289a01fc700ab2921d13602">   18</a></span>&#160;    <a class="code" href="class_player.html">Player</a>* <a class="code" href="class_keyboard_controller.html#a784377a8a289a01fc700ab2921d13602">player</a>;</div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="code" href="class_keyboard_controller.html#a580f70d763c41b56be84a803baa8e1e4">   19</a></span>&#160;    std::string <a class="code" href="class_keyboard_controller.html#a580f70d763c41b56be84a803baa8e1e4">moveFowardKey</a>;</div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="code" href="class_keyboard_controller.html#a82e064c156356f0f5f64f6853a6f0c95">   20</a></span>&#160;    std::string <a class="code" href="class_keyboard_controller.html#a82e064c156356f0f5f64f6853a6f0c95">moveBackwardKey</a>;</div>
-<div class="line"><a name="l00021"></a><span class="lineno"><a class="code" href="class_keyboard_controller.html#aad40865307623ce978236c7e905b5f10">   21</a></span>&#160;    std::string <a class="code" href="class_keyboard_controller.html#aad40865307623ce978236c7e905b5f10">moveLeftKey</a>;</div>
-<div class="line"><a name="l00022"></a><span class="lineno"><a class="code" href="class_keyboard_controller.html#a5f115b0e4cb588451901afe650e7f757">   22</a></span>&#160;    std::string <a class="code" href="class_keyboard_controller.html#a5f115b0e4cb588451901afe650e7f757">moveRIghtKey</a>;</div>
-<div class="line"><a name="l00023"></a><span class="lineno"><a class="code" href="class_keyboard_controller.html#a49fa15b5ec5539b3a5e6a3cc94d5de2e">   23</a></span>&#160;    std::string <a class="code" href="class_keyboard_controller.html#a49fa15b5ec5539b3a5e6a3cc94d5de2e">spaceKey</a>;</div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="code" href="class_keyboard_controller.html#aa540f7d0a94e254701a6522ad32d404e">   24</a></span>&#160;    sf::RenderWindow* <a class="code" href="class_keyboard_controller.html#aa540f7d0a94e254701a6522ad32d404e">window</a>;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="comment">//AudioManager audio_manager;</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno"><a class="code" href="class_keyboard_controller.html#af12694b9a2379ac44e10df0d2ca6aa4d">   26</a></span>&#160;    <span class="keyword">enum</span> <a class="code" href="class_keyboard_controller.html#af12694b9a2379ac44e10df0d2ca6aa4d">InputType</a></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    {</div>
-<div class="line"><a name="l00028"></a><span class="lineno"><a class="code" href="class_keyboard_controller.html#af12694b9a2379ac44e10df0d2ca6aa4da003a884889c4b8dbc967a52a94c879a9">   28</a></span>&#160;        <a class="code" href="class_keyboard_controller.html#af12694b9a2379ac44e10df0d2ca6aa4da003a884889c4b8dbc967a52a94c879a9">KeyboardInput</a>,</div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="code" href="class_keyboard_controller.html#af12694b9a2379ac44e10df0d2ca6aa4da8fcc4c18a2acad85ad6b8e52aeb526f4">   29</a></span>&#160;        <a class="code" href="class_keyboard_controller.html#af12694b9a2379ac44e10df0d2ca6aa4da8fcc4c18a2acad85ad6b8e52aeb526f4">MouseInput</a>,</div>
-<div class="line"><a name="l00030"></a><span class="lineno"><a class="code" href="class_keyboard_controller.html#af12694b9a2379ac44e10df0d2ca6aa4da471f8d5ce27ac6b07cb49369a0c81411">   30</a></span>&#160;        <a class="code" href="class_keyboard_controller.html#af12694b9a2379ac44e10df0d2ca6aa4da471f8d5ce27ac6b07cb49369a0c81411">JoystickInput</a> </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    };</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="code" href="struct_keyboard_controller_1_1_my_keys.html">   33</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="struct_keyboard_controller_1_1_my_keys.html">MyKeys</a></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    {</div>
-<div class="line"><a name="l00035"></a><span class="lineno"><a class="code" href="struct_keyboard_controller_1_1_my_keys.html#a957dd26634b46c23b2576c8c78f31c2c">   35</a></span>&#160;        <a class="code" href="class_keyboard_controller.html#af12694b9a2379ac44e10df0d2ca6aa4d">InputType</a> <a class="code" href="struct_keyboard_controller_1_1_my_keys.html#a957dd26634b46c23b2576c8c78f31c2c">myInputType</a>;</div>
-<div class="line"><a name="l00036"></a><span class="lineno"><a class="code" href="struct_keyboard_controller_1_1_my_keys.html#a6e261fcb3953b7caf1cb7be62b823ea7">   36</a></span>&#160;        sf::Event::EventType <a class="code" href="struct_keyboard_controller_1_1_my_keys.html#a6e261fcb3953b7caf1cb7be62b823ea7">myEventType</a>;</div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="code" href="struct_keyboard_controller_1_1_my_keys.html#a0d0ace04900c1de51a2ffc858148046a">   37</a></span>&#160;        sf::Keyboard::Key <a class="code" href="struct_keyboard_controller_1_1_my_keys.html#a0d0ace04900c1de51a2ffc858148046a">myKeyCode</a>;</div>
-<div class="line"><a name="l00038"></a><span class="lineno"><a class="code" href="struct_keyboard_controller_1_1_my_keys.html#a27885721ce1d0d7ada52273b110a9c75">   38</a></span>&#160;        sf::Mouse::Button <a class="code" href="struct_keyboard_controller_1_1_my_keys.html#a27885721ce1d0d7ada52273b110a9c75">myMouseButton</a>;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    };</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
-<div class="line"><a name="l00041"></a><span class="lineno"><a class="code" href="class_keyboard_controller.html#a26e4ede76c91c01bae4bf8c511e2aec1">   41</a></span>&#160;    std::map&lt;std::string,MyKeys&gt; <a class="code" href="class_keyboard_controller.html#a26e4ede76c91c01bae4bf8c511e2aec1">Keys</a>;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <a class="code" href="class_keyboard_controller.html#a9791aa6d6fadf77b4ef3e59cdb7d9b1d">~KeyboardController</a>();</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <a class="code" href="class_keyboard_controller.html#aa1e5c9ea3bf0f4c3803076c70b5605d2">KeyboardController</a>(<a class="code" href="class_player.html">Player</a>* <a class="code" href="class_keyboard_controller.html#a784377a8a289a01fc700ab2921d13602">player</a>,sf::RenderWindow* <a class="code" href="class_keyboard_controller.html#aa540f7d0a94e254701a6522ad32d404e">window</a>);</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_keyboard_controller.html#a030f4309cbc40503f4e1586d92bb5126">checkPressed</a>();</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_keyboard_controller.html#a6ddf16975781cc1ca5409d4e6e45ee4c">checkMouse</a>(sf::Event event);</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_keyboard_controller.html#a576e6cd124f162d85cb23370a891e3a9">setKeyToAction</a> (<a class="code" href="struct_keyboard_controller_1_1_my_keys.html">MyKeys</a>,std::string action);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_keyboard_controller.html#a2f0c75b0f77962a6e54cc56fa140ec1e">setMoveFowardKey</a>(<span class="keywordtype">char</span> key);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_keyboard_controller.html#a89b8e5cc16b0f34f74a76e19c6e007df">setMoveBackwardKey</a>(<span class="keywordtype">char</span> key);</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_keyboard_controller.html#aaa091fedc82cc1e1bfffc087f17de0b4">setMoveLeftKey</a>(<span class="keywordtype">char</span> key);</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_keyboard_controller.html#a6665125c8783e947d44252faf48bb842">setMoveRightKey</a>(<span class="keywordtype">char</span> key);</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_keyboard_controller.html#a3d177a68750439f5d95407c30c6b1282">getMoveFowardKey</a>(<span class="keywordtype">char</span> key);</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_keyboard_controller.html#ad507dd0ee3fe46b558eef744733dd110">getMoveBackwardKey</a>(<span class="keywordtype">char</span> key);</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_keyboard_controller.html#ab97f89405b669300883732603a4a3a0c">getMoveLeftKey</a>(<span class="keywordtype">char</span> key);</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_keyboard_controller.html#a9f6518a7f32f15e0c702ac098fc45bb7">getMoveRightKey</a>(<span class="keywordtype">char</span> key);</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="comment">//bool loadXML();</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <a class="code" href="class_keyboard_controller.html#aa1e5c9ea3bf0f4c3803076c70b5605d2">KeyboardController</a>(<a class="code" href="class_player.html">Player</a>* <a class="code" href="class_keyboard_controller.html#a784377a8a289a01fc700ab2921d13602">player</a>);</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;};</div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_player_8h.html">Player.h</a>&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_state_handler_8h.html">StateHandler.h</a>&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
+<div class="line"><a name="l00007"></a><span class="lineno"><a class="code" href="class_keyboard_controller.html">    7</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_keyboard_controller.html">KeyboardController</a> </div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;{</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    </div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="code" href="class_keyboard_controller.html#ab89231a7368be191ccf0fe63f72a76ee">   12</a></span>&#160;    <a class="code" href="class_player.html">Player</a>* <a class="code" href="class_keyboard_controller.html#ab89231a7368be191ccf0fe63f72a76ee">m_Player</a>;</div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="code" href="class_keyboard_controller.html#a5c1d84650c635b7a5bac321945820abe">   13</a></span>&#160;    sf::RenderWindow* <a class="code" href="class_keyboard_controller.html#a5c1d84650c635b7a5bac321945820abe">m_Window</a>;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <a class="code" href="class_keyboard_controller.html#aa1e5c9ea3bf0f4c3803076c70b5605d2">KeyboardController</a>(<a class="code" href="class_player.html">Player</a>* player, sf::RenderWindow* window);</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <a class="code" href="class_keyboard_controller.html#a9791aa6d6fadf77b4ef3e59cdb7d9b1d">~KeyboardController</a>();</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_keyboard_controller.html#a868853a3f5e49dd7971afb206e7b28c2">keyboardInput</a>();</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_keyboard_controller.html#a6a34d386b9ee4cf2b3d7a780f44ac572">mouseInput</a>(sf::Event event);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_keyboard_controller.html#adb350814df7deedc3951c458cd65639e">mouseNotInUi</a>(sf::Event event);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_5e5f3a715e7f4bae10d417bd6733b721.html">GameProject</a></li><li class="navelem"><a class="el" href="dir_34cc078ae5f7d305ee8fab46b09a011f.html">GameProject</a></li><li class="navelem"><a class="el" href="_keyboard_controller_8h.html">KeyboardController.h</a></li>
-    <li class="footer">Generated on Mon Nov 26 2012 12:45:41 for Corrupted by
+    <li class="footer">Generated on Sat Dec 22 2012 23:24:42 for Corrupted by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.2 </li>
   </ul>

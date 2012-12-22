@@ -1,5 +1,5 @@
 <map id="Character::isDoingAction" name="Character::isDoingAction">
-<area shape="rect" id="node3" href="$class_keyboard_controller.html#a030f4309cbc40503f4e1586d92bb5126" title="KeyboardController\l::checkPressed" alt="" coords="245,5,377,46"/>
+<area shape="rect" id="node3" href="$class_keyboard_controller.html#a868853a3f5e49dd7971afb206e7b28c2" title="KeyboardController\l::keyboardInput" alt="" coords="245,5,377,46"/>
 <area shape="rect" id="node7" href="$class_super_level.html#a366228089b384e2a8041bbdffc98be31" title="SuperLevel::processEvents" alt="" coords="221,71,400,97"/>
 <area shape="rect" id="node5" href="$class_super_level.html#a55858702d59db30844e64fd699a29b42" title="SuperLevel::update" alt="" coords="449,12,581,39"/>
 </map>

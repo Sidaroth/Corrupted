@@ -1,4 +1,5 @@
 <map id="StateHandler::addScreen" name="StateHandler::addScreen">
 <area shape="rect" id="node3" href="$class_state_handler.html#a105a3a4832759999f65d52f4804719ce" title="StateHandler::unloadContent" alt="" coords="222,5,410,32"/>
 <area shape="rect" id="node5" href="$class_state_handler.html#a115856dd9a5227b41ad6d53243fbb363" title="StateHandler::loadContent" alt="" coords="229,56,403,83"/>
+<area shape="rect" id="node7" href="$class_audio_manager.html#a5ed795707f011caccd45a6903bab4f31" title="AudioManager::loadContent" alt="" coords="459,56,642,83"/>
 </map>

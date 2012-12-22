@@ -4,7 +4,7 @@ var class_super_level =
     [ "~SuperLevel", "class_super_level.html#a5c9a213615c77d983ab464722adcbb68", null ],
     [ "processEvents", "class_super_level.html#a366228089b384e2a8041bbdffc98be31", null ],
     [ "superDraw", "class_super_level.html#aefe8e24f5a3831c7d8105362c19454f6", null ],
-    [ "superLoadContent", "class_super_level.html#af5bd74f27610cb25f7c63b1410f3871e", null ],
+    [ "superLoadContent", "class_super_level.html#a35182a9ec2a4ad48f2c2011fff8bfb82", null ],
     [ "unloadContent", "class_super_level.html#acb235d76be9b43164d286b9f160a7a47", null ],
     [ "update", "class_super_level.html#a55858702d59db30844e64fd699a29b42", null ],
     [ "font", "class_super_level.html#a99d33aa1c11b258d297339d7eda81533", null ],

@@ -1,3 +1,4 @@
 <map id="StateHandler" name="StateHandler">
-<area shape="rect" id="node2" href="$class_game_state.html" title="GameState" alt="" coords="9,5,97,32"/>
+<area shape="rect" id="node2" href="$class_audio_manager.html" title="AudioManager" alt="" coords="5,5,109,32"/>
+<area shape="rect" id="node4" href="$class_game_state.html" title="GameState" alt="" coords="149,5,237,32"/>
 </map>

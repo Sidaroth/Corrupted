@@ -1,4 +1,10 @@
 <map id="Game::processEvents" name="Game::processEvents">
-<area shape="rect" id="node3" href="$class_state_handler.html#a384475d0948afc0c4f06359fe7e56d0f" title="StateHandler::getInstance" alt="" coords="215,5,387,32"/>
-<area shape="rect" id="node5" href="$class_state_handler.html#afb1acc8b78669b0392fe9e5ffdeb7a2c" title="StateHandler::processEvents" alt="" coords="206,56,397,83"/>
+<area shape="rect" id="node3" href="$class_state_handler.html#a384475d0948afc0c4f06359fe7e56d0f" title="StateHandler::getInstance" alt="" coords="459,5,631,32"/>
+<area shape="rect" id="node5" href="$class_state_handler.html#afb1acc8b78669b0392fe9e5ffdeb7a2c" title="StateHandler::processEvents" alt="" coords="206,64,397,91"/>
+<area shape="rect" id="node7" href="$class_audio_manager.html#a9d8330b51b9919e48c467a22d88f7255" title="AudioManager::stopOrResume\lMusic" alt="" coords="445,57,645,98"/>
+<area shape="rect" id="node10" href="$class_state_handler.html#a6ff69df844811c77d41968bd2c024c06" title="StateHandler::stopRunning" alt="" coords="457,123,634,149"/>
+<area shape="rect" id="node12" href="$class_state_handler.html#a90cb26dc423f26e37af27b7d3d7b57ff" title="StateHandler::addScreen" alt="" coords="462,173,629,200"/>
+<area shape="rect" id="node14" href="$class_state_handler.html#a105a3a4832759999f65d52f4804719ce" title="StateHandler::unloadContent" alt="" coords="694,148,882,175"/>
+<area shape="rect" id="node16" href="$class_state_handler.html#a115856dd9a5227b41ad6d53243fbb363" title="StateHandler::loadContent" alt="" coords="701,199,875,225"/>
+<area shape="rect" id="node18" href="$class_audio_manager.html#a5ed795707f011caccd45a6903bab4f31" title="AudioManager::loadContent" alt="" coords="931,199,1114,225"/>
 </map>

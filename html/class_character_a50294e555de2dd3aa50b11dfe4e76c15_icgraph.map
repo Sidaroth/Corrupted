@@ -1,3 +1,4 @@
 <map id="Character::getMeleeDamage" name="Character::getMeleeDamage">
-<area shape="rect" id="node3" href="$class_ui.html#ab52b73941643ec0fc7d40ea6ff022471" title="Ui::update" alt="" coords="241,5,322,32"/>
+<area shape="rect" id="node3" href="$class_player.html#a2ea364bba69e21f05a35ec74195e208c" title="Player::collisionCheck" alt="" coords="241,5,391,32"/>
+<area shape="rect" id="node5" href="$class_player.html#a82c3476f3e65a4e2ac6bcd040771bdd4" title="Player::update" alt="" coords="440,5,547,32"/>
 </map>

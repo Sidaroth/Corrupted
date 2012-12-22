@@ -1,6 +1,6 @@
 <map id="Character::changeAnimationToWalk" name="Character::changeAnimationToWalk">
-<area shape="rect" id="node3" href="$class_character.html#a2504a3fd2c17bbed8f8cfc9265c1cfce" title="Character::move" alt="" coords="241,41,357,68"/>
-<area shape="rect" id="node5" href="$class_keyboard_controller.html#a030f4309cbc40503f4e1586d92bb5126" title="KeyboardController\l::checkPressed" alt="" coords="406,5,538,46"/>
-<area shape="rect" id="node9" href="$class_skeleton.html#a8ca67263e787bfa554a76a99eacda8a2" title="Skeleton::update" alt="" coords="412,71,532,97"/>
-<area shape="rect" id="node7" href="$class_super_level.html#a55858702d59db30844e64fd699a29b42" title="SuperLevel::update" alt="" coords="587,12,719,39"/>
+<area shape="rect" id="node3" href="$class_character.html#a2504a3fd2c17bbed8f8cfc9265c1cfce" title="Character::move" alt="" coords="241,35,357,61"/>
+<area shape="rect" id="node5" href="$class_enemy.html#ad55ee71b5a8c23fbd00b3c368b90cc64" title="Enemy::update" alt="" coords="417,5,527,32"/>
+<area shape="rect" id="node7" href="$class_keyboard_controller.html#a868853a3f5e49dd7971afb206e7b28c2" title="KeyboardController\l::keyboardInput" alt="" coords="406,57,538,98"/>
+<area shape="rect" id="node9" href="$class_super_level.html#a55858702d59db30844e64fd699a29b42" title="SuperLevel::update" alt="" coords="587,64,719,91"/>
 </map>

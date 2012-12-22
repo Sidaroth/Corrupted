@@ -1,6 +1,10 @@
 var searchData=
 [
+  ['randomspawnpoint',['randomSpawnPoint',['../class_enemy_handler.html#a2e64b67acfc0e3099c1daf4d752e828c',1,'EnemyHandler']]],
+  ['read_5fentries',['read_entries',['../class_highscore.html#a839c53be15d7dae6712a0787a3af8fb8',1,'Highscore']]],
+  ['read_5fuser',['read_user',['../class_highscore.html#a2e308cfe4f480cc13407a040d7a8d858',1,'Highscore']]],
   ['red',['red',['../struct_environment_handler_1_1_r_g_b.html#ac3e6e4efdceb4454a651a677c51ceea3',1,'EnvironmentHandler::RGB']]],
+  ['reloadleaderboard',['reloadLeaderboard',['../class_highscore.html#a571f1aea68f14655790a36e3e255bc0d',1,'Highscore']]],
   ['render',['render',['../class_game.html#a15ddd769261d923827a3cdf41499c843',1,'Game']]],
   ['rgb',['RGB',['../struct_environment_handler_1_1_r_g_b.html',1,'EnvironmentHandler']]],
   ['rightsidesecondarystats',['rightSideSecondaryStats',['../class_ui.html#a99afdc4dabf4ac84b7b72983303c9e48',1,'Ui']]],

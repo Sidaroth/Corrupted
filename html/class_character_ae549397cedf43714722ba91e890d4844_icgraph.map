@@ -1,4 +1,5 @@
 <map id="Character::animation" name="Character::animation">
-<area shape="rect" id="node3" href="$class_player.html#ac91ab2d2ed86fa2d5ff2f77c948a38f1" title="0=N, 1=NE, 2=E, 3=SE, 4=S, 5=SW, 6=W, 7=NW" alt="" coords="205,5,341,32"/>
-<area shape="rect" id="node5" href="$class_skeleton.html#a123cfe0c7338ce9ee8c183b4358e3120" title="0=N, 1=NE, 2=E, 3=SE, 4=S, 5=SW, 6=W, 7=NW" alt="" coords="198,56,349,83"/>
+<area shape="rect" id="node3" href="$class_enemy.html#ad55ee71b5a8c23fbd00b3c368b90cc64" title="Enemy::update" alt="" coords="218,5,329,32"/>
+<area shape="rect" id="node5" href="$class_player.html#ac91ab2d2ed86fa2d5ff2f77c948a38f1" title="0=N, 1=NE, 2=E, 3=SE, 4=S, 5=SW, 6=W, 7=NW" alt="" coords="205,56,341,83"/>
+<area shape="rect" id="node7" href="$class_skeleton.html#a4ec02d8803fe5cbbffb9abb6757cc4cb" title="Skeleton::loadContent" alt="" coords="198,107,349,133"/>
 </map>

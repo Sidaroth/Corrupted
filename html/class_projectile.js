@@ -11,6 +11,7 @@ var class_projectile =
     [ "checkCollision", "class_projectile.html#abf215379b10912db404b967c1e028f9e", null ],
     [ "draw", "class_projectile.html#af89fc74fceb857302c823f7dc8e63219", null ],
     [ "exist", "class_projectile.html#adcaeb3d77e2c54be11f20458c9041804", null ],
+    [ "getDamage", "class_projectile.html#ababf0ebbc4014e82efcae951eb9be7b9", null ],
     [ "initiate", "class_projectile.html#a4d603188f8d722d120e4138aa77cee79", null ],
     [ "loadContent", "class_projectile.html#a430843f12419cceeaa2896fb91396af4", null ],
     [ "move", "class_projectile.html#ac5f6d2a73c1f82f2f11ae353d251acef", null ],

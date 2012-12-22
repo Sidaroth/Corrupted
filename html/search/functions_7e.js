@@ -1,9 +1,11 @@
 var searchData=
 [
+  ['_7eaudiomanager',['~AudioManager',['../class_audio_manager.html#ad94dc46723c6d7cf8c81fc3772a842aa',1,'AudioManager']]],
   ['_7echaracter',['~Character',['../class_character.html#a9e9be564d05ded80962b2045aa70b3fc',1,'Character']]],
   ['_7eenemy',['~Enemy',['../class_enemy.html#ac0eec4755e28c02688065f9657150ac3',1,'Enemy']]],
   ['_7eenemyhandler',['~EnemyHandler',['../class_enemy_handler.html#aa170e30c543566c8ee867d3733a31b7d',1,'EnemyHandler']]],
   ['_7eenvironmenthandler',['~EnvironmentHandler',['../class_environment_handler.html#a20e439fb4ef99d9431a6693a75555c56',1,'EnvironmentHandler']]],
+  ['_7ehighscore',['~Highscore',['../class_highscore.html#ac22dda9e0f6aeceab3c61035d6e1be5c',1,'Highscore']]],
   ['_7ekeyboardcontroller',['~KeyboardController',['../class_keyboard_controller.html#a9791aa6d6fadf77b4ef3e59cdb7d9b1d',1,'KeyboardController']]],
   ['_7elevel1',['~Level1',['../class_level1.html#adfbd315a62b31d3ca07da24fc9c69d82',1,'Level1']]],
   ['_7eplayer',['~Player',['../class_player.html#a749d2c00e1fe0f5c2746f7505a58c062',1,'Player']]],

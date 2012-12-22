@@ -1,19 +1,20 @@
 <map id="GameProject/GameProject/Level1.h" name="GameProject/GameProject/Level1.h">
-<area shape="rect" id="node3" href="$_super_level_8h.html" title="SuperLevel.h" alt="" coords="1089,96,1185,123"/>
-<area shape="rect" id="node5" href="$_game_state_8h.html" title="GameState.h" alt="" coords="912,320,1011,347"/>
-<area shape="rect" id="node11" href="$_state_handler_8h.html" title="StateHandler.h" alt="" coords="1083,245,1191,272"/>
-<area shape="rect" id="node17" href="$_environment_8h.html" title="Environment.h" alt="" coords="992,619,1096,645"/>
-<area shape="rect" id="node26" href="$_player_8h.html" title="Player.h" alt="" coords="1115,395,1185,421"/>
-<area shape="rect" id="node48" href="$_keyboard_controller_8h.html" title="KeyboardController.h" alt="" coords="299,320,441,347"/>
-<area shape="rect" id="node69" href="$_enemy_handler_8h.html" title="EnemyHandler.h" alt="" coords="1343,245,1461,272"/>
-<area shape="rect" id="node81" href="$_ui_8h.html" title="Ui.h" alt="" coords="907,171,952,197"/>
-<area shape="rect" id="node22" href="$_vector2f_8h.html" title="Vector2f.h" alt="" coords="805,768,885,795"/>
-<area shape="rect" id="node28" href="$_character_8h.html" title="Character.h" alt="" coords="905,544,993,571"/>
-<area shape="rect" id="node42" href="$_enemy_8h.html" title="Enemy.h" alt="" coords="1317,469,1392,496"/>
-<area shape="rect" id="node30" href="$_actor_8h.html" title="Actor.h" alt="" coords="779,693,843,720"/>
-<area shape="rect" id="node38" href="$_projectile_8h.html" title="Projectile.h" alt="" coords="830,619,916,645"/>
-<area shape="rect" id="node60" href="$_audio_manager_8h.html" title="AudioManager.h" alt="" coords="225,395,340,421"/>
-<area shape="rect" id="node71" href="$_enemy_factory_8h.html" title="EnemyFactory.h" alt="" coords="1369,320,1487,347"/>
-<area shape="rect" id="node74" href="$_skeleton_8h.html" title="Skeleton.h" alt="" coords="1313,395,1396,421"/>
-<area shape="rect" id="node85" href="$_game_8h.html" title="Game.h" alt="" coords="669,245,736,272"/>
+<area shape="rect" id="node3" href="$_state_handler_8h.html" title="StateHandler.h" alt="" coords="214,693,321,720"/>
+<area shape="rect" id="node24" href="$_super_level_8h.html" title="SuperLevel.h" alt="" coords="224,96,320,123"/>
+<area shape="rect" id="node9" href="$_game_state_8h.html" title="GameState.h" alt="" coords="171,843,269,869"/>
+<area shape="rect" id="node14" href="$_title_screen_8h.html" title="TitleScreen.h" alt="" coords="224,768,323,795"/>
+<area shape="rect" id="node18" href="$_audio_manager_8h.html" title="AudioManager.h" alt="" coords="398,768,513,795"/>
+<area shape="rect" id="node28" href="$_environment_8h.html" title="Environment.h" alt="" coords="1032,544,1136,571"/>
+<area shape="rect" id="node37" href="$_player_8h.html" title="Player.h" alt="" coords="430,320,500,347"/>
+<area shape="rect" id="node53" href="$_ui_8h.html" title="Ui.h" alt="" coords="240,544,285,571"/>
+<area shape="rect" id="node70" href="$_keyboard_controller_8h.html" title="KeyboardController.h" alt="" coords="270,245,412,272"/>
+<area shape="rect" id="node74" href="$_enemy_handler_8h.html" title="EnemyHandler.h" alt="" coords="887,171,1005,197"/>
+<area shape="rect" id="node33" href="$_vector2f_8h.html" title="Vector2f.h" alt="" coords="849,693,929,720"/>
+<area shape="rect" id="node39" href="$_character_8h.html" title="Character.h" alt="" coords="565,469,653,496"/>
+<area shape="rect" id="node64" href="$_enemy_8h.html" title="Enemy.h" alt="" coords="669,395,744,421"/>
+<area shape="rect" id="node41" href="$_actor_8h.html" title="Actor.h" alt="" coords="676,619,740,645"/>
+<area shape="rect" id="node49" href="$_projectile_8h.html" title="Projectile.h" alt="" coords="666,544,752,571"/>
+<area shape="rect" id="node56" href="$_floating_text_8h.html" title="FloatingText.h" alt="" coords="360,619,464,645"/>
+<area shape="rect" id="node81" href="$_enemy_factory_8h.html" title="EnemyFactory.h" alt="" coords="723,245,841,272"/>
+<area shape="rect" id="node84" href="$_skeleton_8h.html" title="Skeleton.h" alt="" coords="663,320,747,347"/>
 </map>

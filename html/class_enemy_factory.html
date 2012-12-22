@@ -92,7 +92,7 @@ $(document).ready(function(){initNavTree('class_enemy_factory.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -105,6 +105,8 @@ $(document).ready(function(){initNavTree('class_enemy_factory.html','');});
   <div class="summary">
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pro-types">Protected Types</a> &#124;
 <a href="class_enemy_factory-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">EnemyFactory Class Reference</div>  </div>
@@ -124,8 +126,26 @@ Public Types</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ab132190e1eabaa559a0a28a3fcd5b76b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_enemy.html">Enemy</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_enemy_factory.html#ab132190e1eabaa559a0a28a3fcd5b76b">createEnemy</a> (<a class="el" href="class_enemy_factory.html#a1252bf2f2bd965691af305d17767a829">Enemies</a> enemyType)</td></tr>
-<tr class="separator:ab132190e1eabaa559a0a28a3fcd5b76b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a4bb35b54ff867e03e241dc6b7c0a15"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_enemy_factory.html#a9a4bb35b54ff867e03e241dc6b7c0a15">EnemyFactory</a> ()</td></tr>
+<tr class="separator:a9a4bb35b54ff867e03e241dc6b7c0a15"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61e2bc2715e899a2e654f3636e113a0f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_enemy_factory.html#a61e2bc2715e899a2e654f3636e113a0f">loadContent</a> ()</td></tr>
+<tr class="separator:a61e2bc2715e899a2e654f3636e113a0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e714410423d7d152cbfb0db01ae6236"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_enemy.html">Enemy</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_enemy_factory.html#a4e714410423d7d152cbfb0db01ae6236">createEnemy</a> (<a class="el" href="class_enemy_factory.html#a1252bf2f2bd965691af305d17767a829">Enemies</a> enemyType, short level)</td></tr>
+<tr class="separator:a4e714410423d7d152cbfb0db01ae6236"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:a7442219f12279a7c5d9289fa4bdd63c9"><td class="memItemLeft" align="right" valign="top">std::vector&lt; sf::Texture &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_enemy_factory.html#a7442219f12279a7c5d9289fa4bdd63c9">m_SkellieTextures</a></td></tr>
+<tr class="separator:a7442219f12279a7c5d9289fa4bdd63c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-types"></a>
+Protected Types</h2></td></tr>
+<tr class="memitem:aef18d79e06268483332ca6d38aa35b8e"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_enemy_factory.html#aef18d79e06268483332ca6d38aa35b8e">TextureType</a> { <a class="el" href="class_enemy_factory.html#aef18d79e06268483332ca6d38aa35b8ea87e6dc05292673f0e3495ca94fc069bb">MOVE</a>, 
+<a class="el" href="class_enemy_factory.html#aef18d79e06268483332ca6d38aa35b8eaf59856aa533a92e4e8549ab85781d6b4">ATTACK</a>, 
+<a class="el" href="class_enemy_factory.html#aef18d79e06268483332ca6d38aa35b8ea16cf275820b4947b798c8f5265131989">STILL</a>, 
+<a class="el" href="class_enemy_factory.html#aef18d79e06268483332ca6d38aa35b8ea6939e981befba864fbbf86d4dfc836d3">DIE</a>
+ }</td></tr>
+<tr class="separator:aef18d79e06268483332ca6d38aa35b8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Factory handling the creation and deletion of all enemies. </p>
@@ -148,8 +168,56 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="aef18d79e06268483332ca6d38aa35b8e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="class_enemy_factory.html#aef18d79e06268483332ca6d38aa35b8e">EnemyFactory::TextureType</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl><dt><b>Enumerator: </b></dt><dd><table border="0" cellspacing="2" cellpadding="0">
+<tr><td valign="top"><em><a class="anchor" id="aef18d79e06268483332ca6d38aa35b8ea87e6dc05292673f0e3495ca94fc069bb"></a>MOVE</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="aef18d79e06268483332ca6d38aa35b8eaf59856aa533a92e4e8549ab85781d6b4"></a>ATTACK</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="aef18d79e06268483332ca6d38aa35b8ea16cf275820b4947b798c8f5265131989"></a>STILL</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="aef18d79e06268483332ca6d38aa35b8ea6939e981befba864fbbf86d4dfc836d3"></a>DIE</em>&nbsp;</td><td>
+</td></tr>
+</table>
+</dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a9a4bb35b54ff867e03e241dc6b7c0a15"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">EnemyFactory::EnemyFactory </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="ab132190e1eabaa559a0a28a3fcd5b76b"></a>
+<a class="anchor" id="a4e714410423d7d152cbfb0db01ae6236"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -157,8 +225,46 @@ Public Member Functions</h2></td></tr>
           <td class="memname"><a class="el" href="class_enemy.html">Enemy</a> * EnemyFactory::createEnemy </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="class_enemy_factory.html#a1252bf2f2bd965691af305d17767a829">Enemies</a>&#160;</td>
-          <td class="paramname"><em>enemyType</em></td><td>)</td>
+          <td class="paramname"><em>enemyType</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">short&#160;</td>
+          <td class="paramname"><em>level</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a61e2bc2715e899a2e654f3636e113a0f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool EnemyFactory::loadContent </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="a7442219f12279a7c5d9289fa4bdd63c9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;sf::Texture&gt; EnemyFactory::m_SkellieTextures</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -175,7 +281,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_enemy_factory.html">EnemyFactory</a></li>
-    <li class="footer">Generated on Mon Nov 26 2012 12:45:42 for Corrupted by
+    <li class="footer">Generated on Sat Dec 22 2012 23:24:42 for Corrupted by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.2 </li>
   </ul>

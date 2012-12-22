@@ -90,7 +90,7 @@ $(document).ready(function(){initNavTree('_game_8h_source.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -115,20 +115,20 @@ $(document).ready(function(){initNavTree('_game_8h_source.html','');});
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_player_8h.html">Player.h</a>&quot;</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_game_state_8h.html">GameState.h</a>&quot;</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_keyboard_controller_8h.html">KeyboardController.h</a>&quot;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include&lt;SFML\Audio.hpp&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="code" href="class_game.html">   15</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_game.html">Game</a></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="code" href="class_game.html#a78f6a0d1253bc2823539383221d1ad0f">   19</a></span>&#160;    sf::Text <a class="code" href="class_game.html#a78f6a0d1253bc2823539383221d1ad0f">frames_per_sec</a>;</div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="code" href="class_game.html#a69e8c9b7364c62e67f104808da950f8b">   20</a></span>&#160;    sf::RenderWindow <a class="code" href="class_game.html#a69e8c9b7364c62e67f104808da950f8b">m_Window</a>;</div>
-<div class="line"><a name="l00021"></a><span class="lineno"><a class="code" href="class_game.html#a87ca4ef9637bc4a70bcc732f1d2dc422">   21</a></span>&#160;    std::string <a class="code" href="class_game.html#a87ca4ef9637bc4a70bcc732f1d2dc422">m_sTitle</a>;</div>
-<div class="line"><a name="l00022"></a><span class="lineno"><a class="code" href="class_game.html#ac0ec575cae4dcc8b0764fbb723825980">   22</a></span>&#160;    <span class="keywordtype">short</span> <a class="code" href="class_game.html#ac0ec575cae4dcc8b0764fbb723825980">m_shScreenWidth</a>;</div>
-<div class="line"><a name="l00023"></a><span class="lineno"><a class="code" href="class_game.html#a1378d6b2fea862773ca00620065a0ce1">   23</a></span>&#160;    <span class="keywordtype">short</span> <a class="code" href="class_game.html#a1378d6b2fea862773ca00620065a0ce1">m_shScreenHeight</a>;</div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="code" href="class_game.html#ab6870d63e9857916c8d083b97e3ce7f5">   24</a></span>&#160;    <span class="keywordtype">short</span> <a class="code" href="class_game.html#ab6870d63e9857916c8d083b97e3ce7f5">m_shScreenBitColor</a>;</div>
-<div class="line"><a name="l00025"></a><span class="lineno"><a class="code" href="class_game.html#aa3a259841306a82c4a71b96b14bdcfcd">   25</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_game.html#aa3a259841306a82c4a71b96b14bdcfcd">m_bRunning</a>;</div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="code" href="class_game.html">   14</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_game.html">Game</a></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="code" href="class_game.html#a78f6a0d1253bc2823539383221d1ad0f">   18</a></span>&#160;    sf::Text <a class="code" href="class_game.html#a78f6a0d1253bc2823539383221d1ad0f">frames_per_sec</a>;</div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="code" href="class_game.html#a69e8c9b7364c62e67f104808da950f8b">   19</a></span>&#160;    sf::RenderWindow <a class="code" href="class_game.html#a69e8c9b7364c62e67f104808da950f8b">m_Window</a>;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="code" href="class_game.html#a87ca4ef9637bc4a70bcc732f1d2dc422">   22</a></span>&#160;    std::string <a class="code" href="class_game.html#a87ca4ef9637bc4a70bcc732f1d2dc422">m_sTitle</a>;</div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="code" href="class_game.html#ac0ec575cae4dcc8b0764fbb723825980">   23</a></span>&#160;    <span class="keywordtype">short</span> <a class="code" href="class_game.html#ac0ec575cae4dcc8b0764fbb723825980">m_shScreenWidth</a>;</div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="code" href="class_game.html#a1378d6b2fea862773ca00620065a0ce1">   24</a></span>&#160;    <span class="keywordtype">short</span> <a class="code" href="class_game.html#a1378d6b2fea862773ca00620065a0ce1">m_shScreenHeight</a>;</div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="code" href="class_game.html#ab6870d63e9857916c8d083b97e3ce7f5">   25</a></span>&#160;    <span class="keywordtype">short</span> <a class="code" href="class_game.html#ab6870d63e9857916c8d083b97e3ce7f5">m_shScreenBitColor</a>;</div>
 <div class="line"><a name="l00026"></a><span class="lineno"><a class="code" href="class_game.html#ab0430b0c9822681417609ed75b6e07fa">   26</a></span>&#160;    sf::Color* <a class="code" href="class_game.html#ab0430b0c9822681417609ed75b6e07fa">m_BackgroundColor</a>;</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">public</span>:</div>
@@ -155,7 +155,7 @@ $(document).ready(function(){initNavTree('_game_8h_source.html','');});
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_5e5f3a715e7f4bae10d417bd6733b721.html">GameProject</a></li><li class="navelem"><a class="el" href="dir_34cc078ae5f7d305ee8fab46b09a011f.html">GameProject</a></li><li class="navelem"><a class="el" href="_game_8h.html">Game.h</a></li>
-    <li class="footer">Generated on Mon Nov 26 2012 12:45:41 for Corrupted by
+    <li class="footer">Generated on Sat Dec 22 2012 23:24:42 for Corrupted by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.2 </li>
   </ul>

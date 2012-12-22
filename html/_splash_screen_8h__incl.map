@@ -1,4 +1,6 @@
 <map id="GameProject/GameProject/SplashScreen.h" name="GameProject/GameProject/SplashScreen.h">
-<area shape="rect" id="node3" href="$_game_state_8h.html" title="GameState.h" alt="" coords="67,171,165,197"/>
-<area shape="rect" id="node9" href="$_state_handler_8h.html" title="StateHandler.h" alt="" coords="151,96,259,123"/>
+<area shape="rect" id="node3" href="$_game_state_8h.html" title="GameState.h" alt="" coords="64,245,163,272"/>
+<area shape="rect" id="node9" href="$_state_handler_8h.html" title="StateHandler.h" alt="" coords="150,96,257,123"/>
+<area shape="rect" id="node15" href="$_title_screen_8h.html" title="TitleScreen.h" alt="" coords="155,171,253,197"/>
+<area shape="rect" id="node19" href="$_audio_manager_8h.html" title="AudioManager.h" alt="" coords="187,245,303,272"/>
 </map>

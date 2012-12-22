@@ -1,5 +1,6 @@
 <map id="EnemyHandler" name="EnemyHandler">
-<area shape="rect" id="node2" href="$class_enemy_factory.html" title="Factory handling the creation and deletion of all enemies." alt="" coords="5,96,112,123"/>
-<area shape="rect" id="node4" href="$class_environment_handler.html" title="EnvironmentHandler" alt="" coords="137,96,273,123"/>
-<area shape="rect" id="node6" href="$class_vector2f.html" title="Vector2f" alt="" coords="170,5,240,32"/>
+<area shape="rect" id="node2" href="$class_ui.html" title="Ui" alt="" coords="5,97,43,124"/>
+<area shape="rect" id="node4" href="$class_vector2f.html" title="Vector2f" alt="" coords="177,5,247,32"/>
+<area shape="rect" id="node8" href="$class_environment_handler.html" title="EnvironmentHandler" alt="" coords="287,97,424,124"/>
+<area shape="rect" id="node6" href="$class_enemy_factory.html" title="Factory handling the creation and deletion of all enemies." alt="" coords="449,97,556,124"/>
 </map>

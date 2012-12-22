@@ -2,6 +2,7 @@ var class_vector2f =
 [
     [ "Vector2f", "class_vector2f.html#a3db9a868c58bc809e5e09a88d65a77ec", null ],
     [ "Vector2f", "class_vector2f.html#ae3ff9026b0e1242471678e4f2ed8be0e", null ],
+    [ "Vector2f", "class_vector2f.html#a4ea01995e046ce344aebfe5540884d3f", null ],
     [ "~Vector2f", "class_vector2f.html#a2f820078721656f1952f46b0861e19ef", null ],
     [ "angle", "class_vector2f.html#a2d8be50dd28dc0ba8c1dcf1ecada2a23", null ],
     [ "cross", "class_vector2f.html#a0dc5b93838aa574e8aa00202ace11b9d", null ],
@@ -10,7 +11,9 @@ var class_vector2f =
     [ "operator*", "class_vector2f.html#ab80cdeb3e397a1b721333efa7dc2b413", null ],
     [ "operator*", "class_vector2f.html#a580187e290048e034ec42c389e170f9e", null ],
     [ "operator+", "class_vector2f.html#acab3acffc23f8bf9ba36d61e06134e87", null ],
+    [ "operator+=", "class_vector2f.html#a9ac115724c877278b0054abe7d89d7b8", null ],
     [ "operator-", "class_vector2f.html#aabf72717e6da6001e9a3d01aeb9b2fc6", null ],
+    [ "operator-=", "class_vector2f.html#adb9d2341bd839e1c4a6cf39e73757b38", null ],
     [ "operator/", "class_vector2f.html#a5c633ed193d68fe42094e226b7ed4b2e", null ],
     [ "operator/", "class_vector2f.html#a1af75ea153e922fed0ea92bb68950157", null ],
     [ "operator=", "class_vector2f.html#a5e7851b6e79d053d18d8330bd368043b", null ],

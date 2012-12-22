@@ -1,6 +1,12 @@
 <map id="GameProject/GameProject/Character.h" name="GameProject/GameProject/Character.h">
-<area shape="rect" id="node3" href="$_actor_8h.html" title="Actor.h" alt="" coords="204,171,268,197"/>
-<area shape="rect" id="node15" href="$_environment_8h.html" title="Environment.h" alt="" coords="369,171,473,197"/>
-<area shape="rect" id="node21" href="$_projectile_8h.html" title="Projectile.h" alt="" coords="271,96,357,123"/>
-<area shape="rect" id="node5" href="$_vector2f_8h.html" title="Vector2f.h" alt="" coords="258,245,339,272"/>
+<area shape="rect" id="node3" href="$_actor_8h.html" title="Actor.h" alt="" coords="278,171,342,197"/>
+<area shape="rect" id="node15" href="$_environment_8h.html" title="Environment.h" alt="" coords="51,171,155,197"/>
+<area shape="rect" id="node21" href="$_projectile_8h.html" title="Projectile.h" alt="" coords="227,96,313,123"/>
+<area shape="rect" id="node25" href="$_ui_8h.html" title="Ui.h" alt="" coords="501,96,546,123"/>
+<area shape="rect" id="node40" href="$_audio_manager_8h.html" title="AudioManager.h" alt="" coords="819,320,934,347"/>
+<area shape="rect" id="node5" href="$_vector2f_8h.html" title="Vector2f.h" alt="" coords="101,245,182,272"/>
+<area shape="rect" id="node27" href="$_state_handler_8h.html" title="StateHandler.h" alt="" coords="597,245,705,272"/>
+<area shape="rect" id="node46" href="$_floating_text_8h.html" title="FloatingText.h" alt="" coords="417,171,521,197"/>
+<area shape="rect" id="node32" href="$_game_state_8h.html" title="GameState.h" alt="" coords="539,395,638,421"/>
+<area shape="rect" id="node36" href="$_title_screen_8h.html" title="TitleScreen.h" alt="" coords="515,320,614,347"/>
 </map>

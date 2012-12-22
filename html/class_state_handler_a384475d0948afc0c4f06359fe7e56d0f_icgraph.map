@@ -1,21 +1,44 @@
 <map id="StateHandler::getInstance" name="StateHandler::getInstance">
-<area shape="rect" id="node3" href="$class_environment_handler.html#ad51c9464a9d07cd4709ecba2661e664f" title="EnvironmentHandler\l::draw" alt="" coords="258,5,395,46"/>
-<area shape="rect" id="node5" href="$class_game.html#a2a69b25f6fdaad231a45f3ab08e5246a" title="Game::initialize" alt="" coords="496,84,608,111"/>
-<area shape="rect" id="node9" href="$class_game.html#a79df6376b332d63c9eca0dcee30305c3" title="Game::update" alt="" coords="275,121,379,148"/>
-<area shape="rect" id="node14" href="$class_game.html#a79f698dda206dd7a9bed28b3f88bdc38" title="Game::processEvents" alt="" coords="251,172,402,199"/>
-<area shape="rect" id="node17" href="$class_game.html#a15ddd769261d923827a3cdf41499c843" title="Game::render" alt="" coords="276,223,377,249"/>
-<area shape="rect" id="node20" href="$class_level1.html#a5798e9f288f8c72bb214a2e74688fc06" title="Level1::draw" alt="" coords="677,451,771,477"/>
-<area shape="rect" id="node22" href="$class_player.html#ac18c9d30d2997765321c62030a4b20b7" title="calculate the correct frame to be set in setFrame" alt="" coords="279,324,374,351"/>
-<area shape="rect" id="node24" href="$class_projectile.html#af89fc74fceb857302c823f7dc8e63219" title="Projectile::draw" alt="" coords="271,375,382,401"/>
-<area shape="rect" id="node26" href="$class_skeleton.html#af241f8ab51522adc6224bdf5c456e2b5" title="calculate the correct frame to be set in setFrame" alt="" coords="273,425,381,452"/>
-<area shape="rect" id="node28" href="$class_splash_screen.html#afa655212406ec3b032b18974fa3ca94b" title="SplashScreen::processEvents" alt="" coords="229,476,425,503"/>
-<area shape="rect" id="node30" href="$class_super_level.html#af5bd74f27610cb25f7c63b1410f3871e" title="SuperLevel::superLoadContent" alt="" coords="227,527,426,553"/>
-<area shape="rect" id="node34" href="$class_super_level.html#a366228089b384e2a8041bbdffc98be31" title="SuperLevel::processEvents" alt="" coords="237,577,416,604"/>
-<area shape="rect" id="node36" href="$class_super_level.html#aefe8e24f5a3831c7d8105362c19454f6" title="SuperLevel::superDraw" alt="" coords="475,628,629,655"/>
-<area shape="rect" id="node39" href="$class_title_screen.html#ad82b865ef2757efedea1cf1da67bcf05" title="TitleScreen::processEvents" alt="" coords="237,679,417,705"/>
-<area shape="rect" id="node41" href="$class_ui.html#ab52b73941643ec0fc7d40ea6ff022471" title="Ui::update" alt="" coords="286,729,367,756"/>
-<area shape="rect" id="node43" href="$class_ui.html#acbba9efd0b9d2b47833bd80a0fd35614" title="Ui::draw" alt="" coords="292,780,361,807"/>
-<area shape="rect" id="node7" href="$class_game.html#a3d9b98f7c4a96ecf578f75b96c9f0e90" title="Game::start" alt="" coords="679,123,769,149"/>
-<area shape="rect" id="node11" href="$class_game.html#a1ab78f5ed0d5ea879157357cf2fb2afa" title="Game::run" alt="" coords="511,160,593,187"/>
-<area shape="rect" id="node32" href="$class_level1.html#a648ee18c6e94ee0d9268a9a55b027d39" title="Level1::loadContent" alt="" coords="485,527,619,553"/>
+<area shape="rect" id="node3" href="$class_character.html#ac018016f0d50e8bcc4addd293c00b366" title="Character::castSpell" alt="" coords="257,5,397,32"/>
+<area shape="rect" id="node5" href="$class_character.html#a629aea79014404c2b05f26cbe2ae0ffe" title="Can both heal and damage players and enemies, if it kills the target, it returns true." alt="" coords="247,208,406,235"/>
+<area shape="rect" id="node7" href="$class_character.html#a3871907535bb9cf3a042822e2dd1ec5c" title="Character::heal" alt="" coords="503,165,614,192"/>
+<area shape="rect" id="node11" href="$class_super_level.html#a55858702d59db30844e64fd699a29b42" title="SuperLevel::update" alt="" coords="929,111,1061,137"/>
+<area shape="rect" id="node13" href="$class_player.html#a50ee1c1ac2253e0110d54852d5e83569" title="reduces damage taken by 1% per ArmorLevel" alt="" coords="489,259,629,285"/>
+<area shape="rect" id="node17" href="$class_keyboard_controller.html#a6a34d386b9ee4cf2b3d7a780f44ac572" title="KeyboardController\l::mouseInput" alt="" coords="929,250,1061,291"/>
+<area shape="rect" id="node19" href="$class_super_level.html#a366228089b384e2a8041bbdffc98be31" title="SuperLevel::processEvents" alt="" coords="1109,335,1288,361"/>
+<area shape="rect" id="node21" href="$class_player.html#a2ea364bba69e21f05a35ec74195e208c" title="Player::collisionCheck" alt="" coords="710,312,861,339"/>
+<area shape="rect" id="node26" href="$class_environment_handler.html#ad51c9464a9d07cd4709ecba2661e664f" title="EnvironmentHandler\l::draw" alt="" coords="258,462,395,503"/>
+<area shape="rect" id="node28" href="$class_floating_text.html#a3d60315ad2fe68a92533ccf59b9f094c" title="FloatingText::draw" alt="" coords="263,528,391,555"/>
+<area shape="rect" id="node30" href="$class_game.html#a2a69b25f6fdaad231a45f3ab08e5246a" title="Game::initialize" alt="" coords="729,608,841,635"/>
+<area shape="rect" id="node34" href="$class_game.html#a1ab78f5ed0d5ea879157357cf2fb2afa" title="Game::run" alt="" coords="744,699,827,725"/>
+<area shape="rect" id="node37" href="$class_game.html#a79df6376b332d63c9eca0dcee30305c3" title="Game::update" alt="" coords="507,636,611,663"/>
+<area shape="rect" id="node40" href="$class_game.html#a17fbb36fd4a2085f9ff4f1fa93d7d08b" title="Game::stop" alt="" coords="281,883,372,909"/>
+<area shape="rect" id="node42" href="$class_game.html#a79f698dda206dd7a9bed28b3f88bdc38" title="Game::processEvents" alt="" coords="483,699,634,725"/>
+<area shape="rect" id="node45" href="$class_game.html#a15ddd769261d923827a3cdf41499c843" title="Game::render" alt="" coords="508,775,609,801"/>
+<area shape="rect" id="node48" href="$class_highscore.html#aa92f8cba7bc06187a17390b50aa99136" title="Highscore::loadContent" alt="" coords="248,933,405,960"/>
+<area shape="rect" id="node50" href="$class_highscore.html#aaf06526bc70323ebf1a26f6ef35bed61" title="Highscore::processEvents" alt="" coords="240,984,413,1011"/>
+<area shape="rect" id="node52" href="$class_highscore.html#a348655cc73303528cb1f498c21162d44" title="Highscore::draw" alt="" coords="269,1035,384,1061"/>
+<area shape="rect" id="node55" href="$class_level1.html#a421a47d58b0c474a7dd28c04c06509ff" title="Level1::loadContent" alt="" coords="491,1111,626,1137"/>
+<area shape="rect" id="node57" href="$class_player.html#ac18c9d30d2997765321c62030a4b20b7" title="calculate the correct frame to be set in setFrame" alt="" coords="279,1187,374,1213"/>
+<area shape="rect" id="node59" href="$class_player.html#af09f4deeb786c597805ad6e4ae4ed93a" title="Player::modifySouls" alt="" coords="489,309,628,336"/>
+<area shape="rect" id="node65" href="$class_projectile.html#a4d603188f8d722d120e4138aa77cee79" title="Projectile::initiate" alt="" coords="265,1237,388,1264"/>
+<area shape="rect" id="node67" href="$class_projectile.html#af89fc74fceb857302c823f7dc8e63219" title="Projectile::draw" alt="" coords="271,1288,382,1315"/>
+<area shape="rect" id="node69" href="$class_projectile.html#af83fb0f23280d074ed7a43854b9dec38" title="Projectile::setInvisible" alt="" coords="253,1339,400,1365"/>
+<area shape="rect" id="node75" href="$class_skeleton.html#af241f8ab51522adc6224bdf5c456e2b5" title="calculate the correct frame to be set in setFrame" alt="" coords="273,1389,381,1416"/>
+<area shape="rect" id="node77" href="$class_splash_screen.html#afa655212406ec3b032b18974fa3ca94b" title="SplashScreen::processEvents" alt="" coords="229,1440,425,1467"/>
+<area shape="rect" id="node79" href="$class_splash_screen.html#a0d0d3b71c09389bfed046e041b74d9f1" title="SplashScreen::draw" alt="" coords="257,1491,396,1517"/>
+<area shape="rect" id="node81" href="$class_state_handler.html#afb1acc8b78669b0392fe9e5ffdeb7a2c" title="StateHandler::processEvents" alt="" coords="231,680,422,707"/>
+<area shape="rect" id="node84" href="$class_super_level.html#a35182a9ec2a4ad48f2c2011fff8bfb82" title="SuperLevel::superLoadContent" alt="" coords="227,1085,426,1112"/>
+<area shape="rect" id="node89" href="$class_super_level.html#aefe8e24f5a3831c7d8105362c19454f6" title="SuperLevel::superDraw" alt="" coords="481,1567,636,1593"/>
+<area shape="rect" id="node93" href="$class_title_screen.html#ad82b865ef2757efedea1cf1da67bcf05" title="TitleScreen::processEvents" alt="" coords="237,1643,417,1669"/>
+<area shape="rect" id="node95" href="$class_title_screen.html#a27d4e83670ee0f9d67976148ec3802fd" title="TitleScreen::draw" alt="" coords="265,1693,388,1720"/>
+<area shape="rect" id="node97" href="$class_ui.html#a07f92e0d044a034b9972d9b96d549070" title="Ui::processEvents" alt="" coords="263,1744,390,1771"/>
+<area shape="rect" id="node99" href="$class_ui.html#acbba9efd0b9d2b47833bd80a0fd35614" title="Ui::draw" alt="" coords="292,1541,361,1568"/>
+<area shape="rect" id="node9" href="$class_keyboard_controller.html#a868853a3f5e49dd7971afb206e7b28c2" title="KeyboardController\l::keyboardInput" alt="" coords="719,158,851,199"/>
+<area shape="rect" id="node15" href="$class_player.html#a54c8f781cc3cca022d2d524dfc4b0989" title="Checks to see if you&#39;ve hit something when trying to do a melee attack." alt="" coords="691,259,880,285"/>
+<area shape="rect" id="node23" href="$class_player.html#a82c3476f3e65a4e2ac6bcd040771bdd4" title="Player::update" alt="" coords="941,316,1048,343"/>
+<area shape="rect" id="node32" href="$class_game.html#a3d9b98f7c4a96ecf578f75b96c9f0e90" title="Game::start" alt="" coords="949,668,1040,695"/>
+<area shape="rect" id="node71" href="$class_projectile.html#abf215379b10912db404b967c1e028f9e" title="Projectile::checkCollision" alt="" coords="475,1339,643,1365"/>
+<area shape="rect" id="node73" href="$class_projectile.html#a95800773aeed7046ff6b2c618a751b74" title="Projectile::animation" alt="" coords="715,1339,855,1365"/>
+<area shape="rect" id="node91" href="$class_level1.html#a5798e9f288f8c72bb214a2e74688fc06" title="Level1::draw" alt="" coords="739,1567,832,1593"/>
 </map>

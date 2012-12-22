@@ -92,7 +92,7 @@ $(document).ready(function(){initNavTree('class_environment_handler.html','');})
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -155,6 +155,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a100ed2c6cebde8f82ee5ffa970c21588"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4e48e365eb5afb3606521736dbf6a61f"><td class="memItemLeft" align="right" valign="top">std::vector&lt; bool &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_environment_handler.html#a4e48e365eb5afb3606521736dbf6a61f">getObjectVector</a> ()</td></tr>
 <tr class="separator:a4e48e365eb5afb3606521736dbf6a61f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48d83da5829e96163f297f90a8e8631f"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_vector2f.html">Vector2f</a> &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_environment_handler.html#a48d83da5829e96163f297f90a8e8631f">getEnemySpawnPoints</a> ()</td></tr>
+<tr class="separator:a48d83da5829e96163f297f90a8e8631f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a22aa431a8b8709f529d49297483800cc"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_environment_handler.html#a22aa431a8b8709f529d49297483800cc">getHorizontalBitmapSize</a> ()</td></tr>
 <tr class="separator:a22aa431a8b8709f529d49297483800cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -170,16 +172,18 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a2a3d3416764e06bb804fd829bf360f26"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2c9f99514e35b7b912722f787929bc29"><td class="memItemLeft" align="right" valign="top">sf::Image&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_environment_handler.html#a2c9f99514e35b7b912722f787929bc29">m_objectBitmap</a></td></tr>
 <tr class="separator:a2c9f99514e35b7b912722f787929bc29"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a21c65de0727491a9872dc1454c994146"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_environment_handler.html#a21c65de0727491a9872dc1454c994146">m_iHorizontalBitmapSize</a></td></tr>
-<tr class="separator:a21c65de0727491a9872dc1454c994146"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a56436e7beccd377ee0c6b9b0f010ca01"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_environment_handler.html#a56436e7beccd377ee0c6b9b0f010ca01">m_iVerticalBitmapSize</a></td></tr>
-<tr class="separator:a56436e7beccd377ee0c6b9b0f010ca01"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13ecc2e3e2f985b953301e36b6cf3015"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_environment_handler.html#a13ecc2e3e2f985b953301e36b6cf3015">m_iHorizontalBitmapSize</a></td></tr>
+<tr class="separator:a13ecc2e3e2f985b953301e36b6cf3015"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace9c253144e230d644ff4756e8c19058"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_environment_handler.html#ace9c253144e230d644ff4756e8c19058">m_iVerticalBitmapSize</a></td></tr>
+<tr class="separator:ace9c253144e230d644ff4756e8c19058"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2ba75227481b0c8d2cea4fd1eb72276f"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="struct_environment_handler_1_1_r_g_b.html">RGB</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_environment_handler.html#a2ba75227481b0c8d2cea4fd1eb72276f">m_floorArray</a></td></tr>
 <tr class="separator:a2ba75227481b0c8d2cea4fd1eb72276f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a465cb5727ef6ad055057f8426ea61c50"><td class="memItemLeft" align="right" valign="top">std::vector&lt; sf::Sprite &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_environment_handler.html#a465cb5727ef6ad055057f8426ea61c50">m_sprites</a></td></tr>
 <tr class="separator:a465cb5727ef6ad055057f8426ea61c50"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a730dfd24106fcb8fd6c53c015ae97097"><td class="memItemLeft" align="right" valign="top">std::vector&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_environment_handler.html#a730dfd24106fcb8fd6c53c015ae97097">m_objects</a></td></tr>
 <tr class="separator:a730dfd24106fcb8fd6c53c015ae97097"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc6fd4adfbe4497baa07f2245a58467e"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_vector2f.html">Vector2f</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_environment_handler.html#adc6fd4adfbe4497baa07f2245a58467e">m_EnemySpawnPoints</a></td></tr>
+<tr class="separator:adc6fd4adfbe4497baa07f2245a58467e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a3546b11ef6661cc05292355681b3a9a0"></a>
@@ -397,6 +401,30 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<a class="anchor" id="a48d83da5829e96163f297f90a8e8631f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="class_vector2f.html">Vector2f</a> &gt; * EnvironmentHandler::getEnemySpawnPoints </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_environment_handler_a48d83da5829e96163f297f90a8e8631f_icgraph.png" border="0" usemap="#class_environment_handler_a48d83da5829e96163f297f90a8e8631f_icgraph" alt=""/></div>
+<map name="class_environment_handler_a48d83da5829e96163f297f90a8e8631f_icgraph" id="class_environment_handler_a48d83da5829e96163f297f90a8e8631f_icgraph">
+<area shape="rect" id="node3" href="class_enemy_handler.html#a5589be0f3d38483bff16de6efa5f0398" title="EnemyHandler::loadContent" alt="" coords="219,12,403,39"/><area shape="rect" id="node5" href="class_enemy_handler.html#abc2d44420732b21cc4abf67dfb2cdf81" title="EnemyHandler::createEnemy" alt="" coords="451,12,643,39"/><area shape="rect" id="node7" href="class_enemy_handler.html#af1d749b2e8e9db18185fffbb2732846a" title="EnemyHandler::update" alt="" coords="691,12,845,39"/></map>
+</div>
+</p>
+
+</div>
+</div>
 <a class="anchor" id="a22aa431a8b8709f529d49297483800cc"></a>
 <div class="memitem">
 <div class="memproto">
@@ -487,6 +515,26 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
+<a class="anchor" id="adc6fd4adfbe4497baa07f2245a58467e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="class_vector2f.html">Vector2f</a>&gt; EnvironmentHandler::m_EnemySpawnPoints</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="a2ba75227481b0c8d2cea4fd1eb72276f"></a>
 <div class="memitem">
 <div class="memproto">
@@ -507,7 +555,7 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a class="anchor" id="a21c65de0727491a9872dc1454c994146"></a>
+<a class="anchor" id="a13ecc2e3e2f985b953301e36b6cf3015"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -515,7 +563,7 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int EnvironmentHandler::m_iHorizontalBitmapSize</td>
+          <td class="memname">unsigned int EnvironmentHandler::m_iHorizontalBitmapSize</td>
         </tr>
       </table>
   </td>
@@ -527,7 +575,7 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a class="anchor" id="a56436e7beccd377ee0c6b9b0f010ca01"></a>
+<a class="anchor" id="ace9c253144e230d644ff4756e8c19058"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -535,7 +583,7 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int EnvironmentHandler::m_iVerticalBitmapSize</td>
+          <td class="memname">unsigned int EnvironmentHandler::m_iVerticalBitmapSize</td>
         </tr>
       </table>
   </td>
@@ -677,7 +725,7 @@ Here is the call graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_environment_handler.html">EnvironmentHandler</a></li>
-    <li class="footer">Generated on Mon Nov 26 2012 12:45:42 for Corrupted by
+    <li class="footer">Generated on Sat Dec 22 2012 23:24:43 for Corrupted by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.2 </li>
   </ul>

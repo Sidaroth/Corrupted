@@ -1,3 +1,5 @@
 <map id="Character::castSpell" name="Character::castSpell">
-<area shape="rect" id="node3" href="$class_character.html#a78f90bdc10de44990d8749dd14dacc9f" title="0=N, 1=NE, 2=E, 3=SE, 4=S, 5=SW, 6=W, 7=NW" alt="" coords="195,5,349,32"/>
+<area shape="rect" id="node3" href="$class_state_handler.html#a384475d0948afc0c4f06359fe7e56d0f" title="StateHandler::getInstance" alt="" coords="197,5,369,32"/>
+<area shape="rect" id="node5" href="$class_audio_manager.html#a150694e7f4cd72188af34478383bed20" title="AudioManager::playSound" alt="" coords="195,56,370,83"/>
+<area shape="rect" id="node7" href="$class_character.html#a78f90bdc10de44990d8749dd14dacc9f" title="0=N, 1=NE, 2=E, 3=SE, 4=S, 5=SW, 6=W, 7=NW" alt="" coords="205,107,360,133"/>
 </map>

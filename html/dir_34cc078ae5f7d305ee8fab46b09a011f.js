@@ -9,10 +9,8 @@ var dir_34cc078ae5f7d305ee8fab46b09a011f =
     [ "AudioManager.h", "_audio_manager_8h.html", [
       [ "AudioManager", "class_audio_manager.html", "class_audio_manager" ]
     ] ],
-    [ "Character.cpp", "_character_8cpp.html", "_character_8cpp" ],
-    [ "Character.h", "_character_8h.html", [
-      [ "Character", "class_character.html", "class_character" ]
-    ] ],
+    [ "Character.cpp", "_character_8cpp.html", null ],
+    [ "Character.h", "_character_8h.html", "_character_8h" ],
     [ "Enemy.cpp", "_enemy_8cpp.html", "_enemy_8cpp" ],
     [ "Enemy.h", "_enemy_8h.html", "_enemy_8h" ],
     [ "EnemyFactory.cpp", "_enemy_factory_8cpp.html", null ],
@@ -28,6 +26,10 @@ var dir_34cc078ae5f7d305ee8fab46b09a011f =
       [ "EnvironmentHandler", "class_environment_handler.html", "class_environment_handler" ],
       [ "RGB", "struct_environment_handler_1_1_r_g_b.html", "struct_environment_handler_1_1_r_g_b" ]
     ] ],
+    [ "FloatingText.cpp", "_floating_text_8cpp.html", null ],
+    [ "FloatingText.h", "_floating_text_8h.html", [
+      [ "FloatingText", "class_floating_text.html", "class_floating_text" ]
+    ] ],
     [ "Game.cpp", "_game_8cpp.html", null ],
     [ "Game.h", "_game_8h.html", [
       [ "Game", "class_game.html", "class_game" ]
@@ -35,10 +37,14 @@ var dir_34cc078ae5f7d305ee8fab46b09a011f =
     [ "GameState.h", "_game_state_8h.html", [
       [ "GameState", "class_game_state.html", "class_game_state" ]
     ] ],
+    [ "Highscore.cpp", "_highscore_8cpp.html", null ],
+    [ "Highscore.h", "_highscore_8h.html", [
+      [ "Highscore", "class_highscore.html", "class_highscore" ],
+      [ "User", "struct_highscore_1_1_user.html", "struct_highscore_1_1_user" ]
+    ] ],
     [ "KeyboardController.cpp", "_keyboard_controller_8cpp.html", null ],
     [ "KeyboardController.h", "_keyboard_controller_8h.html", [
-      [ "KeyboardController", "class_keyboard_controller.html", "class_keyboard_controller" ],
-      [ "MyKeys", "struct_keyboard_controller_1_1_my_keys.html", "struct_keyboard_controller_1_1_my_keys" ]
+      [ "KeyboardController", "class_keyboard_controller.html", "class_keyboard_controller" ]
     ] ],
     [ "Level1.cpp", "_level1_8cpp.html", null ],
     [ "Level1.h", "_level1_8h.html", [
@@ -74,8 +80,10 @@ var dir_34cc078ae5f7d305ee8fab46b09a011f =
     [ "TitleScreen.h", "_title_screen_8h.html", [
       [ "TitleScreen", "class_title_screen.html", "class_title_screen" ]
     ] ],
-    [ "Ui.cpp", "_ui_8cpp.html", "_ui_8cpp" ],
-    [ "Ui.h", "_ui_8h.html", "_ui_8h" ],
+    [ "Ui.cpp", "_ui_8cpp.html", null ],
+    [ "Ui.h", "_ui_8h.html", [
+      [ "Ui", "class_ui.html", "class_ui" ]
+    ] ],
     [ "Vector2f.cpp", "_vector2f_8cpp.html", null ],
     [ "Vector2f.h", "_vector2f_8h.html", [
       [ "Vector2f", "class_vector2f.html", "class_vector2f" ]

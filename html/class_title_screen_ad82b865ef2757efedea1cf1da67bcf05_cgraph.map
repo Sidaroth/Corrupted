@@ -1,6 +1,10 @@
 <map id="TitleScreen::processEvents" name="TitleScreen::processEvents">
-<area shape="rect" id="node3" href="$class_state_handler.html#a384475d0948afc0c4f06359fe7e56d0f" title="StateHandler::getInstance" alt="" coords="235,5,407,32"/>
-<area shape="rect" id="node5" href="$class_state_handler.html#a90cb26dc423f26e37af27b7d3d7b57ff" title="StateHandler::addScreen" alt="" coords="238,56,405,83"/>
-<area shape="rect" id="node7" href="$class_state_handler.html#a105a3a4832759999f65d52f4804719ce" title="StateHandler::unloadContent" alt="" coords="457,31,645,57"/>
-<area shape="rect" id="node9" href="$class_state_handler.html#a115856dd9a5227b41ad6d53243fbb363" title="StateHandler::loadContent" alt="" coords="463,81,638,108"/>
+<area shape="rect" id="node3" href="$class_state_handler.html#a384475d0948afc0c4f06359fe7e56d0f" title="StateHandler::getInstance" alt="" coords="241,5,413,32"/>
+<area shape="rect" id="node5" href="$class_state_handler.html#a90cb26dc423f26e37af27b7d3d7b57ff" title="StateHandler::addScreen" alt="" coords="243,56,410,83"/>
+<area shape="rect" id="node13" href="$class_state_handler.html#aa34ecff1dba5c725440b67675374c654" title="StateHandler::getQuitShield" alt="" coords="235,107,418,133"/>
+<area shape="rect" id="node15" href="$class_state_handler.html#a6e11882a3364b380eb96a74125c5c445" title="StateHandler::setQuitShield" alt="" coords="235,157,418,184"/>
+<area shape="rect" id="node17" href="$class_audio_manager.html#a150694e7f4cd72188af34478383bed20" title="AudioManager::playSound" alt="" coords="239,208,414,235"/>
+<area shape="rect" id="node7" href="$class_state_handler.html#a105a3a4832759999f65d52f4804719ce" title="StateHandler::unloadContent" alt="" coords="467,31,655,57"/>
+<area shape="rect" id="node9" href="$class_state_handler.html#a115856dd9a5227b41ad6d53243fbb363" title="StateHandler::loadContent" alt="" coords="474,81,649,108"/>
+<area shape="rect" id="node11" href="$class_audio_manager.html#a5ed795707f011caccd45a6903bab4f31" title="AudioManager::loadContent" alt="" coords="705,81,887,108"/>
 </map>

@@ -92,7 +92,7 @@ $(document).ready(function(){initNavTree('class_enemy_factory.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -109,15 +109,23 @@ $(document).ready(function(){initNavTree('class_enemy_factory.html','');});
 
 <p>This is the complete list of members for <a class="el" href="class_enemy_factory.html">EnemyFactory</a>, including all inherited members.</p>
 <table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="class_enemy_factory.html#ab132190e1eabaa559a0a28a3fcd5b76b">createEnemy</a>(Enemies enemyType)</td><td class="entry"><a class="el" href="class_enemy_factory.html">EnemyFactory</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_enemy_factory.html#aef18d79e06268483332ca6d38aa35b8eaf59856aa533a92e4e8549ab85781d6b4">ATTACK</a> enum value</td><td class="entry"><a class="el" href="class_enemy_factory.html">EnemyFactory</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_enemy_factory.html#a4e714410423d7d152cbfb0db01ae6236">createEnemy</a>(Enemies enemyType, short level)</td><td class="entry"><a class="el" href="class_enemy_factory.html">EnemyFactory</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_enemy_factory.html#aef18d79e06268483332ca6d38aa35b8ea6939e981befba864fbbf86d4dfc836d3">DIE</a> enum value</td><td class="entry"><a class="el" href="class_enemy_factory.html">EnemyFactory</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
   <tr><td class="entry"><a class="el" href="class_enemy_factory.html#a1252bf2f2bd965691af305d17767a829">Enemies</a> enum name</td><td class="entry"><a class="el" href="class_enemy_factory.html">EnemyFactory</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_enemy_factory.html#a9a4bb35b54ff867e03e241dc6b7c0a15">EnemyFactory</a>()</td><td class="entry"><a class="el" href="class_enemy_factory.html">EnemyFactory</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_enemy_factory.html#a61e2bc2715e899a2e654f3636e113a0f">loadContent</a>()</td><td class="entry"><a class="el" href="class_enemy_factory.html">EnemyFactory</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_enemy_factory.html#a7442219f12279a7c5d9289fa4bdd63c9">m_SkellieTextures</a></td><td class="entry"><a class="el" href="class_enemy_factory.html">EnemyFactory</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_enemy_factory.html#aef18d79e06268483332ca6d38aa35b8ea87e6dc05292673f0e3495ca94fc069bb">MOVE</a> enum value</td><td class="entry"><a class="el" href="class_enemy_factory.html">EnemyFactory</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_enemy_factory.html#a1252bf2f2bd965691af305d17767a829ab38753bca2c786e9916cac8646bf8a0b">Skellie</a> enum value</td><td class="entry"><a class="el" href="class_enemy_factory.html">EnemyFactory</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_enemy_factory.html#aef18d79e06268483332ca6d38aa35b8ea16cf275820b4947b798c8f5265131989">STILL</a> enum value</td><td class="entry"><a class="el" href="class_enemy_factory.html">EnemyFactory</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_enemy_factory.html#aef18d79e06268483332ca6d38aa35b8e">TextureType</a> enum name</td><td class="entry"><a class="el" href="class_enemy_factory.html">EnemyFactory</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
 </table></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Mon Nov 26 2012 12:45:42 for Corrupted by
+    <li class="footer">Generated on Sat Dec 22 2012 23:24:42 for Corrupted by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.2 </li>
   </ul>

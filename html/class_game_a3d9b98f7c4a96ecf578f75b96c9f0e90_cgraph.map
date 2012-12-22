@@ -1,15 +1,20 @@
 <map id="Game::start" name="Game::start">
-<area shape="rect" id="node3" href="$class_game.html#a2a69b25f6fdaad231a45f3ab08e5246a" title="Game::initialize" alt="" coords="152,208,264,235"/>
-<area shape="rect" id="node13" href="$class_game.html#a1ab78f5ed0d5ea879157357cf2fb2afa" title="Game::run" alt="" coords="167,81,249,108"/>
-<area shape="rect" id="node30" href="$class_game.html#ad84d0640aa525f9176114b81ed49228f" title="Game::deInitialize" alt="" coords="145,259,271,285"/>
-<area shape="rect" id="node5" href="$class_state_handler.html#a384475d0948afc0c4f06359fe7e56d0f" title="StateHandler::getInstance" alt="" coords="562,107,734,133"/>
-<area shape="rect" id="node7" href="$class_state_handler.html#ae9630860b3df424bc70e314b69bc3094" title="StateHandler::initalize" alt="" coords="337,208,487,235"/>
-<area shape="rect" id="node9" href="$class_state_handler.html#a5f2f2ac3bcfc4cbc7203af36956d046f" title="StateHandler::setStartState" alt="" coords="321,259,503,285"/>
-<area shape="rect" id="node11" href="$class_state_handler.html#a115856dd9a5227b41ad6d53243fbb363" title="StateHandler::loadContent" alt="" coords="325,309,499,336"/>
-<area shape="rect" id="node15" href="$class_game.html#a79f698dda206dd7a9bed28b3f88bdc38" title="Game::processEvents" alt="" coords="337,5,487,32"/>
-<area shape="rect" id="node20" href="$class_game.html#a79df6376b332d63c9eca0dcee30305c3" title="Game::update" alt="" coords="360,56,464,83"/>
-<area shape="rect" id="node25" href="$class_game.html#a15ddd769261d923827a3cdf41499c843" title="Game::render" alt="" coords="361,107,463,133"/>
-<area shape="rect" id="node18" href="$class_state_handler.html#afb1acc8b78669b0392fe9e5ffdeb7a2c" title="StateHandler::processEvents" alt="" coords="553,5,743,32"/>
-<area shape="rect" id="node23" href="$class_state_handler.html#adbda8b1fd1d752c8171be4ecf6b91737" title="StateHandler::update" alt="" coords="576,56,720,83"/>
-<area shape="rect" id="node28" href="$class_state_handler.html#a30c95a1abf0db084d0bbc1cbf684aace" title="StateHandler::draw" alt="" coords="582,157,714,184"/>
+<area shape="rect" id="node3" href="$class_game.html#a2a69b25f6fdaad231a45f3ab08e5246a" title="Game::initialize" alt="" coords="560,10,672,37"/>
+<area shape="rect" id="node15" href="$class_game.html#a1ab78f5ed0d5ea879157357cf2fb2afa" title="Game::run" alt="" coords="167,162,249,189"/>
+<area shape="rect" id="node43" href="$class_game.html#ad84d0640aa525f9176114b81ed49228f" title="Game::deInitialize" alt="" coords="145,213,271,240"/>
+<area shape="rect" id="node5" href="$class_state_handler.html#a384475d0948afc0c4f06359fe7e56d0f" title="StateHandler::getInstance" alt="" coords="774,192,946,218"/>
+<area shape="rect" id="node7" href="$class_state_handler.html#ae9630860b3df424bc70e314b69bc3094" title="StateHandler::initalize" alt="" coords="785,36,935,62"/>
+<area shape="rect" id="node9" href="$class_state_handler.html#a5f2f2ac3bcfc4cbc7203af36956d046f" title="StateHandler::setStartState" alt="" coords="769,86,951,113"/>
+<area shape="rect" id="node11" href="$class_state_handler.html#a115856dd9a5227b41ad6d53243fbb363" title="StateHandler::loadContent" alt="" coords="1015,97,1190,124"/>
+<area shape="rect" id="node13" href="$class_audio_manager.html#a5ed795707f011caccd45a6903bab4f31" title="AudioManager::loadContent" alt="" coords="1246,97,1429,124"/>
+<area shape="rect" id="node18" href="$class_game.html#a79f698dda206dd7a9bed28b3f88bdc38" title="Game::processEvents" alt="" coords="321,314,471,341"/>
+<area shape="rect" id="node33" href="$class_game.html#a79df6376b332d63c9eca0dcee30305c3" title="Game::update" alt="" coords="344,213,448,240"/>
+<area shape="rect" id="node38" href="$class_game.html#a15ddd769261d923827a3cdf41499c843" title="Game::render" alt="" coords="345,112,447,138"/>
+<area shape="rect" id="node21" href="$class_state_handler.html#afb1acc8b78669b0392fe9e5ffdeb7a2c" title="StateHandler::processEvents" alt="" coords="521,365,711,392"/>
+<area shape="rect" id="node23" href="$class_audio_manager.html#a9d8330b51b9919e48c467a22d88f7255" title="AudioManager::stopOrResume\lMusic" alt="" coords="760,319,960,360"/>
+<area shape="rect" id="node26" href="$class_state_handler.html#a6ff69df844811c77d41968bd2c024c06" title="StateHandler::stopRunning" alt="" coords="771,385,949,412"/>
+<area shape="rect" id="node28" href="$class_state_handler.html#a90cb26dc423f26e37af27b7d3d7b57ff" title="StateHandler::addScreen" alt="" coords="777,260,943,286"/>
+<area shape="rect" id="node30" href="$class_state_handler.html#a105a3a4832759999f65d52f4804719ce" title="StateHandler::unloadContent" alt="" coords="1009,260,1197,286"/>
+<area shape="rect" id="node36" href="$class_state_handler.html#adbda8b1fd1d752c8171be4ecf6b91737" title="StateHandler::update" alt="" coords="544,264,688,290"/>
+<area shape="rect" id="node41" href="$class_state_handler.html#a30c95a1abf0db084d0bbc1cbf684aace" title="StateHandler::draw" alt="" coords="550,112,682,138"/>
 </map>

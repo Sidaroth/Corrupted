@@ -1,5 +1,10 @@
 <map id="StateHandler::addScreen" name="StateHandler::addScreen">
 <area shape="rect" id="node3" href="$class_splash_screen.html#afa655212406ec3b032b18974fa3ca94b" title="SplashScreen::processEvents" alt="" coords="222,5,418,32"/>
-<area shape="rect" id="node5" href="$class_super_level.html#a366228089b384e2a8041bbdffc98be31" title="SuperLevel::processEvents" alt="" coords="231,56,409,83"/>
-<area shape="rect" id="node7" href="$class_title_screen.html#ad82b865ef2757efedea1cf1da67bcf05" title="TitleScreen::processEvents" alt="" coords="230,107,410,133"/>
+<area shape="rect" id="node5" href="$class_state_handler.html#afb1acc8b78669b0392fe9e5ffdeb7a2c" title="StateHandler::processEvents" alt="" coords="225,56,415,83"/>
+<area shape="rect" id="node13" href="$class_super_level.html#a366228089b384e2a8041bbdffc98be31" title="SuperLevel::processEvents" alt="" coords="231,107,409,133"/>
+<area shape="rect" id="node15" href="$class_super_level.html#a55858702d59db30844e64fd699a29b42" title="SuperLevel::update" alt="" coords="254,157,386,184"/>
+<area shape="rect" id="node17" href="$class_title_screen.html#ad82b865ef2757efedea1cf1da67bcf05" title="TitleScreen::processEvents" alt="" coords="230,208,410,235"/>
+<area shape="rect" id="node7" href="$class_game.html#a79f698dda206dd7a9bed28b3f88bdc38" title="Game::processEvents" alt="" coords="467,56,618,83"/>
+<area shape="rect" id="node9" href="$class_game.html#a1ab78f5ed0d5ea879157357cf2fb2afa" title="Game::run" alt="" coords="667,56,749,83"/>
+<area shape="rect" id="node11" href="$class_game.html#a3d9b98f7c4a96ecf578f75b96c9f0e90" title="Game::start" alt="" coords="797,56,888,83"/>
 </map>

@@ -3,7 +3,7 @@ var class_title_screen =
     [ "TitleScreen", "class_title_screen.html#a7aa7add9040c34b655bcde4cd6e758f2", null ],
     [ "~TitleScreen", "class_title_screen.html#a4f844eb163acc5b2373f6330b37673c1", null ],
     [ "draw", "class_title_screen.html#a27d4e83670ee0f9d67976148ec3802fd", null ],
-    [ "loadContent", "class_title_screen.html#a305b1eaf4b226d71c0d54aaa9ba13a3b", null ],
+    [ "loadContent", "class_title_screen.html#a92195ae441aa07b6477a0f4f0e95071a", null ],
     [ "processEvents", "class_title_screen.html#ad82b865ef2757efedea1cf1da67bcf05", null ],
     [ "unloadContent", "class_title_screen.html#adc4691dbd046fc3e776810c4ea15eee8", null ],
     [ "update", "class_title_screen.html#a3a46d6bc6de88d299bbec5237e4705ee", null ],

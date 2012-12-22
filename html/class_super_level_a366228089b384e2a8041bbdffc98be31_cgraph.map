@@ -1,12 +1,22 @@
 <map id="SuperLevel::processEvents" name="SuperLevel::processEvents">
-<area shape="rect" id="node3" href="$class_keyboard_controller.html#a6ddf16975781cc1ca5409d4e6e45ee4c" title="KeyboardController\l::checkMouse" alt="" coords="259,23,391,65"/>
-<area shape="rect" id="node11" href="$class_state_handler.html#a384475d0948afc0c4f06359fe7e56d0f" title="StateHandler::getInstance" alt="" coords="239,89,411,116"/>
-<area shape="rect" id="node13" href="$class_state_handler.html#a90cb26dc423f26e37af27b7d3d7b57ff" title="StateHandler::addScreen" alt="" coords="242,140,409,167"/>
-<area shape="rect" id="node19" href="$class_character.html#ac3f7d99f9f64cc1afed7179293393454" title="Character::isDoingAction" alt="" coords="242,191,409,217"/>
-<area shape="rect" id="node21" href="$class_character.html#a8d721f82ba0712addf0a77dd582aecdb" title="Character::changeAnimation\lToStand" alt="" coords="232,242,419,283"/>
-<area shape="rect" id="node5" href="$class_actor.html#afd9c73ce9d765aa9d7429bd785a9b08c" title="Actor::getSpritePosition" alt="" coords="481,5,641,32"/>
-<area shape="rect" id="node7" href="$class_character.html#a1871d011acf4fcb210429d2a5b242577" title="0=N, 1=NE, 2=E, 3=SE, 4=S, 5=SW, 6=W, 7=NW" alt="" coords="500,56,623,83"/>
-<area shape="rect" id="node9" href="$class_character.html#af21de5517da4090712ac92f614187df6" title="set the correct frame in the animation" alt="" coords="704,56,875,83"/>
-<area shape="rect" id="node15" href="$class_state_handler.html#a105a3a4832759999f65d52f4804719ce" title="StateHandler::unloadContent" alt="" coords="467,124,655,151"/>
-<area shape="rect" id="node17" href="$class_state_handler.html#a115856dd9a5227b41ad6d53243fbb363" title="StateHandler::loadContent" alt="" coords="474,175,649,201"/>
+<area shape="rect" id="node3" href="$class_keyboard_controller.html#a6a34d386b9ee4cf2b3d7a780f44ac572" title="KeyboardController\l::mouseInput" alt="" coords="266,322,398,363"/>
+<area shape="rect" id="node19" href="$class_state_handler.html#a384475d0948afc0c4f06359fe7e56d0f" title="StateHandler::getInstance" alt="" coords="1174,144,1346,171"/>
+<area shape="rect" id="node32" href="$class_state_handler.html#a90cb26dc423f26e37af27b7d3d7b57ff" title="StateHandler::addScreen" alt="" coords="249,439,415,465"/>
+<area shape="rect" id="node40" href="$class_character.html#ac3f7d99f9f64cc1afed7179293393454" title="Character::isDoingAction" alt="" coords="249,489,415,516"/>
+<area shape="rect" id="node42" href="$class_character.html#a8d721f82ba0712addf0a77dd582aecdb" title="Character::changeAnimation\lToStand" alt="" coords="239,541,425,582"/>
+<area shape="rect" id="node44" href="$class_audio_manager.html#a9d8330b51b9919e48c467a22d88f7255" title="AudioManager::stopOrResume\lMusic" alt="" coords="232,606,432,647"/>
+<area shape="rect" id="node46" href="$class_state_handler.html#a9859de148ad38ff30150e3e05badc9e9" title="StateHandler::setMenuShield" alt="" coords="237,672,427,699"/>
+<area shape="rect" id="node5" href="$class_keyboard_controller.html#adb350814df7deedc3951c458cd65639e" title="KeyboardController\l::mouseNotInUi" alt="" coords="509,297,641,338"/>
+<area shape="rect" id="node7" href="$class_character.html#a94a832a863c36cc84609ad52b1b7a4d5" title="0=N, 1=NE, 2=E, 3=SE, 4=S, 5=SW, 6=W, 7=NW" alt="" coords="513,363,636,389"/>
+<area shape="rect" id="node11" href="$class_player.html#a54c8f781cc3cca022d2d524dfc4b0989" title="Checks to see if you&#39;ve hit something when trying to do a melee attack." alt="" coords="480,144,669,171"/>
+<area shape="rect" id="node21" href="$class_audio_manager.html#a150694e7f4cd72188af34478383bed20" title="AudioManager::playSound" alt="" coords="950,245,1125,272"/>
+<area shape="rect" id="node9" href="$class_character.html#af21de5517da4090712ac92f614187df6" title="set the correct frame in the animation" alt="" coords="724,363,895,389"/>
+<area shape="rect" id="node13" href="$class_actor.html#afd9c73ce9d765aa9d7429bd785a9b08c" title="Actor::getSpritePosition" alt="" coords="729,43,889,69"/>
+<area shape="rect" id="node15" href="$class_actor.html#a82fd7289a67df3580548360b6614b9c9" title="Actor::getSprite" alt="" coords="753,93,866,120"/>
+<area shape="rect" id="node17" href="$class_player.html#a50ee1c1ac2253e0110d54852d5e83569" title="reduces damage taken by 1% per ArmorLevel" alt="" coords="739,195,879,221"/>
+<area shape="rect" id="node26" href="$class_player.html#af09f4deeb786c597805ad6e4ae4ed93a" title="Player::modifySouls" alt="" coords="968,93,1107,120"/>
+<area shape="rect" id="node23" href="$class_character.html#a629aea79014404c2b05f26cbe2ae0ffe" title="Can both heal and damage players and enemies, if it kills the target, it returns true." alt="" coords="958,144,1117,171"/>
+<area shape="rect" id="node34" href="$class_state_handler.html#a105a3a4832759999f65d52f4804719ce" title="StateHandler::unloadContent" alt="" coords="481,464,669,491"/>
+<area shape="rect" id="node36" href="$class_state_handler.html#a115856dd9a5227b41ad6d53243fbb363" title="StateHandler::loadContent" alt="" coords="487,515,662,541"/>
+<area shape="rect" id="node38" href="$class_audio_manager.html#a5ed795707f011caccd45a6903bab4f31" title="AudioManager::loadContent" alt="" coords="718,515,901,541"/>
 </map>

@@ -2,4 +2,6 @@
 <area shape="rect" id="node3" href="$class_projectile.html#af68f28126f067bba56fd28f667bd0085" title="set subRect" alt="" coords="209,5,348,32"/>
 <area shape="rect" id="node5" href="$class_projectile.html#abf215379b10912db404b967c1e028f9e" title="Projectile::checkCollision" alt="" coords="195,56,363,83"/>
 <area shape="rect" id="node7" href="$class_projectile.html#af83fb0f23280d074ed7a43854b9dec38" title="Projectile::setInvisible" alt="" coords="411,56,557,83"/>
+<area shape="rect" id="node9" href="$class_state_handler.html#a384475d0948afc0c4f06359fe7e56d0f" title="StateHandler::getInstance" alt="" coords="607,31,779,57"/>
+<area shape="rect" id="node11" href="$class_audio_manager.html#a150694e7f4cd72188af34478383bed20" title="AudioManager::playSound" alt="" coords="606,81,781,108"/>
 </map>

@@ -92,7 +92,7 @@ $(document).ready(function(){initNavTree('class_ui.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -112,13 +112,6 @@ $(document).ready(function(){initNavTree('class_ui.html','');});
 <div class="contents">
 
 <p><code>#include &lt;<a class="el" href="_ui_8h_source.html">Ui.h</a>&gt;</code></p>
-<div class="dynheader">
-Collaboration diagram for Ui:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_ui__coll__graph.png" border="0" usemap="#_ui_coll__map" alt="Collaboration graph"/></div>
-<map name="_ui_coll__map" id="_ui_coll__map">
-<area shape="rect" id="node2" href="class_player.html" title="Player" alt="" coords="43,264,101,291"/><area shape="rect" id="node4" href="class_character.html" title="Character" alt="" coords="33,187,111,213"/><area shape="rect" id="node6" href="class_actor.html" title="Actor" alt="" coords="5,96,59,123"/><area shape="rect" id="node8" href="class_vector2f.html" title="Vector2f" alt="" coords="58,5,128,32"/><area shape="rect" id="node10" href="class_environment_handler.html" title="EnvironmentHandler" alt="" coords="83,96,220,123"/></map>
-<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -126,14 +119,27 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a6e07807d24fb5874a7e51d7ff0196236"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7a0333fdf87c857f3b780015ee8e3bd9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ui.html#a7a0333fdf87c857f3b780015ee8e3bd9">~Ui</a> ()</td></tr>
 <tr class="separator:a7a0333fdf87c857f3b780015ee8e3bd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ae6e0b4bfe7aa0adcdce555d8eba917"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ui.html#a0ae6e0b4bfe7aa0adcdce555d8eba917">addFloatingText</a> (std::string message, <a class="el" href="class_vector2f.html">Vector2f</a> position, sf::Color <a class="el" href="class_ui.html#acaab4582a9279209ff1e89e90492fb2d">color</a>)</td></tr>
+<tr class="separator:a0ae6e0b4bfe7aa0adcdce555d8eba917"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a976b76f654968fe46b82c5b81ccad6e9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ui.html#a976b76f654968fe46b82c5b81ccad6e9">loadContent</a> ()</td></tr>
 <tr class="separator:a976b76f654968fe46b82c5b81ccad6e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adbad3bcc6a2fa2635d578ffe2ee2b210"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ui.html#adbad3bcc6a2fa2635d578ffe2ee2b210">unloadContent</a> ()</td></tr>
 <tr class="separator:adbad3bcc6a2fa2635d578ffe2ee2b210"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab52b73941643ec0fc7d40ea6ff022471"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ui.html#ab52b73941643ec0fc7d40ea6ff022471">update</a> (<a class="el" href="class_player.html">Player</a> *player)</td></tr>
-<tr class="separator:ab52b73941643ec0fc7d40ea6ff022471"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a407bc6f9563f5e88d93344c6eaada44b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ui.html#a407bc6f9563f5e88d93344c6eaada44b">update</a> ()</td></tr>
+<tr class="separator:a407bc6f9563f5e88d93344c6eaada44b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07f92e0d044a034b9972d9b96d549070"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ui.html#a07f92e0d044a034b9972d9b96d549070">processEvents</a> (sf::Event event)</td></tr>
+<tr class="separator:a07f92e0d044a034b9972d9b96d549070"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acbba9efd0b9d2b47833bd80a0fd35614"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ui.html#acbba9efd0b9d2b47833bd80a0fd35614">draw</a> ()</td></tr>
 <tr class="separator:acbba9efd0b9d2b47833bd80a0fd35614"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0fe5abf33c592eb163eaca5d267f828f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ui.html#a0fe5abf33c592eb163eaca5d267f828f">fadeOut</a> ()</td></tr>
+<tr class="separator:a0fe5abf33c592eb163eaca5d267f828f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2dc64869e16ef03b9c4361429ee1af93"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ui.html#a2dc64869e16ef03b9c4361429ee1af93">hasFaded</a> ()</td></tr>
+<tr class="separator:a2dc64869e16ef03b9c4361429ee1af93"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa7a21066365315e98f7d5eef4b1366bd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ui.html#aa7a21066365315e98f7d5eef4b1366bd">initialize</a> (short *strength, short *intellect, short *toughness, short *speed, short *currentSouls, short *weaponLevel, short *armorLevel, short *currHp, short *maxHealth, short *meleeDamage, short *spellDamage, float *critChance)</td></tr>
+<tr class="separator:aa7a21066365315e98f7d5eef4b1366bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a7b83d15573762ef1ceaa9006fbe818"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a6a7b83d15573762ef1ceaa9006fbe818"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_ui.html#a6a7b83d15573762ef1ceaa9006fbe818">numberToString</a> (T Number)</td></tr>
+<tr class="separator:a6a7b83d15573762ef1ceaa9006fbe818"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -147,6 +153,22 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a395a4f0d895f156a44eddafd0a8dac36"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaf2450c7111c9322c36e170cf059a8c3"><td class="memItemLeft" align="right" valign="top">sf::Sprite&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ui.html#aaf2450c7111c9322c36e170cf059a8c3">m_healthDiamondSprite</a></td></tr>
 <tr class="separator:aaf2450c7111c9322c36e170cf059a8c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a7725eff0766f3a93f47bae9d23e4af"><td class="memItemLeft" align="right" valign="top">sf::Texture&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ui.html#a0a7725eff0766f3a93f47bae9d23e4af">m_iconFireball</a></td></tr>
+<tr class="separator:a0a7725eff0766f3a93f47bae9d23e4af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12201c4dc0c19913d998dc90607cdd62"><td class="memItemLeft" align="right" valign="top">sf::Sprite&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ui.html#a12201c4dc0c19913d998dc90607cdd62">m_iconFireballSprite</a></td></tr>
+<tr class="separator:a12201c4dc0c19913d998dc90607cdd62"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68b0487f1ec560d7f7b27fa3fbafff64"><td class="memItemLeft" align="right" valign="top">sf::Texture&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ui.html#a68b0487f1ec560d7f7b27fa3fbafff64">m_iconSword</a></td></tr>
+<tr class="separator:a68b0487f1ec560d7f7b27fa3fbafff64"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0832e9ab28dd02ff9eb724948262f88b"><td class="memItemLeft" align="right" valign="top">sf::Sprite&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ui.html#a0832e9ab28dd02ff9eb724948262f88b">m_iconSwordSprite</a></td></tr>
+<tr class="separator:a0832e9ab28dd02ff9eb724948262f88b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f03494d2b0d675be1ae535b5226cc10"><td class="memItemLeft" align="right" valign="top">sf::Texture&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ui.html#a0f03494d2b0d675be1ae535b5226cc10">m_iconEmpty</a></td></tr>
+<tr class="separator:a0f03494d2b0d675be1ae535b5226cc10"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a62bac0ee53d1fcef478e2801a9b5a06a"><td class="memItemLeft" align="right" valign="top">sf::Sprite&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ui.html#a62bac0ee53d1fcef478e2801a9b5a06a">m_iconEmptySpriteArray</a> [3]</td></tr>
+<tr class="separator:a62bac0ee53d1fcef478e2801a9b5a06a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af24b8c67e7fe868242e2c173b67a89ea"><td class="memItemLeft" align="right" valign="top">sf::Texture&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ui.html#af24b8c67e7fe868242e2c173b67a89ea">m_iconHeal</a></td></tr>
+<tr class="separator:af24b8c67e7fe868242e2c173b67a89ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7fa7f86d5c29e34dbce6c719faf4e1e"><td class="memItemLeft" align="right" valign="top">sf::Sprite&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ui.html#ac7fa7f86d5c29e34dbce6c719faf4e1e">m_iconHealSprite</a></td></tr>
+<tr class="separator:ac7fa7f86d5c29e34dbce6c719faf4e1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a20e98fb1a005d1399722c9e212c5af87"><td class="memItemLeft" align="right" valign="top">sf::Texture&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ui.html#a20e98fb1a005d1399722c9e212c5af87">m_increaseButtonGray</a></td></tr>
 <tr class="separator:a20e98fb1a005d1399722c9e212c5af87"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4a3a564ee28113382f9115e3db237781"><td class="memItemLeft" align="right" valign="top">sf::Texture&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ui.html#a4a3a564ee28113382f9115e3db237781">m_increaseButtonRed</a></td></tr>
@@ -155,8 +177,16 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a8e7f880a8af483420be5c9d7c7ea606e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acebef14cafd90a26deefd65af6cbc542"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ui.html#acebef14cafd90a26deefd65af6cbc542">increasable</a> [6]</td></tr>
 <tr class="separator:acebef14cafd90a26deefd65af6cbc542"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2dd8fbe05576b9e9ebdd6b62c386b7b0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_player.html">Player</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ui.html#a2dd8fbe05576b9e9ebdd6b62c386b7b0">m_player</a></td></tr>
-<tr class="separator:a2dd8fbe05576b9e9ebdd6b62c386b7b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0ee0dcee74686374c58d30faca9c447"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ui.html#aa0ee0dcee74686374c58d30faca9c447">m_bFading</a></td></tr>
+<tr class="separator:aa0ee0dcee74686374c58d30faca9c447"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e7fc995e93be574d95f601467698ff8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ui.html#a9e7fc995e93be574d95f601467698ff8">m_bHasFaded</a></td></tr>
+<tr class="separator:a9e7fc995e93be574d95f601467698ff8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af43ecc3809e7856b36fb24e2c586014b"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_floating_text.html">FloatingText</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ui.html#af43ecc3809e7856b36fb24e2c586014b">m_ftFloatingTextEntities</a></td></tr>
+<tr class="separator:af43ecc3809e7856b36fb24e2c586014b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd5abaa26efb3e4d8dd6da8642c7158a"><td class="memItemLeft" align="right" valign="top">std::vector&lt; short * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ui.html#afd5abaa26efb3e4d8dd6da8642c7158a">m_shvPlayerStats</a></td></tr>
+<tr class="separator:afd5abaa26efb3e4d8dd6da8642c7158a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afee8ec99170a121327d9726a92a682d2"><td class="memItemLeft" align="right" valign="top">float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ui.html#afee8ec99170a121327d9726a92a682d2">m_fCriticalChance</a></td></tr>
+<tr class="separator:afee8ec99170a121327d9726a92a682d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a777efdf6712f47aa53a34c44772ea539"><td class="memItemLeft" align="right" valign="top">sf::Font&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ui.html#a777efdf6712f47aa53a34c44772ea539">font</a></td></tr>
 <tr class="separator:a777efdf6712f47aa53a34c44772ea539"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a98b2decf72a2b3deb79247c55a21de75"><td class="memItemLeft" align="right" valign="top">sf::Text&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ui.html#a98b2decf72a2b3deb79247c55a21de75">rightSideText</a></td></tr>
@@ -169,6 +199,12 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a99afdc4dabf4ac84b7b72983303c9e48"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2cfbbd8582a647d7536dba151a050136"><td class="memItemLeft" align="right" valign="top">sf::Text&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ui.html#a2cfbbd8582a647d7536dba151a050136">healthText</a></td></tr>
 <tr class="separator:a2cfbbd8582a647d7536dba151a050136"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a017caca674d7ea2c4be8acb47ef3eb8c"><td class="memItemLeft" align="right" valign="top">sf::Text&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ui.html#a017caca674d7ea2c4be8acb47ef3eb8c">iconText</a> [5]</td></tr>
+<tr class="separator:a017caca674d7ea2c4be8acb47ef3eb8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a88632608e8c9876b6d53bb9c73b8299d"><td class="memItemLeft" align="right" valign="top">sf::RectangleShape&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ui.html#a88632608e8c9876b6d53bb9c73b8299d">fadeRect</a></td></tr>
+<tr class="separator:a88632608e8c9876b6d53bb9c73b8299d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acaab4582a9279209ff1e89e90492fb2d"><td class="memItemLeft" align="right" valign="top">sf::Color&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ui.html#acaab4582a9279209ff1e89e90492fb2d">color</a></td></tr>
+<tr class="separator:acaab4582a9279209ff1e89e90492fb2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac92f308e2bafbbd0ce7f2ab9c92c9e67"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ui.html#ac92f308e2bafbbd0ce7f2ab9c92c9e67">healthRotation</a></td></tr>
 <tr class="separator:ac92f308e2bafbbd0ce7f2ab9c92c9e67"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5e0f740d23ea223e132d6dcac358c0b7"><td class="memItemLeft" align="right" valign="top">short&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ui.html#a5e0f740d23ea223e132d6dcac358c0b7">m_shFrameCount</a></td></tr>
@@ -206,6 +242,38 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a0ae6e0b4bfe7aa0adcdce555d8eba917"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Ui::addFloatingText </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>message</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_vector2f.html">Vector2f</a>&#160;</td>
+          <td class="paramname"><em>position</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sf::Color&#160;</td>
+          <td class="paramname"><em>color</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="acbba9efd0b9d2b47833bd80a0fd35614"></a>
 <div class="memitem">
 <div class="memproto">
@@ -239,6 +307,122 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<a class="anchor" id="a0fe5abf33c592eb163eaca5d267f828f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Ui::fadeOut </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a2dc64869e16ef03b9c4361429ee1af93"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Ui::hasFaded </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="aa7a21066365315e98f7d5eef4b1366bd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Ui::initialize </td>
+          <td>(</td>
+          <td class="paramtype">short *&#160;</td>
+          <td class="paramname"><em>strength</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">short *&#160;</td>
+          <td class="paramname"><em>intellect</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">short *&#160;</td>
+          <td class="paramname"><em>toughness</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">short *&#160;</td>
+          <td class="paramname"><em>speed</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">short *&#160;</td>
+          <td class="paramname"><em>currentSouls</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">short *&#160;</td>
+          <td class="paramname"><em>weaponLevel</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">short *&#160;</td>
+          <td class="paramname"><em>armorLevel</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">short *&#160;</td>
+          <td class="paramname"><em>currHp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">short *&#160;</td>
+          <td class="paramname"><em>maxHealth</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">short *&#160;</td>
+          <td class="paramname"><em>meleeDamage</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">short *&#160;</td>
+          <td class="paramname"><em>spellDamage</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float *&#160;</td>
+          <td class="paramname"><em>critChance</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="a976b76f654968fe46b82c5b81ccad6e9"></a>
 <div class="memitem">
 <div class="memproto">
@@ -251,6 +435,67 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_ui_a976b76f654968fe46b82c5b81ccad6e9_icgraph.png" border="0" usemap="#class_ui_a976b76f654968fe46b82c5b81ccad6e9_icgraph" alt=""/></div>
+<map name="class_ui_a976b76f654968fe46b82c5b81ccad6e9_icgraph" id="class_ui_a976b76f654968fe46b82c5b81ccad6e9_icgraph">
+<area shape="rect" id="node3" href="class_super_level.html#a35182a9ec2a4ad48f2c2011fff8bfb82" title="SuperLevel::superLoadContent" alt="" coords="166,5,365,32"/><area shape="rect" id="node5" href="class_level1.html#a421a47d58b0c474a7dd28c04c06509ff" title="Level1::loadContent" alt="" coords="414,5,549,32"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a6a7b83d15573762ef1ceaa9006fbe818"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Ui::numberToString </td>
+          <td>(</td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>Number</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_ui_a6a7b83d15573762ef1ceaa9006fbe818_icgraph.png" border="0" usemap="#class_ui_a6a7b83d15573762ef1ceaa9006fbe818_icgraph" alt=""/></div>
+<map name="class_ui_a6a7b83d15573762ef1ceaa9006fbe818_icgraph" id="class_ui_a6a7b83d15573762ef1ceaa9006fbe818_icgraph">
+<area shape="rect" id="node3" href="class_ui.html#a407bc6f9563f5e88d93344c6eaada44b" title="Ui::update" alt="" coords="187,5,269,32"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a07f92e0d044a034b9972d9b96d549070"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Ui::processEvents </td>
+          <td>(</td>
+          <td class="paramtype">sf::Event&#160;</td>
+          <td class="paramname"><em>event</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_ui_a07f92e0d044a034b9972d9b96d549070_cgraph.png" border="0" usemap="#class_ui_a07f92e0d044a034b9972d9b96d549070_cgraph" alt=""/></div>
+<map name="class_ui_a07f92e0d044a034b9972d9b96d549070_cgraph" id="class_ui_a07f92e0d044a034b9972d9b96d549070_cgraph">
+<area shape="rect" id="node3" href="class_state_handler.html#a384475d0948afc0c4f06359fe7e56d0f" title="StateHandler::getInstance" alt="" coords="183,5,355,32"/><area shape="rect" id="node5" href="class_audio_manager.html#a150694e7f4cd72188af34478383bed20" title="AudioManager::playSound" alt="" coords="182,56,357,83"/></map>
+</div>
+</p>
 
 </div>
 </div>
@@ -269,15 +514,14 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a class="anchor" id="ab52b73941643ec0fc7d40ea6ff022471"></a>
+<a class="anchor" id="a407bc6f9563f5e88d93344c6eaada44b"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void Ui::update </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_player.html">Player</a> *&#160;</td>
-          <td class="paramname"><em>player</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -286,15 +530,55 @@ Here is the caller graph for this function:</div>
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_ui_ab52b73941643ec0fc7d40ea6ff022471_cgraph.png" border="0" usemap="#class_ui_ab52b73941643ec0fc7d40ea6ff022471_cgraph" alt=""/></div>
-<map name="class_ui_ab52b73941643ec0fc7d40ea6ff022471_cgraph" id="class_ui_ab52b73941643ec0fc7d40ea6ff022471_cgraph">
-<area shape="rect" id="node3" href="_ui_8cpp.html#a5116afea572c49cccf1bff6f51f66dbc" title="numberToString" alt="" coords="174,5,287,32"/><area shape="rect" id="node5" href="class_character.html#a56dc21cdc1c460fac9ab013e09a36dd9" title="Character::getStrength" alt="" coords="154,56,307,83"/><area shape="rect" id="node7" href="class_character.html#a79a7ef5e8b1bdca05424fe611fe056b9" title="Character::getIntelligence" alt="" coords="146,107,315,133"/><area shape="rect" id="node9" href="class_character.html#ad607ba44fdccc8b571f19194cc205dd4" title="Character::getToughness" alt="" coords="147,157,314,184"/><area shape="rect" id="node11" href="class_character.html#a50c26b239e9687ba5b34665a65a11dbe" title="Character::getSpeed" alt="" coords="160,208,301,235"/><area shape="rect" id="node13" href="class_character.html#a50294e555de2dd3aa50b11dfe4e76c15" title="Character::getMeleeDamage" alt="" coords="137,259,324,285"/><area shape="rect" id="node15" href="class_character.html#af4618e46d08112b18f02ca9b3f8f1b10" title="Character::getSpellDamage" alt="" coords="140,309,321,336"/><area shape="rect" id="node17" href="class_character.html#a7c2588369eadf04c66e155e0a3c0195c" title="Character::getCriticalChance" alt="" coords="137,360,325,387"/><area shape="rect" id="node19" href="class_player.html#a4c3e4a0c61f13187c7452acef74b8b81" title="Player::getCurrentSouls" alt="" coords="151,411,311,437"/><area shape="rect" id="node21" href="class_player.html#a350df62bef6c8c75bad1832e4eb486c9" title="Player::getWeaponLevel" alt="" coords="149,461,312,488"/><area shape="rect" id="node23" href="class_player.html#acd614db3f032c7067fa4bc74214c7001" title="Player::getArmorLevel" alt="" coords="156,512,305,539"/><area shape="rect" id="node25" href="class_player.html#a9a76f451a6bc69822971bf56dae944c3" title="Player::getStatArray" alt="" coords="161,563,301,589"/><area shape="rect" id="node27" href="class_state_handler.html#a384475d0948afc0c4f06359fe7e56d0f" title="StateHandler::getInstance" alt="" coords="145,613,317,640"/><area shape="rect" id="node29" href="class_player.html#ac732febd618b4e347bed644517d10fdc" title="Player::increaseStat" alt="" coords="161,664,301,691"/><area shape="rect" id="node31" href="class_player.html#af09f4deeb786c597805ad6e4ae4ed93a" title="Player::modifySouls" alt="" coords="161,715,300,741"/><area shape="rect" id="node33" href="class_character.html#a73df5663423fbc0e88aa8d8061e19a73" title="Character::getCurrentHealth" alt="" coords="139,765,322,792"/><area shape="rect" id="node35" href="class_character.html#a050464bb381494ae37c17c999a3afea7" title="Character::getMaxHealth" alt="" coords="147,816,314,843"/></map>
+<div class="center"><img src="class_ui_a407bc6f9563f5e88d93344c6eaada44b_cgraph.png" border="0" usemap="#class_ui_a407bc6f9563f5e88d93344c6eaada44b_cgraph" alt=""/></div>
+<map name="class_ui_a407bc6f9563f5e88d93344c6eaada44b_cgraph" id="class_ui_a407bc6f9563f5e88d93344c6eaada44b_cgraph">
+<area shape="rect" id="node3" href="class_ui.html#a6a7b83d15573762ef1ceaa9006fbe818" title="Ui::numberToString" alt="" coords="136,5,269,32"/></map>
 </div>
 </p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="acaab4582a9279209ff1e89e90492fb2d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">sf::Color Ui::color</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a88632608e8c9876b6d53bb9c73b8299d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">sf::RectangleShape Ui::fadeRect</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="a777efdf6712f47aa53a34c44772ea539"></a>
 <div class="memitem">
 <div class="memproto">
@@ -355,6 +639,26 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
+<a class="anchor" id="a017caca674d7ea2c4be8acb47ef3eb8c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">sf::Text Ui::iconText[5]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="acebef14cafd90a26deefd65af6cbc542"></a>
 <div class="memitem">
 <div class="memproto">
@@ -384,6 +688,86 @@ Here is the call graph for this function:</div>
       <table class="memname">
         <tr>
           <td class="memname">sf::Sprite Ui::increaseButtonSpriteArray[6]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="aa0ee0dcee74686374c58d30faca9c447"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Ui::m_bFading</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a9e7fc995e93be574d95f601467698ff8"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Ui::m_bHasFaded</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="afee8ec99170a121327d9726a92a682d2"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float* Ui::m_fCriticalChance</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="af43ecc3809e7856b36fb24e2c586014b"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="class_floating_text.html">FloatingText</a> *&gt; Ui::m_ftFloatingTextEntities</td>
         </tr>
       </table>
   </td>
@@ -435,6 +819,166 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
+<a class="anchor" id="a0f03494d2b0d675be1ae535b5226cc10"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">sf::Texture Ui::m_iconEmpty</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a62bac0ee53d1fcef478e2801a9b5a06a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">sf::Sprite Ui::m_iconEmptySpriteArray[3]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a0a7725eff0766f3a93f47bae9d23e4af"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">sf::Texture Ui::m_iconFireball</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a12201c4dc0c19913d998dc90607cdd62"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">sf::Sprite Ui::m_iconFireballSprite</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="af24b8c67e7fe868242e2c173b67a89ea"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">sf::Texture Ui::m_iconHeal</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ac7fa7f86d5c29e34dbce6c719faf4e1e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">sf::Sprite Ui::m_iconHealSprite</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a68b0487f1ec560d7f7b27fa3fbafff64"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">sf::Texture Ui::m_iconSword</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a0832e9ab28dd02ff9eb724948262f88b"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">sf::Sprite Ui::m_iconSwordSprite</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="a20e98fb1a005d1399722c9e212c5af87"></a>
 <div class="memitem">
 <div class="memproto">
@@ -475,7 +1019,7 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a class="anchor" id="a2dd8fbe05576b9e9ebdd6b62c386b7b0"></a>
+<a class="anchor" id="a5e0f740d23ea223e132d6dcac358c0b7"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -483,7 +1027,7 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_player.html">Player</a>* Ui::m_player</td>
+          <td class="memname">short Ui::m_shFrameCount</td>
         </tr>
       </table>
   </td>
@@ -495,7 +1039,7 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a class="anchor" id="a5e0f740d23ea223e132d6dcac358c0b7"></a>
+<a class="anchor" id="afd5abaa26efb3e4d8dd6da8642c7158a"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -503,7 +1047,7 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">short Ui::m_shFrameCount</td>
+          <td class="memname">std::vector&lt;short *&gt; Ui::m_shvPlayerStats</td>
         </tr>
       </table>
   </td>
@@ -665,7 +1209,7 @@ Here is the call graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_ui.html">Ui</a></li>
-    <li class="footer">Generated on Mon Nov 26 2012 12:45:43 for Corrupted by
+    <li class="footer">Generated on Sat Dec 22 2012 23:24:43 for Corrupted by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.2 </li>
   </ul>

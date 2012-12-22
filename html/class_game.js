@@ -16,7 +16,6 @@ var class_game =
     [ "update", "class_game.html#a79df6376b332d63c9eca0dcee30305c3", null ],
     [ "frames_per_sec", "class_game.html#a78f6a0d1253bc2823539383221d1ad0f", null ],
     [ "m_BackgroundColor", "class_game.html#ab0430b0c9822681417609ed75b6e07fa", null ],
-    [ "m_bRunning", "class_game.html#aa3a259841306a82c4a71b96b14bdcfcd", null ],
     [ "m_shScreenBitColor", "class_game.html#ab6870d63e9857916c8d083b97e3ce7f5", null ],
     [ "m_shScreenHeight", "class_game.html#a1378d6b2fea862773ca00620065a0ce1", null ],
     [ "m_shScreenWidth", "class_game.html#ac0ec575cae4dcc8b0764fbb723825980", null ],

@@ -1,9 +1,15 @@
 <map id="GameProject/GameProject/EnemyFactory.h" name="GameProject/GameProject/EnemyFactory.h">
-<area shape="rect" id="node3" href="$_enemy_8h.html" title="Enemy.h" alt="" coords="343,171,417,197"/>
-<area shape="rect" id="node32" href="$_skeleton_8h.html" title="Skeleton.h" alt="" coords="418,96,501,123"/>
-<area shape="rect" id="node7" href="$_character_8h.html" title="Character.h" alt="" coords="179,245,268,272"/>
-<area shape="rect" id="node9" href="$_actor_8h.html" title="Actor.h" alt="" coords="259,395,323,421"/>
-<area shape="rect" id="node20" href="$_environment_8h.html" title="Environment.h" alt="" coords="75,395,179,421"/>
-<area shape="rect" id="node26" href="$_projectile_8h.html" title="Projectile.h" alt="" coords="173,320,259,347"/>
-<area shape="rect" id="node11" href="$_vector2f_8h.html" title="Vector2f.h" alt="" coords="86,469,167,496"/>
+<area shape="rect" id="node3" href="$_enemy_8h.html" title="Enemy.h" alt="" coords="900,171,975,197"/>
+<area shape="rect" id="node61" href="$_skeleton_8h.html" title="Skeleton.h" alt="" coords="818,96,901,123"/>
+<area shape="rect" id="node7" href="$_character_8h.html" title="Character.h" alt="" coords="566,245,655,272"/>
+<area shape="rect" id="node9" href="$_actor_8h.html" title="Actor.h" alt="" coords="232,395,296,421"/>
+<area shape="rect" id="node20" href="$_environment_8h.html" title="Environment.h" alt="" coords="711,395,815,421"/>
+<area shape="rect" id="node26" href="$_projectile_8h.html" title="Projectile.h" alt="" coords="302,320,388,347"/>
+<area shape="rect" id="node30" href="$_ui_8h.html" title="Ui.h" alt="" coords="524,320,569,347"/>
+<area shape="rect" id="node45" href="$_audio_manager_8h.html" title="AudioManager.h" alt="" coords="607,544,723,571"/>
+<area shape="rect" id="node11" href="$_vector2f_8h.html" title="Vector2f.h" alt="" coords="302,469,383,496"/>
+<area shape="rect" id="node32" href="$_state_handler_8h.html" title="StateHandler.h" alt="" coords="407,469,515,496"/>
+<area shape="rect" id="node51" href="$_floating_text_8h.html" title="FloatingText.h" alt="" coords="439,395,543,421"/>
+<area shape="rect" id="node37" href="$_game_state_8h.html" title="GameState.h" alt="" coords="380,619,479,645"/>
+<area shape="rect" id="node41" href="$_title_screen_8h.html" title="TitleScreen.h" alt="" coords="405,544,504,571"/>
 </map>

@@ -79,6 +79,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions_vars.html"><span>Variables</span></a></li>
       <li><a href="functions_enum.html"><span>Enumerations</span></a></li>
       <li class="current"><a href="functions_eval.html"><span>Enumerator</span></a></li>
+      <li><a href="functions_rela.html"><span>Related&#160;Functions</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
@@ -101,7 +102,7 @@ $(document).ready(function(){initNavTree('functions_eval.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -112,6 +113,14 @@ $(document).ready(function(){initNavTree('functions_eval.html','');});
 
 <div class="contents">
 &#160;<ul>
+<li>ATTACK
+: <a class="el" href="class_actor.html#a6a18e1712cfa4f372f7aa038e8de2205a09a26b2027e5d162448ff9e8d5906654">Actor</a>
+, <a class="el" href="class_enemy_factory.html#aef18d79e06268483332ca6d38aa35b8eaf59856aa533a92e4e8549ab85781d6b4">EnemyFactory</a>
+</li>
+<li>DIE
+: <a class="el" href="class_actor.html#a6a18e1712cfa4f372f7aa038e8de2205a979126c213478f0db7667069d0e61e33">Actor</a>
+, <a class="el" href="class_enemy_factory.html#aef18d79e06268483332ca6d38aa35b8ea6939e981befba864fbbf86d4dfc836d3">EnemyFactory</a>
+</li>
 <li>EAST
 : <a class="el" href="class_character.html#a285c7348c39901b6a8b113517ad88242abb942ba32b4238cd7a6ad74f69e1b7de">Character</a>
 </li>
@@ -123,18 +132,13 @@ $(document).ready(function(){initNavTree('functions_eval.html','');});
 : <a class="el" href="class_character.html#ab6fbd7c75b53c7bcd4701cafb8715ba1aa6de6b6a3e7651a31fde58c82b6baaa2">Character</a>
 , <a class="el" href="class_projectile.html#a9b20712b9613c242c80576aa0cf86234af846acc2625a474b2a400b8378e2e8ea">Projectile</a>
 </li>
-<li>JoystickInput
-: <a class="el" href="class_keyboard_controller.html#af12694b9a2379ac44e10df0d2ca6aa4da471f8d5ce27ac6b07cb49369a0c81411">KeyboardController</a>
-</li>
-<li>KeyboardInput
-: <a class="el" href="class_keyboard_controller.html#af12694b9a2379ac44e10df0d2ca6aa4da003a884889c4b8dbc967a52a94c879a9">KeyboardController</a>
-</li>
 <li>LIGHTNINGBOLT
 : <a class="el" href="class_character.html#ab6fbd7c75b53c7bcd4701cafb8715ba1a194cb46b225b19308b6859bebb69e265">Character</a>
 , <a class="el" href="class_projectile.html#a9b20712b9613c242c80576aa0cf86234a4502949e1096329a6e0f87606798b225">Projectile</a>
 </li>
-<li>MouseInput
-: <a class="el" href="class_keyboard_controller.html#af12694b9a2379ac44e10df0d2ca6aa4da8fcc4c18a2acad85ad6b8e52aeb526f4">KeyboardController</a>
+<li>MOVE
+: <a class="el" href="class_actor.html#a6a18e1712cfa4f372f7aa038e8de2205aefaf5ed14bdcab0d82a23938b66a2e4c">Actor</a>
+, <a class="el" href="class_enemy_factory.html#aef18d79e06268483332ca6d38aa35b8ea87e6dc05292673f0e3495ca94fc069bb">EnemyFactory</a>
 </li>
 <li>NORTH
 : <a class="el" href="class_character.html#a285c7348c39901b6a8b113517ad88242a2e63d8ae9d969fa25d6f2e78ae61ca38">Character</a>
@@ -157,6 +161,10 @@ $(document).ready(function(){initNavTree('functions_eval.html','');});
 <li>SOUTH_WEST
 : <a class="el" href="class_character.html#a285c7348c39901b6a8b113517ad88242afb0fa51e454e2fdd6b4d38a9a3d8279d">Character</a>
 </li>
+<li>STILL
+: <a class="el" href="class_actor.html#a6a18e1712cfa4f372f7aa038e8de2205acd9e83db3108c5e23511890c3b395f45">Actor</a>
+, <a class="el" href="class_enemy_factory.html#aef18d79e06268483332ca6d38aa35b8ea16cf275820b4947b798c8f5265131989">EnemyFactory</a>
+</li>
 <li>WEST
 : <a class="el" href="class_character.html#a285c7348c39901b6a8b113517ad88242a45a3fb6358ab9975e91b3ae0fd7a00fd">Character</a>
 </li>
@@ -166,7 +174,7 @@ $(document).ready(function(){initNavTree('functions_eval.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Mon Nov 26 2012 12:45:43 for Corrupted by
+    <li class="footer">Generated on Sat Dec 22 2012 23:24:44 for Corrupted by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.2 </li>
   </ul>

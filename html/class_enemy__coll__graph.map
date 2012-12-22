@@ -1,6 +1,7 @@
 <map id="Enemy" name="Enemy">
-<area shape="rect" id="node2" href="$class_character.html" title="Character" alt="" coords="47,187,125,213"/>
-<area shape="rect" id="node4" href="$class_actor.html" title="Actor" alt="" coords="47,96,100,123"/>
-<area shape="rect" id="node6" href="$class_vector2f.html" title="Vector2f" alt="" coords="38,5,108,32"/>
-<area shape="rect" id="node8" href="$class_environment_handler.html" title="EnvironmentHandler" alt="" coords="125,96,261,123"/>
+<area shape="rect" id="node2" href="$class_character.html" title="Character" alt="" coords="100,200,178,227"/>
+<area shape="rect" id="node4" href="$class_actor.html" title="Actor" alt="" coords="50,96,103,123"/>
+<area shape="rect" id="node6" href="$class_vector2f.html" title="Vector2f" alt="" coords="41,5,111,32"/>
+<area shape="rect" id="node10" href="$class_environment_handler.html" title="EnvironmentHandler" alt="" coords="128,96,265,123"/>
+<area shape="rect" id="node8" href="$class_ui.html" title="Ui" alt="" coords="295,96,333,123"/>
 </map>

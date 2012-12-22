@@ -1,4 +1,5 @@
 <map id="GameProject/GameProject/TitleScreen.h" name="GameProject/GameProject/TitleScreen.h">
-<area shape="rect" id="node3" href="$_game_state_8h.html" title="GameState.h" alt="" coords="67,171,165,197"/>
-<area shape="rect" id="node9" href="$_state_handler_8h.html" title="StateHandler.h" alt="" coords="151,96,259,123"/>
+<area shape="rect" id="node3" href="$_game_state_8h.html" title="GameState.h" alt="" coords="5,171,104,197"/>
+<area shape="rect" id="node9" href="$_state_handler_8h.html" title="StateHandler.h" alt="" coords="93,96,200,123"/>
+<area shape="rect" id="node16" href="$_audio_manager_8h.html" title="AudioManager.h" alt="" coords="179,171,295,197"/>
 </map>

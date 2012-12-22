@@ -1,6 +1,12 @@
 <map id="Player::update" name="Player::update">
 <area shape="rect" id="node3" href="$class_character.html#ab9168412ef9b2c8726b0de4dfb63e604" title="Character::update" alt="" coords="173,5,299,32"/>
-<area shape="rect" id="node5" href="$class_player.html#a2ea364bba69e21f05a35ec74195e208c" title="Player::collisionCheck" alt="" coords="161,56,311,83"/>
-<area shape="rect" id="node7" href="$class_actor.html#a9ec6f26161cadc978f8ba6d2c5ba1377" title="Actor::getPosition" alt="" coords="377,31,503,57"/>
-<area shape="rect" id="node9" href="$class_character.html#a23f6d87c24e672568cdfdb10659b22dc" title="Character::takeDamage" alt="" coords="361,81,519,108"/>
+<area shape="rect" id="node5" href="$class_player.html#a1e4b3e6ef91fc400ff2c6c26b1370f8c" title="check player dead, start highscore fade" alt="" coords="411,31,495,57"/>
+<area shape="rect" id="node7" href="$class_player.html#a2ea364bba69e21f05a35ec74195e208c" title="Player::collisionCheck" alt="" coords="161,157,311,184"/>
+<area shape="rect" id="node9" href="$class_actor.html#a9ec6f26161cadc978f8ba6d2c5ba1377" title="Actor::getPosition" alt="" coords="390,81,517,108"/>
+<area shape="rect" id="node11" href="$class_player.html#a50ee1c1ac2253e0110d54852d5e83569" title="reduces damage taken by 1% per ArmorLevel" alt="" coords="383,132,523,159"/>
+<area shape="rect" id="node13" href="$class_state_handler.html#a384475d0948afc0c4f06359fe7e56d0f" title="StateHandler::getInstance" alt="" coords="819,183,991,209"/>
+<area shape="rect" id="node15" href="$class_audio_manager.html#a150694e7f4cd72188af34478383bed20" title="AudioManager::playSound" alt="" coords="595,183,770,209"/>
+<area shape="rect" id="node20" href="$class_player.html#af09f4deeb786c597805ad6e4ae4ed93a" title="Player::modifySouls" alt="" coords="613,284,752,311"/>
+<area shape="rect" id="node23" href="$class_character.html#a50294e555de2dd3aa50b11dfe4e76c15" title="Character::getMeleeDamage" alt="" coords="360,335,547,361"/>
+<area shape="rect" id="node17" href="$class_character.html#a629aea79014404c2b05f26cbe2ae0ffe" title="Can both heal and damage players and enemies, if it kills the target, it returns true." alt="" coords="603,132,762,159"/>
 </map>

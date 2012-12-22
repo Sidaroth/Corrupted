@@ -1,4 +1,10 @@
 <map id="Player::collisionCheck" name="Player::collisionCheck">
-<area shape="rect" id="node3" href="$class_actor.html#a9ec6f26161cadc978f8ba6d2c5ba1377" title="Actor::getPosition" alt="" coords="222,5,349,32"/>
-<area shape="rect" id="node5" href="$class_character.html#a23f6d87c24e672568cdfdb10659b22dc" title="Character::takeDamage" alt="" coords="206,56,365,83"/>
+<area shape="rect" id="node3" href="$class_actor.html#a9ec6f26161cadc978f8ba6d2c5ba1377" title="Actor::getPosition" alt="" coords="235,5,362,32"/>
+<area shape="rect" id="node5" href="$class_player.html#a50ee1c1ac2253e0110d54852d5e83569" title="reduces damage taken by 1% per ArmorLevel" alt="" coords="229,56,369,83"/>
+<area shape="rect" id="node7" href="$class_state_handler.html#a384475d0948afc0c4f06359fe7e56d0f" title="StateHandler::getInstance" alt="" coords="665,107,837,133"/>
+<area shape="rect" id="node9" href="$class_audio_manager.html#a150694e7f4cd72188af34478383bed20" title="AudioManager::playSound" alt="" coords="441,107,615,133"/>
+<area shape="rect" id="node14" href="$class_player.html#af09f4deeb786c597805ad6e4ae4ed93a" title="Player::modifySouls" alt="" coords="459,208,597,235"/>
+<area shape="rect" id="node17" href="$class_character.html#a50294e555de2dd3aa50b11dfe4e76c15" title="Character::getMeleeDamage" alt="" coords="205,259,392,285"/>
+<area shape="rect" id="node19" href="$class_player.html#a1e4b3e6ef91fc400ff2c6c26b1370f8c" title="check player dead, start highscore fade" alt="" coords="257,309,341,336"/>
+<area shape="rect" id="node11" href="$class_character.html#a629aea79014404c2b05f26cbe2ae0ffe" title="Can both heal and damage players and enemies, if it kills the target, it returns true." alt="" coords="449,56,607,83"/>
 </map>

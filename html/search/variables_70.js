@@ -8,5 +8,5 @@ var searchData=
   ['pathlength',['pathLength',['../class_enemy.html#acff117fde54bf90d42c8a4de539fd9ce',1,'Enemy']]],
   ['pathlocation',['pathLocation',['../class_enemy.html#a77ecf6c1c67beff575c7d99ab379f722',1,'Enemy']]],
   ['pathstep',['pathStep',['../class_enemy.html#a19bc24ba9e0ca1cdd83a5e8e934bf617',1,'Enemy']]],
-  ['player',['player',['../class_keyboard_controller.html#a784377a8a289a01fc700ab2921d13602',1,'KeyboardController::player()'],['../class_super_level.html#a26c3c7af1dc6950c7a4c9fa1c5ef296d',1,'SuperLevel::player()']]]
+  ['player',['player',['../class_super_level.html#a26c3c7af1dc6950c7a4c9fa1c5ef296d',1,'SuperLevel']]]
 ];

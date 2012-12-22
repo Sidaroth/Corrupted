@@ -1,8 +1,14 @@
 <map id="GameProject/GameProject/Enemy.cpp" name="GameProject/GameProject/Enemy.cpp">
-<area shape="rect" id="node3" href="$_enemy_8h.html" title="Enemy.h" alt="" coords="199,96,273,123"/>
-<area shape="rect" id="node7" href="$_character_8h.html" title="Character.h" alt="" coords="191,171,280,197"/>
-<area shape="rect" id="node9" href="$_actor_8h.html" title="Actor.h" alt="" coords="325,320,389,347"/>
-<area shape="rect" id="node20" href="$_environment_8h.html" title="Environment.h" alt="" coords="144,320,248,347"/>
-<area shape="rect" id="node26" href="$_projectile_8h.html" title="Projectile.h" alt="" coords="234,245,320,272"/>
-<area shape="rect" id="node11" href="$_vector2f_8h.html" title="Vector2f.h" alt="" coords="249,395,329,421"/>
+<area shape="rect" id="node3" href="$_enemy_8h.html" title="Enemy.h" alt="" coords="968,96,1043,123"/>
+<area shape="rect" id="node7" href="$_character_8h.html" title="Character.h" alt="" coords="711,171,800,197"/>
+<area shape="rect" id="node9" href="$_actor_8h.html" title="Actor.h" alt="" coords="684,320,748,347"/>
+<area shape="rect" id="node20" href="$_environment_8h.html" title="Environment.h" alt="" coords="836,320,940,347"/>
+<area shape="rect" id="node26" href="$_projectile_8h.html" title="Projectile.h" alt="" coords="753,245,839,272"/>
+<area shape="rect" id="node30" href="$_ui_8h.html" title="Ui.h" alt="" coords="391,245,436,272"/>
+<area shape="rect" id="node45" href="$_audio_manager_8h.html" title="AudioManager.h" alt="" coords="51,469,167,496"/>
+<area shape="rect" id="node11" href="$_vector2f_8h.html" title="Vector2f.h" alt="" coords="755,395,836,421"/>
+<area shape="rect" id="node32" href="$_state_handler_8h.html" title="StateHandler.h" alt="" coords="297,395,404,421"/>
+<area shape="rect" id="node51" href="$_floating_text_8h.html" title="FloatingText.h" alt="" coords="407,320,511,347"/>
+<area shape="rect" id="node37" href="$_game_state_8h.html" title="GameState.h" alt="" coords="335,544,433,571"/>
+<area shape="rect" id="node41" href="$_title_screen_8h.html" title="TitleScreen.h" alt="" coords="373,469,472,496"/>
 </map>

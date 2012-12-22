@@ -1,15 +1,27 @@
 var class_enemy_handler =
 [
+    [ "EnemyHandler", "class_enemy_handler.html#a872d40bbbbe21cd9fac9f9db1235a8ae", null ],
+    [ "EnemyHandler", "class_enemy_handler.html#a2468a7ce9dcc2de4e404d6ab76995598", null ],
     [ "~EnemyHandler", "class_enemy_handler.html#aa170e30c543566c8ee867d3733a31b7d", null ],
+    [ "createEnemy", "class_enemy_handler.html#abc2d44420732b21cc4abf67dfb2cdf81", null ],
     [ "draw", "class_enemy_handler.html#afbe37952607d3ae51d943aae957ed1a0", null ],
     [ "getEnemyVector", "class_enemy_handler.html#ac313788f514f2d4348655a81dbdafb95", null ],
-    [ "loadContent", "class_enemy_handler.html#a2e85de5ad6eabf8c47b9902efc5b15b0", null ],
+    [ "loadContent", "class_enemy_handler.html#a5589be0f3d38483bff16de6efa5f0398", null ],
     [ "setCollisionMap", "class_enemy_handler.html#afd80bc99a5329e9b69f7e12efe0bf0d6", null ],
+    [ "setUserInterface", "class_enemy_handler.html#a598581008f76a8abf6c9a09a71badee7", null ],
     [ "unloadContent", "class_enemy_handler.html#acb66b56e43b7bf69bc97277a672ed596", null ],
-    [ "update", "class_enemy_handler.html#aaedc81b10c3fbd5d9a719275974ca4b3", null ],
+    [ "update", "class_enemy_handler.html#af1d749b2e8e9db18185fffbb2732846a", null ],
     [ "collisionMap", "class_enemy_handler.html#ae8ebeb6bf2f43ee997674f0a76ea8054", null ],
     [ "m_EnemyFactory", "class_enemy_handler.html#adf00916a190606d620c5897ca1233804", null ],
+    [ "m_EnemySpawnPoints", "class_enemy_handler.html#af4338545d3e370b0272905fa05bf0967", null ],
     [ "m_EnemyVector", "class_enemy_handler.html#aaa748cc3281d07724b1c79a6c38cc945", null ],
     [ "m_HorizontalSize", "class_enemy_handler.html#ab26fc0b44fbfc95fb59284853ffa29be", null ],
-    [ "m_Level", "class_enemy_handler.html#a07881ea60de0eee8e917a586ad3d2f78", null ]
+    [ "m_Level", "class_enemy_handler.html#a07881ea60de0eee8e917a586ad3d2f78", null ],
+    [ "m_pPlayerPos", "class_enemy_handler.html#a252953a59c405f0c494eaf1e7247b3c2", null ],
+    [ "m_pUserInterface", "class_enemy_handler.html#ac9236557078b141155710457817bc97c", null ],
+    [ "m_waveNumber", "class_enemy_handler.html#a1e860af43df08ba196eba97dbebd0353", null ],
+    [ "numberOfSpawnPoints", "class_enemy_handler.html#a013c4705a42d3c61ba43d7cfb175565b", null ],
+    [ "randomSpawnPoint", "class_enemy_handler.html#a2e64b67acfc0e3099c1daf4d752e828c", null ],
+    [ "spawnTimer", "class_enemy_handler.html#a260f921f9ad29a20cbb7f4845b40333d", null ],
+    [ "timeInSeconds", "class_enemy_handler.html#a15f1855bf2721b0c97e8043daba72c4c", null ]
 ];

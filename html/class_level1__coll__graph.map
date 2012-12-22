@@ -1,13 +1,13 @@
 <map id="Level1" name="Level1">
-<area shape="rect" id="node2" href="$class_super_level.html" title="SuperLevel" alt="" coords="229,445,315,472"/>
-<area shape="rect" id="node4" href="$class_game_state.html" title="GameState" alt="" coords="5,355,93,381"/>
-<area shape="rect" id="node6" href="$class_ui.html" title="Ui" alt="" coords="206,355,244,381"/>
-<area shape="rect" id="node8" href="$class_player.html" title="Player" alt="" coords="205,264,264,291"/>
-<area shape="rect" id="node19" href="$class_keyboard_controller.html" title="KeyboardController" alt="" coords="269,355,400,381"/>
-<area shape="rect" id="node10" href="$class_character.html" title="Character" alt="" coords="214,187,292,213"/>
-<area shape="rect" id="node12" href="$class_actor.html" title="Actor" alt="" coords="237,96,291,123"/>
-<area shape="rect" id="node14" href="$class_vector2f.html" title="Vector2f" alt="" coords="305,5,375,32"/>
-<area shape="rect" id="node16" href="$class_environment_handler.html" title="EnvironmentHandler" alt="" coords="338,96,475,123"/>
-<area shape="rect" id="node23" href="$class_enemy_handler.html" title="EnemyHandler" alt="" coords="476,187,583,213"/>
-<area shape="rect" id="node25" href="$class_enemy_factory.html" title="Factory handling the creation and deletion of all enemies." alt="" coords="512,96,619,123"/>
+<area shape="rect" id="node2" href="$class_super_level.html" title="SuperLevel" alt="" coords="233,448,319,475"/>
+<area shape="rect" id="node4" href="$class_game_state.html" title="GameState" alt="" coords="5,357,93,384"/>
+<area shape="rect" id="node6" href="$class_ui.html" title="Ui" alt="" coords="155,97,193,124"/>
+<area shape="rect" id="node12" href="$class_character.html" title="Character" alt="" coords="234,189,312,216"/>
+<area shape="rect" id="node23" href="$class_enemy_handler.html" title="EnemyHandler" alt="" coords="632,189,739,216"/>
+<area shape="rect" id="node8" href="$class_keyboard_controller.html" title="KeyboardController" alt="" coords="297,357,428,384"/>
+<area shape="rect" id="node10" href="$class_player.html" title="Player" alt="" coords="244,267,303,293"/>
+<area shape="rect" id="node14" href="$class_actor.html" title="Actor" alt="" coords="345,97,399,124"/>
+<area shape="rect" id="node16" href="$class_vector2f.html" title="Vector2f" alt="" coords="550,5,620,32"/>
+<area shape="rect" id="node19" href="$class_environment_handler.html" title="EnvironmentHandler" alt="" coords="521,97,657,124"/>
+<area shape="rect" id="node27" href="$class_enemy_factory.html" title="Factory handling the creation and deletion of all enemies." alt="" coords="848,97,955,124"/>
 </map>

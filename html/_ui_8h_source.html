@@ -90,7 +90,7 @@ $(document).ready(function(){initNavTree('_ui_8h_source.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -107,62 +107,88 @@ $(document).ready(function(){initNavTree('_ui_8h_source.html','');});
 <a href="_ui_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_state_handler_8h.html">StateHandler.h</a>&quot;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_game_state_8h.html">GameState.h</a>&quot;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_game_8h.html">Game.h</a>&quot;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_player_8h.html">Player.h</a>&quot;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;sstream&gt;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_floating_text_8h.html">FloatingText.h</a>&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;sstream&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
+<div class="line"><a name="l00007"></a><span class="lineno"><a class="code" href="class_ui.html">    7</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_ui.html">Ui</a> {</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
-<div class="line"><a name="l00011"></a><span class="lineno"><a class="code" href="class_ui.html">   11</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_ui.html">Ui</a> {</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="code" href="class_ui.html#a99145b77f85d5287f4797ae43ee182b8">   14</a></span>&#160;    sf::View <a class="code" href="class_ui.html#a99145b77f85d5287f4797ae43ee182b8">m_view</a>;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="code" href="class_ui.html#af2377bad3bd9dbf4013a01bc61462c91">   16</a></span>&#160;    sf::Texture <a class="code" href="class_ui.html#af2377bad3bd9dbf4013a01bc61462c91">m_uiBackground</a>;</div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="code" href="class_ui.html#a5f24530ee9386bb98fc65d94c7799caf">   17</a></span>&#160;    sf::Sprite <a class="code" href="class_ui.html#a5f24530ee9386bb98fc65d94c7799caf">m_uiBackgroundSprite</a>;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="code" href="class_ui.html#a395a4f0d895f156a44eddafd0a8dac36">   19</a></span>&#160;    sf::Texture <a class="code" href="class_ui.html#a395a4f0d895f156a44eddafd0a8dac36">m_healthDiamond</a>;</div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="code" href="class_ui.html#aaf2450c7111c9322c36e170cf059a8c3">   20</a></span>&#160;    sf::Sprite <a class="code" href="class_ui.html#aaf2450c7111c9322c36e170cf059a8c3">m_healthDiamondSprite</a>;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno"><a class="code" href="class_ui.html#a20e98fb1a005d1399722c9e212c5af87">   22</a></span>&#160;    sf::Texture <a class="code" href="class_ui.html#a20e98fb1a005d1399722c9e212c5af87">m_increaseButtonGray</a>;</div>
-<div class="line"><a name="l00023"></a><span class="lineno"><a class="code" href="class_ui.html#a4a3a564ee28113382f9115e3db237781">   23</a></span>&#160;    sf::Texture <a class="code" href="class_ui.html#a4a3a564ee28113382f9115e3db237781">m_increaseButtonRed</a>;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
-<div class="line"><a name="l00025"></a><span class="lineno"><a class="code" href="class_ui.html#a8e7f880a8af483420be5c9d7c7ea606e">   25</a></span>&#160;    sf::Sprite <a class="code" href="class_ui.html#a8e7f880a8af483420be5c9d7c7ea606e">increaseButtonSpriteArray</a>[6];</div>
-<div class="line"><a name="l00026"></a><span class="lineno"><a class="code" href="class_ui.html#acebef14cafd90a26deefd65af6cbc542">   26</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_ui.html#acebef14cafd90a26deefd65af6cbc542">increasable</a>[6];</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
-<div class="line"><a name="l00028"></a><span class="lineno"><a class="code" href="class_ui.html#a2dd8fbe05576b9e9ebdd6b62c386b7b0">   28</a></span>&#160;    <a class="code" href="class_player.html">Player</a>* <a class="code" href="class_ui.html#a2dd8fbe05576b9e9ebdd6b62c386b7b0">m_player</a>;</div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="code" href="class_ui.html#a777efdf6712f47aa53a34c44772ea539">   29</a></span>&#160;    sf::Font <a class="code" href="class_ui.html#a777efdf6712f47aa53a34c44772ea539">font</a>;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno"><a class="code" href="class_ui.html#a98b2decf72a2b3deb79247c55a21de75">   31</a></span>&#160;    sf::Text <a class="code" href="class_ui.html#a98b2decf72a2b3deb79247c55a21de75">rightSideText</a>;</div>
-<div class="line"><a name="l00032"></a><span class="lineno"><a class="code" href="class_ui.html#ac2eb74422a62d12d98d00d917490e382">   32</a></span>&#160;    sf::Text <a class="code" href="class_ui.html#ac2eb74422a62d12d98d00d917490e382">rightSideStats</a>;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="code" href="class_ui.html#af7ef60a5abd16f9bfe44626043fe4adc">   34</a></span>&#160;    sf::Text <a class="code" href="class_ui.html#af7ef60a5abd16f9bfe44626043fe4adc">rightSideSecondaryText</a>;</div>
-<div class="line"><a name="l00035"></a><span class="lineno"><a class="code" href="class_ui.html#a99afdc4dabf4ac84b7b72983303c9e48">   35</a></span>&#160;    sf::Text <a class="code" href="class_ui.html#a99afdc4dabf4ac84b7b72983303c9e48">rightSideSecondaryStats</a>;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="code" href="class_ui.html#a2cfbbd8582a647d7536dba151a050136">   37</a></span>&#160;    sf::Text <a class="code" href="class_ui.html#a2cfbbd8582a647d7536dba151a050136">healthText</a>;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
-<div class="line"><a name="l00039"></a><span class="lineno"><a class="code" href="class_ui.html#ac92f308e2bafbbd0ce7f2ab9c92c9e67">   39</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="class_ui.html#ac92f308e2bafbbd0ce7f2ab9c92c9e67">healthRotation</a>;</div>
-<div class="line"><a name="l00040"></a><span class="lineno"><a class="code" href="class_ui.html#a5e0f740d23ea223e132d6dcac358c0b7">   40</a></span>&#160;    <span class="keywordtype">short</span> <a class="code" href="class_ui.html#a5e0f740d23ea223e132d6dcac358c0b7">m_shFrameCount</a>;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="code" href="class_ui.html#a99145b77f85d5287f4797ae43ee182b8">   10</a></span>&#160;    sf::View <a class="code" href="class_ui.html#a99145b77f85d5287f4797ae43ee182b8">m_view</a>;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="code" href="class_ui.html#af2377bad3bd9dbf4013a01bc61462c91">   12</a></span>&#160;    sf::Texture <a class="code" href="class_ui.html#af2377bad3bd9dbf4013a01bc61462c91">m_uiBackground</a>;</div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="code" href="class_ui.html#a5f24530ee9386bb98fc65d94c7799caf">   13</a></span>&#160;    sf::Sprite <a class="code" href="class_ui.html#a5f24530ee9386bb98fc65d94c7799caf">m_uiBackgroundSprite</a>;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="code" href="class_ui.html#a395a4f0d895f156a44eddafd0a8dac36">   15</a></span>&#160;    sf::Texture <a class="code" href="class_ui.html#a395a4f0d895f156a44eddafd0a8dac36">m_healthDiamond</a>;</div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="code" href="class_ui.html#aaf2450c7111c9322c36e170cf059a8c3">   16</a></span>&#160;    sf::Sprite <a class="code" href="class_ui.html#aaf2450c7111c9322c36e170cf059a8c3">m_healthDiamondSprite</a>;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="code" href="class_ui.html#a0a7725eff0766f3a93f47bae9d23e4af">   18</a></span>&#160;    sf::Texture <a class="code" href="class_ui.html#a0a7725eff0766f3a93f47bae9d23e4af">m_iconFireball</a>;</div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="code" href="class_ui.html#a12201c4dc0c19913d998dc90607cdd62">   19</a></span>&#160;    sf::Sprite <a class="code" href="class_ui.html#a12201c4dc0c19913d998dc90607cdd62">m_iconFireballSprite</a>;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="code" href="class_ui.html#a68b0487f1ec560d7f7b27fa3fbafff64">   21</a></span>&#160;    sf::Texture <a class="code" href="class_ui.html#a68b0487f1ec560d7f7b27fa3fbafff64">m_iconSword</a>;</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="code" href="class_ui.html#a0832e9ab28dd02ff9eb724948262f88b">   22</a></span>&#160;    sf::Sprite <a class="code" href="class_ui.html#a0832e9ab28dd02ff9eb724948262f88b">m_iconSwordSprite</a>;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="code" href="class_ui.html#a0f03494d2b0d675be1ae535b5226cc10">   24</a></span>&#160;    sf::Texture <a class="code" href="class_ui.html#a0f03494d2b0d675be1ae535b5226cc10">m_iconEmpty</a>;</div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="code" href="class_ui.html#a62bac0ee53d1fcef478e2801a9b5a06a">   25</a></span>&#160;    sf::Sprite <a class="code" href="class_ui.html#a62bac0ee53d1fcef478e2801a9b5a06a">m_iconEmptySpriteArray</a>[3];</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="code" href="class_ui.html#af24b8c67e7fe868242e2c173b67a89ea">   27</a></span>&#160;    sf::Texture <a class="code" href="class_ui.html#af24b8c67e7fe868242e2c173b67a89ea">m_iconHeal</a>;</div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="code" href="class_ui.html#ac7fa7f86d5c29e34dbce6c719faf4e1e">   28</a></span>&#160;    sf::Sprite <a class="code" href="class_ui.html#ac7fa7f86d5c29e34dbce6c719faf4e1e">m_iconHealSprite</a>;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="code" href="class_ui.html#a20e98fb1a005d1399722c9e212c5af87">   30</a></span>&#160;    sf::Texture <a class="code" href="class_ui.html#a20e98fb1a005d1399722c9e212c5af87">m_increaseButtonGray</a>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="code" href="class_ui.html#a4a3a564ee28113382f9115e3db237781">   31</a></span>&#160;    sf::Texture <a class="code" href="class_ui.html#a4a3a564ee28113382f9115e3db237781">m_increaseButtonRed</a>;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="code" href="class_ui.html#a8e7f880a8af483420be5c9d7c7ea606e">   33</a></span>&#160;    sf::Sprite <a class="code" href="class_ui.html#a8e7f880a8af483420be5c9d7c7ea606e">increaseButtonSpriteArray</a>[6];</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="code" href="class_ui.html#acebef14cafd90a26deefd65af6cbc542">   34</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_ui.html#acebef14cafd90a26deefd65af6cbc542">increasable</a>[6];</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="code" href="class_ui.html#aa0ee0dcee74686374c58d30faca9c447">   35</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_ui.html#aa0ee0dcee74686374c58d30faca9c447">m_bFading</a>;</div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="code" href="class_ui.html#a9e7fc995e93be574d95f601467698ff8">   36</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_ui.html#a9e7fc995e93be574d95f601467698ff8">m_bHasFaded</a>;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    </div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="code" href="class_ui.html#af43ecc3809e7856b36fb24e2c586014b">   38</a></span>&#160;    std::vector&lt;FloatingText *&gt; <a class="code" href="class_ui.html#af43ecc3809e7856b36fb24e2c586014b">m_ftFloatingTextEntities</a>;</div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="code" href="class_ui.html#afd5abaa26efb3e4d8dd6da8642c7158a">   39</a></span>&#160;    std::vector&lt;short *&gt; <a class="code" href="class_ui.html#afd5abaa26efb3e4d8dd6da8642c7158a">m_shvPlayerStats</a>;</div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="code" href="class_ui.html#afee8ec99170a121327d9726a92a682d2">   40</a></span>&#160;    <span class="keywordtype">float</span>* <a class="code" href="class_ui.html#afee8ec99170a121327d9726a92a682d2">m_fCriticalChance</a>;</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <a class="code" href="class_ui.html#a6e07807d24fb5874a7e51d7ff0196236">Ui</a>();</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <a class="code" href="class_ui.html#a7a0333fdf87c857f3b780015ee8e3bd9">~Ui</a>();</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_ui.html#a976b76f654968fe46b82c5b81ccad6e9">loadContent</a>();</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_ui.html#adbad3bcc6a2fa2635d578ffe2ee2b210">unloadContent</a>();</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_ui.html#ab52b73941643ec0fc7d40ea6ff022471">update</a>(<a class="code" href="class_player.html">Player</a>* player);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_ui.html#acbba9efd0b9d2b47833bd80a0fd35614">draw</a>();    </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;};</div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="code" href="class_ui.html#a777efdf6712f47aa53a34c44772ea539">   42</a></span>&#160;    sf::Font <a class="code" href="class_ui.html#a777efdf6712f47aa53a34c44772ea539">font</a>;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="code" href="class_ui.html#a98b2decf72a2b3deb79247c55a21de75">   44</a></span>&#160;    sf::Text <a class="code" href="class_ui.html#a98b2decf72a2b3deb79247c55a21de75">rightSideText</a>;</div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="code" href="class_ui.html#ac2eb74422a62d12d98d00d917490e382">   45</a></span>&#160;    sf::Text <a class="code" href="class_ui.html#ac2eb74422a62d12d98d00d917490e382">rightSideStats</a>;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="code" href="class_ui.html#af7ef60a5abd16f9bfe44626043fe4adc">   47</a></span>&#160;    sf::Text <a class="code" href="class_ui.html#af7ef60a5abd16f9bfe44626043fe4adc">rightSideSecondaryText</a>;</div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="code" href="class_ui.html#a99afdc4dabf4ac84b7b72983303c9e48">   48</a></span>&#160;    sf::Text <a class="code" href="class_ui.html#a99afdc4dabf4ac84b7b72983303c9e48">rightSideSecondaryStats</a>;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="code" href="class_ui.html#a2cfbbd8582a647d7536dba151a050136">   50</a></span>&#160;    sf::Text <a class="code" href="class_ui.html#a2cfbbd8582a647d7536dba151a050136">healthText</a>;</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; std::string <a class="code" href="_ui_8cpp.html#a5116afea572c49cccf1bff6f51f66dbc">numberToString</a> ( T Number );</div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="code" href="class_ui.html#a017caca674d7ea2c4be8acb47ef3eb8c">   52</a></span>&#160;    sf::Text <a class="code" href="class_ui.html#a017caca674d7ea2c4be8acb47ef3eb8c">iconText</a>[5];</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="code" href="class_ui.html#a88632608e8c9876b6d53bb9c73b8299d">   54</a></span>&#160;    sf::RectangleShape <a class="code" href="class_ui.html#a88632608e8c9876b6d53bb9c73b8299d">fadeRect</a>;</div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="code" href="class_ui.html#acaab4582a9279209ff1e89e90492fb2d">   55</a></span>&#160;    sf::Color <a class="code" href="class_ui.html#acaab4582a9279209ff1e89e90492fb2d">color</a>;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="code" href="class_ui.html#ac92f308e2bafbbd0ce7f2ab9c92c9e67">   57</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="class_ui.html#ac92f308e2bafbbd0ce7f2ab9c92c9e67">healthRotation</a>;</div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="code" href="class_ui.html#a5e0f740d23ea223e132d6dcac358c0b7">   58</a></span>&#160;    <span class="keywordtype">short</span> <a class="code" href="class_ui.html#a5e0f740d23ea223e132d6dcac358c0b7">m_shFrameCount</a>;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <a class="code" href="class_ui.html#a6e07807d24fb5874a7e51d7ff0196236">Ui</a>();</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <a class="code" href="class_ui.html#a7a0333fdf87c857f3b780015ee8e3bd9">~Ui</a>();</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_ui.html#a0ae6e0b4bfe7aa0adcdce555d8eba917">addFloatingText</a>(std::string message, <a class="code" href="class_vector2f.html">Vector2f</a> position, sf::Color <a class="code" href="class_ui.html#acaab4582a9279209ff1e89e90492fb2d">color</a>);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_ui.html#a976b76f654968fe46b82c5b81ccad6e9">loadContent</a>();</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_ui.html#adbad3bcc6a2fa2635d578ffe2ee2b210">unloadContent</a>();</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_ui.html#a407bc6f9563f5e88d93344c6eaada44b">update</a>();</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_ui.html#a07f92e0d044a034b9972d9b96d549070">processEvents</a>(sf::Event event);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_ui.html#acbba9efd0b9d2b47833bd80a0fd35614">draw</a>();    </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_ui.html#a0fe5abf33c592eb163eaca5d267f828f">fadeOut</a>();</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_ui.html#a2dc64869e16ef03b9c4361429ee1af93">hasFaded</a>();</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_ui.html#aa7a21066365315e98f7d5eef4b1366bd">initialize</a>(<span class="keywordtype">short</span>* strength, <span class="keywordtype">short</span>* intellect, <span class="keywordtype">short</span>* toughness, <span class="keywordtype">short</span>* speed,</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                    <span class="keywordtype">short</span>* currentSouls, <span class="keywordtype">short</span>* weaponLevel, <span class="keywordtype">short</span>* armorLevel, <span class="keywordtype">short</span>* currHp,</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                    <span class="keywordtype">short</span>* maxHealth, <span class="keywordtype">short</span>* meleeDamage, <span class="keywordtype">short</span>* spellDamage, <span class="keywordtype">float</span>* critChance);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; std::string <a class="code" href="class_ui.html#a6a7b83d15573762ef1ceaa9006fbe818">numberToString</a> ( T Number );</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_5e5f3a715e7f4bae10d417bd6733b721.html">GameProject</a></li><li class="navelem"><a class="el" href="dir_34cc078ae5f7d305ee8fab46b09a011f.html">GameProject</a></li><li class="navelem"><a class="el" href="_ui_8h.html">Ui.h</a></li>
-    <li class="footer">Generated on Mon Nov 26 2012 12:45:41 for Corrupted by
+    <li class="footer">Generated on Sat Dec 22 2012 23:24:42 for Corrupted by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.2 </li>
   </ul>
