@@ -74,6 +74,21 @@ Vector2f Vector2f::operator/ (float scalar)
 	return Vector2f(x / scalar, y / scalar);
 }
 
+/// Subtracts the scalar from all components. 
+void Vector2f::operator-= (float scalar)
+{
+	x = x - scalar;
+	y = y - scalar;
+}
+
+/// Adds the scalar to all components.
+void Vector2f::operator+= (float scalar)
+{
+	x = x + scalar;
+	y = y + scalar;
+}
+
+
 
 
 ////////////////////// PRODUCTS ///////////////////////

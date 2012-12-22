@@ -19,19 +19,27 @@ sf::Sprite Actor::getSprite()
 
 void Actor::setPosition(Vector2f newPos)
 {
-	
 	m_Position.x = newPos.x;
 	m_Position.y = newPos.y;
 
-	m_Sprite.setPosition(newPos.x, newPos.y);
+	m_Sprite.setPosition(m_Position.x, m_Position.y);
+}
+
+/// Moves the position of the actor by the amount specified. 
+void Actor::movePosition(float xChange, float yChange)
+{
+	m_Position.x += xChange;
+	m_Position.y += yChange;
+
+	m_Sprite.move(xChange, yChange);
 }
 
 Vector2f* Actor::getPosition()
 {
 	m_Position.x = m_Sprite.getPosition().x;
 	m_Position.y = m_Sprite.getPosition().y;
-	return &m_Position;
 	
+	return &m_Position;
 }
 
 Vector2f* Actor::getSpritePosition(){

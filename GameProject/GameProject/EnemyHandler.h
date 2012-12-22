@@ -18,6 +18,7 @@ protected:
 	short m_HorizontalSize;	
 	std::vector<bool>* collisionMap;
 	std::vector<Enemy*> m_EnemyVector;
+	Vector2f* m_pPlayerPos;
 
 	std::vector<Vector2f>* m_EnemySpawnPoints;
 	Vector2f randomSpawnPoint;
@@ -33,11 +34,11 @@ public:
 	~EnemyHandler();
 
 	void setUserInterface(Ui* ui);
-	void loadContent(EnvironmentHandler* level);
+	void loadContent(EnvironmentHandler* level, Vector2f* playerPos);
 	void unloadContent();
 	void setCollisionMap(std::vector<bool>* collisionMap, int horizontalSize);
 	void draw();
-	void update(Vector2f* playerPos);
+	void update();
 	std::vector<Enemy*>* getEnemyVector( );
 
 	void createEnemy(int toBeCreated);

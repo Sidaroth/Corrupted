@@ -25,12 +25,12 @@ EnemyHandler::~EnemyHandler()
 	}
 }
 
-void EnemyHandler::loadContent(EnvironmentHandler* level)
+void EnemyHandler::loadContent(EnvironmentHandler* level, Vector2f* playerPos)
 {
+	m_pPlayerPos = playerPos;
 	m_Level = level;
 	m_EnemyFactory -> loadContent();
 	m_EnemyVector.reserve(25);
-
 
 	m_EnemySpawnPoints = level->getEnemySpawnPoints();
 	numberOfSpawnPoints = m_EnemySpawnPoints->size();
@@ -63,7 +63,7 @@ void EnemyHandler::draw()
 	}
 }
 
-void EnemyHandler::update(Vector2f* playerPos)
+void EnemyHandler::update()
 {
 	for(std::vector<Enemy*>::iterator enemy = m_EnemyVector.begin(); enemy != m_EnemyVector.end();)
 	{
@@ -73,7 +73,7 @@ void EnemyHandler::update(Vector2f* playerPos)
 		}
 		else
 		{
-			(*enemy) -> update(playerPos);
+			(*enemy) -> update();
 			++enemy;
 		}
 	}
@@ -117,7 +117,7 @@ void EnemyHandler::createEnemy(int toBeCreated)
 
 		if((*newlyCreatedEnemy) != NULL)
 		{		
-			(*newlyCreatedEnemy) -> loadContent();
+			(*newlyCreatedEnemy) -> loadContent(m_pPlayerPos);
 		}
 		else
 		{

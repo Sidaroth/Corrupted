@@ -12,6 +12,7 @@ public:
 	Skeleton(std::vector<sf::Texture>* textures, short level);
 	~Skeleton();
 	void draw();
-	void update(Vector2f* playerPos);
-	bool loadContent();
+	bool loadContent(Vector2f* playerPos);
+
+	//void update();
 };
