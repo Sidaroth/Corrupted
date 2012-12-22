@@ -32,7 +32,9 @@ protected:
 	short m_VerticalBitmapSize;
 	std::vector<Vector2f*> m_Path;
 	Vector2f* pathStep;
+	Vector2f* m_pPlayerPos;
 
+	short frameCount;
 	short squaresChecked;			// total number of items added to the open list. 
 	short tilesChecked;				// total number of items added to the closed list. 
 	
@@ -65,14 +67,18 @@ protected:
 public:
 	~Enemy();
 	virtual void draw() = 0;
-	virtual void update(Vector2f* playerPos) = 0;
-	virtual bool loadContent() = 0;
+	virtual bool loadContent(Vector2f* playerPos) = 0;
+	
+	void update();
 	void setCollisionMap(std::vector<bool>* collisionMap, int horizontalSize);
 	
 	std::vector<Projectile*>* getProjectile( );
 	
 	short findPath(int startX, int startY, int goalX, int goalY);
 	bool isDead();
+	bool hasAttacked();
+	void stopAttack();
+
 	void insertIntoOpenList(short column, short row);
 	void selectFromOpenList();
 	void initializePathFind();

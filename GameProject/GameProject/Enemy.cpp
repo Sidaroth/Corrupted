@@ -1,5 +1,126 @@
 ﻿#include "Enemy.h"
 
+
+void Enemy::update()
+{
+	Character::update();
+	frameCount++;
+
+	animation();
+	if(!m_bDead)
+	{
+		float xPos = m_Sprite.getPosition().x;
+		float yPos = m_Sprite.getPosition().y;
+		short halfTile = TILESIZE / 2;
+
+		pathLocation = m_Path.size() - 1;
+		short direction = -1;
+
+		if(pathLocation >= 0) // If there are any pathsteps. 
+		{
+			pathStep = m_Path[pathLocation];
+			float stepX = pathStep -> x + halfTile;		// Check for middle of tile. 
+			float stepY = pathStep -> y + halfTile;
+
+			if((xPos + TILESIZE) < stepX)	// right side
+			{
+				direction = 2;			// east
+			}
+			else if(xPos > stepX)			// left side
+			{
+				direction = 6;			// West
+			}
+			else
+			{
+				xStepGoalReached = true;
+			}
+
+			if((yPos + TILESIZE) < stepY)	// bottom
+			{
+				if(direction == 2)	
+				{
+					direction++;		// south-East
+				}
+				else if(direction == 6)	
+				{
+					direction--;		// south-west
+				}
+				else
+				{
+					direction = 4;		// south.
+				}
+			}
+			else if(yPos > stepY)	// top 
+			{
+				if(direction == 2)
+				{
+					direction--;  // north east
+				}
+				else if(direction == 6)
+				{
+					direction++;	// north-west.
+				}
+				else
+				{
+					direction = 0;	// north
+				}
+
+			}
+			else
+			{
+				yStepGoalReached = true;
+			}
+
+			if(direction != -1)
+			{
+				move(direction);
+			}
+
+			if(xStepGoalReached && yStepGoalReached)
+			{
+				m_Path.erase(m_Path.end() - 1);
+				xStepGoalReached = false;
+				yStepGoalReached = false;
+			}
+		}
+		else
+		{
+			if(abs(m_pPlayerPos -> x - xPos) < m_fAttackRange &&	// TODO: Check 4 edges of target and self. 
+			   abs(m_pPlayerPos -> y - yPos) < m_fAttackRange)
+			{
+				m_bTryAttack = true;
+				m_Sprite.setTexture((*m_TextureTypes[ATTACK]));
+			}
+
+			else
+			{
+				m_bTryAttack = false;
+				findPath(xPos, yPos, m_pPlayerPos -> x, m_pPlayerPos -> y);
+			}
+		}
+	}
+}
+
+bool Enemy::hasAttacked()
+{
+	if(m_bTryAttack && frameCount % 60 == 0)
+	{
+		m_bAttacked = true;
+	}
+	else
+	{
+		m_bAttacked = false;
+	}
+
+	return (m_bTryAttack && m_bAttacked);
+}
+
+void Enemy::stopAttack()
+{
+	m_bTryAttack = false;
+	m_bAttacked = false;
+}
+
 /// Sets the collision map for the enemy, and the width and height of the world. Refers to memory address of the map inside the environment. 
 void Enemy::setCollisionMap(std::vector<bool>* collisionMap, int horizontalSize)
 {

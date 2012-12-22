@@ -234,11 +234,15 @@ void Character::setEnvironmentLevel(EnvironmentHandler* environmentLevel)
 void Character::move(short direction) // 0=N, 1=NE, 2=E, 3=SE, 4=S, 5=SW, 6=W, 7=NW
 {
 	changeAnimationToWalk();
+	
 	Vector2f newPosition;
+
 	newPosition.x = m_Sprite.getPosition().x;
 	newPosition.y = m_Sprite.getPosition().y;
+
 	float diagonalSpeed = (float)(m_shSpeed * (2.f / 3.f ));
 	float orthogonalSpeed = (float)(m_shSpeed * (3.f / 4.f ));
+
 	switch (direction)
 	{	
 		case NORTH:
@@ -247,7 +251,8 @@ void Character::move(short direction) // 0=N, 1=NE, 2=E, 3=SE, 4=S, 5=SW, 6=W, 7
 			
 			if( m_environmentLevel -> checkCollision( newPosition ) )
 			{
-				m_Sprite.move(0,-orthogonalSpeed);
+				movePosition(0, -orthogonalSpeed);
+				//m_Sprite.move(0,-orthogonalSpeed);
 			}
 		break;
 
@@ -257,14 +262,14 @@ void Character::move(short direction) // 0=N, 1=NE, 2=E, 3=SE, 4=S, 5=SW, 6=W, 7
 			
 			if( m_environmentLevel -> checkCollision( newPosition ) )
 			{
-				m_Sprite.move(diagonalSpeed, 0);
+				movePosition(diagonalSpeed, 0);
 			}
-			newPosition.x -= 2.1f; //back to original x position
-			newPosition.y -= diagonalSpeed;
+
+			newPosition -= diagonalSpeed;  // x back to original, change y. 
 			
 			if( m_environmentLevel -> checkCollision( newPosition ) )
 			{
-				m_Sprite.move(0,-diagonalSpeed);
+				movePosition(0, -diagonalSpeed);
 			}
 		break;
 
@@ -274,24 +279,25 @@ void Character::move(short direction) // 0=N, 1=NE, 2=E, 3=SE, 4=S, 5=SW, 6=W, 7
 
 			if( m_environmentLevel -> checkCollision( newPosition ) )
 			{
-				m_Sprite.move(orthogonalSpeed,0);
+				movePosition(orthogonalSpeed, 0);
 			}
 		break;
 
 		case SOUTH_EAST:
-			newPosition.x += (float)(m_shSpeed * (2.f / 3.f));
+			newPosition.x += diagonalSpeed;
 			setBitmapRow( SOUTH_EAST );
 
 			if( m_environmentLevel -> checkCollision( newPosition ) )
 			{
-				m_Sprite.move(diagonalSpeed,0);
+				movePosition(diagonalSpeed, 0);
 			}
+
 			newPosition.x -= diagonalSpeed; //back to original x position
-			newPosition.y += diagonalSpeed;
+			newPosition.y += diagonalSpeed; 
 			
 			if( m_environmentLevel -> checkCollision( newPosition ) )
 			{
-				m_Sprite.move(0, diagonalSpeed);
+				movePosition(0, diagonalSpeed);
 			}
 		break;
 
@@ -301,7 +307,7 @@ void Character::move(short direction) // 0=N, 1=NE, 2=E, 3=SE, 4=S, 5=SW, 6=W, 7
 		
 			if( m_environmentLevel -> checkCollision( newPosition ) )
 			{
-				m_Sprite.move(0, orthogonalSpeed);
+				movePosition(0, orthogonalSpeed);
 			}
 		break;
 
@@ -311,14 +317,14 @@ void Character::move(short direction) // 0=N, 1=NE, 2=E, 3=SE, 4=S, 5=SW, 6=W, 7
 		
 			if( m_environmentLevel -> checkCollision( newPosition ) )
 			{
-				m_Sprite.move(-diagonalSpeed, 0);
+				movePosition(-diagonalSpeed, 0);
 			}
-			newPosition.x += diagonalSpeed; //back to original x position
-			newPosition.y += diagonalSpeed;
+
+			newPosition += diagonalSpeed;
 			
 			if( m_environmentLevel -> checkCollision( newPosition ) )
 			{
-				m_Sprite.move(0, diagonalSpeed);
+				movePosition(0, diagonalSpeed);
 			}
 		break;
 
@@ -328,7 +334,7 @@ void Character::move(short direction) // 0=N, 1=NE, 2=E, 3=SE, 4=S, 5=SW, 6=W, 7
 		
 			if( m_environmentLevel -> checkCollision( newPosition ) )
 			{
-				m_Sprite.move(-orthogonalSpeed, 0);
+				movePosition(-orthogonalSpeed, 0);
 			}
 			break;
 
@@ -338,14 +344,15 @@ void Character::move(short direction) // 0=N, 1=NE, 2=E, 3=SE, 4=S, 5=SW, 6=W, 7
 
 			if( m_environmentLevel -> checkCollision( newPosition ) )
 			{
-				m_Sprite.move(-diagonalSpeed, 0);
+				movePosition(-diagonalSpeed, 0);
 			}
+
 			newPosition.x += diagonalSpeed; //back to original x position
 			newPosition.y -= diagonalSpeed;
 			
 			if( m_environmentLevel -> checkCollision( newPosition ) )
 			{
-				m_Sprite.move(0, -diagonalSpeed);
+				movePosition(0, -diagonalSpeed);
 			}
 		break;
 	}

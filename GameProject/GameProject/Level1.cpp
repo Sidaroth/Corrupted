@@ -18,9 +18,10 @@ Level1::~Level1()
 
 void Level1::loadContent()
 {
-	superLoadContent();
+	superLoadContent();	// Important that this goes first...
 
-	m_EnemyHandler -> loadContent(m_Level);
+	std::cout << "playerPos: " << player -> getPosition();
+	m_EnemyHandler -> loadContent(m_Level, player -> getPosition());
 	m_EnemyHandler -> setCollisionMap(m_Level -> getObjectVector(), m_Level -> getHorizontalBitmapSize());
 	
 }

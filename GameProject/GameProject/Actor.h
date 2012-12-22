@@ -41,6 +41,7 @@ public:
 	// Do we need all these constructors?
 	Vector2f* getSpritePosition();
 	void setPosition(Vector2f newPos);
+	void movePosition(float xChange, float yChange);
 	void draw();
 	sf::Sprite getSprite();
 	Actor();

@@ -4,7 +4,7 @@
 //	Author:		Christian Holt										  //
 //	Created:	06/10/2012											  //
 //  Revised:	26/11/2012											  //
-//				**/**/****											  //
+//				22/12/2012											  //
 //																	  //
 ////////////////////////////////////////////////////////////////////////
 
@@ -15,7 +15,7 @@
 
 class Vector2f
 {
-public:		// Hmm private??
+public:		// Hmm private?
 	float x;
 	float y;
 
@@ -36,6 +36,8 @@ public:		// Hmm private??
 	// Scalar operators
 	Vector2f operator* (float scalar);		// Returns the vector with all components multiplied by the scalar parameter
 	Vector2f operator/ (float scalar);		// Returns the vector with all components divided by the scalar parameter
+	void operator-= (float scalar);			// Subtracts the scalar from all components. 
+	void operator+= (float scalar);			// Adds the scalar to all components.
 
 	// products
 	float dot (Vector2f vector);			// returns the DOT product between the the two vectors

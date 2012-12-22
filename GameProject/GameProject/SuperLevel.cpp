@@ -1,6 +1,6 @@
 #include "SuperLevel.h"
 #include "StateHandler.h"
-// TEMPORARY!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// TEMPORARY!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 #include "TitleScreen.h"
 #include "SplashScreen.h"
 #include "Highscore.h"
@@ -118,7 +118,7 @@ void SuperLevel::update()
 
 	keyControl->keyboardInput();
 
-	m_EnemyHandler -> update(player -> getPosition());
+	m_EnemyHandler -> update();
 	
 	m_Viewport.setCenter(player -> getXPosition(), player -> getYPosition());
 }
