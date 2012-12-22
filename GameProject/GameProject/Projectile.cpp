@@ -80,10 +80,10 @@ void Projectile::move( )
 	m_Position.x = newX;
 	m_Position.y = newY;
 
-	if( m_shTraveled < 500 )
+	if( m_shTraveled < 1024 )
 	{
-		m_shTraveled += 10 * sin( m_fAngle );
-		m_shTraveled +=	10 * cos( m_fAngle );
+		m_shTraveled += abs(10 * sin( m_fAngle ));
+		m_shTraveled +=	abs(10 * cos( m_fAngle ));
 	}
 	else
 	{
