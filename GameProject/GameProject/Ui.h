@@ -22,7 +22,10 @@ private:
 	sf::Sprite m_iconSwordSprite;
 
 	sf::Texture m_iconEmpty;
-	sf::Sprite m_iconEmptySpriteArray[4];
+	sf::Sprite m_iconEmptySpriteArray[3];
+
+	sf::Texture m_iconHeal;
+	sf::Sprite m_iconHealSprite;
 
 	sf::Texture m_increaseButtonGray;
 	sf::Texture m_increaseButtonRed;
