@@ -4,12 +4,17 @@
 #include "Environment.h"
 #include "Projectile.h"
 #include "Ui.h"
+#include "AudioManager.h"
 
 #define bgColor sf::Color(106, 76, 48)
+#define BASE_STAT 5
 
 class Character : public Actor
 {
 private: 
+
+	
+
 	short m_shBitmapRow;		/// What frame of the animation from the spritesheet to display
 	short m_shBitmapCol;		/// What animation to display from the spritesheet
 	short m_shFrameCount;
@@ -35,8 +40,10 @@ protected:
 
 	sf::Clock m_iCoolDown;
 
-	short m_shHealCoolDown;
-	short m_shFireballCoolDown;
+	float m_fHealCoolDown;
+	float m_fFireballCoolDown;
+
+	AudioManager audio_manager;
 
 	Ui* userInterface;
 
