@@ -16,6 +16,8 @@ Character::Character() : Actor()
 	m_shFrameCount = 0;
 	m_shMaxHealth = 50;
 	
+	m_shHealCoolDown = (int)m_iCoolDown.getElapsedTime().asSeconds();
+	m_shFireballCoolDown = (int)m_iCoolDown.getElapsedTime().asSeconds();
 	m_shCurrentHealth = m_shMaxHealth;
 
 	m_bDead = false;
@@ -364,29 +366,36 @@ void Character::castSpell( Vector2f mouseCoordinates, short spell )
 {
 	if( m_bAbilities[spell] )
 	{
-		for( unsigned int i = 0; i < m_vProjectiles.size( ); i++ )
+		if((int)m_iCoolDown.getElapsedTime().asSeconds() >= m_shFireballCoolDown) //Need || on other spells if we get that far
 		{
-			if( !m_vProjectiles[i]->exist( ) )
+			if(spell == FIREBALL)
 			{
-				short spellDamage;
-				if(rand() % 100 < m_fCriticalChance)
-				{
-					spellDamage = m_shSpellDamage * 2;
-				}
-				else
-				{
-					spellDamage = m_shSpellDamage;
-				}
-
-				m_vProjectiles[i]->initiate( spell, spellDamage, m_Position, mouseCoordinates );
-				i = m_vProjectiles.size( ) + 1;
+				m_shFireballCoolDown = (int)m_iCoolDown.getElapsedTime().asSeconds() + 1;
 			}
-			else if ( i == m_vProjectiles.size( ) - 1 )
+			for( unsigned int i = 0; i < m_vProjectiles.size( ); i++ )
 			{
-				Projectile* projectile = new Projectile;
-				projectile -> loadContent( );
-				projectile -> setEnvironmentObjects( m_environmentLevel -> getObjectVector( ), m_environmentLevel -> getHorizontalBitmapSize( ) );
-				m_vProjectiles.push_back( projectile );
+				if( !m_vProjectiles[i]->exist( ) )
+				{
+					short spellDamage;
+					if(rand() % 100 < m_fCriticalChance)
+					{
+						spellDamage = m_shSpellDamage * 2;
+					}
+					else
+					{
+						spellDamage = m_shSpellDamage;
+					}
+
+					m_vProjectiles[i]->initiate( spell, spellDamage, m_Position, mouseCoordinates );
+					i = m_vProjectiles.size( ) + 1;
+				}
+				else if ( i == m_vProjectiles.size( ) - 1 )
+				{
+					Projectile* projectile = new Projectile;
+					projectile -> loadContent( );
+					projectile -> setEnvironmentObjects( m_environmentLevel -> getObjectVector( ), m_environmentLevel -> getHorizontalBitmapSize( ) );
+					m_vProjectiles.push_back( projectile );
+				}
 			}
 		}
 	}
@@ -439,4 +448,13 @@ bool Character::takeDamage( short damage )
 	}
 
 	return false;
+}
+
+void Character::heal()
+{
+	if((int)m_iCoolDown.getElapsedTime().asSeconds() >= m_shHealCoolDown)
+	{
+		m_shHealCoolDown = (int)m_iCoolDown.getElapsedTime().asSeconds() + 5;
+		takeDamage(-m_shSpellDamage);
+	}
 }

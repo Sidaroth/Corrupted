@@ -33,6 +33,11 @@ protected:
 
 	bool m_bDead;
 
+	sf::Clock m_iCoolDown;
+
+	short m_shHealCoolDown;
+	short m_shFireballCoolDown;
+
 	Ui* userInterface;
 
 	~Character();
@@ -80,5 +85,6 @@ public:
 	void endAction();
 	bool isDoingAction();
 	void castSpell( Vector2f mouseCoordinates, short spell );
+	void heal();
 	virtual bool takeDamage( short damage );
 };

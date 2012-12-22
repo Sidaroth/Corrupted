@@ -47,6 +47,11 @@ bool Ui::loadContent()
 		return EXIT_FAILURE;
 	}
 
+	if(!m_iconHeal.loadFromFile("../../Resources/heal_icon.PNG"))
+	{
+		return EXIT_FAILURE;
+	}
+
 	if(!m_iconEmpty.loadFromFile("../../Resources/empty_icon.PNG"))
 	{
 		return EXIT_FAILURE;
@@ -84,15 +89,19 @@ bool Ui::loadContent()
 	m_iconFireballSprite.setScale(0.55, 0.55);
 	m_iconFireballSprite.setPosition(860, 680);
 
+	m_iconHealSprite.setTexture(m_iconHeal);
+	m_iconHealSprite.setScale(0.55, 0.55);
+	m_iconHealSprite.setPosition(455, 680);
+
 	m_iconSwordSprite.setTexture(m_iconSword);
 	m_iconSwordSprite.setScale(0.55, 0.55);
 	m_iconSwordSprite.setPosition(779, 680);
 
-	for (int i = 0; i <= 3; i++)
+	for (int i = 0; i <= 2; i++)
 	{
 		m_iconEmptySpriteArray[i].setTexture(m_iconEmpty);
 		m_iconEmptySpriteArray[i].setScale(0.55, 0.55);
-		m_iconEmptySpriteArray[i].setPosition(455 + i*81, 680);
+		m_iconEmptySpriteArray[i].setPosition(536 + i*81, 680);
 	}
 
 	for (int i = 0; i <= 5; i++)
@@ -270,13 +279,14 @@ void Ui::draw()
 	StateHandler::getInstance().m_pWindow->draw(m_healthDiamondSprite);
 	StateHandler::getInstance().m_pWindow->draw(m_iconFireballSprite);
 	StateHandler::getInstance().m_pWindow->draw(m_iconSwordSprite);
+	StateHandler::getInstance().m_pWindow->draw(m_iconHealSprite);
 	StateHandler::getInstance().m_pWindow->draw(rightSideText);
 	StateHandler::getInstance().m_pWindow->draw(rightSideStats);
 	StateHandler::getInstance().m_pWindow->draw(rightSideSecondaryText);
 	StateHandler::getInstance().m_pWindow->draw(rightSideSecondaryStats);
 	StateHandler::getInstance().m_pWindow->draw(healthText);
 	
-	for (int i = 0; i <= 3; i++) 
+	for (int i = 0; i <= 2; i++) 
 	{
 		StateHandler::getInstance().m_pWindow->draw(m_iconEmptySpriteArray[i]);
 		StateHandler::getInstance().m_pWindow->draw(iconText[i]);

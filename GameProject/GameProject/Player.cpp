@@ -418,15 +418,27 @@ void Player::collisionCheck( )
 	}
 }
 
+/// check player dead, start highscore fade 
 void Player::die()
 {
-	m_bDead = true;
-	m_Sprite.setTexture((*m_TextureTypes[DIE]));
-	userInterface -> fadeOut();
+	if(!m_bDead)
+	{
+		m_bDead = true;
+		m_Sprite.setTexture((*m_TextureTypes[DIE]));
+		userInterface -> fadeOut();
+	}
+	
 }
 
 ///reduces damage taken by 1% per ArmorLevel
 bool Player::takeDamage( short damage )
 {
-	return Character::takeDamage( damage *= ( m_shArmorLevel / 100 ) );
+	if(damage > 0)
+	{
+		return Character::takeDamage( damage -= ((float)damage * (float)m_shArmorLevel / 100.f ) );
+	}
+	else
+	{
+		return Character::takeDamage( damage );
+	}
 }

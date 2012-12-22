@@ -157,6 +157,11 @@ void KeyboardController::keyboardInput()
 				m_Player->move( m_Player -> WEST );
 			}
 		}
+
+		if( sf::Keyboard::isKeyPressed(sf::Keyboard::Num1 ) )
+		{
+			m_Player->heal();
+		}
 	}
 }
 
