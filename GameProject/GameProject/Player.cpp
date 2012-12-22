@@ -241,15 +241,13 @@ bool Player::checkAttackCollision(short direction)
 
 			if (doDamage)
 			{
-				short damage;
+				short damage = m_shMeleeDamage;
+
 				if(rand() % 100 < m_fCriticalChance)
 				{
-					damage = m_shMeleeDamage * 2;
+					damage *= 2;
 				}
-				else
-				{
-					damage = m_shMeleeDamage;
-				}
+
 				if((*it) -> takeDamage( damage ))
 				{
 					modifySouls((*it) -> kill());		// kill and erase.
@@ -292,7 +290,7 @@ void Player::collisionCheck( )
 	bool doDamage;
 	bool doIncrement;
 
-	for (std::vector<Enemy*>::iterator it = m_EnemyVector -> begin(); it != m_EnemyVector -> end();)
+	for (std::vector<Enemy*>::iterator it = m_EnemyVector -> begin(); it != m_EnemyVector -> end(); ++it)
 	{
 		doIncrement = true;
 		enemyPosition =	(*it) -> getPosition( );
@@ -342,28 +340,39 @@ void Player::collisionCheck( )
 					if((*it) -> takeDamage( (m_vProjectiles[j]) -> getDamage()))	//damage to enemy
 					{
 							modifySouls((*it) -> kill());
-							//it = m_EnemyVector -> erase(it);
-							//doIncrement = false;
 					}
 
 					m_vProjectiles[j] -> setInvisible( );   //put the projectile back to be unused
 				}
 			}
 		}
-
-		if (doIncrement)
-		{
-			++it;
-		}
 	}
 
 
-	/////////Enemy Projectiles vs Player/////////////
+	/////////Enemy Projectiles & melee vs. Player/////////////
 
 	std::vector<Projectile*>* enemyProjectiles;
 
 	for (std::vector<Enemy*>::iterator it = m_EnemyVector -> begin(); it != m_EnemyVector -> end(); ++it)
 	{
+		if((*it) -> hasAttacked())
+		{
+			short damage = (*it) -> getMeleeDamage();
+
+			if(rand() % 100 < m_fCriticalChance)
+			{
+				damage *= 2;
+			}
+
+			if(takeDamage( damage )) // if damage to player is enough to kill. 
+			{
+				die();
+			}
+
+			(*it) -> stopAttack();
+		}
+
+
 		enemyProjectiles =	(*it) -> getProjectile( );
 		for ( std::vector<Projectile*>::iterator currProjectile = enemyProjectiles -> begin(); currProjectile != enemyProjectiles -> end(); ++currProjectile)
 		{
@@ -404,6 +413,7 @@ void Player::collisionCheck( )
 						doDamage = true;
 					}
 				}
+
 				if (doDamage)
 				{
 					if(takeDamage( (*currProjectile)->getDamage() )) // if damage to player is enough to kill. 

@@ -4,6 +4,7 @@
 void Enemy::update()
 {
 	Character::update();
+	frameCount++;
 
 	animation();
 	if(!m_bDead)
@@ -84,7 +85,7 @@ void Enemy::update()
 		}
 		else
 		{
-			if(abs(m_pPlayerPos -> x - xPos) < m_fAttackRange &&
+			if(abs(m_pPlayerPos -> x - xPos) < m_fAttackRange &&	// TODO: Check 4 edges of target and self. 
 			   abs(m_pPlayerPos -> y - yPos) < m_fAttackRange)
 			{
 				m_bTryAttack = true;
@@ -98,6 +99,26 @@ void Enemy::update()
 			}
 		}
 	}
+}
+
+bool Enemy::hasAttacked()
+{
+	if(m_bTryAttack && frameCount % 60 == 0)
+	{
+		m_bAttacked = true;
+	}
+	else
+	{
+		m_bAttacked = false;
+	}
+
+	return (m_bTryAttack && m_bAttacked);
+}
+
+void Enemy::stopAttack()
+{
+	m_bTryAttack = false;
+	m_bAttacked = false;
 }
 
 /// Sets the collision map for the enemy, and the width and height of the world. Refers to memory address of the map inside the environment. 

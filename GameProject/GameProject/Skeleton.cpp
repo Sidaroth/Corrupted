@@ -8,13 +8,15 @@ Skeleton::Skeleton(std::vector<sf::Texture>* textures, short level)
 	m_shToughness = level;
 	m_shSpeed = level;
 
+	frameCount = 0;
+
 
 	m_shSoulsToDrop = 10;
 	onClosedList = 10;
 	onOpenList = 1;
 	pathLength = UNDETERMINED;
 
-	m_fAttackRange = 48;
+	m_fAttackRange = TILESIZE / 2;
 
 	xStepGoalReached = false;
 	yStepGoalReached = false;
