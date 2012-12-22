@@ -4,14 +4,13 @@
 void Enemy::update()
 {
 	Character::update();
-	frameCount++;
 
 	animation();
 	if(!m_bDead)
 	{
 		float xPos = m_Sprite.getPosition().x;
 		float yPos = m_Sprite.getPosition().y;
-		short halfTile = TILESIZE / 2;
+		short quarterTile = TILESIZE / 4;
 
 		pathLocation = m_Path.size() - 1;
 		short direction = -1;
@@ -19,8 +18,8 @@ void Enemy::update()
 		if(pathLocation >= 0) // If there are any pathsteps. 
 		{
 			pathStep = m_Path[pathLocation];
-			float stepX = pathStep -> x + halfTile;		// Check for middle of tile. 
-			float stepY = pathStep -> y + halfTile;
+			float stepX = pathStep -> x + quarterTile;		// Check for middle of tile. 
+			float stepY = pathStep -> y + quarterTile;
 
 			if((xPos + TILESIZE) < stepX)	// right side
 			{
@@ -37,32 +36,32 @@ void Enemy::update()
 
 			if((yPos + TILESIZE) < stepY)	// bottom
 			{
-				if(direction == 2)	
+				if(direction == EAST)	
 				{
-					direction++;		// south-East
+					direction = SOUTH_EAST;		// south-East
 				}
-				else if(direction == 6)	
+				else if(direction == WEST)	
 				{
-					direction--;		// south-west
+					direction = SOUTH_WEST;		// south-west
 				}
 				else
 				{
-					direction = 4;		// south.
+					direction = SOUTH;		// south.
 				}
 			}
 			else if(yPos > stepY)	// top 
 			{
-				if(direction == 2)
+				if(direction == EAST)
 				{
-					direction--;  // north east
+					direction = NORTH_EAST;  // north east
 				}
-				else if(direction == 6)
+				else if(direction == WEST)
 				{
-					direction++;	// north-west.
+					direction = NORTH_WEST;	// north-west.
 				}
 				else
 				{
-					direction = 0;	// north
+					direction = NORTH;	// north
 				}
 
 			}
@@ -85,17 +84,36 @@ void Enemy::update()
 		}
 		else
 		{
-			if(abs(m_pPlayerPos -> x - xPos) < m_fAttackRange &&	// TODO: Check 4 edges of target and self. 
-			   abs(m_pPlayerPos -> y - yPos) < m_fAttackRange)
+			short attackGoalX = m_pPlayerPos -> x + quarterTile;
+			short attackGoalY = m_pPlayerPos -> x + quarterTile;
+
+			// if coming from the left, and within attackRange.
+			if(xPos < attackGoalX && abs((xPos + TILESIZE) - (attackGoalX)) < m_fAttackRange)
 			{
 				m_bTryAttack = true;
-				m_Sprite.setTexture((*m_TextureTypes[ATTACK]));
 			}
-
-			else
+			else if(xPos >= attackGoalX && abs((xPos) - (attackGoalX)) < m_fAttackRange)	// Coming from the right
+			{
+				m_bTryAttack = true;
+			}
+			else if(yPos < attackGoalY && abs((yPos + TILESIZE) - (attackGoalY)) < m_fAttackRange)	// From above.
+			{
+				m_bTryAttack = true;
+			}
+			else if(yPos >= attackGoalY && abs((yPos) - (attackGoalY)) < m_fAttackRange)		// From below. 
+			{
+				m_bTryAttack = true;
+			}
+			else	// Not within range. 
 			{
 				m_bTryAttack = false;
 				findPath(xPos, yPos, m_pPlayerPos -> x, m_pPlayerPos -> y);
+			}
+
+			if(m_bTryAttack)
+			{
+				m_Sprite.setTexture((*m_TextureTypes[ATTACK]));
+				m_bDoingAction = true;
 			}
 		}
 	}
@@ -103,12 +121,14 @@ void Enemy::update()
 
 bool Enemy::hasAttacked()
 {
-	if(m_bTryAttack && frameCount % 60 == 0)
+	if(m_bTryAttack && m_shFrameCount % 60 == 0 && m_shBitmapCol > 5)
 	{
+		//std::cout << "attack!\n";
 		m_bAttacked = true;
 	}
 	else
 	{
+		//std::cout << "Don't attack!!\n";
 		m_bAttacked = false;
 	}
 

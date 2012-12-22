@@ -116,6 +116,10 @@
         "score" : "80"
     },
     {
+        "name" : "Dead",
+        "score" : "40"
+    },
+    {
         "name" : "dsaadsadwas",
         "score" : "20"
     },
