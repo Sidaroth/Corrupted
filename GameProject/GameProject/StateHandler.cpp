@@ -21,6 +21,7 @@ StateHandler::~StateHandler()
 	// delete currentState;
 	// delete newState;
 	// delete m_pWindow;
+	// delete m_pAudioManager
 }
 
 void StateHandler::addScreen(GameState *state)
@@ -47,6 +48,7 @@ void StateHandler::setStartState(GameState* state)
 void StateHandler::loadContent(sf::RenderWindow* window)
 {	
 	m_pWindow = window;
+	m_AudioManager.loadContent();
 	
 	if( !m_ShieldQuitTexture.loadFromFile("../../Resources/Shield_quit_game.PNG" ) )
 	{

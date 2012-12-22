@@ -1,7 +1,6 @@
 #pragma once
 
 #include "Player.h"
-#include "AudioManager.h"
 #include "StateHandler.h"
 
 
@@ -12,7 +11,6 @@ private:
 	
 	Player* m_Player;
 	sf::RenderWindow* m_Window;
-	AudioManager audio_manager;
 
 
 public:

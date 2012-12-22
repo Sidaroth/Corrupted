@@ -265,6 +265,7 @@ void Ui::processEvents(sf::Event event)
 			event.type == sf::Event::MouseButtonPressed &&
 			increasable[i] == true)																	//and if the player has enough souls
 		{
+			StateHandler::getInstance().m_AudioManager.playSound("stat_upgrade");
 			(*m_shvPlayerStats[i])++;																//Increase stat by one
 			(*m_shvPlayerStats[6]) = ((*m_shvPlayerStats[6]) + ((*m_shvPlayerStats[i]) * -10));		//Decrease current souls by cost
 		}																							//Cost is current stat value * 10

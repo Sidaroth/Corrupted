@@ -4,84 +4,101 @@
 
 AudioManager::AudioManager()
 {
-	
-	loadMap();
-	std::cout << "Audio Manager created successfully" << std::endl;
 
 }
 
+AudioManager::~AudioManager()
+{
 
+}
 
-
-bool AudioManager::loadAudio()
-{ //This is going to be used to load big sounds like music background
-
-	if (!m_mMusic.openFromFile(mp_mBuffer["backing_track"]))
+bool AudioManager::loadContent()
+{
+	if (!m_attackHitSound.loadFromFile("../../Resources/sounds/attack_hit.wav"))
 	{
-		std::cout << "AudioManager: music can't be loaded" << std::endl;
-
-		return false;
-		// Error...
+		return EXIT_FAILURE;
 	}
-	m_mMusic.setLoop(true);
-	m_mMusic.play();
-	std::cout << "AudioManager: Music playing and loaded" << std::endl;
 
-	return true;
-
-}
-
-void AudioManager::loadMap()
-{ //In the future, maybe using an XML??...
-
-	mp_mBuffer["attack_hit"] = "../../Resources/sounds/attack_hit.wav";
-	mp_mBuffer["attack_miss"] = "../../Resources/sounds/attack_miss.wav";
-	mp_mBuffer["fireball"] = "../../Resources/sounds/fireball.wav";
-	mp_mBuffer["fireball_hit"] = "../../Resources/sounds/fireball_hit.wav";
-	mp_mBuffer["player_gets_hit"] = "../../Resources/sounds/get_hit.wav";
-	mp_mBuffer["lvl_up"] = "../../Resources/sounds/lvl_up.wav";
-	mp_mBuffer["move_cursor_options"] = "../../Resources/sounds/move_cursor_options.wav";
-	mp_mBuffer["select_option"] = "../../Resources/sounds/select_option.wav";
-	mp_mBuffer["speed_up"] = "../../Resources/sounds/speed_up.wav";
-	mp_mBuffer["backing_track"] = "../../Resources/sounds/bgmusic_temp.ogg";
-
-	std::cout << "AudioManager: Map with sources created" << std::endl;
-}
-
-bool AudioManager::playSound(std::string sound_id)
-{
-	s_mSound.resetBuffer();
-	if(!sb_mBuffer.loadFromFile(mp_mBuffer[sound_id])){
-		return false;
+	if (!m_attackMissSound.loadFromFile("../../Resources/sounds/attack_miss.wav"))
+	{
+		return EXIT_FAILURE;
 	}
-	s_mSound.setBuffer(sb_mBuffer);
-	s_mSound.play();
 	
-	std::cout << "AudioManager: Sound "+sound_id+" playing" << std::endl;
+	if (!m_castFireballSound.loadFromFile("../../Resources/sounds/cast_fireball.wav"))
+	{
+		return EXIT_FAILURE;
+	}
+	
+	if (!m_fireballHitSound.loadFromFile("../../Resources/sounds/fireball_hit.wav"))
+	{
+		return EXIT_FAILURE;
+	}
+	
+	if (!m_playerHitSound.loadFromFile("../../Resources/sounds/player_hit.wav"))
+	{
+		return EXIT_FAILURE;
+	}
 
-	return true;
+	if (!m_menuSelectSound.loadFromFile("../../Resources/sounds/menu_select.wav"))
+	{
+		return EXIT_FAILURE;
+	}
+
+	if (!m_statUpgrade.loadFromFile("../../Resources/sounds/stat_upgrade.wav"))
+	{
+		return EXIT_FAILURE;
+	}
+
+	if (!m_heal.loadFromFile("../../Resources/sounds/heal.wav"))
+	{
+		return EXIT_FAILURE;
+	}
+
+	m_musicMap["menuMusic"] = "../../Resources/sounds/FILENAME";
+	m_musicMap["gameMusic"] = "../../Resources/sounds/gameMusic.ogg";
+
+	m_soundMap["attack_hit"] = m_attackHitSound;
+	m_soundMap["attack_miss"] = m_attackMissSound;
+	m_soundMap["cast_fireball"] = m_castFireballSound;
+	m_soundMap["fireball_hit"] = m_fireballHitSound;
+	m_soundMap["player_hit"] = m_playerHitSound;
+	m_soundMap["menu_select"] = m_menuSelectSound;
+	m_soundMap["stat_upgrade"] = m_statUpgrade;
+	m_soundMap["heal"] = m_heal;
+
+	std::cout << "End of Audio loadContent" << std::endl;
 }
 
-//***
+bool AudioManager::playMusic(std::string music)
+{	
+	if (!m_music.openFromFile(m_musicMap[music]))
+	{
+		return EXIT_FAILURE;
+	}
 
+	m_music.setLoop(true);
+	m_music.play();
+}
 
-void AudioManager::loadSoundFile(std::string filename, float Volume)
+void AudioManager::stopOrResumeMusic()
 {
-	/*
-   SoundFile Sound;
-   if (Sound.Buffer.loadFromFile(filename))
-   {
-	  Sound.Name = filename;
-	  Sound.Vol = Volume;
-	  Sound.Sound.setBuffer(Sound.Buffer);
-	  Sound.Sound.setVolume(Volume);
+	if (m_music.getStatus() == sf::Music::Status::Playing)
+	{
+		m_music.pause();
+	}
 
-	 
-	  Soundtest.push_back(Sound);
-   }*/
+	else if (m_music.getStatus() == sf::Music::Status::Paused)
+	{
+		m_music.pause();
+	}
 }
 
-//***
+void AudioManager::playSound(std::string sound)
+{
+	m_sound.setBuffer(m_soundMap[sound]);
+	m_sound.play();
+	std::cout << sound << " played" << std::endl;
+}
 
 
 

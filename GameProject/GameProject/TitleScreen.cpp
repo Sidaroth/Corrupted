@@ -83,8 +83,9 @@ void TitleScreen::processEvents(sf::Event event)
 			event.mouseMove.y >=  m_exitButtonSprite.getPosition().y && event.mouseMove.y <=  m_exitButtonSprite.getPosition().y+70) || currentButton == 2) 
 	{
 		currentButton = 2;
-		m_exitButtonSprite.setTexture(m_exitButtonMouseOver);	
+		m_exitButtonSprite.setTexture(m_exitButtonMouseOver);
 	}
+
 	else
 	{
 		m_exitButtonSprite.setTexture(m_exitButton);
@@ -104,6 +105,7 @@ void TitleScreen::processEvents(sf::Event event)
 		if (currentButton > 1) 
 		{
 			currentButton--;
+			StateHandler::getInstance().m_AudioManager.playSound("menu_select");
 		}
 	}
 
@@ -112,6 +114,7 @@ void TitleScreen::processEvents(sf::Event event)
 		if (currentButton < 2) 
 		{
 			currentButton++;
+			StateHandler::getInstance().m_AudioManager.playSound("menu_select");
 		}
 	}
 
@@ -129,16 +132,6 @@ void TitleScreen::processEvents(sf::Event event)
 				StateHandler::getInstance().setQuitShield(true);
 			}
 		}
-	}
-
-	if(sf::Keyboard::isKeyPressed(sf::Keyboard::U))
-	{
-		StateHandler::getInstance().addScreen(new Level1());
-	}
-
-	if(sf::Keyboard::isKeyPressed(sf::Keyboard::Y))
-	{
-		StateHandler::getInstance().addScreen(new SplashScreen());
 	}
 }
 

@@ -88,16 +88,15 @@ void KeyboardController::mouseInput(sf::Event event)
 					attackDirection = 2;
 				}
 
-				if (m_Player -> attack(attackDirection))
+				if(m_Player->attack(attackDirection))
 				{
-					if (m_Player -> checkAttackCollision(attackDirection))
+					if (m_Player->checkAttackCollision(attackDirection))
 					{
-						audio_manager.playSound("attack_hit");
+						StateHandler::getInstance().m_AudioManager.playSound("attack_hit");
 					}
-
 					else
 					{
-						audio_manager.playSound("attack_miss");
+						StateHandler::getInstance().m_AudioManager.playSound("attack_miss");
 					}
 				}
 			}

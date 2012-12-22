@@ -5,6 +5,7 @@
 
 #include "GameState.h"
 #include "TitleScreen.h"
+#include "AudioManager.h"
 
 // Singleton class managing the state of the game (intro, menu, game, etc...)
 class StateHandler
@@ -31,10 +32,13 @@ private:
 	sf::Texture m_ShieldNoTexture;
 	sf::Texture m_ShieldNoPressedTexture;
 
+
+
 public:
 	~StateHandler();
 	static StateHandler &getInstance();
 	sf::RenderWindow* m_pWindow;
+	AudioManager m_AudioManager;
 	void initalize();
 	void loadContent(sf::RenderWindow* window);
 	void unloadContent();
@@ -47,6 +51,7 @@ public:
 	void setQuitShield(bool shield);
 	bool getMenuShield();
 	bool getQuitShield();
+	
 	
 	void setStartState(GameState* state);
 	void addScreen(GameState *state);

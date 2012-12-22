@@ -61,6 +61,8 @@ void SuperLevel::processEvents(sf::Event event)
 
 	ui -> processEvents(event);
 
+	#if (DEBUG)
+
 	if(sf::Keyboard::isKeyPressed(sf::Keyboard::T))
 	{
 		StateHandler::getInstance().addScreen(new TitleScreen());
@@ -95,6 +97,8 @@ void SuperLevel::processEvents(sf::Event event)
 	{
 		m_EnemyHandler -> createEnemy(3);
 	}
+
+	#endif
 
 	if (event.type == sf::Event::KeyReleased)
 	{

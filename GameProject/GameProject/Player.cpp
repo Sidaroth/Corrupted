@@ -334,7 +334,6 @@ void Player::collisionCheck( )
 					}
 				}
 
-
 				if (doDamage)
 				{
 					if((*it) -> takeDamage( (m_vProjectiles[j]) -> getDamage()))	//damage to enemy
@@ -420,7 +419,7 @@ void Player::collisionCheck( )
 					{
 						die();
 					}
-
+					StateHandler::getInstance().m_AudioManager.playSound("fireball_hit");
 					(*currProjectile) -> setInvisible( );	//put the enemy projectile back to be unused
 				}
 			}
@@ -445,6 +444,7 @@ bool Player::takeDamage( short damage )
 {
 	if(damage > 0)
 	{
+		StateHandler::getInstance().m_AudioManager.playSound("player_hit");
 		return Character::takeDamage( damage -= ((float)damage * (float)m_shArmorLevel / 100.f ) );
 	}
 	else

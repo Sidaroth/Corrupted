@@ -112,8 +112,16 @@
         "score" : "600"
     },
     {
+        "name" : "Garlov",
+        "score" : "100"
+    },
+    {
         "name" : "Hahahaha",
         "score" : "80"
+    },
+    {
+        "name" : "Dead",
+        "score" : "40"
     },
     {
         "name" : "dsaadsadwas",

@@ -136,6 +136,7 @@ void Projectile::setFrame()	///set subRect
 
 void Projectile::setInvisible()
 {
+	StateHandler::getInstance().m_AudioManager.playSound("fireball_hit");
 	m_bExist = false;
 }
 

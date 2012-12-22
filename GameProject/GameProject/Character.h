@@ -43,7 +43,6 @@ protected:
 	float m_fHealCoolDown;
 	float m_fFireballCoolDown;
 
-	AudioManager audio_manager;
 
 	Ui* userInterface;
 
