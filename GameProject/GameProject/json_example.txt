@@ -110,5 +110,9 @@
     {
         "name" : "Garlov",
         "score" : "600"
+    },
+    {
+        "name" : "Hahahaha",
+        "score" : "80"
     }
 ]
