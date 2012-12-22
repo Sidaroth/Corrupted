@@ -6,7 +6,7 @@ AudioManager::AudioManager()
 {
 	
 	loadMap();
-	std::cout << "AudioManager created successfully" << std::endl;
+	std::cout << "Audio Manager created successfully" << std::endl;
 
 }
 
@@ -34,16 +34,16 @@ bool AudioManager::loadAudio()
 void AudioManager::loadMap()
 { //In the future, maybe using an XML??...
 
-	mp_mBuffer["attack_hit"]="../../Resources/sounds/attack_hit.wav";
-	mp_mBuffer["attack_miss"]="../../Resources/sounds/attack_miss.wav";
-	mp_mBuffer["fireball"]="../../Resources/sounds/fireball.wav";
-	mp_mBuffer["fireball_hit"]="../../Resources/sounds/fireball_hit.wav";
-	mp_mBuffer["player_gets_hit"]="../../Resources/sounds/get_hit.wav";
-	mp_mBuffer["lvl_up"]="../../Resources/sounds/lvl_up.wav";
-	mp_mBuffer["move_cursor_options"]="../../Resources/sounds/move_cursor_options.wav";
-	mp_mBuffer["select_option"]="../../Resources/sounds/select_option.wav";
-	mp_mBuffer["speed_up"]="../../Resources/sounds/speed_up.wav";
-	mp_mBuffer["backing_track"]="../../Resources/sounds/bgmusic_temp.ogg";
+	mp_mBuffer["attack_hit"] = "../../Resources/sounds/attack_hit.wav";
+	mp_mBuffer["attack_miss"] = "../../Resources/sounds/attack_miss.wav";
+	mp_mBuffer["fireball"] = "../../Resources/sounds/fireball.wav";
+	mp_mBuffer["fireball_hit"] = "../../Resources/sounds/fireball_hit.wav";
+	mp_mBuffer["player_gets_hit"] = "../../Resources/sounds/get_hit.wav";
+	mp_mBuffer["lvl_up"] = "../../Resources/sounds/lvl_up.wav";
+	mp_mBuffer["move_cursor_options"] = "../../Resources/sounds/move_cursor_options.wav";
+	mp_mBuffer["select_option"] = "../../Resources/sounds/select_option.wav";
+	mp_mBuffer["speed_up"] = "../../Resources/sounds/speed_up.wav";
+	mp_mBuffer["backing_track"] = "../../Resources/sounds/bgmusic_temp.ogg";
 
 	std::cout << "AudioManager: Map with sources created" << std::endl;
 }
@@ -71,13 +71,13 @@ void AudioManager::loadSoundFile(std::string filename, float Volume)
    SoundFile Sound;
    if (Sound.Buffer.loadFromFile(filename))
    {
-      Sound.Name = filename;
-      Sound.Vol = Volume;
-      Sound.Sound.setBuffer(Sound.Buffer);
-      Sound.Sound.setVolume(Volume);
+	  Sound.Name = filename;
+	  Sound.Vol = Volume;
+	  Sound.Sound.setBuffer(Sound.Buffer);
+	  Sound.Sound.setVolume(Volume);
 
 	 
-      Soundtest.push_back(Sound);
+	  Soundtest.push_back(Sound);
    }*/
 }
 

@@ -1,28 +1,25 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
-#include <SFML/Window.hpp>
-#include <stdlib.h>
 #include <iostream>
-#include <fstream>
 #include<SFML\Audio.hpp>
 
 
 class AudioManager 
 {
 
-struct SoundFile
-{
-   SoundFile(const SoundFile& copy) : Name(copy.Name), Vol(copy.Vol), Buffer(copy.Buffer), Sound(copy.Sound)
-   {
-      Sound.setBuffer(Buffer);
-   }
+	struct SoundFile
+	{
+	   SoundFile(const SoundFile& copy) : Name(copy.Name), Vol(copy.Vol), Buffer(copy.Buffer), Sound(copy.Sound)
+	   {
+		  Sound.setBuffer(Buffer);
+	   }
 
-   std::string Name;
-   float Vol;
-   sf::SoundBuffer Buffer;
-   sf::Sound Sound;
-};
+	   std::string Name;
+	   float Vol;
+	   sf::SoundBuffer Buffer;
+	   sf::Sound Sound;
+	};
 
 private:
 	

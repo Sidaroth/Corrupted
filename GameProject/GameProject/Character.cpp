@@ -2,7 +2,7 @@
 #include <time.h>
 //////////////////////////// CONSTRUCTORS ////////////////////////
 
-const short BASE_STAT = 5;
+
 
 Character::Character() : Actor()
 {
@@ -16,8 +16,8 @@ Character::Character() : Actor()
 	m_shFrameCount = 0;
 	m_shMaxHealth = 50;
 	
-	m_shHealCoolDown = (int)m_iCoolDown.getElapsedTime().asSeconds();
-	m_shFireballCoolDown = (int)m_iCoolDown.getElapsedTime().asSeconds();
+	m_fHealCoolDown = m_iCoolDown.getElapsedTime().asSeconds();
+	m_fFireballCoolDown = m_iCoolDown.getElapsedTime().asSeconds();
 	m_shCurrentHealth = m_shMaxHealth;
 
 	m_bDead = false;
@@ -366,11 +366,12 @@ void Character::castSpell( Vector2f mouseCoordinates, short spell )
 {
 	if( m_bAbilities[spell] )
 	{
-		if((int)m_iCoolDown.getElapsedTime().asSeconds() >= m_shFireballCoolDown) //Need || on other spells if we get that far
+		if(m_iCoolDown.getElapsedTime().asSeconds() >= m_fFireballCoolDown) //Need || on other spells if we get that far
 		{
 			if(spell == FIREBALL)
 			{
-				m_shFireballCoolDown = (int)m_iCoolDown.getElapsedTime().asSeconds() + 1;
+				m_fFireballCoolDown = m_iCoolDown.getElapsedTime().asSeconds() + 1.f;
+
 			}
 			for( unsigned int i = 0; i < m_vProjectiles.size( ); i++ )
 			{
@@ -437,7 +438,7 @@ bool Character::takeDamage( short damage )
 
 	userInterface -> addFloatingText(message, uiPosition, color);
 
-	if( m_shCurrentHealth < 0)
+	if( m_shCurrentHealth <= 0)
 	{
 		m_shCurrentHealth = 0;
 		return true;
@@ -452,9 +453,9 @@ bool Character::takeDamage( short damage )
 
 void Character::heal()
 {
-	if((int)m_iCoolDown.getElapsedTime().asSeconds() >= m_shHealCoolDown)
+	if(m_iCoolDown.getElapsedTime().asSeconds() >= m_fHealCoolDown)
 	{
-		m_shHealCoolDown = (int)m_iCoolDown.getElapsedTime().asSeconds() + 5;
+		m_fHealCoolDown = m_iCoolDown.getElapsedTime().asSeconds() + 5.f;
 		takeDamage(-m_shSpellDamage);
 	}
 }
